@@ -1,0 +1,664 @@
+{{ 'custom-tabs.css' | asset_url | stylesheet_tag }}
+<div class="custom-tab-sections wrapper">
+  <div class="liquid">
+    <div class="cm_tabs container">
+      <div class="cm_tabs_header">
+        <div class="cm_tab-title cm_vehicle-search active">
+          <span class="srh-title">Search by</span><span>VEHICLE</span>
+        </div>
+        <div class="cm_tab-title cm_wheel-search"><span class="srh-title">Search by</span><span>WHEEL</span></div>
+        <div class="cm_tab-title cm_tire-search"><span class="srh-title">Search by</span><span>TIRE</span></div>
+      </div>
+      <div class="cm_tabs_content">
+        <div class="cm_tab-content cm_vehicle-search active">
+          <div id="cm-home-ymm">
+            <div class="cm_vehicle-widget cm_vehicle-widget__home cm_row cm_vehicle-widget__row">
+              <div class="cm_vehicle-widget_dropdowns cmTemplate_active">
+                <div class="cm_vehicle-widget_title">Select Your <span>Vehicle</span></div>
+                <div class="cm_vehicle-widget_body">
+                  <div class="cm_vehicle-widget_select-container  cmRepeater_selects">
+                    <div class="cm_vehicle-widget_select cm_select">
+                      <div class="cm_select_toggle cm_select_toggle__native cm_toggle-dropdown">
+                        <select class="cm_select_inner-select cm_select__pretty" aria-label="Year">
+                          <option value="">Year</option>
+                          <option value="2026">2026</option>
+                          <option value="2025">2025</option>
+                          <option value="2024">2024</option>
+                          <option value="2023">2023</option>
+                          <option value="2022">2022</option>
+                          <option value="2021">2021</option>
+                          <option value="2020">2020</option>
+                          <option value="2019">2019</option>
+                          <option value="2018">2018</option>
+                          <option value="2017">2017</option>
+                          <option value="2016">2016</option>
+                          <option value="2015">2015</option>
+                          <option value="2014">2014</option>
+                          <option value="2013">2013</option>
+                          <option value="2012">2012</option>
+                          <option value="2011">2011</option>
+                          <option value="2010">2010</option>
+                          <option value="2009">2009</option>
+                          <option value="2008">2008</option>
+                          <option value="2007">2007</option>
+                          <option value="2006">2006</option>
+                          <option value="2005">2005</option>
+                          <option value="2004">2004</option>
+                          <option value="2003">2003</option>
+                          <option value="2002">2002</option>
+                          <option value="2001">2001</option>
+                          <option value="2000">2000</option>
+                          <option value="1999">1999</option>
+                          <option value="1998">1998</option>
+                          <option value="1997">1997</option>
+                          <option value="1996">1996</option>
+                          <option value="1995">1995</option>
+                          <option value="1994">1994</option>
+                          <option value="1993">1993</option>
+                          <option value="1992">1992</option>
+                          <option value="1991">1991</option>
+                          <option value="1990">1990</option>
+                          <option value="1989">1989</option>
+                          <option value="1988">1988</option>
+                          <option value="1987">1987</option>
+                          <option value="1986">1986</option>
+                          <option value="1985">1985</option>
+                          <option value="1984">1984</option>
+                          <option value="1983">1983</option>
+                          <option value="1982">1982</option>
+                          <option value="1981">1981</option>
+                          <option value="1980">1980</option>
+                          <option value="1979">1979</option>
+                          <option value="1978">1978</option>
+                          <option value="1977">1977</option>
+                          <option value="1976">1976</option>
+                          <option value="1975">1975</option>
+                          <option value="1974">1974</option>
+                          <option value="1973">1973</option>
+                          <option value="1972">1972</option>
+                          <option value="1971">1971</option>
+                          <option value="1970">1970</option>
+                          <option value="1969">1969</option>
+                          <option value="1968">1968</option>
+                          <option value="1967">1967</option>
+                          <option value="1966">1966</option>
+                          <option value="1965">1965</option>
+                          <option value="1964">1964</option>
+                          <option value="1963">1963</option>
+                          <option value="1962">1962</option>
+                          <option value="1961">1961</option>
+                          <option value="1960">1960</option>
+                          <option value="1959">1959</option>
+                          <option value="1958">1958</option>
+                          <option value="1957">1957</option>
+                          <option value="1956">1956</option>
+                          <option value="1955">1955</option>
+                          <option value="1954">1954</option>
+                          <option value="1953">1953</option>
+                          <option value="1952">1952</option>
+                          <option value="1951">1951</option>
+                          <option value="1950">1950</option>
+                          <option value="1949">1949</option>
+                          <option value="1948">1948</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="cm_vehicle-widget_select cm_select">
+                      <div class="cm_select_toggle cm_select_toggle__native cm_toggle-dropdown">
+                        <select class="cm_select_inner-select cm_select__pretty" aria-label="Make">
+                          <option value="">Make</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="cm_vehicle-widget_select cm_select">
+                      <div class="cm_select_toggle cm_select_toggle__native cm_toggle-dropdown">
+                        <select class="cm_select_inner-select cm_select__pretty" aria-label="Model">
+                          <option value="">Model</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="cm_vehicle-widget_select cm_select">
+                      <div class="cm_select_toggle cm_select_toggle__native cm_toggle-dropdown">
+                        <select class="cm_select_inner-select cm_select__pretty" aria-label="Submodel">
+                          <option value="">Submodel</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="cm_vehicle-widget_select cm_select">
+                      <div class="cm_select_toggle cm_select_toggle__native cm_toggle-dropdown">
+                        <select class="cm_select_inner-select cm_select__pretty" aria-label="Year">
+                          <option value="">Option</option>
+                          <option value="2026">2026</option>
+                          <option value="2025">2025</option>
+                          <option value="2024">2024</option>
+                          <option value="2023">2023</option>
+                          <option value="2022">2022</option>
+                          <option value="2021">2021</option>
+                          <option value="2020">2020</option>
+                          <option value="2019">2019</option>
+                          <option value="2018">2018</option>
+                          <option value="2017">2017</option>
+                          <option value="2016">2016</option>
+                          <option value="2015">2015</option>
+                          <option value="2014">2014</option>
+                          <option value="2013">2013</option>
+                          <option value="2012">2012</option>
+                          <option value="2011">2011</option>
+                          <option value="2010">2010</option>
+                          <option value="2009">2009</option>
+                          <option value="2008">2008</option>
+                          <option value="2007">2007</option>
+                          <option value="2006">2006</option>
+                          <option value="2005">2005</option>
+                          <option value="2004">2004</option>
+                          <option value="2003">2003</option>
+                          <option value="2002">2002</option>
+                          <option value="2001">2001</option>
+                          <option value="2000">2000</option>
+                          <option value="1999">1999</option>
+                          <option value="1998">1998</option>
+                          <option value="1997">1997</option>
+                          <option value="1996">1996</option>
+                          <option value="1995">1995</option>
+                          <option value="1994">1994</option>
+                          <option value="1993">1993</option>
+                          <option value="1992">1992</option>
+                          <option value="1991">1991</option>
+                          <option value="1990">1990</option>
+                          <option value="1989">1989</option>
+                          <option value="1988">1988</option>
+                          <option value="1987">1987</option>
+                          <option value="1986">1986</option>
+                          <option value="1985">1985</option>
+                          <option value="1984">1984</option>
+                          <option value="1983">1983</option>
+                          <option value="1982">1982</option>
+                          <option value="1981">1981</option>
+                          <option value="1980">1980</option>
+                          <option value="1979">1979</option>
+                          <option value="1978">1978</option>
+                          <option value="1977">1977</option>
+                          <option value="1976">1976</option>
+                          <option value="1975">1975</option>
+                          <option value="1974">1974</option>
+                          <option value="1973">1973</option>
+                          <option value="1972">1972</option>
+                          <option value="1971">1971</option>
+                          <option value="1970">1970</option>
+                          <option value="1969">1969</option>
+                          <option value="1968">1968</option>
+                          <option value="1967">1967</option>
+                          <option value="1966">1966</option>
+                          <option value="1965">1965</option>
+                          <option value="1964">1964</option>
+                          <option value="1963">1963</option>
+                          <option value="1962">1962</option>
+                          <option value="1961">1961</option>
+                          <option value="1960">1960</option>
+                          <option value="1959">1959</option>
+                          <option value="1958">1958</option>
+                          <option value="1957">1957</option>
+                          <option value="1956">1956</option>
+                          <option value="1955">1955</option>
+                          <option value="1954">1954</option>
+                          <option value="1953">1953</option>
+                          <option value="1952">1952</option>
+                          <option value="1951">1951</option>
+                          <option value="1950">1950</option>
+                          <option value="1949">1949</option>
+                          <option value="1948">1948</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cm_vehicle-widget_button-container">
+                    <div
+                      class="cm_vehicle-widget_button cm_vehicle-widget_button__go cm_button btn btn--primary"
+
+                      role="button"
+                      tabindex="-1"
+                    >
+                      GO
+                    </div>
+
+                    <div
+                      class="cm_vehicle-widget_button cm_vehicle-widget_button__clear cm_button btn btn--primary"
+
+                      role="button"
+                      tabindex="-1"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="cm_icon cm_icon-reset"
+                        height="16px"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M2.083,9H0.062H0v5l1.481-1.361C2.932,14.673,5.311,16,8,16c4.08,0,7.446-3.054,7.938-7h-2.021 c-0.476,2.838-2.944,5-5.917,5c-2.106,0-3.96-1.086-5.03-2.729L5.441,9H2.083z"></path><path d="M8,0C3.92,0,0.554,3.054,0.062,7h2.021C2.559,4.162,5.027,2,8,2c2.169,0,4.07,1.151,5.124,2.876 L11,7h2h0.917h2.021H16V2l-1.432,1.432C13.123,1.357,10.72,0,8,0z"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cm_tab-content cm_wheel-search">
+          <div id="cm-home-wheels" class="cm_vehicle-widget__home-wheeltiretab">
+            <div class="cm_vehicle-widget cm_vehicle-widget__home cm_vehicle-widget__wheel-tire cm_row cm_vehicle-widget__row">
+              <div class="cm_vehicle-widget_dropdowns cmTemplate_active">
+                <div class="cm_vehicle-widget_body">
+                  <div class="cm_vehicle-widget_select-container cmRepeater_selects">
+                    <div class="cm_select">
+                      <div class="cm_select_toggle cm_select_toggle__native cm_toggle-dropdown">
+                        <select class="cm_select_inner-select cm_select__pretty" aria-label="Diameter">
+                          <option value="">Diameter</option>
+                          <option value="8">8</option>
+                          <option value="10">10</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="14.5">14.5</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                          <option value="17.5">17.5</option>
+                          <option value="18">18</option>
+                          <option value="19">19</option>
+                          <option value="19.5">19.5</option>
+                          <option value="20">20</option>
+                          <option value="21">21</option>
+                          <option value="22">22</option>
+                          <option value="22.5">22.5</option>
+                          <option value="23">23</option>
+                          <option value="24">24</option>
+                          <option value="24.5">24.5</option>
+                          <option value="26">26</option>
+                          <option value="27">27</option>
+                          <option value="28">28</option>
+                          <option value="30">30</option>
+                          <option value="32">32</option>
+                          <option value="34">34</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="cm_select">
+                      <div class="cm_select_toggle cm_select_toggle__native cm_toggle-dropdown">
+                        <select class="cm_select_inner-select cm_select__pretty" aria-label="Width">
+                          <option value="">Width</option>
+                          <option value="4">4</option>
+                          <option value="4.5">4.5</option>
+                          <option value="5">5</option>
+                          <option value="5.5">5.5</option>
+                          <option value="6">6</option>
+                          <option value="6.5">6.5</option>
+                          <option value="6.75">6.75</option>
+                          <option value="7">7</option>
+                          <option value="7.5">7.5</option>
+                          <option value="8">8</option>
+                          <option value="8.25">8.25</option>
+                          <option value="8.5">8.5</option>
+                          <option value="8.75">8.75</option>
+                          <option value="8.8">8.8</option>
+                          <option value="9">9</option>
+                          <option value="9.25">9.25</option>
+                          <option value="9.5">9.5</option>
+                          <option value="9.75">9.75</option>
+                          <option value="10">10</option>
+                          <option value="10.5">10.5</option>
+                          <option value="10.75">10.75</option>
+                          <option value="11">11</option>
+                          <option value="11.5">11.5</option>
+                          <option value="12">12</option>
+                          <option value="12.5">12.5</option>
+                          <option value="13">13</option>
+                          <option value="13.5">13.5</option>
+                          <option value="14">14</option>
+                          <option value="14.5">14.5</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="cm_select">
+                      <div class="cm_select_toggle cm_select_toggle__native cm_toggle-dropdown">
+                        <select class="cm_select_inner-select cm_select__pretty" aria-label="Bolt Pattern">
+                          <option value="">Bolt Pattern</option>
+                          <option value="0x0mm-(0x0&quot;)">0x0mm (0x0")</option>
+                          <option value="3x112.5mm-(3x4.43&quot;)">3x112.5mm (3x4.43")</option>
+                          <option value="4x98mm-(4x3.86&quot;)">4x98mm (4x3.86")</option>
+                          <option value="4x100mm-(4x3.94&quot;)">4x100mm (4x3.94")</option>
+                          <option value="4x101.6mm-(4x4&quot;)">4x101.6mm (4x4")</option>
+                          <option value="4x108mm-(4x4.25&quot;)">4x108mm (4x4.25")</option>
+                          <option value="4x110mm-(4x4.33&quot;)">4x110mm (4x4.33")</option>
+                          <option value="4x114.3mm-(4x4.5&quot;)">4x114.3mm (4x4.5")</option>
+                          <option value="4x115mm-(4x4.53&quot;)">4x115mm (4x4.53")</option>
+                          <option value="4x130mm-(4x5.12&quot;)">4x130mm (4x5.12")</option>
+                          <option value="4x136mm-(4x5.35&quot;)">4x136mm (4x5.35")</option>
+                          <option value="4x137mm-(4x5.39&quot;)">4x137mm (4x5.39")</option>
+                          <option value="4x156mm-(4x6.14&quot;)">4x156mm (4x6.14")</option>
+                          <option value="5x98mm-(5x3.86&quot;)">5x98mm (5x3.86")</option>
+                          <option value="5x100mm-(5x3.94&quot;)">5x100mm (5x3.94")</option>
+                          <option value="5x101.6mm-(5x4&quot;)">5x101.6mm (5x4")</option>
+                          <option value="5x105mm-(5x4.13&quot;)">5x105mm (5x4.13")</option>
+                          <option value="5x108mm-(5x4.25&quot;)">5x108mm (5x4.25")</option>
+                          <option value="5x110mm-(5x4.33&quot;)">5x110mm (5x4.33")</option>
+                          <option value="5x112mm-(5x4.41&quot;)">5x112mm (5x4.41")</option>
+                          <option value="5x114mm-(5x4.49&quot;)">5x114mm (5x4.49")</option>
+                          <option value="5x114.3mm-(5x4.5&quot;)">5x114.3mm (5x4.5")</option>
+                          <option value="5x115mm-(5x4.53&quot;)">5x115mm (5x4.53")</option>
+                          <option value="5x118mm-(5x4.65&quot;)">5x118mm (5x4.65")</option>
+                          <option value="5x120mm-(5x4.72&quot;)">5x120mm (5x4.72")</option>
+                          <option value="5x120.65mm-(5x4.75&quot;)">5x120.65mm (5x4.75")</option>
+                          <option value="5x120.7mm-(5x4.75&quot;)">5x120.7mm (5x4.75")</option>
+                          <option value="5x127mm-(5x5&quot;)">5x127mm (5x5")</option>
+                          <option value="5x128mm-(5x5.04&quot;)">5x128mm (5x5.04")</option>
+                          <option value="5x130mm-(5x5.12&quot;)">5x130mm (5x5.12")</option>
+                          <option value="5x135mm-(5x5.31&quot;)">5x135mm (5x5.31")</option>
+                          <option value="5x139.7mm-(5x5.5&quot;)">5x139.7mm (5x5.5")</option>
+                          <option value="5x150mm-(5x5.91&quot;)">5x150mm (5x5.91")</option>
+                          <option value="5x160mm-(5x6.3&quot;)">5x160mm (5x6.3")</option>
+                          <option value="5x165.1mm-(5x6.5&quot;)">5x165.1mm (5x6.5")</option>
+                          <option value="5x205mm-(5x8.07&quot;)">5x205mm (5x8.07")</option>
+                          <option value="6x104mm-(6x4.09&quot;)">6x104mm (6x4.09")</option>
+                          <option value="6x108mm-(6x4.25&quot;)">6x108mm (6x4.25")</option>
+                          <option value="6x114.3mm-(6x4.5&quot;)">6x114.3mm (6x4.5")</option>
+                          <option value="6x115mm-(6x4.53&quot;)">6x115mm (6x4.53")</option>
+                          <option value="6x120mm-(6x4.72&quot;)">6x120mm (6x4.72")</option>
+                          <option value="6x120.65mm-(6x4.75&quot;)">6x120.65mm (6x4.75")</option>
+                          <option value="6x127mm-(6x5&quot;)">6x127mm (6x5")</option>
+                          <option value="6x130mm-(6x5.12&quot;)">6x130mm (6x5.12")</option>
+                          <option value="6x132mm-(6x5.2&quot;)">6x132mm (6x5.2")</option>
+                          <option value="6x135mm-(6x5.31&quot;)">6x135mm (6x5.31")</option>
+                          <option value="6x139mm-(6x5.47&quot;)">6x139mm (6x5.47")</option>
+                          <option value="6x139.7mm-(6x5.5&quot;)">6x139.7mm (6x5.5")</option>
+                          <option value="6x165.1mm-(6x6.5&quot;)">6x165.1mm (6x6.5")</option>
+                          <option value="6x180mm-(6x7.09&quot;)">6x180mm (6x7.09")</option>
+                          <option value="6x205mm-(6x8.07&quot;)">6x205mm (6x8.07")</option>
+                          <option value="6x222.25mm-(6x8.75&quot;)">6x222.25mm (6x8.75")</option>
+                          <option value="6x1397mm-(6x55&quot;)">6x1397mm (6x55")</option>
+                          <option value="7x150mm-(7x5.91&quot;)">7x150mm (7x5.91")</option>
+                          <option value="8x100mm-(8x3.94&quot;)">8x100mm (8x3.94")</option>
+                          <option value="8x114.3mm-(8x4.5&quot;)">8x114.3mm (8x4.5")</option>
+                          <option value="8x165mm-(8x6.5&quot;)">8x165mm (8x6.5")</option>
+                          <option value="8x165.1mm-(8x6.5&quot;)">8x165.1mm (8x6.5")</option>
+                          <option value="8x170mm-(8x6.69&quot;)">8x170mm (8x6.69")</option>
+                          <option value="8x180mm-(8x7.09&quot;)">8x180mm (8x7.09")</option>
+                          <option value="8x200mm-(8x7.87&quot;)">8x200mm (8x7.87")</option>
+                          <option value="8x210mm-(8x8.27&quot;)">8x210mm (8x8.27")</option>
+                          <option value="8x225mm-(8x8.86&quot;)">8x225mm (8x8.86")</option>
+                          <option value="10x170mm-(10x6.69&quot;)">10x170mm (10x6.69")</option>
+                          <option value="10x225mm-(10x8.86&quot;)">10x225mm (10x8.86")</option>
+                          <option value="10x285mm-(10x11.22&quot;)">10x285mm (10x11.22")</option>
+                          <option value="10x285.7mm-(10x11.25&quot;)">10x285.7mm (10x11.25")</option>
+                          <option value="10x285.75mm-(10x11.25&quot;)">10x285.75mm (10x11.25")</option>
+                          <option value="99x999mm-(99x39.33&quot;)">99x999mm (99x39.33")</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cm_vehicle-widget_button-container">
+                    <button
+                      class="cm_vehicle-widget_button cm_vehicle-widget_button__go cm_button btn btn--primary"
+                    >
+                      GO
+                    </button>
+                    <button class="cm_vehicle-widget_button cm_vehicle-widget_button__clear cm_button btn btn--primary">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="cm_icon cm_icon-reset"
+                        height="16px"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M2.083,9H0.062H0v5l1.481-1.361C2.932,14.673,5.311,16,8,16c4.08,0,7.446-3.054,7.938-7h-2.021 c-0.476,2.838-2.944,5-5.917,5c-2.106,0-3.96-1.086-5.03-2.729L5.441,9H2.083z"></path><path d="M8,0C3.92,0,0.554,3.054,0.062,7h2.021C2.559,4.162,5.027,2,8,2c2.169,0,4.07,1.151,5.124,2.876 L11,7h2h0.917h2.021H16V2l-1.432,1.432C13.123,1.357,10.72,0,8,0z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cm_tab-content cm_tire-search">
+          <div id="cm-home-tire" class="cm_vehicle-widget__home-wheeltiretab">
+            <div class="cm_vehicle-widget cm_vehicle-widget__home cm_vehicle-widget__wheel-tire cm_row cm_vehicle-widget__row">
+              <div class="cm_vehicle-widget_dropdowns cmTemplate_active">
+                <div class="cm_vehicle-widget_body">
+                  <div class="cm_vehicle-widget_select-container cmRepeater_selects">
+                    <div class="cm_select">
+                      <div class="cm_select_toggle cm_select_toggle__native cm_toggle-dropdown">
+                        <select class="cm_select_inner-select cm_select__pretty" aria-label="Width">
+                          <option value="">Width</option>
+                          <option value="0">0</option>
+                          <option value="7.5">7.5</option>
+                          <option value="7.9">7.9</option>
+                          <option value="8.3">8.3</option>
+                          <option value="9.3">9.3</option>
+                          <option value="9.5">9.5</option>
+                          <option value="10">10</option>
+                          <option value="10.5">10.5</option>
+                          <option value="11.2">11.2</option>
+                          <option value="11.5">11.5</option>
+                          <option value="12.5">12.5</option>
+                          <option value="13.5">13.5</option>
+                          <option value="22.5">22.5</option>
+                          <option value="24">24</option>
+                          <option value="24.5">24.5</option>
+                          <option value="25">25</option>
+                          <option value="26">26</option>
+                          <option value="27">27</option>
+                          <option value="27.5">27.5</option>
+                          <option value="28">28</option>
+                          <option value="29">29</option>
+                          <option value="29.5">29.5</option>
+                          <option value="30">30</option>
+                          <option value="31">31</option>
+                          <option value="31.25">31.25</option>
+                          <option value="32">32</option>
+                          <option value="33">33</option>
+                          <option value="33.5">33.5</option>
+                          <option value="34">34</option>
+                          <option value="35">35</option>
+                          <option value="35.5">35.5</option>
+                          <option value="36">36</option>
+                          <option value="37">37</option>
+                          <option value="38">38</option>
+                          <option value="38.5">38.5</option>
+                          <option value="39">39</option>
+                          <option value="39.5">39.5</option>
+                          <option value="40">40</option>
+                          <option value="42">42</option>
+                          <option value="43">43</option>
+                          <option value="44">44</option>
+                          <option value="46">46</option>
+                          <option value="54">54</option>
+                          <option value="58">58</option>
+                          <option value="145">145</option>
+                          <option value="155">155</option>
+                          <option value="165">165</option>
+                          <option value="175">175</option>
+                          <option value="185">185</option>
+                          <option value="195">195</option>
+                          <option value="205">205</option>
+                          <option value="215">215</option>
+                          <option value="225">225</option>
+                          <option value="235">235</option>
+                          <option value="240">240</option>
+                          <option value="245">245</option>
+                          <option value="250">250</option>
+                          <option value="255">255</option>
+                          <option value="265">265</option>
+                          <option value="275">275</option>
+                          <option value="285">285</option>
+                          <option value="295">295</option>
+                          <option value="305">305</option>
+                          <option value="315">315</option>
+                          <option value="317">317</option>
+                          <option value="320">320</option>
+                          <option value="325">325</option>
+                          <option value="335">335</option>
+                          <option value="345">345</option>
+                          <option value="351">351</option>
+                          <option value="355">355</option>
+                          <option value="365">365</option>
+                          <option value="371">371</option>
+                          <option value="375">375</option>
+                          <option value="385">385</option>
+                          <option value="395">395</option>
+                          <option value="405">405</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="cm_select">
+                      <div class="cm_select_toggle cm_select_toggle__native cm_toggle-dropdown">
+                        <select class="cm_select_inner-select cm_select__pretty" aria-label="Aspect">
+                          <option value="">Aspect</option>
+                          <option value="0">0</option>
+                          <option value="4">4</option>
+                          <option value="4.5">4.5</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7.5">7.5</option>
+                          <option value="8">8</option>
+                          <option value="8.5">8.5</option>
+                          <option value="9">9</option>
+                          <option value="9.5">9.5</option>
+                          <option value="10">10</option>
+                          <option value="10.5">10.5</option>
+                          <option value="11">11</option>
+                          <option value="11.5">11.5</option>
+                          <option value="12">12</option>
+                          <option value="12.2">12.2</option>
+                          <option value="12.5">12.5</option>
+                          <option value="13">13</option>
+                          <option value="13.5">13.5</option>
+                          <option value="14">14</option>
+                          <option value="14.5">14.5</option>
+                          <option value="15">15</option>
+                          <option value="15.5">15.5</option>
+                          <option value="16">16</option>
+                          <option value="16.5">16.5</option>
+                          <option value="17.5">17.5</option>
+                          <option value="18">18</option>
+                          <option value="19.5">19.5</option>
+                          <option value="20">20</option>
+                          <option value="21">21</option>
+                          <option value="22">22</option>
+                          <option value="23">23</option>
+                          <option value="23.5">23.5</option>
+                          <option value="25">25</option>
+                          <option value="30">30</option>
+                          <option value="32">32</option>
+                          <option value="33">33</option>
+                          <option value="35">35</option>
+                          <option value="37">37</option>
+                          <option value="40">40</option>
+                          <option value="43">43</option>
+                          <option value="45">45</option>
+                          <option value="50">50</option>
+                          <option value="55">55</option>
+                          <option value="60">60</option>
+                          <option value="65">65</option>
+                          <option value="70">70</option>
+                          <option value="75">75</option>
+                          <option value="80">80</option>
+                          <option value="85">85</option>
+                          <option value="90">90</option>
+                          <option value="95">95</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="cm_select">
+                      <div class="cm_select_toggle cm_select_toggle__native cm_toggle-dropdown">
+                        <select class="cm_select_inner-select cm_select__pretty" aria-label="Diameter">
+                          <option value="">Diameter</option>
+                          <option value="8">8</option>
+                          <option value="10">10</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="14.5">14.5</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                          <option value="17.5">17.5</option>
+                          <option value="18">18</option>
+                          <option value="19">19</option>
+                          <option value="19.5">19.5</option>
+                          <option value="20">20</option>
+                          <option value="21">21</option>
+                          <option value="22">22</option>
+                          <option value="22.5">22.5</option>
+                          <option value="23">23</option>
+                          <option value="24">24</option>
+                          <option value="24.5">24.5</option>
+                          <option value="26">26</option>
+                          <option value="27">27</option>
+                          <option value="28">28</option>
+                          <option value="30">30</option>
+                          <option value="32">32</option>
+                          <option value="34">34</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cm_vehicle-widget_button-container">
+                    <button
+                      class="cm_vehicle-widget_button cm_vehicle-widget_button__go cm_button btn btn--primary"
+                    >
+                      GO
+                    </button>
+                    <button
+                      class="cm_vehicle-widget_button cm_vehicle-widget_button__clear cm_button btn btn--primary"
+                      disabled=""
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="cm_icon cm_icon-reset"
+                        height="16px"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M2.083,9H0.062H0v5l1.481-1.361C2.932,14.673,5.311,16,8,16c4.08,0,7.446-3.054,7.938-7h-2.021 c-0.476,2.838-2.944,5-5.917,5c-2.106,0-3.96-1.086-5.03-2.729L5.441,9H2.083z"></path><path d="M8,0C3.92,0,0.554,3.054,0.062,7h2.021C2.559,4.162,5.027,2,8,2c2.169,0,4.07,1.151,5.124,2.876 L11,7h2h0.917h2.021H16V2l-1.432,1.432C13.123,1.357,10.72,0,8,0z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+  const onTabsClick = (e) => {
+    const clickedTabTitle = e.target.closest(".cm_tab-title");
+
+    if (clickedTabTitle?.classList.contains('cm_wheel-search')) {
+      window.Convermax?.openDialog('WheelFacetsDialog');
+      return;
+    }
+
+    if (clickedTabTitle?.classList.contains('cm_tire-search')) {
+      window.Convermax?.openDialog('TireFacetsDialog');
+      return;
+    }
+    if (clickedTabTitle && !clickedTabTitle.classList.contains("active")) {
+      const newActiveTab = [...clickedTabTitle.classList].find((cl) =>
+        cl.endsWith("-search")
+      );
+      const currentActiveElems = [
+        ...e.currentTarget.querySelectorAll(".active"),
+      ];
+      const newActiveElems = [
+        ...e.currentTarget.querySelectorAll(`.${newActiveTab}`),
+      ];
+      [...currentActiveElems, ...newActiveElems].forEach((elem) =>
+        elem.classList.toggle("active")
+      );
+    }
+  };
+
+  document.querySelector(".cm_tabs").addEventListener("click", onTabsClick);
+    </script>
+  </div>
+</div>

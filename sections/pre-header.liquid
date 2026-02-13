@@ -1,0 +1,85 @@
+{{ 'pre-header.css' | asset_url | stylesheet_tag }}
+{% if customer %}
+  <style>
+  a[data-value="wholesale-login"] {
+    display: none;
+  }
+  </style>
+{% endif %}
+<div class="pre-header" style="--preheader-bg: {{ section.settings.preheader_bg }};">
+  <div
+    class="preheader-links"
+    style="--justify-content: {% case section.settings.preheader_position %}{% when 'left' %}flex-start{% when 'center' %}center{% when 'right' %}flex-end{% endcase %};"
+  >
+    {% for block in section.blocks %}
+      <a
+        href="{{ block.settings.url }}"
+        style="--preheader-text: {{ section.settings.preheader_text }};"
+        title="{{ block.settings.label }}"
+        data-value="{{- block.settings.label | handle -}}"
+      >
+        {{- block.settings.label -}}
+      </a>
+    {% endfor %}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Pre Header",
+  "class": "pre-header-section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "preheader_position",
+      "label": "Link Position",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "color",
+      "id": "preheader_bg",
+      "label": "Background Color",
+      "default": "#0c0c0f"
+    },
+    {
+      "type": "color",
+      "id": "preheader_text",
+      "label": "Text Color",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Link Label",
+          "default": "Example Link"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Pre Header",
+      "category": "Header"
+    }
+  ],
+  "enabled_on": {
+    "groups": ["header"]
+  }
+}
+{% endschema %}

@@ -1,0 +1,115 @@
+<!-- /sections/section-divider.liquid -->
+{%- liquid
+  assign bg_color = section.settings.bg_color
+  assign gradient = section.settings.gradient | default: 'none'
+  assign section_width = section.settings.width
+  assign animations_enabled = settings.animations_enabled
+  assign animation_anchor = '#Divider--' | append: section.id
+  assign animation_delay = 150
+
+  assign bg_color_set = false
+  if gradient != 'none' or bg_color.alpha != 0.0 and bg_color != ''
+    assign bg_color_set = true
+  endif
+-%}
+
+{%- style -%}
+  #Divider--{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | append: 'px' }};
+    padding-bottom: {{ section.settings.padding_bottom | append: 'px' }};
+
+    {% if bg_color_set -%}
+      {%- if gradient != 'none' -%}
+        background: {{ gradient }};
+      {%- else -%}
+        background: {{ bg_color }};
+      {%- endif -%}
+    {%- endif %}
+  }
+{%- endstyle -%}
+
+<section id="Divider--{{ section.id }}"
+  class="divider-section {{ section_width }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="divider">
+  {%- if section.settings.show_line -%}
+    <hr class="hr--full"
+      {% if animations_enabled %}
+        data-aos="fade-up"
+        data-aos-anchor="{{ animation_anchor }}"
+        data-aos-delay="{{ animation_delay }}"
+      {% endif %}>
+  {%- endif -%}
+</section>
+
+{% schema %}
+  {
+    "name": "Divider",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_line",
+        "label": "Show line",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Colors"
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background"
+      },
+      {
+        "type": "color_background",
+        "id": "gradient",
+        "label": "Overlay gradient"
+      },
+      {
+        "type": "header",
+        "content": "Section spacing"
+      },
+      {
+        "type": "select",
+        "id": "width",
+        "label": "Width",
+        "default": "wrapper",
+        "options": [
+          { "value": "wrapper--full", "label": "Full width" },
+          { "value": "wrapper--full-padded", "label": "Full width padded" },
+          { "value": "wrapper", "label": "Page width" },
+          { "value": "wrapper--narrow", "label": "Page width narrow" }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 50
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 50
+      }
+    ],
+   "presets": [
+      {
+        "name":"Divider"
+      }
+    ],
+    "disabled_on": {
+      "groups": ["header","aside","footer"]
+    }
+  }
+{% endschema %}

@@ -1,0 +1,286 @@
+<style>
+  .trusted-client-section {
+    --PT: {{ section.settings.padding_top }}px;
+    --PB: {{ section.settings.padding_bottom }}px;
+  }
+  .trusted-client-box {
+    background-color: #fff;
+    width: 100%;
+  }
+
+  .trusted-client-box-heading {
+    color: #0058a5;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    text-align: center;
+    text-transform: none;
+  }
+
+  @media only screen and (min-width: 1280px) {
+    .trusted-client-box-heading {
+      margin-bottom: 2.25rem;
+    }
+  }
+
+  .trusted-client-box-heading > span {
+    color: #000;
+    font-weight: 300;
+  }
+
+  .marquee-container {
+    /* Adjust display as needed: block for stacked, flex for side-by-side */
+    display: block; /* Default to stacked */
+  }
+
+  .marquee-normal-container,
+  .marquee-reverse-container {
+    overflow: hidden;
+    padding: 1.125rem 0;
+    margin-bottom: 1rem; /* Add some spacing between the two marquees */
+  }
+  .marquee-reverse-container {
+    margin-bottom: 0;
+  }
+
+  .marquee {
+    display: flex;
+    gap: 2rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  .marquee-normal .marquee-group {
+    align-items: center;
+    animation: scroll-normal {{ section.settings.animation_speed }}s linear infinite {{ section.settings.animation_delay }}s;
+    display: flex;
+    flex-shrink: 0;
+    gap: 1.375rem;
+    justify-content: space-around;
+    margin-bottom: 0;
+    min-width: 100%;
+  }
+
+  .marquee-reverse .marquee-group {
+    align-items: center;
+    animation: scroll-reverse {{ section.settings.animation_speed }}s linear infinite {{ section.settings.animation_delay }}s;
+    display: flex;
+    flex-shrink: 0;
+    gap: 1.375rem;
+    justify-content: space-around;
+    margin-bottom: 0;
+    min-width: 100%;
+  }
+
+  @media only screen and (min-width: 991px) {
+    .marquee .marquee-group {
+      gap: 1.563rem;
+    }
+  }
+
+  .marquee .marquee-group .marquee-item {
+    align-items: center;
+    background-color: #fff;
+    border-radius: 0.313rem;
+    box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.1);
+    display: flex;
+    height: 5.625rem;
+    justify-content: center;
+    width: 12rem;
+  }
+
+  @media only screen and (min-width: 991px) {
+    .marquee .marquee-group .marquee-item {
+      height: 6.125rem;
+      width: 13.125rem;
+    }
+  }
+
+  .marquee .marquee-group .marquee-item > div {
+    height: 3.75rem;
+    vertical-align: middle;
+    width: 10.313rem;
+  }
+
+  @media only screen and (min-width: 991px) {
+    .marquee .marquee-group .marquee-item > div {
+      height: 4.063rem;
+      width: 11.25rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee .marquee-group {
+      animation-play-state: paused;
+    }
+  }
+
+  @keyframes scroll-normal {
+    0% {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - 2rem));
+    }
+  }
+
+  @keyframes scroll-reverse {
+    0% {
+      transform: translateX(calc(-100% - 2rem));
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+</style>
+<div class="trusted-client-section section-padding">
+  <div class="trusted-client-box">
+    <div class="marquee-container">
+      <div class="marquee-normal-container">
+        <div class="marquee marquee-normal">
+          <div class="marquee-group">
+            {%- for block in section.blocks -%}
+              {%- case block.type -%}
+                {%- when 'logo' -%}
+                  <div class="marquee-item">
+                    {%- if block.settings.image -%}
+                      <div>
+                        {{ block.settings.image | image_url: width: 200 | image_tag:
+                          alt: block.settings.image.alt,
+                          loading: 'lazy',
+                          style: 'max-width: 100%; max-height: 100%; object-fit: contain;'
+                        }}
+                      </div>
+                    {%- endif -%}
+                  </div>
+              {%- endcase -%}
+            {%- endfor -%}
+          </div>
+          <div class="marquee-group" aria-hidden="true">
+            {%- for block in section.blocks -%}
+              {%- case block.type -%}
+                {%- when 'logo' -%}
+                  <div class="marquee-item">
+                    {%- if block.settings.image -%}
+                      <div>
+                        {{ block.settings.image | image_url: width: 200 | image_tag:
+                          alt: block.settings.image.alt,
+                          loading: 'lazy',
+                          style: 'max-width: 100%; max-height: 100%; object-fit: contain;'
+                        }}
+                      </div>
+                    {%- endif -%}
+                  </div>
+              {%- endcase -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+      <div class="marquee-reverse-container">
+        <div class="marquee marquee-reverse">
+          <div class="marquee-group">
+            {%- for block in section.blocks -%}
+              {%- case block.type -%}
+                {%- when 'logo' -%}
+                  <div class="marquee-item">
+                    {%- if block.settings.image -%}
+                      <div>
+                        {{ block.settings.image | image_url: width: 200 | image_tag:
+                          alt: block.settings.image.alt,
+                          loading: 'lazy',
+                          style: 'max-width: 100%; max-height: 100%; object-fit: contain;'
+                        }}
+                      </div>
+                    {%- endif -%}
+                  </div>
+              {%- endcase -%}
+            {%- endfor -%}
+          </div>
+          <div class="marquee-group" aria-hidden="true">
+            {%- for block in section.blocks -%}
+              {%- case block.type -%}
+                {%- when 'logo' -%}
+                  <div class="marquee-item">
+                    {%- if block.settings.image -%}
+                      <div>
+                        {{ block.settings.image | image_url: width: 200 | image_tag:
+                          alt: block.settings.image.alt,
+                          loading: 'lazy',
+                          style: 'max-width: 100%; max-height: 100%; object-fit: contain;'
+                        }}
+                      </div>
+                    {%- endif -%}
+                  </div>
+              {%- endcase -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Dual Direction Marquee",
+  "settings": [
+    {
+      "type": "range",
+      "id": "animation_speed",
+      "label": "Animation Speed (seconds)",
+      "min": 10,
+      "max": 120,
+      "step": 5,
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "animation_delay",
+      "label": "Animation Delay (seconds)",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "default": 0,
+      "info": "Delay before the animation starts"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Client Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dual Direction Marquee"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,124 @@
+section {
+    padding: 1rem 0;
+    background-color: white;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+}
+.grid > div {
+    flex: 1;
+    min-width: 300px;
+}
+.text-blue-700 {
+    color: #003366;
+}
+.text-gray-700 {
+    color: #4a5568;
+    line-height: 1.75;
+}
+.font-semibold {
+    font-weight: 600;
+}
+.text-2xl {
+    font-size: 1.5rem;
+}
+.text-xl {
+    font-size: 1.25rem;
+}
+.mb-4 {
+    margin-bottom: 1rem;
+}
+.mb-8 {
+    margin-bottom: 2rem;
+}
+.rounded-lg {
+    border-radius: 0.5rem;
+}
+.shadow-lg {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.w-full {
+    width: 100%;
+}
+.text-center {
+    text-align: center;
+}
+.bg-gray-100 {
+    background-color: #f7fafc;
+}
+.bg-white {
+    background-color: white;
+}
+.p-6 {
+    padding: 1.5rem;
+}
+.flex {
+    display: flex;
+}
+.flex-col {
+    flex-direction: column;
+}
+.justify-between {
+    justify-content: space-between;
+}
+.items-center {
+    align-items: center;
+}
+.bg-green-500 {
+    background-color: #38a169;
+}
+.hover\:bg-green-700:hover {
+    background-color: #2d7a4e;
+}
+.text-white {
+    color: white;
+}
+.font-bold {
+    font-weight: bold;
+}
+.py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+.px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+.rounded-full {
+    border-radius: 2rem;
+}
+.transition {
+    transition-property: background-color;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+footer {
+    background-color: #003366;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+.store-section {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+.store-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.map-container {
+    height: 300px;
+    width: 100%;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+}

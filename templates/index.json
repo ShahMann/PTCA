@@ -1,0 +1,1186 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "section-slideshow-0": {
+      "type": "section-slideshow",
+      "blocks": {
+        "section-slideshow-0-block-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/s23_Home.png",
+            "image_mobile": "shopify://shop_images/Photo_2024-08-19_3_48_26_PM_2.jpg",
+            "overlay_opacity": 40,
+            "content_width": 75,
+            "text_position": "center",
+            "text_alignment": "text-center",
+            "text_color": "text-light",
+            "subheading": "",
+            "title": "<h4>Ride On Your Dream<br/>Wheels With Us!</h4>",
+            "heading_size": 150,
+            "heading_highlight_type": "underline-hand-drawn",
+            "highlight_color": "#ffffff",
+            "highlight_text_color": "#ffffff",
+            "text": "Choose from Several Brands",
+            "text_size": 100,
+            "stacked_button": false,
+            "button_1_text": "View Wheels Now!",
+            "button_1_link": "shopify://collections/all",
+            "button_1_color": "btn--primary",
+            "button_1_style": "btn--solid",
+            "button_1_size": "btn--medium",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_color": "btn--secondary",
+            "button_2_style": "btn--solid",
+            "button_2_size": "btn--medium",
+            "video_text": "",
+            "video_link": ""
+          }
+        },
+        "section-slideshow-0-block-1": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Photo_2024-10-11_2_16_57_PM_1.jpg",
+            "image_mobile": "shopify://shop_images/Photo_2024-10-11_2_16_57_PM_1.jpg",
+            "overlay_opacity": 10,
+            "content_width": 45,
+            "text_position": "left",
+            "text_alignment": "text-center",
+            "text_color": "text-light",
+            "subheading": "",
+            "title": "<h6>Ride On Your Dream<br/>Wheels With Us!</h6>",
+            "heading_size": 150,
+            "heading_highlight_type": "underline-hand-drawn",
+            "highlight_color": "#ffffff",
+            "highlight_text_color": "#ffffff",
+            "text": "Choose from Several Brands",
+            "text_size": 70,
+            "stacked_button": true,
+            "button_1_text": "View Tyres Now!",
+            "button_1_link": "shopify://collections/all",
+            "button_1_color": "btn--primary",
+            "button_1_style": "btn--solid",
+            "button_1_size": "btn--medium",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_color": "btn--secondary",
+            "button_2_style": "btn--solid",
+            "button_2_size": "btn--medium",
+            "video_text": "",
+            "video_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "section-slideshow-0-block-0",
+        "section-slideshow-0-block-1"
+      ],
+      "settings": {
+        "slide_height": "seven-fifty-height",
+        "enable_mobile_height": true,
+        "mobile_slide_height": "seven-fifty-height-mobile",
+        "show_nav_dots": true,
+        "show_nav_arrows": false,
+        "show_arrow_down": false,
+        "autoplay": true,
+        "duration": 4,
+        "transition": "zoom-out",
+        "enable_zoom_animation": true,
+        "enable_card_scrolling": false,
+        "increase_border_radius": true
+      }
+    },
+    "section-text-0": {
+      "type": "section-text",
+      "blocks": {
+        "section-text-0-block-1": {
+          "type": "heading",
+          "settings": {
+            "text": "<h6><strong>Featured Services</strong></h6>",
+            "size": 100,
+            "heading_highlight_type": "italics",
+            "heading_tag": "h2",
+            "highlight_color": "#000000",
+            "highlight_text_color": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "section-text-0-block-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "text_position": "center",
+        "bg_color": "",
+        "gradient": "",
+        "text_color": "text-dark",
+        "width": "wrapper",
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "section-grid-0": {
+      "type": "section-grid",
+      "blocks": {
+        "section-grid-0-block-0": {
+          "type": "image",
+          "settings": {
+            "width": "25",
+            "image": "shopify://shop_images/SHIFT-SFT-INJECTOR-CHROME-LAY-HIGH-RES_3afa3112-91e5-43ad-95c8-0ce89958f04d.webp",
+            "overlay_opacity": 10,
+            "text_position": "bottom-left",
+            "subheading": "",
+            "title": "",
+            "text": "",
+            "button_1_text": "Custom Wheel Installation",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "overlay_text_color": "text-light"
+          }
+        },
+        "section-grid-0-block-1": {
+          "type": "image",
+          "settings": {
+            "width": "25",
+            "image": "shopify://shop_images/Tire-Balancing.png",
+            "overlay_opacity": 10,
+            "text_position": "bottom-left",
+            "subheading": "",
+            "title": "",
+            "text": "",
+            "button_1_text": "Hunter Road Force Balancing",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "overlay_text_color": "text-light"
+          }
+        },
+        "section-grid-0-block-2": {
+          "type": "image",
+          "settings": {
+            "width": "25",
+            "image": "shopify://shop_images/Radar_RenegadeATPro_27555R20_3_bb4735b1.webp",
+            "overlay_opacity": 10,
+            "text_position": "bottom-left",
+            "subheading": "",
+            "title": "",
+            "text": "",
+            "button_1_text": "Tire Installation",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "overlay_text_color": "text-light"
+          }
+        },
+        "section-grid-0-block-3": {
+          "type": "image",
+          "settings": {
+            "width": "25",
+            "image": "shopify://shop_images/Photo_2024-08-19_3_48_26_PM_2_45496313-b7f5-4253-9259-b69a0e156054.jpg",
+            "overlay_opacity": 10,
+            "text_position": "bottom-left",
+            "subheading": "",
+            "title": "",
+            "text": "",
+            "button_1_text": "View all services",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "overlay_text_color": "text-light"
+          }
+        }
+      },
+      "block_order": [
+        "section-grid-0-block-0",
+        "section-grid-0-block-1",
+        "section-grid-0-block-2",
+        "section-grid-0-block-3"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_height": "five-fifty-height",
+        "enable_mobile_height": true,
+        "mobile_height": "three-fifty-height-mobile",
+        "heading_size": 110,
+        "text_size": 110,
+        "button_1_color": "btn--primary",
+        "button_1_style": "btn--solid",
+        "button_1_size": "btn--small",
+        "button_2_color": "btn--black",
+        "button_2_style": "btn--text",
+        "button_2_size": "btn--small",
+        "section_bg_color": "",
+        "gradient": "",
+        "enable_slider_mobile": true,
+        "columns_mobile": "1",
+        "overlay_text": true,
+        "width": "wrapper",
+        "add_gutter": true,
+        "padding_top": 30,
+        "padding_bottom": 20
+      }
+    },
+    "section_text_8RXn3T": {
+      "type": "section-text",
+      "blocks": {
+        "heading_ViRNrm": {
+          "type": "heading",
+          "settings": {
+            "text": "<p>Offers & Coupons</p>",
+            "size": 100,
+            "heading_highlight_type": "underline-hand-drawn",
+            "heading_tag": "h2",
+            "highlight_color": "#000000",
+            "highlight_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_ViRNrm"
+      ],
+      "disabled": true,
+      "name": "Text",
+      "settings": {
+        "text_position": "center",
+        "bg_color": "",
+        "gradient": "",
+        "text_color": "text-dark",
+        "width": "wrapper--narrow",
+        "padding_top": 50,
+        "padding_bottom": 30
+      }
+    },
+    "section_grid_JKHLEM": {
+      "type": "section-grid",
+      "blocks": {
+        "image_Xfx3YN": {
+          "type": "image",
+          "settings": {
+            "width": "100",
+            "image": "shopify://shop_images/resized_DSC05291.jpg",
+            "overlay_opacity": 45,
+            "text_position": "center",
+            "subheading": "",
+            "title": "Gadget friendly",
+            "text": "Made for digital nomads and office workers",
+            "button_1_text": "",
+            "button_1_link": "#",
+            "button_2_text": "",
+            "button_2_link": "",
+            "overlay_text_color": "text-light"
+          }
+        },
+        "image_inNdYp": {
+          "type": "image",
+          "settings": {
+            "width": "50",
+            "image": "shopify://shop_images/resized_DSC05291.jpg",
+            "overlay_opacity": 45,
+            "text_position": "center",
+            "subheading": "Final markdowns",
+            "title": "Clearance",
+            "text": "While supplies last",
+            "button_1_text": "",
+            "button_1_link": "#",
+            "button_2_text": "",
+            "button_2_link": "",
+            "overlay_text_color": "text-light"
+          }
+        },
+        "image_zVXGjC": {
+          "type": "image",
+          "settings": {
+            "width": "50",
+            "image": "shopify://shop_images/resized_DSC05566.jpg",
+            "overlay_opacity": 45,
+            "text_position": "center",
+            "subheading": "Bestselling",
+            "title": "Commuter bags",
+            "text": "Travel to your next destination",
+            "button_1_text": "",
+            "button_1_link": "#",
+            "button_2_text": "",
+            "button_2_link": "",
+            "overlay_text_color": "text-light"
+          }
+        }
+      },
+      "block_order": [
+        "image_Xfx3YN",
+        "image_inNdYp",
+        "image_zVXGjC"
+      ],
+      "name": "Grid",
+      "settings": {
+        "desktop_height": "five-fifty-height",
+        "enable_mobile_height": false,
+        "mobile_height": "four-fifty-height-mobile",
+        "heading_size": 130,
+        "text_size": 100,
+        "button_1_color": "btn--primary",
+        "button_1_style": "btn--solid",
+        "button_1_size": "btn--medium",
+        "button_2_color": "btn--black",
+        "button_2_style": "btn--text",
+        "button_2_size": "btn--medium",
+        "section_bg_color": "",
+        "gradient": "",
+        "enable_slider_mobile": true,
+        "columns_mobile": "1",
+        "overlay_text": true,
+        "width": "wrapper",
+        "add_gutter": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "section-promotion-row-0": {
+      "type": "section-promotion-row",
+      "blocks": {
+        "section-promotion-row-0-block-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/resized_DSC05328.jpg",
+            "subheading": "<p>IN-STORE AND ONLINE</p>",
+            "subheading_size": 90,
+            "heading": "<p>20% OFF</p>",
+            "heading_size": 295,
+            "heading_highlight_type": "italics",
+            "highlight_color": "#ffffff",
+            "highlight_text_color": "#000000",
+            "description": "Share details about the promotion",
+            "description_size": 130,
+            "disclaimer": "*Use this text for a disclaimer.",
+            "disclaimer_size": 105,
+            "button_text": "",
+            "button_link": "",
+            "button_color": "btn--primary",
+            "button_style": "btn--solid",
+            "button_size": "btn--small",
+            "bg_color": "#000000",
+            "gradient_background": "",
+            "text_color": "#ffffff",
+            "overlay_opacity": 10
+          }
+        },
+        "section-promotion-row-0-block-2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/resized_DSC05322.jpg",
+            "subheading": "<p>For a limited time</p>",
+            "subheading_size": 80,
+            "heading": "<p><em>FREE PRODUCT</em></p>",
+            "heading_size": 160,
+            "heading_highlight_type": "underline-hand-drawn",
+            "highlight_color": "#ffffff",
+            "highlight_text_color": "#ffffff",
+            "description": "With every purchase over $99",
+            "description_size": 130,
+            "disclaimer": "",
+            "disclaimer_size": 105,
+            "button_text": "",
+            "button_link": "",
+            "button_color": "btn--black",
+            "button_style": "btn--solid",
+            "button_size": "btn--small",
+            "bg_color": "rgba(0,0,0,0)",
+            "gradient_background": "",
+            "text_color": "#ffffff",
+            "overlay_opacity": 45
+          }
+        },
+        "column_QxF4M3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/resized_DSC01139-Edit.jpg",
+            "subheading": "",
+            "subheading_size": 100,
+            "heading": "<p>50% OFF</p>",
+            "heading_size": 280,
+            "heading_highlight_type": "underline-hand-drawn",
+            "highlight_color": "#ffffff",
+            "highlight_text_color": "#ffffff",
+            "description": "Share details about the promotion",
+            "description_size": 130,
+            "disclaimer": "",
+            "disclaimer_size": 75,
+            "button_text": "",
+            "button_link": "",
+            "button_color": "btn--white",
+            "button_style": "btn--solid",
+            "button_size": "btn--medium",
+            "bg_color": "#000000",
+            "gradient_background": "",
+            "text_color": "#ffffff",
+            "overlay_opacity": 45
+          }
+        },
+        "column_W4yUmi": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/resized_DSC04647.jpg",
+            "subheading": "",
+            "subheading_size": 100,
+            "heading": "",
+            "heading_size": 280,
+            "heading_highlight_type": "underline-hand-drawn",
+            "highlight_color": "#000000",
+            "highlight_text_color": "",
+            "description": "For More Offers & Coupons",
+            "description_size": 130,
+            "disclaimer": "",
+            "disclaimer_size": 75,
+            "button_text": "Explore All",
+            "button_link": "",
+            "button_color": "btn--primary",
+            "button_style": "btn--solid",
+            "button_size": "btn--medium",
+            "bg_color": "#000000",
+            "gradient_background": "",
+            "text_color": "#ffffff",
+            "overlay_opacity": 45
+          }
+        }
+      },
+      "block_order": [
+        "section-promotion-row-0-block-1",
+        "section-promotion-row-0-block-2",
+        "column_QxF4M3",
+        "column_W4yUmi"
+      ],
+      "disabled": true,
+      "settings": {
+        "layout": "1",
+        "count_up_enabled": true,
+        "count_up_duration": 100,
+        "height": "400",
+        "enable_mobile_height": true,
+        "mobile_height": "400",
+        "bg_color": "#ffffff",
+        "gradient": "",
+        "enable_slider_mobile": false,
+        "columns_mobile": "1",
+        "width": "wrapper",
+        "padding_top": 30,
+        "padding_bottom": 54
+      }
+    },
+    "section_video_V7ihLc": {
+      "type": "section-video",
+      "name": "Video",
+      "settings": {
+        "video_height": "six-fifty-height",
+        "width": "wrapper--full",
+        "enable_mobile_height": true,
+        "mobile_height": "six-fifty-height-mobile",
+        "text_width": "normal",
+        "text_position": "middle-center",
+        "video_link_bg": "https://cdn.shopify.com/videos/c/o/v/53dd468ccb1c47b5acd853d3177890b0.mp4",
+        "video_link": "",
+        "overlay_opacity": 55,
+        "text_color": "text-light",
+        "title": "<p>Unleash the Road with Confidence</p>",
+        "heading_size": 100,
+        "heading_highlight_type": "underline-hand-drawn",
+        "highlight_color": "#000000",
+        "highlight_text_color": "",
+        "text": "From off-road adventures to city streets, our tires are engineered to deliver unmatched grip, durability, and performance. Watch how we put our products to the ultimate test.",
+        "text_size": 100,
+        "button_1_text": "Learn More",
+        "button_1_link": "",
+        "button_1_color": "btn--primary",
+        "button_1_style": "btn--solid",
+        "button_1_size": "btn--medium",
+        "button_2_text": "",
+        "button_2_link": "",
+        "button_2_color": "btn--black",
+        "button_2_style": "btn--solid",
+        "button_2_size": "btn--medium",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "section_grid_9Nyknf": {
+      "type": "section-grid",
+      "blocks": {
+        "image_piyEXw": {
+          "type": "image",
+          "settings": {
+            "width": "50",
+            "image": "shopify://shop_images/resized_DSC05291.jpg",
+            "overlay_opacity": 45,
+            "text_position": "center",
+            "subheading": "",
+            "title": "Limited editions",
+            "text": "Exclusive styles you won't want to miss",
+            "button_1_text": "Shop Now",
+            "button_1_link": "#",
+            "button_2_text": "",
+            "button_2_link": "",
+            "overlay_text_color": "text-light"
+          }
+        },
+        "image_3zirKq": {
+          "type": "image",
+          "settings": {
+            "width": "50",
+            "image": "shopify://shop_images/resized_DSC05566.jpg",
+            "overlay_opacity": 45,
+            "text_position": "center",
+            "subheading": "",
+            "title": "Exclusive offers",
+            "text": "Last chance to shop our seasonal sale",
+            "button_1_text": "Shop Now",
+            "button_1_link": "#",
+            "button_2_text": "",
+            "button_2_link": "",
+            "overlay_text_color": "text-light"
+          }
+        }
+      },
+      "block_order": [
+        "image_piyEXw",
+        "image_3zirKq"
+      ],
+      "name": "Grid",
+      "settings": {
+        "desktop_height": "five-fifty-height",
+        "enable_mobile_height": false,
+        "mobile_height": "four-fifty-height-mobile",
+        "heading_size": 130,
+        "text_size": 100,
+        "button_1_color": "btn--primary",
+        "button_1_style": "btn--solid",
+        "button_1_size": "btn--medium",
+        "button_2_color": "btn--black",
+        "button_2_style": "btn--text",
+        "button_2_size": "btn--medium",
+        "section_bg_color": "",
+        "gradient": "",
+        "enable_slider_mobile": true,
+        "columns_mobile": "1",
+        "overlay_text": true,
+        "width": "wrapper",
+        "add_gutter": true,
+        "padding_top": 40,
+        "padding_bottom": 16
+      }
+    },
+    "brand_section_KMptFU": {
+      "type": "brand-section",
+      "blocks": {
+        "logo_GMfQW8": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/logo_uniroyal.png"
+          }
+        },
+        "logo_wMJ6KX": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/logo_bfgoodrich.png"
+          }
+        },
+        "logo_jUwpHF": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/logo_bridgestone.png"
+          }
+        },
+        "logo_LPHQDL": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/logo_continental.png"
+          }
+        },
+        "logo_XtmrJL": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/logo_kumho.png"
+          }
+        },
+        "logo_VQzNeg": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/logo_firestone_efa634ce-a7e9-40c5-bd55-5374c49321e1.png"
+          }
+        },
+        "logo_Lky7Ec": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/logo_goodyear.png"
+          }
+        },
+        "logo_wPgKYc": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/logo_michelin.png"
+          }
+        }
+      },
+      "block_order": [
+        "logo_GMfQW8",
+        "logo_wMJ6KX",
+        "logo_jUwpHF",
+        "logo_LPHQDL",
+        "logo_XtmrJL",
+        "logo_VQzNeg",
+        "logo_Lky7Ec",
+        "logo_wPgKYc"
+      ],
+      "name": "Dual Direction Marquee",
+      "settings": {
+        "animation_speed": 60,
+        "animation_delay": 0,
+        "padding_top": 14,
+        "padding_bottom": 14
+      }
+    },
+    "section_press_7PT3DY": {
+      "type": "section-press",
+      "blocks": {
+        "press_LWtgfa": {
+          "type": "press",
+          "settings": {
+            "text": "<p>Just go my truck back from Premier tire and the new Rims and tires look awesome they were great to deal with from order to delivery i would recommend them to be your tire place.</p>",
+            "link": "",
+            "press_title": "JOHN PALMATEER",
+            "logo_width": 70
+          }
+        },
+        "press_7TqJp3": {
+          "type": "press",
+          "settings": {
+            "text": "<p>I had an outstanding experience with Premier Rims. After finding cracks in my new rims, Zsolt and Carmen went above and beyond to resolve the issue, offering two replacement options without any hassle. Their customer service is truly exceptional. Highly recommend Premier Rims to everyone!</p>",
+            "link": "",
+            "press_title": "SARA",
+            "logo_width": 70
+          }
+        },
+        "press_PqwL7V": {
+          "type": "press",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Premier Rims went above and beyond to resolve an issue with my rims — no hassle, just real commitment to customer service. Highly recommend them for their honesty and professionalism.</p>",
+            "link": "",
+            "press_title": "CARMEN MOUSHIKH",
+            "logo_width": 70
+          }
+        },
+        "press_yiN9kR": {
+          "type": "press",
+          "settings": {
+            "text": "<p>Always quick, always reliable. My go-to place for any tire needs. The staff is friendly, knowledgeable, and they always make sure I leave feeling confident about my vehicle. Whether it’s a quick fix, a tire replacement, or seasonal changeover, they get it done efficiently and professionally. I wouldn’t trust anyone else with my wheels.</p>",
+            "link": "",
+            "press_title": "TOM LOUGHRAN",
+            "logo_width": 70
+          }
+        }
+      },
+      "block_order": [
+        "press_LWtgfa",
+        "press_7TqJp3",
+        "press_PqwL7V",
+        "press_yiN9kR"
+      ],
+      "name": "Press/Logo",
+      "settings": {
+        "title": "",
+        "show_quotations": true,
+        "show_rounded_corners": false,
+        "logo_opacity": 50,
+        "autoplay": true,
+        "duration": 4,
+        "bg_color": "",
+        "gradient": "",
+        "width": "wrapper",
+        "padding_top": 6,
+        "padding_bottom": 6
+      }
+    },
+    "section_look_DxwXzq": {
+      "type": "section-look",
+      "blocks": {
+        "product_qgYTtp": {
+          "type": "product",
+          "settings": {
+            "product": "ironman-all-country-mt-37x12-50r17",
+            "position_x_desktop": 59,
+            "position_y_desktop": 77,
+            "position_x_mobile": 58,
+            "position_y_mobile": 80,
+            "info_bubbles_position_desktop": 55,
+            "info_bubbles_position_mobile": 5
+          }
+        },
+        "product_NxV4gH": {
+          "type": "product",
+          "settings": {
+            "product": "vossen-hf-5-20x9-32-matte-gunmetal",
+            "position_x_desktop": 65,
+            "position_y_desktop": 82,
+            "position_x_mobile": 68,
+            "position_y_mobile": 77,
+            "info_bubbles_position_desktop": 5,
+            "info_bubbles_position_mobile": 30
+          }
+        }
+      },
+      "block_order": [
+        "product_qgYTtp",
+        "product_NxV4gH"
+      ],
+      "name": "Shop the Look Grid",
+      "settings": {
+        "products_on_row": 2,
+        "image": "shopify://shop_images/resized_DSC05281.jpg",
+        "image_position": "is-reversed",
+        "enable_aspect_ratio": true,
+        "main_image_aspect_ratio": 1,
+        "title": "Streamline your gear",
+        "heading_size": 120,
+        "text": "<p>Efficient and organized</p>",
+        "text_size": 100,
+        "text_alignment": "text-left",
+        "show_hotspots": true,
+        "show_arrow": true,
+        "popup_heading": "Shop the Look",
+        "show_free_shipping_message": true,
+        "content_color": "text-dark",
+        "hotspot_color": "",
+        "bg_color": "#ffffff",
+        "gradient": "",
+        "hotspot_contents_text_color": "text-dark",
+        "hotspot_contents_bg_color": "#ffffff",
+        "width": "wrapper",
+        "padding_top": 26,
+        "padding_bottom": 50
+      }
+    },
+    "section_text_kkBBnD": {
+      "type": "section-text",
+      "blocks": {
+        "heading_ynNfae": {
+          "type": "heading",
+          "settings": {
+            "text": "<h4>Our collection of sleek, <em>high-performance</em> tires represents the perfect fusion of cutting-edge technology, rugged durability, and modern engineering. Crafted with precision and a focus on detail, each tire stands as a testament to our commitment to delivering performance that not only keeps up with today’s demanding roads but elevates every drive.</h4>",
+            "size": 100,
+            "heading_highlight_type": "highlight",
+            "heading_tag": "h4",
+            "highlight_color": "#ffffff",
+            "highlight_text_color": "#000000"
+          }
+        },
+        "button_EBrWtq": {
+          "type": "button",
+          "settings": {
+            "button_text": "About us",
+            "button_link": "shopify://pages/about",
+            "button_color": "btn--white",
+            "button_style": "btn--text",
+            "button_size": "btn--medium"
+          }
+        }
+      },
+      "block_order": [
+        "heading_ynNfae",
+        "button_EBrWtq"
+      ],
+      "name": "Text",
+      "settings": {
+        "text_position": "left",
+        "bg_color": "#000000",
+        "gradient": "",
+        "text_color": "text-light",
+        "width": "wrapper",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "1745832394de6c79c0": {
+      "type": "apps",
+      "blocks": {
+        "testimonials_slider_cards_widget_block_xjfKim": {
+          "type": "shopify://apps/testimonials-slider/blocks/cards-widget-block/cd756d38-7c3d-4332-af00-4ff87263e921",
+          "settings": {
+            "themeId": "light",
+            "configNumber": "1",
+            "showAvatar": false
+          }
+        },
+        "testimonials_slider_slider_widget_block_Tt3xdt": {
+          "type": "shopify://apps/testimonials-slider/blocks/slider-widget-block/cd756d38-7c3d-4332-af00-4ff87263e921",
+          "disabled": true,
+          "settings": {
+            "themeId": "light",
+            "configNumber": "1",
+            "autoscroll": true,
+            "showAvatar": false
+          }
+        }
+      },
+      "block_order": [
+        "testimonials_slider_cards_widget_block_xjfKim",
+        "testimonials_slider_slider_widget_block_Tt3xdt"
+      ],
+      "disabled": true,
+      "settings": {
+        "bg_color": "",
+        "width": "wrapper",
+        "padding_top": 30,
+        "padding_bottom": 20
+      }
+    },
+    "section_columns_AwKFth": {
+      "type": "section-columns",
+      "blocks": {
+        "text_block_eg67JX": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/f6141b40-a616-47d6-aa63-1370b656d85e.png",
+            "title": "",
+            "heading_size": 120,
+            "text": "",
+            "text_size": 100,
+            "button_text": "",
+            "button_link": "",
+            "button_color": "btn--black",
+            "button_style": "btn--text",
+            "button_size": "btn--medium",
+            "video_link_popup": "",
+            "video_link_color": "text-dark"
+          }
+        },
+        "text_block_bm9fMw": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/035f29a2-d323-4ae7-98d0-470c0c2b7d99.png",
+            "title": "",
+            "heading_size": 120,
+            "text": "",
+            "text_size": 100,
+            "button_text": "",
+            "button_link": "",
+            "button_color": "btn--black",
+            "button_style": "btn--text",
+            "button_size": "btn--medium",
+            "video_link_popup": "",
+            "video_link_color": "text-dark"
+          }
+        },
+        "text_block_VFdWhW": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/f6141b40-a616-47d6-aa63-1370b656d85e.png",
+            "title": "",
+            "heading_size": 120,
+            "text": "",
+            "text_size": 100,
+            "button_text": "",
+            "button_link": "",
+            "button_color": "btn--black",
+            "button_style": "btn--text",
+            "button_size": "btn--medium",
+            "video_link_popup": "",
+            "video_link_color": "text-dark"
+          }
+        },
+        "text_block_QLyVyf": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/035f29a2-d323-4ae7-98d0-470c0c2b7d99.png",
+            "title": "",
+            "heading_size": 120,
+            "text": "",
+            "text_size": 100,
+            "button_text": "",
+            "button_link": "",
+            "button_color": "btn--black",
+            "button_style": "btn--text",
+            "button_size": "btn--medium",
+            "video_link_popup": "",
+            "video_link_color": "text-dark"
+          }
+        }
+      },
+      "block_order": [
+        "text_block_eg67JX",
+        "text_block_bm9fMw",
+        "text_block_VFdWhW",
+        "text_block_QLyVyf"
+      ],
+      "name": "Text columns with images",
+      "settings": {
+        "title": "Coupons",
+        "heading_size": 120,
+        "align_text": "text-center",
+        "columns": 3,
+        "columns_mobile": "1",
+        "show_images": true,
+        "show_borders": false,
+        "equalize_height": true,
+        "desktop_aspect_ratio": 0.8,
+        "mobile_aspect_ratio": 0.8,
+        "bg_color": "",
+        "gradient": "",
+        "color_borders": "#000000",
+        "layout_mobile": "carousel",
+        "width": "wrapper",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "section_accordions_with_images_yKBCnJ": {
+      "type": "section-accordions-with-images",
+      "blocks": {
+        "text_LVjrUm": {
+          "type": "text",
+          "settings": {
+            "title": "We Provide Affordable Tires!",
+            "text": "<p>Driven by the thirst to satisfy our customers, our entire existence is focused on saving you money and providing the absolute value you deserve. Don’t believe us? Give us a try and find out for yourself. We are confident that our pricing, combined with our unparalleled service, is the right fit for your needs.</p>",
+            "icon_image": "shopify://shop_images/home-banner-why33.webp",
+            "icon_width": 100,
+            "icon_position": "inline-left"
+          }
+        },
+        "text_xLcp4B": {
+          "type": "text",
+          "settings": {
+            "title": "We Provide Affordable Tires!",
+            "text": "<p>Driven by the thirst to satisfy our customers, our entire existence is focused on saving you money and providing the absolute value you deserve. Don’t believe us? Give us a try and find out for yourself. We are confident that our pricing, combined with our unparalleled service, is the right fit for your needs.</p>",
+            "icon_image": "shopify://shop_images/home-banner-why33.webp",
+            "icon_width": 100,
+            "icon_position": "inline-left"
+          }
+        },
+        "text_HMThH4": {
+          "type": "text",
+          "settings": {
+            "title": "We Offer Huge Discounts!",
+            "text": "<p>By working directly with manufacturers and having strong relationships with tire companies, we’re able to offer high discounts. We even offer additional discounts when you choose to purchase wheel and tire packages! We proudly display the amount of money you’ll save when choosing to buy through onlinetires.com. Browse through your favorite brands and see for yourself: We can meet your needs at prices that our competitors simply cannot match.</p>",
+            "icon_image": "shopify://shop_images/home-banner-why33.webp",
+            "icon_width": 100,
+            "icon_position": "inline-left"
+          }
+        },
+        "text_QFXRBQ": {
+          "type": "text",
+          "settings": {
+            "title": "We Have the Lowest Tire Prices!",
+            "text": "<p>At premiertire.ca, we’re here for you. Our goal is to match your vehicle with the best tire brand at the lowest cost. We don’t deal with middlemen; we work directly with manufacturers to ensure that you don’t overpay for a quality tire that is built to last. We work hard so you don’t have to! You can browse through our selection with confidence because you are shopping at the lowest possible price on the web.</p>",
+            "icon_image": "shopify://shop_images/home-banner-why33.webp",
+            "icon_width": 100,
+            "icon_position": "inline-left"
+          }
+        }
+      },
+      "block_order": [
+        "text_LVjrUm",
+        "text_xLcp4B",
+        "text_HMThH4",
+        "text_QFXRBQ"
+      ],
+      "name": "Accordions with Images",
+      "settings": {
+        "layout": "two-columns",
+        "show_accordion_divider": false,
+        "line_thickness": "normal",
+        "content_alignment": "text-center",
+        "subheading": "",
+        "title": "Why Premiertire.ca?",
+        "type_style": "font-heading",
+        "heading_size": 120,
+        "text": "",
+        "tabs_bg_color": "#fafafa",
+        "bg_color": "",
+        "gradient": "",
+        "text_color": "text-dark",
+        "border_color": "",
+        "width": "wrapper",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "section_custom_content_EGfUzf": {
+      "type": "section-custom-content",
+      "blocks": {
+        "text_6dXqND": {
+          "type": "text",
+          "settings": {
+            "text_position": "center",
+            "top_image_width": 100,
+            "text_color": "text-dark",
+            "subheading": "",
+            "title": "Why premiertire.ca?",
+            "heading_size": 100,
+            "text": "<p><strong>Our collection of sleek, high-performance tires and wheels represents the perfect synergy of advanced engineering, durable materials, and modern design. Engineered with precision and built to withstand the demands of every journey, each product is a reflection of our commitment to performance, safety, and style. Whether you're navigating rugged terrain or cruising city streets, our wheels and tires are designed to enhance your vehicle’s handling, boost its aesthetic, and elevate your driving experience. Trust in innovation. Drive with confidence.</strong></p>",
+            "text_size": 100,
+            "button_text": "Learn More",
+            "button_link": "shopify://pages/about",
+            "button_color": "btn--primary",
+            "button_style": "btn--solid",
+            "button_size": "btn--medium",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_color": "btn--white",
+            "button_2_style": "btn--solid-border",
+            "button_2_size": "btn--medium",
+            "bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_6dXqND"
+      ],
+      "disabled": true,
+      "name": "Custom content",
+      "settings": {
+        "height": "one-fifty-height",
+        "enable_mobile_height": false,
+        "mobile_height": "six-fifty-height-mobile",
+        "bg_color": "",
+        "reverse_blocks": false,
+        "width": "wrapper--full-padded",
+        "add_gutter": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "section_banner_text_columns_wJ6FYJ": {
+      "type": "section-banner-text-columns",
+      "blocks": {
+        "column_yqMg86": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Photo_2024-08-19_3_48_26_PM_2.png",
+            "overlay_opacity": 50,
+            "subheading": "Ride On Your DreamWheels With Us!",
+            "heading": "",
+            "text": "<p>Register today to access exclusive business pricing, bulk order discounts, priority support, and a personalized purchasing experience.<br/></p>",
+            "button_text": "B2B Registration",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_yqMg86"
+      ],
+      "name": "Banner with text columns",
+      "settings": {
+        "appearance": "row",
+        "content_alignment": "center",
+        "text_alignment": "text-center",
+        "section_height": "six-fifty-height",
+        "enable_mobile_height": true,
+        "mobile_section_height": "five-fifty-height-mobile",
+        "text_color": "text-light",
+        "button_color": "btn--primary",
+        "button_style": "btn--solid",
+        "button_size": "btn--medium",
+        "show_single_image": false,
+        "heading_size": 100,
+        "width": "wrapper",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "section_blog_qBNNzj": {
+      "type": "section-blog",
+      "name": "Blog posts",
+      "settings": {
+        "blog": "premier-tire",
+        "blog_style": "standard",
+        "image_aspect_ratio": 1,
+        "rows": 1,
+        "columns": 3,
+        "columns_mobile": "1",
+        "show_tags": false,
+        "show_author": true,
+        "show_date": true,
+        "show_comments_count": false,
+        "default_image": "shopify://shop_images/resized_DSC05336.jpg",
+        "default_color": "none",
+        "heading": "",
+        "button_text": "View all posts",
+        "button_color": "btn--primary",
+        "button_style": "btn--solid",
+        "button_size": "btn--medium",
+        "text_color": "text-dark",
+        "bg_color": "",
+        "gradient": "",
+        "width": "wrapper",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "section_text_yet6fQ": {
+      "type": "section-text",
+      "blocks": {
+        "text_YzMKyg": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Our collection of sleek, high-performance tires and wheels represents the perfect synergy of advanced engineering, durable materials, and modern design. Engineered with precision and built to withstand the demands of every journey, each product is a reflection of our commitment to performance, safety, and style. Whether you're navigating rugged terrain or cruising city streets, our wheels and tires are designed to enhance your vehicle’s handling, boost its aesthetic, and elevate your driving experience. Trust in innovation. Drive with confidence.</strong></p>",
+            "size": 155
+          }
+        },
+        "button_MDYUai": {
+          "type": "button",
+          "settings": {
+            "button_text": "About Us",
+            "button_link": "",
+            "button_color": "btn--primary",
+            "button_style": "btn--solid",
+            "button_size": "btn--medium"
+          }
+        }
+      },
+      "block_order": [
+        "text_YzMKyg",
+        "button_MDYUai"
+      ],
+      "disabled": true,
+      "name": "Text",
+      "settings": {
+        "text_position": "left",
+        "bg_color": "#000000",
+        "gradient": "",
+        "text_color": "text-light",
+        "width": "wrapper",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    }
+  },
+  "order": [
+    "section-slideshow-0",
+    "section-text-0",
+    "section-grid-0",
+    "section_text_8RXn3T",
+    "section_grid_JKHLEM",
+    "section-promotion-row-0",
+    "section_video_V7ihLc",
+    "section_grid_9Nyknf",
+    "brand_section_KMptFU",
+    "section_press_7PT3DY",
+    "section_look_DxwXzq",
+    "section_text_kkBBnD",
+    "1745832394de6c79c0",
+    "section_columns_AwKFth",
+    "section_accordions_with_images_yKBCnJ",
+    "section_custom_content_EGfUzf",
+    "section_banner_text_columns_wJ6FYJ",
+    "section_blog_qBNNzj",
+    "section_text_yet6fQ"
+  ]
+}

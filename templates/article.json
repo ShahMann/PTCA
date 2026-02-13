@@ -1,0 +1,52 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "article",
+      "settings": {
+        "show_date": true,
+        "show_author": true,
+        "show_tags": true,
+        "show_share_button": true,
+        "text": "Share",
+        "bg_color": "",
+        "gradient": "",
+        "padding_top": 60,
+        "padding_bottom": 30
+      }
+    },
+    "recommended-posts": {
+      "type": "section-recommended-posts",
+      "settings": {
+        "posts_type": "paging",
+        "title": "Recommended posts",
+        "default_image": "shopify://shop_images/Final_637946011710328321.jpg",
+        "default_color": "accent",
+        "blog_style": "photo",
+        "image_aspect_ratio": 0.8,
+        "show_rss_icon": false,
+        "show_date": true,
+        "show_author": true,
+        "show_tags": true,
+        "show_comments_count": false,
+        "bg_color": "",
+        "gradient": "",
+        "width": "wrapper",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    }
+  },
+  "order": [
+    "main",
+    "recommended-posts"
+  ]
+}

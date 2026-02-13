@@ -1,0 +1,316 @@
+<!-- /snippets/video.liquid -->
+{%- liquid
+  assign title_highlights = title_highlights | default: false
+  assign video_size = video_size | default: 'video-cover'
+  assign sizes = image_sizes | default: '100vw'
+  assign text_width = text_width | default: 'narrow'
+  capture image_classes
+    echo 'video-background video-background--image'
+    if image == blank
+      echo ' placeholder-bg'
+    endif
+  endcapture
+
+  assign button_advanced_class = 'btn--advanced'
+  if button_style != 'btn--text'
+    assign button_advanced_class = button_advanced_class | append: ' btn--advanced-width-height'
+  endif
+
+  assign button_1_advanced_class = 'btn--advanced'
+  if button_1_style != 'btn--text'
+    assign button_1_advanced_class = button_1_advanced_class | append: ' btn--advanced-width-height'
+  endif
+
+  assign button_2_advanced_class = 'btn--advanced'
+  if button_2_style != 'btn--text'
+    assign button_2_advanced_class = button_2_advanced_class | append: ' btn--advanced-width-height'
+  endif
+
+  case text_width
+    when 'narrow'
+      assign text_width_class = 'wrapper--narrow'
+    when 'normal'
+      assign text_width_class = 'wrapper--normal'
+    when 'wide'
+      assign text_width_class = 'wrapper--wide'
+  endcase
+-%}
+
+{%- capture image_attributes -%}
+  {%- if animations_enabled -%}
+    data-aos="fade"
+    data-aos-anchor="{{ animation_anchor }}"
+    data-aos-delay="{{ animation_delay }}"
+  {%- endif -%}
+{%- endcapture -%}
+
+<div
+  class="video__container video__container--{{ unique }} {{ text_color }}{% unless image %} img-in{% endunless %}"
+  id="video-{{ unique }}-container"
+>
+  {%- if background_video == blank -%}
+    {%- render 'image-fill',
+      is_background: true,
+      img_object: image,
+      image_attributes: image_attributes,
+      sizes: sizes,
+      classes: image_classes,
+      placeholder_svg: 'lifestyle-1'
+    -%}
+  {%- endif -%}
+
+  {%- assign video_bg_show = false -%}
+  {%- if background_video != blank -%}
+    {%- assign video_link_bg_downcase = background_video | downcase -%}
+
+    {%- if video_link_bg_downcase contains '.mp4' -%}
+      {%- assign video_bg_show = true -%}
+
+      {%- capture additional_video_button -%}
+        <a href="#" class="video-text-link" data-video-bg-play>
+          {%- render 'icon-play' -%}
+        </a>
+      {%- endcapture -%}
+
+      {%- if video_link != blank -%}
+        {%- capture additional_video_button -%}
+          <a href="#" class="btn {{ button_style }} {{ button_size }} {{ button_color }} {{ button_advanced_class }}" data-video-bg-play>
+            <hover-button></hover-button>
+            {{ 'video.play_bg_video' | t }}
+          </a>
+        {%- endcapture -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endif -%}
+
+  {%- if video_bg_show -%}
+    <div class="video-background">
+      <div
+        class="video__player is-loading"
+        data-video-player
+        data-video-id="{{ unique }}-video-background"
+      >
+        <template data-video-template>
+          <video
+            id="{{ unique }}-video-background"
+            class="{{ video_size }}"
+            data-video-type="native"
+            data-video-autoplay
+            playsinline
+            autoplay
+            loop
+            muted
+            width="320"
+            height="240"
+          >
+            {% comment %} theme-check-disable RemoteAsset {% endcomment %}
+            <source src="{{ background_video }}" type="video/mp4">
+            {% comment %} theme-check-enable RemoteAsset {% endcomment %}
+          </video>
+        </template>
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- if video_size == 'video-cover' -%}
+    <div class="overlay video__overlay" style="--overlay-opacity: {{ overlay_opacity }};"></div>
+  {%- endif -%}
+</div>
+
+<div class="align--{{ text_position }} {{ text_color }} text-inside">
+  {%- if video_size == 'video-fit' -%}
+    <div class="overlay video__overlay" style="--overlay-opacity: {{ overlay_opacity }};"></div>
+  {%- endif -%}
+
+  {% comment %} Text {% endcomment %}
+  <div class="video-text-wrapper {{ text_width_class }}{% if show_text_shadow %} backdrop--radial{% endif %}">
+    {%- if video_link != blank -%}
+      {% comment %} Video Play Button {% endcomment %}
+      <div class="main-buttons main-buttons--video align--{{ text_position }}">{%- liquid
+  assign video_link_downcase = video_link | downcase
+  assign video_type = ''
+  assign video_id = ''
+  assign video_parent_id = 'item-video-' | append: unique
+
+  if video_link contains 'vimeo.com'
+    assign video_type = 'vimeo'
+  elsif video_link contains 'youtube.com'
+    assign video_type = 'youtube'
+  elsif video_link contains 'youtu.be'
+    assign video_type = 'youtube'
+    assign youtube_shortlink = true
+  elsif video_link_downcase contains '.mp4'
+    assign video_type = 'native'
+  endif
+
+  assign link_array = video_link | split: '/'
+  assign id_with_params = link_array | last
+
+  if video_type == 'vimeo' or youtube_shortlink
+    comment
+      https://vimeo.com/[ID]?foo=bar&baz=boo
+      https://youtu.be/[ID]?foo=bar&baz=boo
+    endcomment
+    assign starts_with_id = id_with_params | split: '?'
+    assign video_id = starts_with_id | first
+  elsif video_type == 'youtube'
+    comment
+      https://youtube.com/watch?v=[ID]?foo=bar&baz=boo
+    endcomment
+    assign first_param = id_with_params | split: '&' | first
+    assign watch_then_id = first_param | split: '?'
+    assign equals_id = watch_then_id[1]
+    assign ends_with_id = equals_id | split: '='
+    assign video_id = ends_with_id | last
+  endif
+
+  if video_type == 'youtube'
+    capture video_link
+      echo 'https://www.youtube.com/watch?v=' | append: video_id
+    endcapture
+  elsif video_type == 'vimeo'
+    capture video_link
+      echo 'https://vimeo.com/' | append: video_id
+    endcapture
+  endif
+-%}
+{%- if video_type != '' -%}
+          <div
+            class="main-buttons__item"
+            {% if animations_enabled %}
+              data-aos="fade-up"
+              data-aos-anchor="{{ animation_anchor }}"
+              data-aos-delay="{{ animation_delay }}"
+              {%- assign animation_delay = animation_delay | plus: 150 -%}
+            {% endif %}
+          >
+            <a
+              href="{{ video_link }}"
+              class="video-text-link"
+              data-video-play="{% render 'photoswipe-video-html' item_link: video_link, item_link_type: video_type, item_link_id: video_id, item_id: video_parent_id %}"
+            >
+              {%- render 'icon-play' -%}
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if video_bg_show -%}
+      <div class="main-buttons main-buttons--video main-buttons--video-bg align--{{ text_position }}">
+        <div
+          class="main-buttons__item"
+          {% if animations_enabled %}
+            data-aos="fade-up"
+            data-aos-anchor="{{ animation_anchor }}"
+            data-aos-delay="{{ animation_delay }}"
+            {%- assign animation_delay = animation_delay | plus: 150 -%}
+          {% endif %}
+        >
+          {{- additional_video_button -}}
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if title != blank -%}
+      {%- capture title_attributes -%}
+        class="h1 main-heading {{ text_color }}{% if has_text_highlight %} {{ text_highlight_wrapper_class }}{% endif %}"
+        {% if animations_enabled %}
+          data-aos="fade-up"
+          data-aos-anchor="{{ animation_anchor }}"
+          data-aos-delay="{{ animation_delay }}"
+          {%- assign animation_delay = animation_delay | plus: 150 -%}
+        {% endif %}
+        style="font-size: calc({{ heading_size }} * 3rem * var(--FONT-ADJUST-HEADING))"
+      {%- endcapture -%}
+
+      {%- if title_highlights -%}
+        {% render 'title-text-reveal-and-highlights',
+          title: title,
+          title_attributes: title_attributes,
+          has_text_highlight: has_text_highlight
+        %}
+      {%- else -%}
+        <div {{ title_attributes }}>{{- title -}}</div>
+      {%- endif -%}
+    {%- endif -%}
+
+    {%- if text != blank -%}
+      <div
+        class="main-text h2"
+        {% if animations_enabled %}
+          data-aos="fade-up"
+          data-aos-anchor="{{ animation_anchor }}"
+          data-aos-delay="{{ animation_delay }}"
+          {%- assign animation_delay = animation_delay | plus: 150 -%}
+        {% endif %}
+      >
+        {{- text -}}
+      </div>
+    {%- endif -%}
+
+    {% comment %} Buttons {% endcomment %}
+    {%- if button_text != blank -%}
+      <div class="main-buttons align--{{ text_position }}">
+        <div
+          class="main-buttons__item"
+          {% if animations_enabled %}
+            data-aos="fade-up"
+            data-aos-anchor="{{ animation_anchor }}"
+            data-aos-delay="{{ animation_delay }}"
+          {% endif %}
+        >
+          <a
+            class="btn {{ button_style }} {{ button_size }} {{ button_color }} {{ button_advanced_class }}"
+            href="{{ button_link }}"
+          >
+            <hover-button></hover-button>
+            {{- button_text -}}
+          </a>
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if button_1_text != blank or button_2_text != blank -%}
+      <div class="main-buttons align--{{ text_position }}">
+        {%- if button_1_text != blank -%}
+          <div
+            class="main-buttons__item"
+            {% if animations_enabled %}
+              data-aos="fade-up"
+              data-aos-anchor="{{ animation_anchor }}"
+              data-aos-delay="{{ animation_delay }}"
+            {% endif %}
+          >
+            <a
+              class="btn {{ button_1_style }} {{ button_1_size }} {{ button_1_color }} {{ button_1_advanced_class }}"
+              href="{{ button_1_link }}"
+            >
+              <hover-button></hover-button>
+              {{- button_1_text | escape -}}
+            </a>
+          </div>
+        {%- endif -%}
+
+        {%- if button_2_text != blank -%}
+          <div
+            class="main-buttons__item"
+            {% if animations_enabled %}
+              data-aos="fade-up"
+              data-aos-anchor="{{ animation_anchor }}"
+              data-aos-delay="{{ animation_delay }}"
+            {% endif %}
+          >
+            <a
+              class="btn {{ button_2_style }} {{ button_2_size }} {{ button_2_color }} {{ button_2_advanced_class }}"
+              href="{{ button_2_link }}"
+            >
+              <hover-button></hover-button>
+              {{- button_2_text | escape -}}
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>

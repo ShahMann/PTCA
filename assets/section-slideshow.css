@@ -1,0 +1,397 @@
+/*================ "Slideshow" ================*/
+.slider {
+  --flickity-btn-position: calc((var(--gutter) - var(--flickity-btn-size)) / 2);
+  --scale: 1;
+  position: relative;
+  overflow: hidden;
+}
+.slider .flickity-prev-next-button {
+  z-index: 1;
+}
+@media only screen and (max-width: 1023px) {
+  .slider .flickity-prev-next-button {
+    display: none;
+  }
+}
+.slider .flickity-page-dots {
+  bottom: 10px;
+  padding: 0 var(--gutter-mobile);
+  margin-bottom: 15px;
+  z-index: 10;
+}
+@media only screen and (min-width: 1024px) {
+  .slider .flickity-page-dots {
+    padding: 0 var(--gutter);
+  }
+}
+.slider .dot:first-child {
+  margin-left: 0;
+}
+.slider .dot:last-child {
+  margin-right: 0;
+}
+.slider .overlay {
+  pointer-events: none;
+}
+.slider .item {
+  opacity: 0 !important;
+  transition: opacity 0s 0.5s;
+  min-height: var(--item-min-h, var(--min-h));
+}
+.slider .item.is-selected {
+  opacity: 1 !important;
+  transition: opacity 0s;
+}
+.slider .slide__text__wrapper {
+  overflow-wrap: break-word;
+}
+@media only screen and (min-width: 1024px) {
+  .slider .slide__text__wrapper {
+    padding: var(--gutter);
+    max-width: var(--content-width, 50%);
+  }
+}
+
+.slider--first .item:not(.is-selected) {
+  opacity: 0.001 !important;
+}
+.slider--first.slider--wipe .item.is-selected .slide__image__inner, .slider--first.slider--slide .item.is-selected .slide__image__inner {
+  opacity: 0.001;
+}
+.no-js .slider--first.slider--wipe .item .slide__image__inner, .slider--first.slider--wipe.img-in .item:only-of-type .slide__image__inner, .slider--first.slider--wipe.flickity-enabled.img-in .item.is-selected .slide__image__inner, .no-js .slider--first.slider--slide .item .slide__image__inner, .slider--first.slider--slide.img-in .item:only-of-type .slide__image__inner, .slider--first.slider--slide.flickity-enabled.img-in .item.is-selected .slide__image__inner {
+  opacity: 1;
+}
+
+[data-current-style=text-dark] .slider__scroll-down {
+  color: var(--text);
+}
+[data-current-style=text-dark] .flickity-page-dots .dot {
+  border-color: var(--text);
+}
+
+[data-current-style=text-light] .slider__scroll-down {
+  color: var(--white);
+}
+[data-current-style=text-light] .flickity-page-dots .dot {
+  border-color: var(--white);
+}
+
+.slider .item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.slide__image__container {
+  padding-top: var(--container-padding-top, 0);
+}
+
+.slider .overlay,
+.slide__image__container,
+.slide__text__container {
+  grid-row-start: 1;
+  grid-column-start: 1;
+  min-height: 100%;
+}
+@media only screen and (max-width: 767px) and (orientation: landscape) {
+  .slider .overlay,
+  .slide__image__container,
+  .slide__text__container {
+    min-height: auto;
+  }
+}
+
+/*
+  Prevent CLS on page load
+  Images are stacked until flickity is initialized which causes CLS
+  Position absolute makes them stay unchanged (if only JS is enabled)
+*/
+.js .slider:not(.flickity-enabled) .item:not(:first-of-type) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+}
+
+.slider--zoom-out {
+  --scale-factor: 1.2;
+  --duration: 0.9s;
+  --easing: cubic-bezier(0.25, 0.6, 0.5, 0.95);
+}
+.slider--zoom-out .item {
+  transition: opacity 0s 0.3s;
+}
+.slider--zoom-out .item.is-selected {
+  transition: opacity 0.3s;
+}
+.slider--zoom-out .slide__image__inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transform: scale(var(--scale-factor));
+}
+.slider--zoom-out.flickity-enabled .slide__image__inner {
+  transform: scale(1);
+  animation: calc(var(--duration) * 3) var(--easing) zoomIn;
+  animation-fill-mode: forwards;
+}
+.no-js .slider--zoom-out .item .slide__image__inner, .slider--zoom-out.img-in .item:only-of-type .slide__image__inner, .slider--zoom-out.img-in.flickity-enabled .is-selected .slide__image__inner {
+  transform: scale(var(--scale-factor));
+  animation: var(--duration) var(--easing) zoomOut;
+  animation-fill-mode: forwards;
+}
+.slider--zoom-out.slider--no-cached-images img {
+  transition: opacity 0.15s ease;
+}
+.slider--zoom-out.slider--no-cached-images.flickity-enabled .is-selected .slide__image__inner {
+  transform: scale(var(--scale-factor));
+  animation: none;
+}
+.slider--zoom-out.slider--no-cached-images.slider--img-loaded.flickity-enabled .is-selected .slide__image__inner {
+  transform: scale(var(--scale-factor));
+  animation: var(--duration) var(--easing) zoomOut;
+  animation-fill-mode: forwards;
+}
+
+.slider--fade {
+  --duration: 0.6s;
+  --easing: ease;
+}
+.slider--fade.flickity-enabled.is-fade .item, .slider--fade.flickity-enabled.is-fade .item.is-selected {
+  transition: opacity var(--duration) var(--easing), visibility var(--duration) var(--easing);
+}
+
+.slider--wipe {
+  --duration: 0.5s;
+  --easing: cubic-bezier(0.75, 0, 1, 0);
+}
+.slider--wipe .item {
+  animation-duration: var(--duration);
+  animation-timing-function: var(--easing);
+}
+.slider--wipe .item.is-selected .slide__image__inner {
+  opacity: 0;
+}
+.no-js .slider--wipe .item, .slider--wipe.img-in .item:only-of-type, .slider--wipe.flickity-enabled.img-in .item.is-selected {
+  animation-name: clipPathFromRight;
+}
+.no-js .slider--wipe .item .slide__image__inner, .slider--wipe.img-in .item:only-of-type .slide__image__inner, .slider--wipe.flickity-enabled.img-in .item.is-selected .slide__image__inner {
+  opacity: 1;
+}
+
+.slider--slide {
+  --duration: 0.4s;
+  --easing: cubic-bezier(0.25, 0.6, 0.5, 0.95);
+}
+.slider--slide .item {
+  transition: opacity 0s 0.4s ease, visibility 0s 0.4s !important;
+}
+.slider--slide .item.is-selected .slide__image__inner {
+  opacity: 0;
+}
+.no-js .slider--slide .item, .slider--slide.img-in .item:only-of-type {
+  animation: sliderRightToLeftOneSlide var(--duration) var(--easing);
+}
+.no-js .slider--slide .item .slide__image__inner, .slider--slide.img-in .item:only-of-type .slide__image__inner {
+  opacity: 1;
+}
+.slider--slide.flickity-enabled.img-in .item.is-selected {
+  transition: opacity 0.25s ease, visibility 0.25s !important;
+  animation: sliderRightToLeft var(--duration) var(--easing);
+}
+.slider--slide.flickity-enabled.img-in .item.is-selected .slide__image__inner {
+  opacity: 1;
+}
+
+.slider__scroll-down {
+  position: absolute;
+  display: inline-block;
+  left: 50%;
+  bottom: 0;
+  width: 44px;
+  height: 44px;
+  margin-left: -22px;
+  z-index: 100;
+}
+.slider__scroll-down .icon-arrow-right {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: rotate(90deg);
+}
+
+.slide__image {
+  transform: scale(var(--scale));
+}
+
+.slide__text__container {
+  display: flex;
+  z-index: 100;
+}
+.item--top-center .slide__text__container {
+  justify-content: center;
+  align-self: flex-start;
+}
+.item--bottom-center .slide__text__container {
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.slide__text__wrapper {
+  padding: var(--gutter) var(--gutter-mobile);
+}
+.text-left .slide__text__wrapper {
+  text-align: left;
+}
+.text-center .slide__text__wrapper {
+  text-align: center;
+}
+.text-right .slide__text__wrapper {
+  text-align: right;
+}
+
+.slider--has-arrow .slide__text__wrapper,
+.slider--has-dots .slide__text__wrapper {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.slider--has-arrow .item--top-left .slide__text__wrapper,
+.slider--has-arrow .item--top-right .slide__text__wrapper,
+.slider--has-dots .item--top-left .slide__text__wrapper,
+.slider--has-dots .item--top-right .slide__text__wrapper {
+  margin-top: 0;
+}
+
+.slider--has-arrow .flickity-page-dots {
+  margin-bottom: 35px;
+}
+
+.slide__text__wrapper > *:not(.slide__heading) {
+  position: relative;
+  z-index: 2;
+}
+
+.slide__heading a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none !important;
+}
+.slide__heading a:before, .slide__heading a:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.1rem;
+  width: 100%;
+  height: var(--BORDER-WIDTH);
+  display: block;
+  background: var(--btn-text, var(--text));
+  transition: none;
+  pointer-events: none;
+}
+.slide__heading a:before {
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.slide__heading a:after {
+  transform-origin: right;
+}
+.no-touch .slide__heading a:hover {
+  background: transparent;
+  border: 0;
+}
+.no-touch .slide__heading a:hover:before, .no-touch .slide__heading a:hover:after {
+  transition: transform 1.1s cubic-bezier(0.19, 1, 0.22, 1);
+  transform: scaleX(0);
+}
+.no-touch .slide__heading a:hover:before {
+  transform: scaleX(1);
+  transition-delay: 0.25s;
+}
+.slide__heading [data-has-highlight]:before, .slide__heading [data-has-highlight]:after,
+.slide__heading .section__link:before,
+.slide__heading .section__link:after {
+  display: none;
+}
+.slide__heading:not(.text-highlight-wrapper) .text-reveal__cropper a:before, .slide__heading:not(.text-highlight-wrapper) .text-reveal__cropper a:after {
+  bottom: 0;
+}
+
+.slide__text > span {
+  display: block;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 767px) {
+  .text-left .slide__text__container .main-buttons--video {
+    align-items: flex-start;
+  }
+  .text-center .slide__text__container .main-buttons--video {
+    align-items: center;
+  }
+  .text-right .slide__text__container .main-buttons--video {
+    align-items: flex-end;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  .slide__btn {
+    display: block;
+  }
+}
+
+.slide__text__wrapper {
+  pointer-events: none;
+}
+
+.slide__text__wrapper a {
+  pointer-events: auto;
+}
+
+.slide__link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.slider--no-animation .slide__image {
+  transform: none;
+}
+
+.text-left .slide__text__container .slide__buttons,
+.text-left .slide__text__container .main-buttons__item {
+  justify-content: flex-start;
+}
+
+.text-right .slide__text__container .slide__buttons,
+.text-right .slide__text__container .main-buttons__item {
+  justify-content: flex-end;
+}
+
+.text-center .slide__text__container .slide__buttons,
+.text-center .slide__text__container .main-buttons__item {
+  justify-content: center;
+}
+
+body:not(.no-outline) .slider:focus,
+body:not(.no-outline) .item:focus-within,
+body:not(.no-outline) .slide__link:focus {
+  outline: -webkit-focus-ring-color auto 5px;
+  outline-offset: 1px;
+  margin: 2px;
+  z-index: 1;
+}
+
+.no-js .slider {
+  height: auto;
+}
+.no-js .slider .item {
+  opacity: 1 !important;
+}
+.no-js .slider--zoom-out .item,
+.no-js .slider--fade .item {
+  z-index: auto;
+}

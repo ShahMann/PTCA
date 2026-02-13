@@ -1,0 +1,59 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "list-collections",
+      "disabled": true,
+      "settings": {
+        "title": "Collections",
+        "heading_size": 100,
+        "layout": "grid",
+        "alignment": "left",
+        "collections_per_row": 4,
+        "columns_mobile": "1",
+        "image_shape": "circle",
+        "image_aspect_ratio": 1,
+        "text_size": 110,
+        "overlay_text": false,
+        "enable_slider_mobile": true,
+        "section_bg_color": "",
+        "section_text_color": "",
+        "width": "wrapper",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "1746355128238819c5": {
+      "type": "apps",
+      "blocks": {
+        "convermax_year_make_model_collection_list_page_fNRhgJ": {
+          "type": "shopify://apps/convermax-year-make-model/blocks/collection-list-page/874383ce-1b49-4436-9ea6-3697a3a5a3d5",
+          "settings": {
+            "wrapper_classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "convermax_year_make_model_collection_list_page_fNRhgJ"
+      ],
+      "settings": {
+        "bg_color": "",
+        "width": "wrapper",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1746355128238819c5"
+  ]
+}

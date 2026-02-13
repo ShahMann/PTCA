@@ -1,0 +1,42 @@
+{% comment %}
+  Footer Section using Shopify Blocks for images and keeping the CSS in a separate file.
+{% endcomment %}
+{% if section.blocks.size > 0 %}
+  {{ 'payment-icons.css' | asset_url | stylesheet_tag }}
+  <div class="payment-icons">
+    <div class="icon-wrapper">
+      <div class="footer-icons">
+        {% for block in section.blocks %}
+          <div class="icon-box">
+            <img src="{{ block.settings.image | image_url: width: 100, height: 100 }}" height="100px" width="100px" alt="{{ block.settings.image.alt }}" />
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% schema %}
+{
+  "name": "Payment icons",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "icon",
+      "name": "Icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "label": "Icon Image",
+          "id": "image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Payment icons",
+      "category": "Footer"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,47 @@
+#cm_fitment toggle-ellipsis {
+  --height: auto !important;
+}
+
+.search-popdown__main predictive-search {
+  display: flex;
+  justify-content: center;
+  background: #000000;
+  padding: 10px;
+}
+
+#cm-search-box {
+  width: 500px;
+}
+
+#cm-mobile-search-box {
+  margin-right: 15px;
+}
+
+#cm-garage .garage-icon-container .garage-icon,
+#cm-mobile-garage .garage-icon-container .garage-icon {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%)
+    hue-rotate(323deg) brightness(106%) contrast(102%);
+}
+
+@media (max-width: 380px) {
+  .has-scrolled .site-header--has-logo .logo {
+    margin-right: 180px;
+  }
+}
+
+.cm_dialog.SearchBoxDialog .section-title-div,
+.cm_dialog.SearchBoxDialog .section-title,
+.cm_dialog.SearchBoxDialog .cm_browseAllButton {
+  background-color: transparent !important;
+}
+
+.cm_vehicle-widget__home-wheeltiretab .cm_vehicle-widget__wheel-tire .cm_vehicle-widget_select-container .cm_select_toggle {
+  height: 40px;
+}
+.cm_vehicle-widget__home-wheeltiretab .cm_vehicle-widget__wheel-tire .cm_vehicle-widget_select-container .cm_select__pretty {
+  line-height: 40px;
+}
+
+.cm_vehicle-widget__home-wheeltiretab .cm_vehicle-widget__wheel-tire .cm_vehicle-widget_select-container .cm_select {
+  margin-bottom: 0;
+}

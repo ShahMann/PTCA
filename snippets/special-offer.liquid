@@ -1,0 +1,210 @@
+{% comment %}
+  Special Offers Snippet
+  This snippet displays special offers for eligible products.
+  Include this in product-template.liquid or other product detail templates.
+{% endcomment %}
+{% if product.metafields.custom.special_offer %}
+  {% if product.metafields.custom.special_offer_end_date %}
+    {% assign end_date_raw = product.metafields.custom.special_offer_end_date %}
+  {% endif %}
+  <div class="special-offers-container">
+    <div class="special-offers-header">
+      <div class="special-offers-banner">
+        <div class="special-offers-tag-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 315">
+            <rect width="350" height="315" fill="white"/>
+            <path d="M215.36,309.81L333,192.3s13.1-12.32-5.81-31.19C306.49,140.4,168.35,6.25,168.35,6.25l15.28-2.2L333.71,152.13s29.63,26.06,9,46.7L233.18,308.18Z" fill="#FEE500 "/>
+            <path d="M306.74,159.61L154,7.08A24.24,24.24,0,0,0,136.88,0H0V136.68a24.14,24.14,0,0,0,7.09,17.09L159.84,306.31a29.76,29.76,0,0,0,42,0L306.74,201.59A29.65,29.65,0,0,0,306.74,159.61Z" fill="#FEE500"/>
+            <circle cx="56.72" cy="92.84" r="27.75" fill="white"/>
+          </svg>
+        </div>
+        <span class="special-offers-title">SPECIAL OFFERS</span>
+      </div>
+    </div>
+    <div class="special-offers-content">
+      <div class="special-offers-message">
+        <a href="{{ product.metafields.custom.offer_details_page_url }}">
+          {{- product.metafields.custom.special_offer_message -}}
+        </a>
+      </div>
+      {% if product.metafields.custom.special_offer_end_date %}
+        <div class="special-offers-expires">
+          <span class="special-offers-clock-icon">⏰</span>
+          <span class="ends-text">Ends</span>
+          <span id="formatted-date">Processing...</span> (<span id="days-left-counter">0</span> Days Left!)
+        </div>
+      {% endif %}
+      <div class="special-offers-link">
+        <a href="{{ product.metafields.custom.offer_details_page_url }}">See Details</a>
+      </div>
+    </div>
+  </div>
+  <style>
+    .special-offers-container {
+      padding: 15px 15px;
+      margin: 15px 0;
+      background-color: #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .special-offers-header {
+      margin-bottom: 12px;
+    }
+    .special-offers-banner {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      background-color: #f1f1f1;
+      padding: 5px 15px 5px 40px;
+      border-radius: 0 2px 2px 0;
+      box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+    .special-offers-banner:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-style: solid;
+      border-width: 15px 0 15px 15px;
+      border-color: transparent transparent transparent #f1f1f1;
+      transform: translateX(-99%);
+    }
+    .special-offers-tag-icon {
+      position: absolute;
+      left: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+    }
+    .special-offers-tag-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: #FEE500 !important;
+    }
+
+    .special-offers-tag-icon svg circle {
+      fill: #ffffff !important;
+    }
+
+    .special-offers-title {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+    }
+    .special-offers-content {
+      padding-left: 5px;
+    }
+    .special-offers-message {
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 5px;
+    }
+    .special-offers-expires {
+      font-size: 12px;
+      color: black;
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+      gap: 5px;
+    }
+    .special-offers-clock-icon {
+      color: red;
+      margin-right: 2px;
+    }
+    .ends-text {
+      margin-right: 1px;
+    }
+    .special-offers-link {
+      margin-top: 8px;
+    }
+    .special-offers-link a {
+      color: Black;
+      text-decoration: underline;
+      font-size: 25px;
+      font-weight: bold;
+    }
+  </style>
+
+  {% if product.metafields.custom.special_offer_end_date %}
+    <script>
+      (function() {
+        function formatDate(dateString) {
+          try {
+            let date;
+            if (dateString.match(/^\d{4}-\d{2}-\d{2}$/)) {
+              date = new Date(dateString);
+            } else {
+              date = new Date(dateString);
+            }
+
+            if (isNaN(date.getTime())) {
+              return dateString;
+            }
+            const months = ['January', 'February', 'March', 'April', 'May', 'June',
+                          'July', 'August', 'September', 'October', 'November', 'December'];
+            return months[date.getMonth()] + ' ' + date.getDate();
+          } catch (e) {
+            console.error("Error formatting date:", e);
+            return dateString;
+          }
+        }
+
+        function updateDaysLeft() {
+          try {
+            const endDateText = "{{ end_date_raw }}";
+            const formattedDateElement = document.getElementById('formatted-date');
+            if (formattedDateElement) {
+              // Add the month and day with proper spacing
+              const formattedDate = formatDate(endDateText);
+              formattedDateElement.textContent = formattedDate;
+            }
+            // Parse the end date
+            let endDate = new Date(endDateText);
+
+            if (isNaN(endDate.getTime())) {
+              // Try alternative parsing if direct parsing fails
+              const dateParts = endDateText.split(/[- ]/);
+              if (dateParts.length >= 3) {
+                // Assume YYYY-MM-DD or similar format
+                const year = parseInt(dateParts[0], 10);
+                const month = parseInt(dateParts[1], 10) - 1;
+                const day = parseInt(dateParts[2], 10);
+                endDate = new Date(year, month, day);
+              }
+            }
+
+            if (!isNaN(endDate.getTime())) {
+              // Calculate the difference in milliseconds
+              const diffTime = endDate - new Date();
+
+              // Convert to days and round down
+              let daysLeft = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+              // Ensure we don't show negative days
+              if (daysLeft < 0) {
+                daysLeft = 0;
+              }
+
+              // Update the counter element immediately
+              const counterElement = document.getElementById('days-left-counter');
+              if (counterElement) {
+                counterElement.textContent = daysLeft;
+              }
+            }
+          } catch (e) {
+            console.error("Error calculating days left:", e);
+          }
+        }
+        updateDaysLeft();
+
+        document.addEventListener('DOMContentLoaded', function() {
+          updateDaysLeft();
+
+          setInterval(updateDaysLeft, 60000);
+        });
+
+        setTimeout(updateDaysLeft, 100);
+      })();
+    </script>
+  {% endif %}
+{% endif %}

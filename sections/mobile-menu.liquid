@@ -1,0 +1,281 @@
+{%- liquid
+  assign mobile_menu_behaviour = settings.mobile_menu_behaviour
+  assign bg_color = section.settings.bg_color
+  assign color = section.settings.color
+  assign image = section.settings.logo_not_home
+  if customer and customer.tags contains 'B2BUSER' and section.settings.logo_b2b != blank
+    assign image = section.settings.logo_b2b
+  endif
+  assign image_width = section.settings.logo_max_width
+-%}
+
+{%- capture logo -%}
+  {%- if image != blank -%}
+    {%- liquid
+      assign image_alt = image.alt | escape
+      assign image_height = image_width | divided_by: image.aspect_ratio
+    -%}
+    {%- capture sizes -%}(max-width: {{ image_width | times: 2 }}px) 50vw, {{ image_width }}px{%- endcapture -%}
+    {%- capture widths -%}{{ image_width }}, {{ image_width | times: 1.5 | round }}, {{ image_width | times: 2 }}{%- endcapture -%}
+
+    <a href="{{ routes.root_url }}" class="drawer__logo" style="--logo-width: {{ image_width }}px">
+      {{ image | image_url: width: 500 | image_tag:
+        widths: widths,
+        height: image_height,
+        width: image_width,
+        alt: image_alt,
+        sizes: sizes,
+        class: 'drawer__logo-image',
+        loading: 'lazy'
+      }}
+    </a>
+  {%- endif -%}
+{%- endcapture -%}
+
+<mobile-menu
+  id="nav-drawer-section"
+  class="drawer drawer--left drawer--nav cv-h"
+  role="navigation"
+  data-drawer
+  data-drawer-section
+  data-section-type="mobile-menu"
+  data-section-id="{{ section.id }}"
+>
+  <div class="drawer__header">
+    {%- if logo != blank -%}
+      <div class="drawer__title">{{ logo }}</div>
+    {%- endif -%}
+
+    <button type="button" class="drawer__close-button" aria-controls="nav-drawer-section" data-drawer-toggle>
+      <span class="visually-hidden">{{ 'general.accessibility.close_drawer' | t }}</span>
+      {%- render 'icon-close' -%}
+    </button>
+  </div>
+
+  {%- comment -%} Mobile Navigation {%- endcomment -%}
+  {%- assign menu_blocks = section.blocks | where: 'type', 'menu' -%}
+  {%- for block in menu_blocks -%}
+    {%- liquid
+      assign menu = block.settings.mobile_menu_linklist | default: 'main-menu'
+      assign highlight_item = block.settings.highlight_item | downcase | strip_html | escape
+      assign highlight_item_color = block.settings.highlight_item_color
+      assign show_links_images = block.settings.show_images
+      assign links_images_aspect_ratio = block.settings.image_aspect_ratio
+      assign enable_custom_badge = block.settings.enable_custom_badge
+      assign custom_badge_text = block.settings.custom_badge_text
+      assign text_size = block.settings.text_size | times: 0.01
+      assign index = forloop.index0
+
+      capture nav_style
+        echo '--adjust-nav-top-level: calc(var(--FONT-ADJUST-NAV-TOP-LEVEL) * ' | append: text_size | append: ');'
+        echo ' --adjust-nav: calc(var(--FONT-ADJUST-NAV) * ' | append: text_size | append: ');'
+      endcapture
+    -%}
+    <ul
+      class="mobile-nav mobile-nav--weight-{{ settings.nav_font_weight }}{% unless settings.nav_caps_letter_spacing %} letter-spacing-nav{% endunless %}"
+      data-mobile-menu-block
+      {{ block.shopify_attributes }}
+      style="{{ nav_style }}"
+    >
+      {%- liquid
+        for link in linklists[menu].links
+          render 'nav-item-mobile', link: link, mobile_menu_behaviour: mobile_menu_behaviour, show_links_images: show_links_images, links_images_aspect_ratio: links_images_aspect_ratio, index: index, highlight_item: highlight_item, highlight_item_color: highlight_item_color, enable_custom_badge: enable_custom_badge, custom_badge_text: custom_badge_text
+        endfor
+      -%}
+    </ul>
+  {%- endfor -%}
+  {%- assign show_b2b_mobile = false -%}
+  {%- if customer and customer.tags contains 'B2BUSER' -%}
+    {%- assign show_b2b_mobile = true -%}
+  {%- endif -%}
+  {%- if shop.customer_accounts_enabled or settings.show_header_search or show_b2b_mobile -%}
+    <ul class="mobile-nav mobile-nav--bottom mobile-nav--weight-{{ settings.nav_font_weight }}">
+      {%- if customer and customer.tags contains 'B2BUSER' -%}
+        <li class="mobile-menu__item mobile-menu__item--b2b-toggle">
+          <div class="mobile-nav__b2b-toggle-wrapper">
+            <button type="button" class="b2b-toggle-btn b2b-toggle-btn--mobile" data-state="{{ customer.metafields.custom.hide_price | default: 'Show' }}">
+              <span class="b2b-toggle-label">Show Price</span>
+              <span class="b2b-toggle-switch"></span>
+            </button>
+          </div>
+        </li>
+      {%- endif -%}
+      {%- if shop.customer_accounts_enabled -%}
+        {%- if customer -%}
+          <li class="mobile-menu__item{% if request.path contains routes.account_url %} mobile-menu__item--active{% endif %}">
+            <a href="{{ routes.account_url }}" class="mobile-navlink mobile-navlink--small">
+              {{- 'customer.account.title' | t -}}
+            </a>
+          </li>
+          <li class="mobile-menu__item{% if request.path contains routes.account_logout_url %} mobile-menu__item--active{% endif %}">
+            <a href="{{ routes.account_logout_url }}" class="mobile-navlink mobile-navlink--small">
+              {{- 'layout.customer.log_out' | t -}}
+            </a>
+          </li>
+        {%- else -%}
+          {% comment %}<li class="mobile-menu__item{% if request.path contains routes.account_login_url %} mobile-menu__item--active{% endif %}"><a href="{{ routes.account_login_url }}" class="mobile-navlink mobile-navlink--small" id="customer_login_link">{{ 'layout.customer.log_in' | t }}</a></li>{% endcomment %}
+          <li class="mobile-menu__item{% if request.path contains routes.account_register_url %} mobile-menu__item--active{% endif %}">
+            <a
+              href="{{ routes.account_register_url }}"
+              class="mobile-navlink mobile-navlink--small"
+              id="customer_register_link"
+            >
+              {{- 'layout.customer.create_account' | t -}}
+            </a>
+          </li>
+        {%- endif -%}
+      {%- endif -%}
+
+      {% comment %}
+        {%- if settings.show_header_search -%}
+          <li class="mobile-menu__item{% if request.path contains routes.search_url %} mobile-menu__item--active{% endif %}"><a href="{{ routes.search_url }}" class="mobile-navlink mobile-navlink--small" data-nav-search-open>{{ 'layout.navigation.search' | t }}</a></li>
+        {%- endif -%}
+      {% endcomment %}
+      <li class="mobile-menu__item{% if request.path contains 'wishlist' %} mobile-menu__item--active{% endif %}">
+        <a href="/pages/swym-wishlist" class="mobile-navlink mobile-navlink--small">
+          {{- 'general.accessibility.wishlist' | t -}}
+        </a>
+      </li>
+    </ul>
+  {%- endif -%}
+</mobile-menu>
+{%- style -%}
+  #nav-drawer-section {
+      --text : {{ color }};
+      --bg: {{ bg_color }}
+    }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "Mobile menu",
+  "class": "shopify-section-mobile-menu",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_not_home",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_b2b",
+      "label": "B2B logo image"
+    },
+    {
+      "type": "range",
+      "id": "logo_max_width",
+      "label": "Width",
+      "min": 30,
+      "max": 250,
+      "default": 100,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Text",
+      "default": "#545454"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Menu",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "link_list",
+          "label": "Menu",
+          "id": "mobile_menu_linklist"
+        },
+        {
+          "type": "range",
+          "id": "text_size",
+          "label": "Text size",
+          "default": 100,
+          "info": "Automatically generated by the base size.",
+          "min": 75,
+          "max": 200,
+          "step": 5,
+          "unit": "%"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_images",
+          "label": "Show images",
+          "info": "Collection and Product links. Images appear on second-level links",
+          "default": true
+        },
+        {
+          "type": "range",
+          "id": "image_aspect_ratio",
+          "min": 0.5,
+          "max": 1.5,
+          "step": 0.1,
+          "unit": ":1",
+          "label": "Image scaling ratio",
+          "info": "Wide to tall",
+          "default": 0.5
+        },
+        {
+          "type": "header",
+          "content": "Highlight link"
+        },
+        {
+          "type": "text",
+          "id": "highlight_item",
+          "label": "Menu item",
+          "default": "Sale"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_custom_badge",
+          "label": "Enable custom badge",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "custom_badge_text",
+          "label": "Custom badge text",
+          "default": "10% OFF"
+        },
+        {
+          "type": "color",
+          "id": "highlight_item_color",
+          "label": "Color",
+          "default": "#D02E2E"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mobile menu",
+      "blocks": [
+        {
+          "type": "menu"
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "groups": ["header"]
+  }
+}
+{% endschema %}

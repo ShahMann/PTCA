@@ -1,0 +1,184 @@
+{%- liquid
+  assign highlight_item = section.settings.highlight_item | downcase | strip_html | escape
+  assign custom_badge_text = section.settings.custom_badge_text
+  assign enable_custom_badge = section.settings.enable_custom_badge
+  assign link_title = link.title | strip_html | escape
+  assign link_title_lowercase = link.title | downcase | strip_html | escape
+  assign nav_secondary = nav_secondary | default: false
+  assign parent = false
+  assign grandparent = false
+  if link.levels == 1
+    assign parent = true
+  endif
+  if link.levels == 2
+    assign grandparent = true
+  endif
+
+  assign child_count = 0
+  assign image_count = 0
+  if grandparent
+    assign child_count = link.links.size
+    if child_count > 10
+      assign child_count = 10
+    endif
+  endif
+
+  assign index = index | append: ""
+  for block in section.blocks
+    assign image_second_menu = block.settings.image_second_menu
+    if block.settings.position == index and nav_secondary == image_second_menu
+      assign grandparent = true
+      assign image_count = image_count | plus: 1
+    endif
+  endfor
+
+  if parent or grandparent
+    assign expands = true
+    assign key = link.url | append: link.title | append: link.levels | md5
+  endif
+
+  if parent and link.levels == 1
+    assign child_count = child_count | plus: 1
+  endif
+
+  if image_count and child_count == 0
+    assign images_only = " grandparent--all-images"
+  endif
+
+  capture classes
+    echo 'menu__item'
+
+    if grandparent
+      echo ' grandparent kids-' | append: child_count
+
+      if image_count > 0
+        echo ' images-' | append: image_count
+      else
+        echo ' no-images'
+      endif
+
+      echo images_only
+    elsif parent
+      echo ' parent'
+    else
+      echo ' child'
+    endif
+
+    if link.active
+      echo ' menu-item--active'
+    endif
+  endcapture
+
+  assign link_hover_dot_class = ''
+  if link_hover_dot
+    assign link_hover_dot_class = ' navlink--dot'
+  endif
+-%}
+
+<div class="{{ classes }}"
+  data-nav-item
+  {% if grandparent %}
+    role="navigation"
+  {% endif %}
+  {% if expands %}
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+    data-hover-disclosure-toggle="dropdown-{{ key }}"
+    aria-controls="dropdown-{{ key }}"
+  {% else %}
+    data-hover-disclosure-toggle
+  {% endif %}>
+  <a href="{{ link.url }}" data-top-link class="navlink navlink--toplevel{{ link_hover_dot_class }}{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}{% if settings.nav_caps_toplevel %} caps{% endif %}">
+    <span class="navtext">{{ link_title }}</span>
+    {%- if enable_custom_badge and custom_badge_text != blank and highlight_item == link_title_lowercase -%}
+      <span class="navtext__custom-badge">{{ custom_badge_text }}</span>
+    {%- endif -%}
+  </a>
+  {%- if expands -%}
+    <div class="header__dropdown"
+      data-hover-disclosure
+      role="combobox"
+      id="dropdown-{{ key }}">
+      <div class="header__dropdown__wrapper">
+        <div class="header__dropdown__inner">
+          {%- if grandparent -%}
+            {%- unless images_only -%}
+              <div class="header__grandparent__links{% if settings.nav_caps_megamenu %} caps{% endif %}">
+                {%- if link.levels == 2 -%}
+                  {%- for link in link.links -%}
+                    {%- capture link_image_markup -%}
+                      {%- render 'header-link-image' with enable: section.settings.show_images, link: link, aspect_ratio: section.settings.image_aspect_ratio -%}
+                    {%- endcapture -%}
+
+                    <div class="dropdown__family">
+                      {%- assign link_title = link.title | strip_html | escape -%}
+                      {%- assign link_title_lowercase = link.title | downcase | strip_html | escape -%}
+                      <a href="{{ link.url }}" class="navlink navlink--child{{ link_hover_dot_class }}{% if link_image_markup != blank %} navlink--image hover-scale{% endif %}{% if link.active %} navlink--active{% endif %}{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}">
+                        {{- link_image_markup -}}
+                        <span class="navtext">{{ link_title }}</span>
+                        {%- if enable_custom_badge and custom_badge_text != blank and highlight_item == link_title_lowercase -%}
+                          <span class="navtext__custom-badge">{{ custom_badge_text }}</span>
+                        {%- endif -%}
+                      </a>
+                      {%- for link in link.links -%}
+                        {%- assign link_title = link.title | strip_html | escape -%}
+                        {%- assign link_title_lowercase = link.title | downcase | strip_html | escape -%}
+                        <a href="{{ link.url }}" class="navlink navlink--grandchild{% if link.active %} navlink--active{% endif %}{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}">
+                          <span class="navtext">
+                            {{- link_title -}}
+                            {%- if enable_custom_badge and custom_badge_text != blank and highlight_item == link_title_lowercase -%}
+                              <span class="navtext__custom-badge">{{ custom_badge_text }}</span>
+                            {%- endif -%}
+                          </span>
+                        </a>
+                      {%- endfor -%}
+                    </div>
+                  {%- endfor -%}
+                {%- elsif link.levels == 1 -%}
+                  <div class="dropdown__family">
+                    {%- for link in link.links -%}
+                      {%- assign link_title = link.title | strip_html | escape -%}
+                      {%- assign link_title_lowercase = link.title | downcase | strip_html | escape -%}
+                      <a href="{{ link.url }}" data-stagger class="navlink navlink--grandchild{% if link.active %} navlink--active{% endif %}{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}">
+                        <span class="navtext">
+                          {{- link_title -}}
+                          {%- if enable_custom_badge and custom_badge_text != blank and highlight_item == link_title_lowercase -%}
+                            <span class="navtext__custom-badge">{{ custom_badge_text }}</span>
+                          {%- endif -%}
+                        </span>
+                      </a>
+                    {%- endfor %}
+                  </div>
+                {%- endif %}
+              </div>
+            {%- endunless -%}
+
+            {%- for block in section.blocks -%}
+              {%- assign image_second_menu = block.settings.image_second_menu -%}
+              {% comment %} Render block content {% endcomment %}
+              {%- if block.settings.position == index and nav_secondary == image_second_menu -%}
+                {%- render 'header-block', block: block, child_count: child_count, image_count: image_count, index: index -%}
+              {%- endif -%}
+            {%- endfor -%}
+
+          {%- else -%}
+            {% comment %} Simple dropdown {% endcomment %}
+            {%- for link in link.links -%}
+              {%- assign link_title = link.title | strip_html | escape -%}
+              {%- assign link_title_lowercase = link.title | downcase | strip_html | escape -%}
+              <a href="{{ link.url }}" data-stagger class="navlink navlink--child{% if link.active %} navlink--active{% endif %}{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}{% if settings.nav_caps_megamenu %} caps{% endif %}">
+                <span class="navtext">
+                  {{- link_title -}}
+                  {%- if enable_custom_badge and custom_badge_text != blank and highlight_item == link_title_lowercase -%}
+                    <span class="navtext__custom-badge">{{ custom_badge_text }}</span>
+                  {%- endif -%}
+                </span>
+              </a>
+            {%- endfor -%}
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+</div>

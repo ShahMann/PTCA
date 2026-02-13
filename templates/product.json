@@ -1,0 +1,443 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "subheading": "breadcrumbs",
+            "title_size": 100,
+            "price_size": 100,
+            "bold_price": false,
+            "padding_bottom": 20
+          }
+        },
+        "inventory_countdown": {
+          "type": "inventory_countdown",
+          "settings": {
+            "max_inventory": 10,
+            "hide_inventory_count": true,
+            "padding_bottom": 20
+          }
+        },
+        "convermax_year_make_model_verify_fitment_c3UCdn": {
+          "type": "shopify://apps/convermax-year-make-model/blocks/verify-fitment/874383ce-1b49-4436-9ea6-3697a3a5a3d5",
+          "settings": {
+            "wrapper_classes": "",
+            "min_height": 60
+          }
+        },
+        "form": {
+          "type": "form",
+          "settings": {
+            "show_labels": true,
+            "show_quantity": false,
+            "show_payment_button": true,
+            "enable_subscriptions_selectors": true,
+            "padding_bottom": 20
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "enable_full_width": false,
+            "padding_bottom": 20
+          }
+        },
+        "7ddd2db6-1d92-43ee-a7d9-e786662f9ced": {
+          "type": "icon",
+          "settings": {
+            "icon_name": "eco-friendly",
+            "icon_color": "",
+            "icon_width": 20,
+            "icon_text": "Highlight or Feature",
+            "text_size": 90,
+            "width": "full",
+            "text_alignment": "left",
+            "bg_color": "",
+            "padding_bottom": 20
+          }
+        },
+        "custom_code_Ak66tW": {
+          "type": "custom_code",
+          "disabled": true,
+          "settings": {
+            "custom_code": "<div class=\"product__block aos-animate\">\n                <div class=\"product__block product__accordions aos-animate\" id=\"Block--product_fitment\" data-aos=\"hero\" data-aos-anchor=\"#productTemplate--template--15406386544720__main\" data-aos-order=\"13\" style=\"--PBB:10px;\"><div class=\"product__accordion text-dark\" data-collapsible=\"\" style=\"--border-opacity: 0;\n  --border-width: 1px;\n\n  --bg-item: transparent;\n    --bg-ellipsis: var(--bg);\n    --padding-sides: 0;\n    --padding-title: 10px;\n    --radius: 0;\n\">\n    <button class=\"product__accordion__title font-body\" aria-controls=\"cm_fitment\" data-collapsible-trigger=\"\" aria-expanded=\"false\">Fitment<svg aria-hidden=\"true\" focusable=\"false\" role=\"presentation\" class=\"icon icon-toggle-plus\" viewBox=\"0 0 192 192\"><path d=\"M30 96h132M96 30v132\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg><svg aria-hidden=\"true\" focusable=\"false\" role=\"presentation\" class=\"icon icon-toggle-minus\" viewBox=\"0 0 192 192\"><path d=\"M30 96h132\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></button>\n    <div class=\"product__accordion__content\" id=\"cm_fitment\" data-collapsible-container=\"\" aria-expanded=\"false\" style=\"\">\n      <div class=\"product__accordion__inner rte\" data-collapsible-content=\"\">\n<toggle-ellipsis data-height=\"175\" style=\"--height: 72px;\">\n    <div class=\"toggle-ellipsis__content\" data-content=\"\">\n      <div id=\"cm-fitment-table\"><div class=\"cm_fitment-table fitment-table-container\"><div class=\"fitment-table-title no-fitment-data\">\n    No Fitment Data<br>This product doesn't have fitment application data. Please verify fitment manually.\n  </div></div></div>\n    </div>\n\n    <div class=\"toggle-ellipsis__actions\" data-actions=\"\">\n      <button type=\"button\" class=\"toggle-ellipsis__button btn btn--text btn--small\" data-button=\"\">\n        <span class=\"toggle-ellipsis__more\">Read more</span>\n        <span class=\"toggle-ellipsis__less\">Read less</span>\n      </button>\n    </div>\n  </toggle-ellipsis></div>\n    </div>\n  </div></div>\n              </div>",
+            "padding_bottom": 0
+          }
+        },
+        "product_accordion": {
+          "type": "product_accordion",
+          "settings": {
+            "show_description": false,
+            "show_read_more": true,
+            "enable_full_width": false,
+            "tabs_bg_color": "",
+            "text_color": "text-dark",
+            "show_accordion_divider": false,
+            "line_thickness": "normal",
+            "accordion_heading": "Specification",
+            "heading_style": "font-body",
+            "accordion_text": "<p> </p>",
+            "accordion_page": "",
+            "padding_bottom": 10
+          }
+        },
+        "powerful_form_builder_app_block_CBFK4J": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTIxNzU4\"></div>"
+          }
+        },
+        "9927e90d-2ecb-4104-af67-0dadf75b2a0a": {
+          "type": "product_accordion",
+          "disabled": true,
+          "settings": {
+            "show_description": false,
+            "show_read_more": true,
+            "enable_full_width": false,
+            "tabs_bg_color": "",
+            "text_color": "text-dark",
+            "show_accordion_divider": false,
+            "line_thickness": "normal",
+            "accordion_heading": "Shipping and returns",
+            "heading_style": "font-body",
+            "accordion_text": "<p>Use this accordion to add info such as Materials, Sizing, Features, Shipping and Returns policies</p>",
+            "accordion_page": "",
+            "padding_bottom": 10
+          }
+        },
+        "a42f4e7d-6a8d-42a4-80af-29ec3b3b52d9": {
+          "type": "feature",
+          "disabled": true,
+          "settings": {
+            "icon_name": "support",
+            "icon_width": 25,
+            "title": "Need help with sizing?",
+            "text": "<p>This content type will accept <strong>rich text</strong> to help with adding styles and links to additional pages or content. Use this to add supplementary information to help your buyers.</p>",
+            "bg_color": "#f7f9fa",
+            "text_color": "#000000",
+            "padding_bottom": 20
+          }
+        },
+        "upsell": {
+          "type": "upsell",
+          "disabled": true,
+          "settings": {
+            "product_list": [],
+            "padding_bottom": 20
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "inventory_countdown",
+        "convermax_year_make_model_verify_fitment_c3UCdn",
+        "form",
+        "description",
+        "7ddd2db6-1d92-43ee-a7d9-e786662f9ced",
+        "custom_code_Ak66tW",
+        "product_accordion",
+        "powerful_form_builder_app_block_CBFK4J",
+        "9927e90d-2ecb-4104-af67-0dadf75b2a0a",
+        "a42f4e7d-6a8d-42a4-80af-29ec3b3b52d9",
+        "upsell"
+      ],
+      "settings": {
+        "product_sticky_enable": true,
+        "image_layout": "carousel",
+        "image_width": "standard",
+        "product_image_aspect_ratio": true,
+        "enable_zoom": true,
+        "enable_video_looping": false,
+        "bg_color": "",
+        "gradient": "",
+        "width": "wrapper",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "overlapping-images-0": {
+      "type": "section-overlapping-images",
+      "disabled": true,
+      "settings": {
+        "text_position": "left",
+        "text_alignment": "left",
+        "images_width": 750,
+        "images_offset": 60,
+        "image_link_1": "",
+        "image_link_2": "",
+        "hide_image_2": false,
+        "subheading": "",
+        "title": "<p>Our Story, Our Promise</p>",
+        "heading_size": 100,
+        "heading_highlight_type": "underline-hand-drawn",
+        "highlight_color": "#000000",
+        "highlight_text_color": "",
+        "description": "<p>Use this text to describe a product, promotion, or your company.</p>",
+        "text_size": 100,
+        "button_text": "",
+        "button_link": "",
+        "button_color": "btn--black",
+        "button_style": "btn--solid",
+        "button_size": "btn--small",
+        "video_text": "",
+        "video_link": "",
+        "bg_color": "",
+        "gradient": "",
+        "animation": "horizontal",
+        "animation_intensity": 50,
+        "width": "wrapper--full-padded",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "38ff978b-66eb-4318-9ce0-94db8ff86311": {
+      "type": "section-columns",
+      "blocks": {
+        "template--18952594129217__38ff978b-66eb-4318-9ce0-94db8ff86311-1683126238ada0cf52-0": {
+          "type": "text_block",
+          "settings": {
+            "title": "Add a title or tagline",
+            "heading_size": 120,
+            "text": "<p>Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.</p>",
+            "text_size": 100,
+            "button_text": "Learn More",
+            "button_link": "",
+            "button_color": "btn--black",
+            "button_style": "btn--text",
+            "button_size": "btn--small",
+            "video_link_popup": "",
+            "video_link_color": "text-dark"
+          }
+        },
+        "template--18952594129217__38ff978b-66eb-4318-9ce0-94db8ff86311-1683126238ada0cf52-1": {
+          "type": "text_block",
+          "settings": {
+            "title": "Add a title or tagline",
+            "heading_size": 120,
+            "text": "<p>Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.</p>",
+            "text_size": 100,
+            "button_text": "Learn More",
+            "button_link": "",
+            "button_color": "btn--black",
+            "button_style": "btn--text",
+            "button_size": "btn--small",
+            "video_link_popup": "",
+            "video_link_color": "text-dark"
+          }
+        },
+        "template--18952594129217__38ff978b-66eb-4318-9ce0-94db8ff86311-1683126238ada0cf52-2": {
+          "type": "text_block",
+          "settings": {
+            "title": "Add a title or tagline",
+            "heading_size": 120,
+            "text": "<p>Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.</p>",
+            "text_size": 100,
+            "button_text": "Learn More",
+            "button_link": "",
+            "button_color": "btn--black",
+            "button_style": "btn--text",
+            "button_size": "btn--small",
+            "video_link_popup": "",
+            "video_link_color": "text-dark"
+          }
+        }
+      },
+      "block_order": [
+        "template--18952594129217__38ff978b-66eb-4318-9ce0-94db8ff86311-1683126238ada0cf52-0",
+        "template--18952594129217__38ff978b-66eb-4318-9ce0-94db8ff86311-1683126238ada0cf52-1",
+        "template--18952594129217__38ff978b-66eb-4318-9ce0-94db8ff86311-1683126238ada0cf52-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "heading_size": 120,
+        "align_text": "text-left",
+        "columns": 3,
+        "columns_mobile": "1",
+        "show_images": true,
+        "show_borders": false,
+        "equalize_height": true,
+        "desktop_aspect_ratio": 0.8,
+        "mobile_aspect_ratio": 0.8,
+        "bg_color": "",
+        "gradient": "",
+        "color_borders": "#000000",
+        "layout_mobile": "carousel",
+        "width": "wrapper",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "tabs": {
+      "type": "section-accordions",
+      "blocks": {
+        "acordion-0": {
+          "type": "text",
+          "settings": {
+            "title": "Heading",
+            "text": "<p>Use this text block to discuss some commonly asked questions like shipping and returns, sizing, warranties, or product and company details.</p>"
+          }
+        },
+        "acordion-1": {
+          "type": "text",
+          "settings": {
+            "title": "Heading",
+            "text": "<p>Use this text block to discuss some commonly asked questions like shipping and returns, sizing, warranties, or product and company details.</p>"
+          }
+        },
+        "acordion-2": {
+          "type": "text",
+          "settings": {
+            "title": "Heading",
+            "text": "<p>Use this text block to discuss some commonly asked questions like shipping and returns, sizing, warranties, or product and company details.</p>"
+          }
+        },
+        "d0defd0d-94c3-403c-bd36-dc2f140a104f": {
+          "type": "text",
+          "settings": {
+            "title": "Heading",
+            "text": "<p>Use this text block to discuss some commonly asked questions like shipping and returns, sizing, warranties, or product and company details.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "acordion-0",
+        "acordion-1",
+        "acordion-2",
+        "d0defd0d-94c3-403c-bd36-dc2f140a104f"
+      ],
+      "disabled": true,
+      "settings": {
+        "layout": "two-columns",
+        "show_accordion_divider": false,
+        "line_thickness": "normal",
+        "subheading": "",
+        "title": "Frequently Asked Questions",
+        "type_style": "font-heading",
+        "heading_size": 120,
+        "text": "",
+        "tabs_bg_color": "#fafafa",
+        "bg_color": "",
+        "gradient": "",
+        "text_color": "text-dark",
+        "border_color": "",
+        "width": "wrapper",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "related": {
+      "type": "related-products",
+      "blocks": {
+        "related": {
+          "type": "related",
+          "settings": {
+            "title": "You May Also Like",
+            "product_recommendations_limit": 4
+          }
+        },
+        "recent": {
+          "type": "recent",
+          "settings": {
+            "title": "Recently viewed",
+            "product_recently_limit": 4
+          }
+        }
+      },
+      "block_order": [
+        "related",
+        "recent"
+      ],
+      "settings": {
+        "enable_tabs": true,
+        "columns_mobile": "1",
+        "type_style": "subheading-text",
+        "tab_heading_size": 120,
+        "bg_color": "",
+        "width": "wrapper",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "icons": {
+      "type": "section-icons-row",
+      "blocks": {
+        "icon-0": {
+          "type": "text",
+          "settings": {
+            "icon_name": "truck",
+            "title": "Free Shipping",
+            "text": "<p>on all order over $99</p>"
+          }
+        },
+        "icon-1": {
+          "type": "text",
+          "settings": {
+            "icon_name": "check",
+            "title": "Free Returns",
+            "text": "<p>within 30 days of purchase</p>"
+          }
+        },
+        "icon-2": {
+          "type": "text",
+          "settings": {
+            "icon_name": "eco-friendly",
+            "title": "1% Donated Annually",
+            "text": "<p>to forest conservation</p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon-0",
+        "icon-1",
+        "icon-2"
+      ],
+      "settings": {
+        "heading": "",
+        "subheading": "",
+        "alignment": "center",
+        "columns": 3,
+        "icons_width": 30,
+        "show_vertical_borders": true,
+        "show_top_border": true,
+        "show_bottom_border": true,
+        "heading_size": 120,
+        "text_size": 100,
+        "bg_color": "",
+        "gradient": "",
+        "text_color": "#333333",
+        "box_color": "",
+        "color_border": "#333333",
+        "button_text": "",
+        "button_link": "",
+        "button_color": "btn--black",
+        "button_style": "btn--solid",
+        "button_size": "btn--small",
+        "layout_mobile": "grid",
+        "width": "wrapper",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "main",
+    "overlapping-images-0",
+    "38ff978b-66eb-4318-9ce0-94db8ff86311",
+    "tabs",
+    "related",
+    "icons"
+  ]
+}

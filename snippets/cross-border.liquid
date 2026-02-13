@@ -1,0 +1,139 @@
+{%- liquid
+  assign show_locale = false
+  assign show_country = false
+  assign show_country_flag = section.settings.show_country_flag
+  assign localization_form_id = 'LocalizationForm-' | append: section.id
+
+  if section.settings.show_locale_selector and localization.available_languages.size > 1
+    assign show_locale = true
+  endif
+
+  if section.settings.show_country_selector and localization.available_countries.size > 1
+    assign show_country = true
+  endif
+
+  capture form_class
+    echo 'localization-form'
+    if show_country_flag
+      echo ' localization-form--country-flag'
+    endif
+  endcapture
+-%}
+
+{%- if show_locale or show_country -%}
+  {%- form 'localization', class: form_class, id: localization_form_id -%}
+    {%- if show_country -%}
+      <div>
+        <h2 class="visually-hidden" id="country-heading-{{ section.id }}">{{ 'footer.country' | t }}</h2>
+
+        <popout-select class="select-popout select-popout--country">
+          <button type="button" class="select-popout__toggle" aria-expanded="false" aria-controls="country-list" aria-describedby="country-heading" data-popout-toggle>
+            {%- if show_country_flag -%}
+              {{ localization.country | image_url: width: 40 | image_tag: loading: 'lazy', class: 'select-popout__flag' }}
+            {%- endif -%}
+            {{ localization.country.name }} ({{ localization.country.currency.iso_code }} {{ localization.country.currency.symbol }})
+
+            {%- render 'icon-select' -%}
+          </button>
+
+          <div id="country-list-{{ section.id }}" class="select-popout__list" data-popout-list>
+            <ul class="select-popout__list__scroll">
+              {%- for country in localization.available_countries -%}
+                <li class="select-popout__item{% if country.iso_code == localization.country.iso_code %} select-popout__item--current{% endif %}">
+                  <a class="select-popout__option" href="#"{% if country.iso_code == localization.country.iso_code %} aria-current="true"{% endif %} data-value="{{ country.iso_code }}" data-popout-option>
+                    {%- if show_country_flag -%}
+                      {{ country | image_url: width: 40 | image_tag: loading: 'lazy', class: 'select-popout__flag' }}
+                    {%- endif -%}
+                    <span>{{ country.name }} ({{ country.currency.iso_code }} {{ country.currency.symbol }})</span>
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+
+          <input type="hidden" name="country_code" id="CountrySelector-{{ section.id }}" value="{{ localization.country.iso_code }}" data-popout-input>
+        </popout-select>
+
+        <noscript>
+          <div class="select-popout select-popout--country">
+            <select
+              class="select-popout__toggle"
+              name="country_code"
+              aria-labelledby="country-heading"
+            >
+              {%- for country in localization.available_countries -%}
+                <option value="{{ country.iso_code }}"
+                  {%- if country.iso_code == localization.country.iso_code %}
+                    selected
+                  {% endif %}
+                >
+                  {{ country.name }} ({{ country.currency.iso_code }} {{ country.currency.symbol }})
+                </option>
+              {%- endfor -%}
+            </select>
+          </div>
+          <button class="btn btn--secondary btn--advanced btn--advanced-width-height">{{ 'footer.update' | t }}</button>
+        </noscript>
+      </div>
+    {%- endif -%}
+
+    {%- if show_locale -%}
+      <div>
+        <h2 class="visually-hidden" id="lang-heading-{{ section.id }}">
+          {{ 'footer.language' | t }}
+        </h2>
+
+        <popout-select class="select-popout select-popout--lang">
+          <button type="button" class="select-popout__toggle" aria-expanded="false" aria-controls="lang-list" aria-describedby="lang-heading" data-popout-toggle>
+            {{ localization.language.endonym_name | capitalize }}
+            {%- render 'icon-select' -%}
+          </button>
+
+          <div id="lang-list-{{ section.id }}" class="select-popout__list" data-popout-list>
+            <ul class="select-popout__list__scroll">
+              {%- for language in localization.available_languages -%}
+                <li class="select-popout__item{% if language.iso_code == localization.language.iso_code %} select-popout__item--current{% endif %}">
+                  <a href="#"
+                    hreflang="{{ language.iso_code }}"
+                    lang="{{ language.iso_code }}"
+                    class="select-popout__option"
+                    {% if language.iso_code == localization.language.iso_code %} aria-current="true"{% endif %}
+                    data-value="{{ language.iso_code }}"
+                    data-popout-option
+                  >
+                    <span>{{ language.endonym_name | capitalize }}</span>
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+
+          <input type="hidden" name="locale_code" id="LocaleSelector-{{ section.id }}" value="{{ localization.language.iso_code }}" data-popout-input>
+        </popout-select>
+
+        <noscript>
+          <div class="select-popout select-popout--lang">
+            <select
+              class="select-popout__toggle"
+              name="locale_code"
+              aria-labelledby="lang-heading"
+            >
+              {%- for language in localization.available_languages -%}
+                <option
+                  value="{{ language.iso_code }}"
+                  lang="{{ language.iso_code }}"
+                  {%- if language.iso_code == localization.language.iso_code %}
+                    selected
+                  {% endif %}
+                >
+                  {{ language.endonym_name | capitalize }}
+                </option>
+              {%- endfor -%}
+            </select>
+          </div>
+          <button class="btn btn--secondary btn--advanced btn--advanced-width-height">{{ 'footer.update' | t }}</button>
+        </noscript>
+      </div>
+    {%- endif -%}
+  {%- endform -%}
+{%- endif -%}

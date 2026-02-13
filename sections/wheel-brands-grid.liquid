@@ -1,0 +1,171 @@
+{% comment %}
+  Wheel Brands Grid Section
+  Add this file to your theme's sections folder
+{% endcomment %}
+
+<style>
+  .wheel-content-{{ section.id }} {
+    padding-bottom: 40px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .wheel-tile-{{ section.id }} {
+    display: inline-block;
+    text-align: center;
+    background: #efefef;
+    border-radius: 5px;
+    border: 1px solid #cdcdcd;
+    transition: transform 0.3s ease;
+  }
+
+  .wheel-tile-{{ section.id }}:hover {
+    transform: translateY(-5px);
+  }
+
+  .wheel-plate-{{ section.id }} {
+    padding: 30px 20px 20px;
+  }
+
+  .imgHolder-{{ section.id }} {
+    overflow: hidden;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .imgHolder-{{ section.id }} img {
+    max-width: 200px;
+    max-height: 100px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .wheel-tile-{{ section.id }} a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .wheel-plate-heading-{{ section.id }} {
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  @media only screen and (min-width: 576px) {
+    .wheel-content-{{ section.id }} {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  {% comment %} @media only screen and (min-width: 769px) {
+    .wheel-tile-{{ section.id }} {
+      width: 24%;
+    }
+  } {% endcomment %}
+
+  @media only screen and (min-width: 992px) {
+    .wheel-content-{{ section.id }} {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media only screen and (min-width: 1260px) {
+    .wheel-content-{{ section.id }} {
+      padding-bottom: 60px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+
+    .wheel-plate-{{ section.id }} {
+      padding: 40px 20px 30px;
+    }
+  }
+</style>
+
+<div class="wheel-content-{{ section.id }} wrapper">
+  {% for block in section.blocks %}
+    <div class="wheel-tile-{{ section.id }}" {{ block.shopify_attributes }}>
+      <a href="{{ block.settings.brand_url }}">
+        <div class="wheel-plate-{{ section.id }}">
+          <div class="imgHolder-{{ section.id }}">
+            {% if block.settings.brand_image %}
+              <img 
+                src="{{ block.settings.brand_image | img_url }}" 
+                alt="{{ block.settings.brand_name }}"
+                loading="lazy"
+                height="150"
+                width="75"
+            >
+            {% endif %}
+          </div>
+          <p class="wheel-plate-heading-{{ section.id }}">{{ block.settings.brand_name }}</p>
+        </div>
+      </a>
+    </div>
+  {% endfor %}
+</div>
+
+<div style="clear: both;"></div>
+
+{% schema %}
+{
+  "name": "Wheel Brands Grid",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "brand",
+      "name": "Brand",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "brand_image",
+          "label": "Brand Logo"
+        },
+        {
+          "type": "text",
+          "id": "brand_name",
+          "label": "Brand Name",
+          "default": "Brand Name"
+        },
+        {
+          "type": "text",
+          "id": "brand_url",
+          "label": "Brand URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Wheel Brands Grid",
+      "blocks": [
+        {
+          "type": "brand",
+          "settings": {
+            "brand_name": "Black Rock"
+          }
+        },
+        {
+          "type": "brand",
+          "settings": {
+            "brand_name": "BMF"
+          }
+        },
+        {
+          "type": "brand",
+          "settings": {
+            "brand_name": "Bravado Performance"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,63 @@
+.pre-header {
+  background-color: var(--preheader-bg, #f4f4f4);
+  color: #333;
+  padding: 8px 20px;
+  font-family: var(--FONT-STACK-NAV);
+  font-size: 15px;
+}
+
+.pre-header .preheader-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: var(--justify-content); /* will be overridden inline */
+  gap: 10px;
+}
+
+.pre-header .preheader-links a {
+  color: var(--preheader-text);
+  text-decoration: none;
+  padding: 0 10px;
+  position: relative;
+}
+
+.pre-header .preheader-links a:not(:last-child)::after {
+  content: "|";
+  position: absolute;
+  right: -7.5px;
+  color: var(--preheader-text);
+}
+@media (max-width: 768px) {
+  .pre-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 10px;
+  }
+
+  .pre-header .preheader-links {
+    gap: 10px;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    justify-content: unset;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 5px;
+  }
+}
+.pre-header-section{
+  position: relative;
+  z-index: 135;
+}
+/* @media (max-width: 576px) {
+  .pre-header {
+    font-size: 13px;
+  }
+  .pre-header .preheader-links a{
+    padding: 0 5px;
+  }
+  .pre-header .preheader-links a:first-child,.pre-header .preheader-links a:last-child,.pre-header .preheader-links a:nth-last-child(2)::after {
+    display: none;
+  }
+}
+ */

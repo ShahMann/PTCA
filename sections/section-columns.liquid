@@ -1,0 +1,640 @@
+{%- liquid
+  assign unique = section.id
+  assign bg_color = section.settings.bg_color
+  assign gradient = section.settings.gradient | default: 'none'
+  assign section_width = section.settings.width
+  assign equalize_height = section.settings.equalize_height
+  assign columns = section.settings.columns
+  assign columns_mobile = section.settings.columns_mobile | plus: 0
+  assign layout_mobile = section.settings.layout_mobile
+  assign heading_size = section.settings.heading_size | times: 0.01
+  assign show_images = section.settings.show_images
+  assign show_borders = section.settings.show_borders
+  assign desktop_aspect_ratio = section.settings.desktop_aspect_ratio | times: 100
+  assign mobile_aspect_ratio = section.settings.mobile_aspect_ratio | times: 100
+  assign color_borders = section.settings.color_borders
+  assign id = 'SectionColumns--' | append: section.id
+  assign selector_id = '#' | append: id
+  assign animation_anchor = selector_id
+  assign animations_enabled = settings.animations_enabled
+  assign animation_delay = 150
+
+  case layout_mobile
+    when 'grid'
+      assign mobile_width = 'mobile--one-half'
+      assign mobile_class = ' grid--mobile'
+    when 'stacked'
+      assign mobile_width = 'mobile--one-whole'
+      assign mobile_class = ' stacked--mobile'
+    when 'carousel'
+      assign mobile_class = ' carousel--mobile'
+
+      case columns_mobile
+        when 1
+          assign mobile_width = 'mobile--one-whole'
+        when 2
+          assign mobile_width = 'mobile--one-half'
+      endcase
+  endcase
+
+  case columns
+    when 2
+      assign item_width = 'one-half'
+    when 3
+      assign item_width = 'one-third'
+    else
+      assign item_width = 'one-quarter'
+  endcase
+
+  assign bg_color_set = false
+  if gradient != 'none' or bg_color.alpha != 0.0 and bg_color != ''
+    assign bg_color_set = true
+  endif
+-%}
+
+{{ 'section-columns.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  {{ selector_id }} {
+    --PT: {{ section.settings.padding_top }}px;
+    --PB: {{ section.settings.padding_bottom }}px;
+
+    {% if color_borders != 'rgba(0,0,0,0)' and color_borders != '' -%}
+      --border: {{ color_borders }};
+    {%- endif %}
+
+    {% unless columns == 3 -%}
+      --grid-tablet: repeat(2, minmax(0, 1fr));
+    {%- endunless %}
+
+    {% if bg_color_set -%}
+      {%- if gradient != 'none' -%}
+        --bg: {{ gradient }};
+      {%- else -%}
+        --bg: {{ bg_color }};
+      {%- endif -%}
+    {%- endif %}
+  }
+
+  {{ selector_id }} .section__heading { --adjust-heading: calc(var(--FONT-ADJUST-HEADING) * {{ heading_size }}); }
+
+  {% if columns_mobile > 1 -%}
+    @media screen and (max-width: 767px) {
+      {{ selector_id }} .carousel--mobile { --item-width-mobile: calc(90% / {{ columns_mobile }} - var(--grid-gutter)); }
+    }
+  {%- endif %}
+{%- endstyle -%}
+
+<div
+  id="{{ id }}"
+  class="section-padding section-columns {{ section.settings.align_text }}"
+  data-section-id="{{ unique }}"
+  data-section-type="columns-with-image"
+>
+  <div class="{{ section_width }}">
+    {%- if section.settings.title != '' -%}
+      <div class="section__header">
+        <h2
+          class="section__heading h2"
+          data-aos="fade-up"
+          data-aos-anchor="{{ animation_anchor }}"
+          data-aos-delay="{{ animation_delay }}"
+          {%- assign animation_delay = animation_delay | plus: 150 -%}
+        >
+          {{ section.settings.title }}
+        </h2>
+
+        {%- if settings.show_spacer_lines -%}
+          <hr
+            class="section__heading-line"
+            {% if animations_enabled %}
+              data-aos="fade-up"
+              data-aos-anchor="{{ animation_anchor }}"
+              data-aos-delay="{{ animation_delay }}"
+              {%- assign animation_delay = animation_delay | plus: 150 -%}
+            {% endif %}
+          >
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="section-columns__wrapper carousel__container">
+      {%- if section.blocks.size > 0 -%}
+        <div class="section-columns__slider carousel{{ mobile_class }}" data-slider role="group">
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign heading_size = block.settings.heading_size | times: 0.01
+              assign text_size = block.settings.text_size | times: 0.01
+              assign button_link = block.settings.button_link
+              assign button_text = block.settings.button_text
+              assign button_style = block.settings.button_style
+              assign button_color = block.settings.button_color
+              assign button_size = block.settings.button_size
+              assign title = block.settings.title
+              assign image = block.settings.image
+              assign text = block.settings.text
+              assign video_link = block.settings.video_link_popup
+              assign unique = block.id
+              assign video_link_color = block.settings.video_link_color
+
+              if equalize_height == false
+                assign desktop_aspect_ratio = 0.67 | times: 100
+              endif
+
+              if image != blank
+                assign image_alt = image.alt | default: title | strip_html | escape
+
+                if equalize_height == false
+                  assign desktop_aspect_ratio = 1 | divided_by: image.aspect_ratio | times: 100
+                endif
+              endif
+
+              assign button_advanced_class = 'btn--advanced'
+              if button_style != 'btn--text'
+                assign button_advanced_class = button_advanced_class | append: ' btn--advanced-width-height btn--advanced-adaptive-width'
+              endif
+
+              comment
+                Images sizes
+              endcomment
+              assign blocks_gaps = columns | minus: 1
+              assign gaps_calc = 20 | times: blocks_gaps | append: 'px'
+
+              # Desktop widths
+              if section_width == 'wrapper--full-padded'
+                assign wrapper_width_lg = '(100vw - 120px)'
+              endif
+              if section_width == 'wrapper'
+                assign wrapper_width_lg = '(1440px - 120px)'
+              endif
+              assign img_width_lg = 'calc((' | append: wrapper_width_lg | append: ' - ' | append: gaps_calc | append: ') / ' | append: columns | append: ')'
+
+              # Tablet widths
+              assign wrapper_width_md = '(100vw - 2 * 20px)'
+              assign img_width_md = 'calc((' | append: wrapper_width_md | append: ' * 0.9 - 20px) / 2)'
+
+              # Mobile widths
+              assign img_width_sm = 'calc(' | append: wrapper_width_md | append: ')'
+              if section.blocks.size > 1
+                assign img_width_sm = 'calc(' | append: wrapper_width_md | append: ' - 20px)'
+              endif
+
+              assign sizes = '(min-width: 1024px) ' | append: img_width_lg | append: ', (min-width: 768px) ' | append: img_width_md | append: ', ' | append: img_width_sm
+            -%}
+
+            <div id="columnItem--{{ block.id }}"
+              class="column-item carousel__item {{ item_width }} {{ mobile_width }}{%- render 'button-fallback-classes', primary_color: button_color, section_bg_color: bg_color -%}{% if show_borders %} column-item--border{% endif %}{% if show_images %} column-item--image{% endif %}"
+              {{ block.shopify_attributes }}
+              data-slider-item
+              {% if animations_enabled %}
+                data-aos="fade"
+                data-aos-delay="0"
+                data-aos-duration="0"
+                data-aos-anchor="{{ animation_anchor }}"
+              {% endif %}
+            >
+              {%- style -%}
+                #columnItem--{{ block.id }} .column-item__heading { --adjust-heading: calc(var(--FONT-ADJUST-HEADING) * {{ heading_size }}); }
+                #columnItem--{{ block.id }} .column-item__text p { --adjust-body: calc(var(--FONT-ADJUST-BODY) * {{ text_size }}); }
+
+                #columnItemImage--{{ block.id }} {
+                  --aspect-ratio: {{ desktop_aspect_ratio }}%;
+                }
+
+                {% if equalize_height %}
+                  @media screen and (max-width: 767px) {
+                    #columnItemImage--{{ block.id }} {
+                      --aspect-ratio: {{ mobile_aspect_ratio }}%;
+                    }
+                  }
+                {% endif %}
+              {%- endstyle -%}
+
+              <div class="column-item__inner">
+                {%- if show_images -%}
+                  <div
+                    id="columnItemImage--{{ block.id }}"
+                    class="column-item__image-wrapper"
+                    data-media-container
+                    {% if animations_enabled %}
+                      data-aos="fade-up"
+                      data-aos-anchor="{{ animation_anchor }}"
+                      data-aos-delay="{{ animation_delay }}"
+                      {%- assign animation_delay = animation_delay | plus: 150 -%}
+                    {% endif %}
+                  >
+                    {%- render 'image-fill',
+                      is_background: true,
+                      img_object: image,
+                      sizes: sizes,
+                      classes: 'column-item__image',
+                      alt: image_alt
+                    -%}
+
+                    {%- if video_link != blank -%}{%- liquid
+  assign video_link_downcase = video_link | downcase
+  assign video_type = ''
+  assign video_id = ''
+  assign video_parent_id = 'item-video-' | append: unique
+
+  if video_link contains 'vimeo.com'
+    assign video_type = 'vimeo'
+  elsif video_link contains 'youtube.com'
+    assign video_type = 'youtube'
+  elsif video_link contains 'youtu.be'
+    assign video_type = 'youtube'
+    assign youtube_shortlink = true
+  elsif video_link_downcase contains '.mp4'
+    assign video_type = 'native'
+  endif
+
+  assign link_array = video_link | split: '/'
+  assign id_with_params = link_array | last
+
+  if video_type == 'vimeo' or youtube_shortlink
+    comment
+      https://vimeo.com/[ID]?foo=bar&baz=boo
+      https://youtu.be/[ID]?foo=bar&baz=boo
+    endcomment
+    assign starts_with_id = id_with_params | split: '?'
+    assign video_id = starts_with_id | first
+  elsif video_type == 'youtube'
+    comment
+      https://youtube.com/watch?v=[ID]?foo=bar&baz=boo
+    endcomment
+    assign first_param = id_with_params | split: '&' | first
+    assign watch_then_id = first_param | split: '?'
+    assign equals_id = watch_then_id[1]
+    assign ends_with_id = equals_id | split: '='
+    assign video_id = ends_with_id | last
+  endif
+
+  if video_type == 'youtube'
+    capture video_link
+      echo 'https://www.youtube.com/watch?v=' | append: video_id
+    endcapture
+  elsif video_type == 'vimeo'
+    capture video_link
+      echo 'https://vimeo.com/' | append: video_id
+    endcapture
+  endif
+-%}
+<div class="column-item__video-link">
+                        <a
+                          class="play-button {{ video_link_color }}"
+                          href="{{ video_link }}"
+                          data-video-play="{%- render 'photoswipe-video-html' item_link: video_link , item_link_type: video_type, item_link_id: video_id, item_id: video_parent_id -%}"
+                        >
+                          {%- render 'icon-play' -%}
+                        </a>
+                      </div>
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+
+                <div
+                  class="column-item__content"
+                  {% if animations_enabled %}
+                    data-aos="fade-up"
+                    data-aos-anchor="{{ animation_anchor }}"
+                    data-aos-delay="{{ animation_delay }}"
+                  {% endif %}
+                >
+                  {%- if title != blank -%}
+                    <h3 class="column-item__heading h6">{{ title | escape }}</h3>
+                  {%- endif -%}
+
+                  {%- if text != blank -%}
+                    <div class="column-item__text">{{ text }}</div>
+                  {%- endif -%}
+
+                  {%- if button_text != '' -%}
+                    <a
+                      href="{{ button_link }}"
+                      class="column-item__button btn {{ button_style }} {{ button_size }} {{ button_color }} {{ button_advanced_class }}"
+                    >
+                      <hover-button></hover-button>
+                      {{- button_text -}}
+                    </a>
+                  {%- endif -%}
+                </div>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- if section.blocks.size == 0 -%}
+        {%- render 'no-blocks' -%}
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Text columns with images",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "default": 120,
+      "min": 70,
+      "max": 200,
+      "step": 10,
+      "unit": "%"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "align_text",
+      "label": "Text alignment",
+      "default": "text-left",
+      "options": [
+        {"value": "text-left", "label": "Left"},
+        {"value": "text-center", "label": "Centered"}
+      ]
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Columns per slide on desktop",
+      "default": 3,
+      "min": 2,
+      "max": 4,
+      "step": 1
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Columns per slide on mobile",
+      "default": "1",
+      "options": [
+        {"label": "1", "value": "1"},
+        {"label": "2", "value": "2"}
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "show_images",
+      "label": "Show images",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_borders",
+      "label": "Show borders",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Height"
+    },
+    {
+      "type": "checkbox",
+      "id": "equalize_height",
+      "label": "Equalize image heights",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "desktop_aspect_ratio",
+      "min": 0.5,
+      "max": 1.5,
+      "step": 0.1,
+      "unit": ":1",
+      "label": "Desktop height",
+      "info": "Wide to tall",
+      "default": 0.8
+    },
+    {
+      "type": "range",
+      "id": "mobile_aspect_ratio",
+      "min": 0.5,
+      "max": 1.5,
+      "step": 0.1,
+      "unit": ":1",
+      "label": "Mobile height",
+      "info": "Wide to tall",
+      "default": 0.8
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background"
+    },
+    {
+      "type": "color_background",
+      "id": "gradient",
+      "label": "Overlay gradient"
+    },
+    {
+      "type": "color",
+      "id": "color_borders",
+      "label": "Borders",
+      "default": "#000"
+    },
+    {
+      "type": "header",
+      "content": "Mobile"
+    },
+    {
+      "type": "select",
+      "id": "layout_mobile",
+      "label": "Layout",
+      "default": "carousel",
+      "options": [
+        {"value": "grid", "label": "Grid"},
+        {"value": "stacked", "label": "Stacked"},
+        {"value": "carousel", "label": "Slider"}
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Width",
+      "default": "wrapper",
+      "options": [
+        {"value": "wrapper--full-padded", "label": "Full width padded"},
+        {"value": "wrapper", "label": "Page width"}
+      ]
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text_block",
+      "name": "Column",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Add a title or tagline"
+        },
+        {
+          "type": "range",
+          "id": "heading_size",
+          "label": "Heading size",
+          "default": 120,
+          "min": 70,
+          "max": 200,
+          "step": 10,
+          "unit": "%"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Use this text to describe products, share details on availability and style, etc</p>"
+        },
+        {
+          "type": "range",
+          "id": "text_size",
+          "label": "Text size",
+          "default": 100,
+          "min": 70,
+          "max": 150,
+          "step": 10,
+          "unit": "%"
+        },
+        {
+          "type": "header",
+          "content": "Button"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Text",
+          "default": "Learn More"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "button_color",
+          "label": "Button color",
+          "default": "btn--black",
+          "options": [
+            {"label": "Primary", "value": "btn--primary"},
+            {"label": "Secondary", "value": "btn--secondary"},
+            {"label": "White", "value": "btn--white"},
+            {"label": "Black", "value": "btn--black"}
+          ]
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "label": "Button style",
+          "default": "btn--text",
+          "options": [
+            {"label": "Solid", "value": "btn--solid"},
+            {"label": "Outline", "value": "btn--outline"},
+            {"label": "Solid with border", "value": "btn--solid-border"},
+            {"label": "Soft", "value": "btn--soft"},
+            {"label": "Text", "value": "btn--text"}
+          ]
+        },
+        {
+          "type": "select",
+          "id": "button_size",
+          "label": "Size",
+          "default": "btn--medium",
+          "options": [
+            {"label": "Small", "value": "btn--small"},
+            {"label": "Medium", "value": "btn--medium"},
+            {"label": "Large", "value": "btn--large"}
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Video Popup"
+        },
+        {
+          "type": "text",
+          "id": "video_link_popup",
+          "label": "Video link",
+          "info": "Video links from YouTube, Vimeo or MP4 video link from [files](/admin/content/files?selectedView=all&media_type=VIDEO)"
+        },
+        {
+          "type": "select",
+          "id": "video_link_color",
+          "label": "Color",
+          "default": "text-dark",
+          "options": [
+            {"value": "text-light", "label": "Light"},
+            {"value": "text-dark", "label": "Dark"}
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text columns with images",
+      "blocks": [
+        {
+          "type": "text_block"
+        },
+        {
+          "type": "text_block"
+        },
+        {
+          "type": "text_block"
+        },
+        {
+          "type": "text_block"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "aside"]
+  }
+}
+{% endschema %}

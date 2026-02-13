@@ -1,0 +1,158 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_page_title": true,
+        "bg_color": "",
+        "gradient": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "section_banner_image_6R34NQ": {
+      "type": "section-banner-image",
+      "blocks": {
+        "heading_bFNiHa": {
+          "type": "heading",
+          "settings": {
+            "text": "<p>Top-Quality Automotive Services</p>",
+            "size": 100,
+            "heading_highlight_type": "underline-hand-drawn",
+            "highlight_color": "#000000",
+            "highlight_text_color": ""
+          }
+        },
+        "text_mrYDbC": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Premier Tire is committed to excellence in the automotive industry, offering unmatched repair and maintenance solutions.</p>",
+            "size": 100
+          }
+        }
+      },
+      "block_order": [
+        "heading_bFNiHa",
+        "text_mrYDbC"
+      ],
+      "name": "Banner image",
+      "settings": {
+        "height": "full-height",
+        "enable_mobile_height": false,
+        "mobile_height": "full-height-mobile",
+        "image": "shopify://shop_images/resized_DSC00435.jpg",
+        "overlay_opacity": 45,
+        "transition": "zoom-out",
+        "enable_zoom_animation": true,
+        "enable_card_scrolling": false,
+        "increase_border_radius": true,
+        "content_width": 80,
+        "text_position": "left",
+        "text_alignment": "text-left",
+        "text_color": "text-light",
+        "width": "wrapper--full",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "section_grid_kcD49z": {
+      "type": "section-grid",
+      "blocks": {
+        "image_itGiED": {
+          "type": "image",
+          "settings": {
+            "width": "33.33",
+            "image": "shopify://shop_images/resized_DSC05283.jpg",
+            "overlay_opacity": 45,
+            "text_position": "center",
+            "subheading": "",
+            "title": "Tire Installation",
+            "text": "Professional tire fitting and balancing for all vehicle types.",
+            "button_1_text": "Schedule A Repair",
+            "button_1_link": "#",
+            "button_2_text": "Learn more",
+            "button_2_link": "shopify://pages/tire-installation",
+            "overlay_text_color": "text-light"
+          }
+        },
+        "image_wmk9fy": {
+          "type": "image",
+          "settings": {
+            "width": "33.33",
+            "image": "shopify://shop_images/resized_DSC05796.jpg",
+            "overlay_opacity": 45,
+            "text_position": "center",
+            "subheading": "",
+            "title": "Brake Repair",
+            "text": "Reliable brake inspection and repair to keep you safe on the road.",
+            "button_1_text": "Schedule A Repair",
+            "button_1_link": "#",
+            "button_2_text": "Learn more",
+            "button_2_link": "shopify://pages/brake-repair",
+            "overlay_text_color": "text-light"
+          }
+        },
+        "image_7nn7hE": {
+          "type": "image",
+          "settings": {
+            "width": "33.33",
+            "image": "shopify://shop_images/resized_DSC05552.jpg",
+            "overlay_opacity": 45,
+            "text_position": "center",
+            "subheading": "",
+            "title": "Oil Change",
+            "text": "Quick and efficient oil change service to keep your engine running smoothly.",
+            "button_1_text": "Schedule A Repair",
+            "button_1_link": "#",
+            "button_2_text": "Learn more",
+            "button_2_link": "shopify://pages/oil-change",
+            "overlay_text_color": "text-light"
+          }
+        }
+      },
+      "block_order": [
+        "image_itGiED",
+        "image_wmk9fy",
+        "image_7nn7hE"
+      ],
+      "name": "Grid",
+      "settings": {
+        "desktop_height": "five-fifty-height",
+        "enable_mobile_height": false,
+        "mobile_height": "four-fifty-height-mobile",
+        "heading_size": 100,
+        "text_size": 100,
+        "button_1_color": "btn--primary",
+        "button_1_style": "btn--solid",
+        "button_1_size": "btn--medium",
+        "button_2_color": "btn--secondary",
+        "button_2_style": "btn--solid",
+        "button_2_size": "btn--medium",
+        "section_bg_color": "",
+        "gradient": "",
+        "enable_slider_mobile": true,
+        "columns_mobile": "1",
+        "overlay_text": true,
+        "width": "wrapper",
+        "add_gutter": true,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_banner_image_6R34NQ",
+    "section_grid_kcD49z"
+  ]
+}

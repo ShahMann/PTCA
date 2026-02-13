@@ -1,0 +1,447 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow": {
+      "type": "section-slideshow",
+      "blocks": {
+        "slideshow-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/bg-heroshot.jpg",
+            "overlay_opacity": 55,
+            "content_width": 80,
+            "text_position": "center",
+            "text_alignment": "text-center",
+            "text_color": "text-light",
+            "subheading": "",
+            "title": "<p>Our Story</p>",
+            "heading_size": 150,
+            "heading_highlight_type": "underline-hand-drawn",
+            "highlight_color": "#000000",
+            "highlight_text_color": "",
+            "text": "Add more info or delete this text",
+            "text_size": 100,
+            "stacked_button": false,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_color": "btn--white",
+            "button_1_style": "btn--solid-border",
+            "button_1_size": "btn--medium",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_color": "btn--black",
+            "button_2_style": "btn--solid",
+            "button_2_size": "btn--medium",
+            "video_text": "",
+            "video_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slideshow-0"
+      ],
+      "settings": {
+        "slide_height": "six-fifty-height",
+        "enable_mobile_height": false,
+        "mobile_slide_height": "five-fifty-height-mobile",
+        "show_nav_dots": true,
+        "show_nav_arrows": true,
+        "show_arrow_down": false,
+        "autoplay": false,
+        "duration": 4,
+        "transition": "fade",
+        "enable_zoom_animation": true,
+        "enable_card_scrolling": false,
+        "increase_border_radius": true
+      }
+    },
+    "cdb3be2a-9d5e-47f0-9431-04f739f3c7cc": {
+      "type": "section-image-with-text",
+      "blocks": {
+        "heading_LdmpYw": {
+          "type": "heading",
+          "settings": {
+            "title": "<p>Everything's on sale</p>",
+            "size": 130,
+            "text_position": "left",
+            "heading_highlight_type": "circle",
+            "highlight_color": "#d43747",
+            "highlight_text_color": "",
+            "spacing_bottom": 12
+          }
+        },
+        "text_kjEQ4x": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share details about a promotion, welcome customers, describe a product, or talk about your brand.</p>",
+            "size": 100,
+            "text_position": "left",
+            "spacing_bottom": 12
+          }
+        },
+        "button_4Q4cA7": {
+          "type": "button",
+          "settings": {
+            "button_text": "Button text",
+            "button_link": "",
+            "button_color": "btn--primary",
+            "button_style": "btn--solid",
+            "button_size": "btn--small",
+            "video_link": "",
+            "text_position": "left",
+            "spacing_bottom": 12
+          }
+        }
+      },
+      "block_order": [
+        "heading_LdmpYw",
+        "text_kjEQ4x",
+        "button_4Q4cA7"
+      ],
+      "settings": {
+        "show_accordion_divider": true,
+        "increase_border_radius": false,
+        "section_height": "four-fifty-height",
+        "enable_mobile_height": false,
+        "mobile_height": "four-fifty-height-mobile",
+        "layout": "inline",
+        "image_location": "left",
+        "image_width": "standard",
+        "image": "shopify://shop_images/Photo_2024-08-19_3_48_26_PM_2.jpg",
+        "block_bg_color": "",
+        "text_color": "text-dark",
+        "bg_color": "",
+        "gradient": "",
+        "section_width": "wrapper",
+        "add_gutter": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "text": {
+      "type": "section-text",
+      "blocks": {
+        "subheading": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Subheading</p>",
+            "size": 100,
+            "margin_bottom": 16
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "text": "<p>Our Story</p>",
+            "size": 100,
+            "heading_highlight_type": "italics",
+            "heading_tag": "h2",
+            "highlight_color": "#d43747",
+            "highlight_text_color": ""
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "size": 100
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_text": "Read More",
+            "button_link": "",
+            "button_color": "btn--primary",
+            "button_style": "btn--solid",
+            "button_size": "btn--small"
+          }
+        }
+      },
+      "block_order": [
+        "subheading",
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "text_position": "center",
+        "bg_color": "",
+        "gradient": "",
+        "text_color": "text-dark",
+        "width": "wrapper--narrow",
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    },
+    "columns": {
+      "type": "section-columns",
+      "blocks": {
+        "column-0": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/resized_DSC05190.jpg",
+            "title": "Add a title or tagline",
+            "heading_size": 120,
+            "text": "<p>Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.</p>",
+            "text_size": 100,
+            "button_text": "",
+            "button_link": "",
+            "button_color": "btn--black",
+            "button_style": "btn--text",
+            "button_size": "btn--small",
+            "video_link_popup": "",
+            "video_link_color": "text-dark"
+          }
+        },
+        "column-1": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/resized_DSC05037.jpg",
+            "title": "Add a title or tagline",
+            "heading_size": 120,
+            "text": "<p>Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.</p>",
+            "text_size": 100,
+            "button_text": "",
+            "button_link": "",
+            "button_color": "btn--black",
+            "button_style": "btn--text",
+            "button_size": "btn--small",
+            "video_link_popup": "",
+            "video_link_color": "text-dark"
+          }
+        },
+        "text_block_HeYFdV": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/resized_DSC04728.jpg",
+            "title": "Add a title or tagline",
+            "heading_size": 120,
+            "text": "<p>Use this text to describe products, share details on availability and style, etc</p>",
+            "text_size": 100,
+            "button_text": "Learn More",
+            "button_link": "",
+            "button_color": "btn--black",
+            "button_style": "btn--text",
+            "button_size": "btn--medium",
+            "video_link_popup": "",
+            "video_link_color": "text-dark"
+          }
+        },
+        "column-2": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/resized_DSC05679.jpg",
+            "title": "Add a title or tagline",
+            "heading_size": 120,
+            "text": "<p>Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.</p>",
+            "text_size": 100,
+            "button_text": "",
+            "button_link": "",
+            "button_color": "btn--black",
+            "button_style": "btn--text",
+            "button_size": "btn--small",
+            "video_link_popup": "",
+            "video_link_color": "text-dark"
+          }
+        },
+        "column-3": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/resized_DSC05281.jpg",
+            "title": "Add a title or tagline",
+            "heading_size": 120,
+            "text": "<p>Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.</p>",
+            "text_size": 100,
+            "button_text": "",
+            "button_link": "",
+            "button_color": "btn--black",
+            "button_style": "btn--text",
+            "button_size": "btn--small",
+            "video_link_popup": "",
+            "video_link_color": "text-dark"
+          }
+        }
+      },
+      "block_order": [
+        "column-0",
+        "column-1",
+        "text_block_HeYFdV",
+        "column-2",
+        "column-3"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": 120,
+        "align_text": "text-left",
+        "columns": 3,
+        "columns_mobile": "1",
+        "show_images": true,
+        "show_borders": false,
+        "equalize_height": true,
+        "desktop_aspect_ratio": 0.8,
+        "mobile_aspect_ratio": 0.8,
+        "bg_color": "",
+        "gradient": "",
+        "color_borders": "#000000",
+        "layout_mobile": "carousel",
+        "width": "wrapper",
+        "padding_top": 60,
+        "padding_bottom": 30
+      }
+    },
+    "909772ff-e663-4f4f-9da8-7ede957325bf": {
+      "type": "section-image-with-text",
+      "blocks": {
+        "heading_CgHfJm": {
+          "type": "heading",
+          "settings": {
+            "title": "<p>Everything's on sale</p>",
+            "size": 130,
+            "text_position": "left",
+            "heading_highlight_type": "circle",
+            "highlight_color": "#d43747",
+            "highlight_text_color": "",
+            "spacing_bottom": 12
+          }
+        },
+        "text_CiCEiJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share details about a promotion, welcome customers, describe a product, or talk about your brand.</p>",
+            "size": 100,
+            "text_position": "left",
+            "spacing_bottom": 12
+          }
+        },
+        "button_nhqWFW": {
+          "type": "button",
+          "settings": {
+            "button_text": "Button text",
+            "button_link": "",
+            "button_color": "btn--primary",
+            "button_style": "btn--solid",
+            "button_size": "btn--small",
+            "video_link": "",
+            "text_position": "left",
+            "spacing_bottom": 12
+          }
+        }
+      },
+      "block_order": [
+        "heading_CgHfJm",
+        "text_CiCEiJ",
+        "button_nhqWFW"
+      ],
+      "settings": {
+        "show_accordion_divider": true,
+        "increase_border_radius": false,
+        "section_height": "four-fifty-height",
+        "enable_mobile_height": false,
+        "mobile_height": "four-fifty-height-mobile",
+        "layout": "inline",
+        "image_location": "right",
+        "image_width": "standard",
+        "image": "shopify://shop_images/resized_DSC05302.png",
+        "block_bg_color": "",
+        "text_color": "text-dark",
+        "bg_color": "",
+        "gradient": "",
+        "section_width": "wrapper",
+        "add_gutter": true,
+        "padding_top": 30,
+        "padding_bottom": 60
+      }
+    },
+    "51e7d4e9-f6b0-466d-bd09-84d7da4cdcb5": {
+      "type": "section-icons-row",
+      "blocks": {
+        "template--18952593965377__51e7d4e9-f6b0-466d-bd09-84d7da4cdcb5-1683134998a2f033f1-0": {
+          "type": "text",
+          "settings": {
+            "icon_name": "truck",
+            "title": "Free Shipping",
+            "text": "<p>on all order over $99</p>"
+          }
+        },
+        "template--18952593965377__51e7d4e9-f6b0-466d-bd09-84d7da4cdcb5-1683134998a2f033f1-1": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "icon_name": "check",
+            "title": "Free Returns",
+            "text": "<p>within 30 days of purchase</p>"
+          }
+        },
+        "template--18952593965377__51e7d4e9-f6b0-466d-bd09-84d7da4cdcb5-1683134998a2f033f1-2": {
+          "type": "text",
+          "settings": {
+            "icon_name": "eco-friendly",
+            "title": "1% Donated Annually",
+            "text": "<p>to forest conservation</p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--18952593965377__51e7d4e9-f6b0-466d-bd09-84d7da4cdcb5-1683134998a2f033f1-0",
+        "template--18952593965377__51e7d4e9-f6b0-466d-bd09-84d7da4cdcb5-1683134998a2f033f1-1",
+        "template--18952593965377__51e7d4e9-f6b0-466d-bd09-84d7da4cdcb5-1683134998a2f033f1-2"
+      ],
+      "settings": {
+        "heading": "",
+        "subheading": "",
+        "alignment": "center",
+        "columns": 3,
+        "icons_width": 30,
+        "show_vertical_borders": true,
+        "show_top_border": true,
+        "show_bottom_border": true,
+        "heading_size": 120,
+        "text_size": 100,
+        "bg_color": "",
+        "gradient": "",
+        "text_color": "#333333",
+        "box_color": "",
+        "color_border": "#333333",
+        "button_text": "",
+        "button_link": "",
+        "button_color": "btn--black",
+        "button_style": "btn--solid",
+        "button_size": "btn--small",
+        "layout_mobile": "grid",
+        "width": "wrapper",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_page_title": true,
+        "bg_color": "",
+        "gradient": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "slideshow",
+    "cdb3be2a-9d5e-47f0-9431-04f739f3c7cc",
+    "text",
+    "columns",
+    "909772ff-e663-4f4f-9da8-7ede957325bf",
+    "51e7d4e9-f6b0-466d-bd09-84d7da4cdcb5",
+    "main"
+  ]
+}

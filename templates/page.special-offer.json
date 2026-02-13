@@ -1,0 +1,192 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_page_title": true,
+        "bg_color": "",
+        "gradient": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "custom_special_offers_3Xj8Hc": {
+      "type": "custom-special-offers",
+      "blocks": {
+        "rebate_tier_MfhMAT": {
+          "type": "rebate_tier",
+          "settings": {
+            "rebate_amount": "$80 Rebate",
+            "image": "shopify://shop_images/035f29a2-d323-4ae7-98d0-470c0c2b7d99.png",
+            "credit_card_rebate": "Increases to $180 when you purchase with your Goodyear Credit Card.",
+            "tire_models": "Assurance WeatherReady,Assurance WeatherReady2,Wrangler DuraTrac,Wrangler DuraTrac RT,Wrangler Steadfast HT",
+            "custom_links_per_column": 0
+          }
+        },
+        "rebate_tier_RKACgP": {
+          "type": "rebate_tier",
+          "settings": {
+            "rebate_amount": "$60 Rebate",
+            "credit_card_rebate": "Increases to $160 when you purchase with your Goodyear Credit Card.",
+            "tire_models": "Assurance ComfortDrive,Assurance MaxLife,Wrangler All-Terrain Adventure with Kevlar",
+            "custom_links_per_column": 0
+          }
+        },
+        "rebate_step_mWrxAR": {
+          "type": "rebate_step",
+          "settings": {
+            "step_title": "Before you submit your claim, make sure you have a copy of your original sales receipt, which shows:",
+            "step_content": "<ul><li>Customer name</li><li>Tire product purchased</li><li>Date the tires were purchased</li><li>Name and address of the store where the tires were purchased</li><li>Proof of installation</li></ul><p><strong>Submit online at </strong><a href=\"https://www.Goodyearrebates.com\" target=\"_blank\"><strong>Goodyearrebates.com</strong></a><strong> and get the rebate faster!</strong></p>"
+          }
+        },
+        "rebate_step_Nt3mTF": {
+          "type": "rebate_step",
+          "settings": {
+            "step_title": "Submit by mail:",
+            "step_content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0866/0847/8512/files/G528_Goodyear_TR.pdf?v=1746685739\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0866/0847/8512/files/G528_Goodyear_TR.pdf?v=1746685739\">Download Redemption Form</a></p><p>Mail your completed rebate form, along with your original sales receipt, in an envelope to the following address:<br/><strong>Goodyear Offer 925110</strong><br/>P.O. Box 787<br/>Portsmouth, NH 03801</p><p>NOTE: Submissions must be postmarked or submitted online by 6/30/25. Work orders not accepted. Allow six to eight weeks for Goodyear Mastercard Prepaid Card/Virtual Card delivery.</p>"
+          }
+        },
+        "sidebar_link_8YdwnA": {
+          "type": "sidebar_link",
+          "settings": {
+            "link_text": "Terms & Conditions",
+            "link_url": "shopify://policies/terms-of-service"
+          }
+        },
+        "sidebar_link_3HXaAY": {
+          "type": "sidebar_link",
+          "settings": {
+            "link_text": "Redemption Form",
+            "link_url": "shopify://policies/privacy-policy"
+          }
+        },
+        "sidebar_category_LjqEVb": {
+          "type": "sidebar_category",
+          "settings": {
+            "category_name": "Tires",
+            "expanded": false
+          }
+        },
+        "sidebar_category_8GWV9A": {
+          "type": "sidebar_category",
+          "settings": {
+            "category_name": "Wheels",
+            "expanded": false
+          }
+        },
+        "sidebar_category_pQUMMU": {
+          "type": "sidebar_category",
+          "settings": {
+            "category_name": "Parts & Accessories",
+            "expanded": false
+          }
+        },
+        "category_link_cW3PAK": {
+          "type": "category_link",
+          "settings": {
+            "parent_category": "Tires",
+            "link_text": "Bridgestone: Get $70 Back by Mail or Up to $140 When You Use Your Bridgestone Tire Rack Credit Card",
+            "link_url": "shopify://products/720-form-ff15"
+          }
+        },
+        "category_link_Vf8TRR": {
+          "type": "category_link",
+          "settings": {
+            "parent_category": "Tires",
+            "link_text": "Bridgestone: Get $70 Back by Mail or Up to $140 When You Use Your Bridgestone Tire Rack Credit Card",
+            "link_url": "shopify://products/720-form-ff15"
+          }
+        },
+        "category_link_YWgi6M": {
+          "type": "category_link",
+          "settings": {
+            "parent_category": "Wheels",
+            "link_text": "Bridgestone: Get $70 Back by Mail or Up to $140 When You Use Your Bridgestone Tire Rack Credit Card",
+            "link_url": "shopify://products/720-form-ff15"
+          }
+        },
+        "category_link_9KMwD6": {
+          "type": "category_link",
+          "settings": {
+            "parent_category": "Parts & Accessories",
+            "link_text": "Bridgestone: Get $70 Back by Mail or Up to $140 When You Use Your Bridgestone Tire Rack Credit Card",
+            "link_url": "shopify://products/720-form-ff15"
+          }
+        },
+        "category_link_Gjy7Wb": {
+          "type": "category_link",
+          "settings": {
+            "parent_category": "Parts & Accessories",
+            "link_text": "Bridgestone: Get $70 Back by Mail or Up to $140 When You Use Your Bridgestone Tire Rack Credit Card",
+            "link_url": "shopify://products/720-form-ff15"
+          }
+        }
+      },
+      "block_order": [
+        "rebate_tier_MfhMAT",
+        "rebate_tier_RKACgP",
+        "rebate_step_mWrxAR",
+        "rebate_step_Nt3mTF",
+        "sidebar_link_8YdwnA",
+        "sidebar_link_3HXaAY",
+        "sidebar_category_LjqEVb",
+        "sidebar_category_8GWV9A",
+        "sidebar_category_pQUMMU",
+        "category_link_cW3PAK",
+        "category_link_Vf8TRR",
+        "category_link_YWgi6M",
+        "category_link_9KMwD6",
+        "category_link_Gjy7Wb"
+      ],
+      "name": "Special Offers",
+      "settings": {
+        "promo_title": "Special Offers",
+        "promo_subtitle": "Get Up to $80 Back* from Goodyear or Up to $180 When You Use Your Goodyear Credit Card",
+        "promo_image": "shopify://shop_images/promotion_apple.png",
+        "promo_image_mobile": "shopify://shop_images/promotion_apple.png",
+        "end_date": "May 31, 2025",
+        "check_vehicle_url": "shopify://pages/offer-page",
+        "check_vehicle_text": "Which Goodyear tires are available for my vehicle?",
+        "promo_description": "<p>When you purchase a set of four select Goodyear tires you may be eligible to receive up to an $80 Goodyear Mastercard® Prepaid Card or Virtual Card by online or mail-in rebate. Offer valid on tires purchased from Tire Rack's in-stock inventory between 12:00 a.m. EDT April 1, 2025 and 11:59 p.m. EDT May 31, 2025.</p>",
+        "credit_card_info": "<p>Increase your rebate by up to $100 when you use your Goodyear Credit Card.* Don't have a card?</p>",
+        "apply_now_url": "shopify://pages/financing",
+        "credit_card_terms_url": "shopify://policies/terms-of-service",
+        "credit_card_terms_title": "Goodyear Credit Card Terms & Conditions",
+        "eligibility_info": "<p>Offer valid only for U.S. residents who are individual consumers with mailing addresses in the U.S. or U.S. territories (American Samoa, Guam, Northern Mariana Islands, Puerto Rico, & U.S. Virgin Islands) including APO/FPO addresses.</p>",
+        "eligible_products_title": "Eligible Goodyear Tires",
+        "redemption_info": "<p><strong>How To Redeem:</strong></p>",
+        "disclaimer": "<p><em>Tire Rack will mail a redemption form (also available </em><a href=\"../../images/promos/retail/2025/gy/04/G528_Goodyear_TR.pdf\"><em>here</em></a><em>) and a copy of your invoice to your billing address within one to two weeks. An invoice will also be shipped with your order. (Website order placed page and order/shipment confirmation emails not accepted.) If you do not receive your redemption form by mail within two weeks of shipment, please download a copy of the form </em><a href=\"../../images/promos/retail/2025/gy/04/G528_Goodyear_TR.pdf\"><em>here</em></a><em>, or contact Tire Rack's customer service department by calling 888-981-3953.</em></p><p>*By Rebate. Subject to credit approval. Terms and conditions apply.</p>",
+        "terms_url": "shopify://policies/terms-of-service",
+        "newsletter_enable": true,
+        "newsletter_heading": "GET OUR EMAILS",
+        "links_per_column": 3,
+        "header_bg_color": "#f5f5f5",
+        "header_text_color": "#333333",
+        "main_bg_color": "#ffffff",
+        "main_text_color": "#333333",
+        "sidebar_bg_color": "#f5f5f5",
+        "sidebar_text_color": "#333333",
+        "link_color": "#0066cc",
+        "button_bg_color": "#fee500",
+        "button_text_color": "#000000",
+        "timer_color": "#d00000",
+        "eligible_promo_bg_color": "#f9f9f9",
+        "eligible_promo_border_color": "#e0e0e0"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_special_offers_3Xj8Hc"
+  ]
+}

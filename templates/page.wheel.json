@@ -1,0 +1,118 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "custom_css": [
+        "h1 {margin-bottom: 0;}"
+      ],
+      "settings": {
+        "show_page_title": true,
+        "bg_color": "",
+        "gradient": "",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "wheel_brands_grid_gnRg9L": {
+      "type": "wheel-brands-grid",
+      "blocks": {
+        "brand_AK9EeE": {
+          "type": "brand",
+          "settings": {
+            "brand_image": "shopify://shop_images/bmf.png",
+            "brand_name": "ART-Replica",
+            "brand_url": "/collections/wheels?vendor/ART-Replica"
+          }
+        },
+        "brand_cnfM6d": {
+          "type": "brand",
+          "settings": {
+            "brand_image": "shopify://shop_images/cragar.png",
+            "brand_name": "DAI-Wheels",
+            "brand_url": "/collections/wheels?vendor/DAI-Wheels"
+          }
+        },
+        "brand_qbn36Y": {
+          "type": "brand",
+          "settings": {
+            "brand_image": "shopify://shop_images/black-rock.png",
+            "brand_name": "RNB",
+            "brand_url": "/collections/wheels?vendor/RNB"
+          }
+        },
+        "brand_JiMyeL": {
+          "type": "brand",
+          "settings": {
+            "brand_image": "shopify://shop_images/cruiser-alloy.png",
+            "brand_name": "RNB",
+            "brand_url": "/collections/wheels?vendor/RNB"
+          }
+        },
+        "brand_J7jEFq": {
+          "type": "brand",
+          "settings": {
+            "brand_image": "shopify://shop_images/cragar.png",
+            "brand_name": "RNB",
+            "brand_url": "/collections/wheels?vendor/RNB"
+          }
+        }
+      },
+      "block_order": [
+        "brand_AK9EeE",
+        "brand_cnfM6d",
+        "brand_qbn36Y",
+        "brand_JiMyeL",
+        "brand_J7jEFq"
+      ],
+      "name": "Wheel Brands Grid",
+      "settings": {}
+    },
+    "financing_options_DCcyAM": {
+      "type": "financing-options",
+      "blocks": {
+        "financing_option_CgbmnD": {
+          "type": "financing_option",
+          "settings": {
+            "title": "<h2>Wippy Loans Financing</h2>",
+            "wippy_description": "{{ page.metafields.page_financing.wippy_description | metafield_tag }}",
+            "button_text": "LEARN MORE",
+            "button_link": "shopify://policies/shipping-policy",
+            "wippy_logo": "{{ page.metafields.page_financing.wippy_logo.value }}"
+          }
+        }
+      },
+      "block_order": [
+        "financing_option_CgbmnD"
+      ],
+      "disabled": true,
+      "name": "Financing Options",
+      "settings": {
+        "header_text": "<h1>FINANCING AVAILABLE</h1>",
+        "header_bg_color": "#ffffff",
+        "header_text_color": "#000000",
+        "intro_text": "{{ page.metafields.page_financing.financing_intro_text | metafield_tag }}",
+        "box_bg_color": "#f9f9f9",
+        "heading_color": "#000000",
+        "text_color": "#000000",
+        "button_bg_color": "#fee500",
+        "button_text_color": "#000000",
+        "button_hover_bg_color": "#fee500d1",
+        "hide_image_on_mobile": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "wheel_brands_grid_gnRg9L",
+    "financing_options_DCcyAM"
+  ]
+}

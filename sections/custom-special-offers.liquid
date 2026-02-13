@@ -1,0 +1,1249 @@
+{% schema %}
+{
+  "name": "Special Offers",
+  "settings": [
+    {
+      "type": "text",
+      "id": "promo_title",
+      "label": "Promotion Title",
+      "default": "Special Offer"
+    },
+    {
+      "type": "text",
+      "id": "promo_subtitle",
+      "label": "Promotion Subtitle",
+      "default": "Get Up to $80 Back* from Goodyear or Up to $180 When You Use Your Goodyear Credit Card"
+    },
+    {
+      "type": "image_picker",
+      "id": "promo_image",
+      "label": "Promotion Banner Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "promo_image_mobile",
+      "label": "Promotion Banner Image (Mobile)"
+    },
+    {
+      "type": "text",
+      "id": "end_date",
+      "label": "End Date",
+      "default": "May 31, 2025"
+    },
+    {
+      "type": "url",
+      "id": "check_vehicle_url",
+      "label": "Check Vehicle URL"
+    },
+    {
+      "type": "text",
+      "id": "check_vehicle_text",
+      "label": "Check Vehicle Text",
+      "default": "Which tires are available for my vehicle?"
+    },
+    {
+      "type": "richtext",
+      "id": "promo_description",
+      "label": "Promotion Description"
+    },
+    {
+      "type": "richtext",
+      "id": "credit_card_info",
+      "label": "Credit Card Information"
+    },
+    {
+      "type": "url",
+      "id": "apply_now_url",
+      "label": "Apply Now URL"
+    },
+    {
+      "type": "url",
+      "id": "credit_card_terms_url",
+      "label": "Credit Card Terms URL"
+    },
+    {
+      "type": "text",
+      "id": "credit_card_terms_title",
+      "label": "Credit Card Terms Title",
+      "default": "Goodyear Credit Card Terms & Conditions"
+    },
+    {
+      "type": "richtext",
+      "id": "eligibility_info",
+      "label": "Eligibility Information"
+    },
+    {
+      "type": "text",
+      "id": "eligible_products_title",
+      "label": "Eligible Products Title",
+      "default": "Eligible Goodyear Tires"
+    },
+    {
+      "type": "richtext",
+      "id": "redemption_info",
+      "label": "Redemption Instructions"
+    },
+    {
+      "type": "richtext",
+      "id": "disclaimer",
+      "label": "Disclaimer Text"
+    },
+    {
+      "type": "url",
+      "id": "terms_url",
+      "label": "Terms & Conditions URL"
+    },
+    {
+      "type": "header",
+      "content": "Newsletter Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "newsletter_enable",
+      "label": "Enable Newsletter Signup",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "newsletter_heading",
+      "label": "Newsletter Heading",
+      "default": "GET OUR EMAILS"
+    },
+    {
+      "type": "range",
+      "id": "links_per_column",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 3,
+      "label": "Number of Links in Left Column"
+    },
+    {
+      "type": "header",
+      "content": "Color Settings"
+    },
+    {
+      "type": "color",
+      "id": "header_bg_color",
+      "label": "Header Background Color",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "color",
+      "id": "header_text_color",
+      "label": "Header Text Color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "main_bg_color",
+      "label": "Main Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "main_text_color",
+      "label": "Main Text Color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "sidebar_bg_color",
+      "label": "Sidebar Background Color",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "color",
+      "id": "sidebar_text_color",
+      "label": "Sidebar Text Color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link Color",
+      "default": "#0066cc"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button Background Color",
+      "default": "#cc0000"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "timer_color",
+      "label": "Timer Text Color",
+      "default": "#d00000"
+    },
+    {
+      "type": "color",
+      "id": "eligible_promo_bg_color",
+      "label": "Eligible Promotions Background Color",
+      "default": "#f9f9f9"
+    },
+    {
+      "type": "color",
+      "id": "eligible_promo_border_color",
+      "label": "Eligible Promotions Border Color",
+      "default": "#e0e0e0"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "rebate_tier",
+      "name": "Rebate Tier",
+      "settings": [
+        {
+          "type": "text",
+          "id": "rebate_amount",
+          "label": "Rebate Amount",
+          "default": "$80 Rebate"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Upload image",
+          "info": "Upload image to show in feature"
+        },
+        {
+          "type": "text",
+          "id": "credit_card_rebate",
+          "label": "Credit Card Rebate Amount",
+          "default": "Increases to $180 when you purchase with your Goodyear Credit Card."
+        },
+        {
+          "type": "text",
+          "id": "tire_models",
+          "label": "Tire Models (comma separated)",
+          "info": "Enter tire models separated by commas"
+        },
+        {
+          "type": "range",
+          "id": "custom_links_per_column",
+          "min": 0,
+          "max": 10,
+          "step": 1,
+          "default": 0,
+          "label": "Custom Number of Links in Left Column (0 to use default)",
+          "info": "Override the global setting for this specific tier"
+        }
+      ]
+    },
+    {
+      "type": "rebate_step",
+      "name": "Rebate Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "step_title",
+          "label": "Step Title"
+        },
+        {
+          "type": "richtext",
+          "id": "step_content",
+          "label": "Step Content"
+        }
+      ]
+    },
+    {
+      "type": "sidebar_link",
+      "name": "Sidebar Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        }
+      ]
+    },
+    {
+      "type": "sidebar_category",
+      "name": "Sidebar Category",
+      "settings": [
+        {
+          "type": "text",
+          "id": "category_name",
+          "label": "Category Name"
+        },
+        {
+          "type": "checkbox",
+          "id": "expanded",
+          "label": "Start Expanded",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "category_link",
+      "name": "Category Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "parent_category",
+          "label": "Parent Category Name"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Special Offers",
+      "category": "Promotions"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  {% comment %} .pageWrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: {{ section.settings.main_bg_color }};
+    display: flex;
+    flex-wrap: wrap;
+    color: {{ section.settings.main_text_color }};
+  } {% endcomment %}
+  ul {
+    padding-left: 20px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  ul li {
+    margin-bottom: 5px;
+  }
+
+
+  .pageHeader {
+    width: 100%;
+    background-color: {{ section.settings.header_bg_color }};
+    padding: 20px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    border-radius: 8px;
+    font-weight: bold;
+    color: {{ section.settings.header_text_color }};
+    font-family: Arial, sans-serif;
+  }
+
+  .pageHeader.specialoffer {
+    display: block;
+    margin-top: 30px;
+  }
+
+  .subPageHeader {
+    font-size: 18px;
+    line-height: 24px;
+    display: block;
+    margin-top: 10px;
+    font-weight: normal;
+    text-transform: none;
+  }
+
+  .contentWrapper {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    padding-bottom: 50px;
+  }
+
+  .mainContent {
+    color: {{ section.settings.main_text_color }};
+  }
+
+  #leftNav {
+    flex: 1;
+    padding: 20px;
+    background-color: {{ section.settings.sidebar_bg_color }};
+    color: {{ section.settings.sidebar_text_color }};
+    min-width: 270px;
+    max-width: 300px;
+    border-radius: 8px;
+  }
+
+  #leftNav ul {
+    margin-left: 0;
+    padding-left: 15px;
+  }
+
+  .promoImg {
+    width: 100%;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .promoImg img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .endDatesMessage {
+    color: {{ section.settings.main_text_color }};
+    font-weight: bold;
+    margin-bottom: 12px;
+    font-size: 16px;
+  }
+
+  .redGreater {
+    color: {{ section.settings.link_color }};
+    text-decoration: none;
+    /* margin: 5px 0 15px 0; */
+    display: inline-block;
+    font-weight: bold;
+  }
+
+  .redGreater:after {
+    content: " >";
+    margin-left: 5px;
+    color: {{ section.settings.button_bg_color }};
+  }
+
+  .detailBlock {
+    background-color: {{ section.settings.main_bg_color }};
+    margin-bottom: 30px;
+  }
+
+  .detailBlock p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+  }
+
+  .disclaimer {
+    font-style: italic;
+    font-size: 14px;
+    color: #666;
+  }
+
+  .eligible-promo {
+    margin: 25px 0;
+  }
+  
+  .eligible-promo .tire-block {
+    background-color: {{ section.settings.eligible_promo_bg_color }};
+    padding: 20px;
+    border: 1px solid {{ section.settings.eligible_promo_border_color }};
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .eligible-promo .tire-block .promo-image {
+    max-width: Initial;
+    height: auto;
+    border-radius: 8px;
+    width: 100%;
+    aspect-ratio: 1/1;
+  }
+
+  .eligible-promo h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: {{ section.settings.main_text_color }};
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
+
+  .eligible-promo h4 {
+    font-size: 16px;
+    font-weight: bold;
+    color: {{ section.settings.main_text_color }};
+    margin: 0 0 5px 0;
+    text-transform: uppercase;
+  }
+
+  .eligible-promo p {
+    font-style: italic;
+    color: {{ section.settings.main_text_color }};
+    margin: 0 0 15px 0;
+  }
+
+  .eligible-promo .tire-block {
+    margin-bottom: 25px;
+  }
+
+  .eligible-promo .tire-block .tire-block-content a {
+    text-decoration: underline;
+  }
+
+  .eligible-promo .tire-block .tire-block-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  .eligible-promo .column {
+    width: 50%;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  .eligible-promo .column a {
+    display: block;
+    color: {{ section.settings.link_color }};
+    text-decoration: none;
+    margin-bottom: 8px;
+  }
+
+  .tire-redeem-block {
+    padding: 20px;
+    border-radius: 8px; 
+    background-color: #eaeaea; 
+    margin: 25px 0;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .tire-redeem-block p {
+    font-weight: 400;    
+    font-family: 'Inter', sans-serif;
+  }
+
+  .tire-redeem-block p:first-child {
+    margin-top: 0;
+  }
+
+  .tire-redeem-block p:last-child {
+    margin-bottom: 0;
+  }
+
+
+  .redBullet li {
+    list-style-type: none;
+    position: relative;
+    padding-left: 15px;
+  }
+
+  .redBullet li:before {
+    content: "•";
+    color: {{ section.settings.button_bg_color }};
+    position: absolute;
+    left: 0;
+  }
+
+  .sidebarHeader {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid {{ section.settings.eligible_promo_border_color }};
+    color: {{ section.settings.sidebar_text_color }};
+  }
+
+  #leftNav ul.moreSpecialOffers {
+    margin-top: 20px;
+    padding-left: 0;
+  }
+
+  .sidebarHeader:first-child,
+  .moreSpecialOffers:first-child {
+    margin-top: 0;
+  }
+
+  .moreSpecialOffers li.tlist {
+    margin-bottom: 15px;
+  }
+
+  .linklist {
+    list-style-type: none;
+    margin-bottom: 0;
+  }
+
+  .linklist a {
+    color: {{ section.settings.link_color }};
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px dotted #ccc;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .linklist a:hover {
+    text-decoration: underline;
+  }
+
+  .expandable {
+    cursor: pointer;
+    padding: 10px 0 10px 20px;
+    border-bottom: 1px solid {{ section.settings.eligible_promo_border_color }};
+    position: relative;
+    list-style-type: none;
+    color: {{ section.settings.sidebar_text_color }};
+  }
+
+  .expandable span {
+    font-weight: bold;
+  }
+
+  .expandable:before {
+    content: "▶";
+    color: {{ section.settings.sidebar_text_color }};
+    position: absolute;
+    left: -3px;
+    transition: transform 0.3s;
+    font-size: 12px;
+    line-height: 20px;
+    height: 16px;
+    width: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    margin-top: -10px;
+    padding-left: 4px;
+  }
+
+  .expandable.expanded:before {
+    transform: rotate(90deg);
+    {% comment %} content: "▼";
+    color: {{ section.settings.button_bg_color }}; {% endcomment %}
+  }
+
+  .timer {
+    display: flex;
+    align-items: center;
+    color: {{ section.settings.timer_color }};
+  }
+
+  .timer-icon {
+    margin-right: 10px;
+    font-size: 20px;
+  }
+
+  .tlist {
+    display: none;
+    padding-left: 15px;
+  }
+
+  .expanded + .tlist {
+    display: block !important;
+  }
+
+  .emailSignUp {
+    background-color: {{ section.settings.sidebar_bg_color }};
+    padding: 15px;
+    margin-top: 30px;
+    border: 1px solid {{ section.settings.eligible_promo_border_color }};
+    border-radius: 8px;
+  }
+
+  .signupHeader {
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: {{ section.settings.sidebar_text_color }};
+  }
+
+  .emailSignUp p {
+    margin-bottom: 15px;
+    color: {{ section.settings.sidebar_text_color }};
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .emailSignUp label {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+  }
+
+  input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 10px;
+    border: 1px solid #ccc;
+  }
+
+  .emailSignUp .primaryBtn {
+    background-color: {{ section.settings.button_bg_color }};
+    color: {{ section.settings.button_text_color }};
+    border: none;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .primaryBtn:hover {
+    background-color: {{ section.settings.button_bg_color | color_darken: 10 }};
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .errorList {
+    color: #cc0000;
+    background-color: #ffecec;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #cc0000;
+  }
+
+  .errorList ul {
+    padding-left: 20px;
+    margin-top: 5px;
+  }
+
+  .successMessage {
+    color: #008000;
+    background-color: #e6ffe6;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #008000;
+  }
+
+  @media (max-width: 768px) {
+    .contentWrapper {
+      flex-direction: column;
+      padding-bottom: 30px;
+    }
+
+    .twocolumns li {
+      width: 100%;
+    }
+
+    .tire-column {
+      width: 100%;
+    }
+
+    #leftNav {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .mobileHide {
+      display: block;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .mainContent {
+      flex: 3;
+      padding-right: 20px;
+      min-width: 65%;
+    }
+    .eligible-promo .tire-block .promo-image {
+      max-width: 260px;
+    }
+
+    .detailBlock {
+      margin-bottom: 20px;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .wrapper {
+      padding: 0 30px;
+    }
+
+    .eligible-promo {
+      margin: 30px 0;
+    }
+
+    .eligible-promo .tire-block {
+      margin-bottom: 30px;
+    }
+
+    .tire-redeem-block {
+      margin: 30px 0;
+    }
+
+    .subPageHeader {
+      font-size: 22px;
+      line-height: 28px;
+    }
+  }
+
+  @media screen and (min-width: 1230px) {
+    .eligible-promo .tire-block {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  @media screen and (min-width: 1360px) {
+    .wrapper {
+      padding: 0 60px;
+    }
+    .pageHeader {
+      padding: 30px;
+    }
+
+    #leftNav {
+      max-width: 350px;
+    }
+  }
+
+</style>
+
+<main class="pageWrapper">
+  <div class="wrapper">
+    <h1 class="pageHeader specialoffer">
+      {{ section.settings.promo_title }}
+      <span class="subPageHeader">{{ section.settings.promo_subtitle }}</span>
+    </h1>
+
+    <div class="contentWrapper">
+      <div class="mainContent">
+        <picture class="promoImg">
+          {% if section.settings.promo_image_mobile != blank %}
+            <source media="(max-width:767px)" srcset="{{ section.settings.promo_image_mobile | image_url }}">
+          {% endif %}
+          {% if section.settings.promo_image != blank %}
+            <img
+              alt="{{ section.settings.promo_title }}"
+              src="{{ section.settings.promo_image | image_url }}"
+              height="{{ section.settings.promo_image.height }}"
+              width={{ section.settings.promo_image.width }}
+              border="0"
+            >
+          {% endif %}
+        </picture>
+
+        <div class="timer">
+          <span class="timer-icon">⏰</span>
+          {% assign end_date_string = section.settings.end_date %}
+          <p class="endDatesMessage" data-end-date="{{ end_date_string }}">
+            {% if end_date_string != blank %}
+              Ends {{ end_date_string }}
+            {% else %}
+              Ends Soon
+            {% endif %}
+          </p>
+        </div>
+
+        {% if section.settings.check_vehicle_url != blank %}
+          <a href="{{ section.settings.check_vehicle_url }}" class="redGreater">
+            {{- section.settings.check_vehicle_text -}}
+          </a>
+        {% endif %}
+
+        <div class="detailBlock">
+          {% if section.settings.promo_description != blank %}
+            {{ section.settings.promo_description }}
+          {% endif %}
+
+          <p>
+            {{ section.settings.credit_card_info -}}
+            {% if section.settings.apply_now_url != blank %}
+              <a href="{{ section.settings.apply_now_url }}" style="color: {{ section.settings.link_color }};"
+                >Apply now!</a
+              >
+              <br>
+            {% endif %}
+            {% if section.settings.credit_card_terms_url != blank %}
+              <a
+                class="disclaimer"
+                href="{{ section.settings.credit_card_terms_url }}"
+                title="{{ section.settings.credit_card_terms_title }}"
+                onclick="openModalBox(this.href, this.title); return false;"
+                style="color: {{ section.settings.link_color }};"
+              >
+                {{ section.settings.credit_card_terms_title }}
+              </a>
+            {% endif %}
+          </p>
+
+          {% if section.settings.eligibility_info != blank %}
+            {{ section.settings.eligibility_info }}
+          {% endif %}
+
+          <div class="eligible-promo">
+            <h3>{{ section.settings.eligible_products_title }}</h3>
+
+            {% assign rebate_tiers = section.blocks | where: 'type', 'rebate_tier' %}
+            {% for tier in rebate_tiers %}
+              <div class="tire-block">
+                {% if tier.settings.image %}
+                <img 
+                    src="{{ tier.settings.image | image_url }}" 
+                    width="{{ tier.settings.image.width }}"
+                    height="{{ tier.settings.image.height }}"
+                    alt="{{ tier.settings.eligible_products_title }}"
+                    class="promo-image"
+                  >
+              {% endif %}
+              <div class="tire-block-content">
+                <h4>{{ tier.settings.rebate_amount }}</h4>
+                <p>{{ tier.settings.credit_card_rebate }}</p>
+              </div>
+                {% assign tire_models = tier.settings.tire_models | split: ',' %}
+                {% assign links_in_left = section.settings.links_per_column %}
+                {% if tier.settings.custom_links_per_column > 0 %}
+                  {% assign links_in_left = tier.settings.custom_links_per_column %}
+                {% endif %}
+
+                <div class="tire-block-content">
+                  <div class="tire-block-content-inner">
+                    {% for tire in tire_models %}
+                      {% if forloop.index <= links_in_left %}
+                        <a href="/collections/tires?q={{ tire | strip | url_encode }}">{{ tire | strip }}</a>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                  <div class="tire-block-content-inner">
+                    {% for tire in tire_models %}
+                      {% if forloop.index > links_in_left %}
+                        <a href="/collections/tires?q={{ tire | strip | url_encode }}">{{ tire | strip }}</a>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+
+          <div class="tire-redeem-block">
+            {% if section.settings.redemption_info != blank %}
+              {{ section.settings.redemption_info }}
+            {% endif %}
+
+            {% assign rebate_steps = section.blocks | where: 'type', 'rebate_step' %}
+            {% for step in rebate_steps %}
+              <p>
+                <strong>{{ step.settings.step_title }}</strong>
+              </p>
+              {{ step.settings.step_content }}
+            {% endfor %}
+          </div>
+
+          {% if section.settings.disclaimer != blank %}
+            {{ section.settings.disclaimer }}
+          {% endif %}
+
+          {% if section.settings.terms_url != blank %}
+            <p>
+              <i
+                >Read all
+                <a href="{{ section.settings.terms_url }}" style="color: {{ section.settings.link_color }};"
+                  >Terms & Conditions.</a
+                ></i
+              >
+            </p>
+          {% endif %}
+        </div>
+      </div>
+
+      <aside id="leftNav">
+        <h2 class="sidebarHeader">Additional Info</h2>
+        <ul>
+          {% assign sidebar_links = section.blocks | where: 'type', 'sidebar_link' %}
+          {% for link in sidebar_links %}
+            <li class="linklist singlelink">
+              <a href="{{ link.settings.link_url }}">{{ link.settings.link_text }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+
+        <div class="sidebarHeader">More Special Offers</div>
+        <ul>
+          <li class="linklist singlelink"><a href="/pages/special-offers">View All Special Offers</a></li>
+        </ul>
+
+        <ul class="moreSpecialOffers">
+          {% assign categories = section.blocks | where: 'type', 'sidebar_category' %}
+          {% assign category_links = section.blocks | where: 'type', 'category_link' %}
+
+          {% for category in categories %}
+            <li class="expandable prodCat {% if category.settings.expanded %}expanded{% endif %}">
+              <span>{{ category.settings.category_name }}</span>
+            </li>
+            <li
+              class="tlist linklist"
+              {% if category.settings.expanded %}
+                style="display: list-item;"
+              {% else %}
+                style="display: none;"
+              {% endif %}
+            >
+              {% for link in category_links %}
+                {% if link.settings.parent_category == category.settings.category_name %}
+                  <a href="{{ link.settings.link_url }}">{{ link.settings.link_text }}</a>
+                {% endif %}
+              {% endfor %}
+            </li>
+          {% endfor %}
+        </ul>
+
+        {% if section.settings.newsletter_enable %}
+          <div class="emailSignUp mobileHide">
+            <div class="signupHeader">{{ section.settings.newsletter_heading }}</div>
+            <p>Get the latest special offers delivered straight to your in-box.</p>
+
+            {% form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' %}
+              <input type="hidden" name="contact[tags]" value="newsletter,special-offers">
+
+              <div class="errorList {% if form.errors == blank %}hide{% endif %}" id="errorList" tabindex="-1">
+                <span>One or more fields are incomplete or incorrect.</span>
+                <ul>
+                  {% if form.errors %}
+                    <li>
+                      {{ form.errors.translated_fields.email | capitalize }}
+                      {{ form.errors.messages.email }}
+                    </li>
+                  {% else %}
+                    <li id="emailAddressError">Please enter your email address.</li>
+                    <li id="emailFormatError" class="hide">
+                      Please provide a valid email address (e.g.,name@serviceprovider.com).
+                    </li>
+                  {% endif %}
+                </ul>
+              </div>
+
+              {% if form.posted_successfully? %}
+                <div class="successMessage">
+                  <span>{{- 'newsletter.success' | t }}</span>
+                </div>
+              {% endif %}
+
+              <label for="emailSignUp" style="color: {{ section.settings.sidebar_text_color }};">Email Address</label>
+              <div>
+                <input
+                  type="email"
+                  maxlength="60"
+                  id="emailSignUp"
+                  name="contact[email]"
+                  value="{{ form.email }}"
+                  aria-required="true"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  autocomplete="email"
+                  {% if form.errors %}
+                    autofocus
+                    aria-invalid="true"
+                    aria-describedby="errorList"
+                  {% elsif form.posted_successfully? %}
+                    aria-describedby="successMessage"
+                  {% endif %}
+                  required
+                >
+                <button
+                  type="submit"
+                  class="primaryBtn"
+                  name="commit"
+                  id="Subscribe"
+                  aria-label="{{ 'newsletter.button_label' | t }}"
+                >
+                  Sign Up
+                </button>
+              </div>
+            {% endform %}
+          </div>
+        {% endif %}
+      </aside>
+    </div>
+  </div>
+</main>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Add click event listeners to expandable elements
+    const expandables = document.querySelectorAll('.expandable');
+    expandables.forEach(function(expandable) {
+      expandable.addEventListener('click', function() {
+        this.classList.toggle('expanded');
+
+        // Toggle visibility of the next list
+        const nextList = this.nextElementSibling;
+        if (nextList && nextList.classList.contains('tlist')) {
+          if (this.classList.contains('expanded')) {
+            nextList.style.display = 'block';
+          } else {
+            nextList.style.display = 'none';
+          }
+        }
+      });
+    });
+
+     // Setup dynamic countdown timer
+    function updateCountdown() {
+        // Get the timer element
+        const timerElement = document.querySelector('.timer');
+        const countdownElement = document.querySelector('.endDatesMessage');
+        
+        if (timerElement && countdownElement) {
+            const endDateStr = countdownElement.getAttribute('data-end-date');
+            if (!endDateStr) {
+                return; // Exit if no date found
+            }
+            
+            // Parse the date (handle different formats)
+            let endDate;
+            if (endDateStr.includes(",")) {
+                // Format like "May 26, 2025"
+                endDate = new Date(endDateStr);
+            } else {
+                // Try to parse in different formats
+                const parts = endDateStr.split(/[-\/]/);
+                if (parts.length === 3) {
+                    // Assume format is either YYYY-MM-DD or MM-DD-YYYY or MM/DD/YYYY
+                    if (parts[0].length === 4) {
+                        // YYYY-MM-DD
+                        endDate = new Date(parts[0], parts[1]-1, parts[2]);
+                    } else {
+                        // MM-DD-YYYY or MM/DD/YYYY
+                        endDate = new Date(parts[2], parts[0]-1, parts[1]);
+                    }
+                } else {
+                    // Last resort, try direct parsing
+                    endDate = new Date(endDateStr);
+                }
+            }
+            
+            const now = new Date();
+            
+            // Calculate days difference (accounting for time zones)
+            const nowUTC = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+            const endUTC = Date.UTC(endDate.getFullYear(), endDate.getMonth(), endDate.getDate());
+            const daysDiff = Math.floor((endUTC - nowUTC) / (1000 * 60 * 60 * 24));
+            
+            // Check if the end date has passed
+            if (isNaN(daysDiff) || daysDiff < 0) {
+                // If promotion has ended or date is invalid, hide the timer completely
+                timerElement.style.display = 'none';
+            } else {
+                // Format the month and day
+                const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                const month = months[endDate.getMonth()];
+                const day = endDate.getDate();
+                
+                // Update the countdown text with dynamically calculated days
+                if (daysDiff === 1) {
+                    countdownElement.textContent = `Ends ${month} ${day} (${daysDiff} Day Left!)`;
+                } else {
+                    countdownElement.textContent = `Ends ${month} ${day} (${daysDiff} Days Left!)`;
+                }
+                
+                // Make sure the timer is visible
+                timerElement.style.display = 'flex';
+            }
+        }
+        
+        // Call again in 1 hour for more frequent updates
+        setTimeout(updateCountdown, 60 * 60 * 1000);
+    }
+    
+    // Initial call to setup countdown
+    updateCountdown();
+
+    // Function to open modal box for credit card terms
+    window.openModalBox = function(url, title) {
+      // This is a placeholder for the modal functionality
+      // Replace with your actual modal implementation
+      fetch(url)
+        .then(response => response.text())
+        .then(html => {
+          const modalOverlay = document.createElement('div');
+          modalOverlay.style.position = 'fixed';
+          modalOverlay.style.top = '0';
+          modalOverlay.style.left = '0';
+          modalOverlay.style.width = '100%';
+          modalOverlay.style.height = '100%';
+          modalOverlay.style.backgroundColor = 'rgba(0,0,0,0.5)';
+          modalOverlay.style.zIndex = '9999';
+          modalOverlay.style.display = 'flex';
+          modalOverlay.style.justifyContent = 'center';
+          modalOverlay.style.alignItems = 'center';
+
+          const modalContent = document.createElement('div');
+          modalContent.style.backgroundColor = '#fff';
+          modalContent.style.padding = '20px';
+          modalContent.style.maxWidth = '800px';
+          modalContent.style.maxHeight = '80vh';
+          modalContent.style.overflow = 'auto';
+          modalContent.style.position = 'relative';
+
+          const closeButton = document.createElement('button');
+          closeButton.textContent = 'X';
+          closeButton.style.position = 'absolute';
+          closeButton.style.top = '10px';
+          closeButton.style.right = '10px';
+          closeButton.style.background = 'none';
+          closeButton.style.border = 'none';
+          closeButton.style.fontSize = '20px';
+          closeButton.style.cursor = 'pointer';
+          closeButton.onclick = function() {
+            document.body.removeChild(modalOverlay);
+          };
+
+          const modalTitle = document.createElement('h2');
+          modalTitle.textContent = title;
+
+          const modalBody = document.createElement('div');
+          modalBody.innerHTML = html;
+
+          modalContent.appendChild(closeButton);
+          modalContent.appendChild(modalTitle);
+          modalContent.appendChild(modalBody);
+          modalOverlay.appendChild(modalContent);
+
+          document.body.appendChild(modalOverlay);
+        });
+      return false;
+    };
+
+     // Form validation for the newsletter form
+    const emailForm = document.getElementById('ContactFooter');
+    if (emailForm) {
+      emailForm.addEventListener('submit', function(e) {
+        const emailInput = document.getElementById('emailSignUp');
+        const errorList = document.getElementById('errorList');
+        const emailAddressError = document.getElementById('emailAddressError');
+        const emailFormatError = document.getElementById('emailFormatError');
+
+        if (!emailInput.value) {
+          e.preventDefault();
+          errorList.classList.remove('hide');
+          if (emailAddressError) emailAddressError.classList.remove('hide');
+          if (emailFormatError) emailFormatError.classList.add('hide');
+        } else if (!validateEmail(emailInput.value)) {
+          e.preventDefault();
+          errorList.classList.remove('hide');
+          if (emailAddressError) emailAddressError.classList.add('hide');
+          if (emailFormatError) emailFormatError.classList.remove('hide');
+        }
+      });
+    }
+
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+
+    // Redirect after successful form submission to prevent message persisting after refresh
+    const successMessage = document.querySelector('.successMessage');
+    if (successMessage) {
+      setTimeout(() => {
+        window.location.replace(window.location.pathname);
+      }, 3000); // Redirect after 3 seconds
+    }
+  });
+</script>

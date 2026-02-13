@@ -1,0 +1,108 @@
+/*================ "Shop the Look Banner" ================*/
+.stl-banner {
+  contain: paint;
+  background: var(--bg);
+  line-height: 1.25;
+}
+.stl-banner .wrapper--full .stl-banner__head {
+  padding: 0 var(--gutter-mobile);
+}
+@media only screen and (min-width: 1024px) {
+  .stl-banner .wrapper--full .stl-banner__head {
+    padding: 0 var(--gutter);
+  }
+}
+
+.stl-banner__wrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--gutter-mobile);
+}
+.stl-banner__wrapper .quick__form {
+  width: 100%;
+}
+
+@media only screen and (min-width: 1024px) {
+  .stl-banner__wrapper {
+    grid-template: "heading cta" "hero hero"/minmax(0, 3fr) minmax(0, 1fr);
+    gap: calc(var(--gutter) / 2);
+    align-items: center;
+  }
+  .stl-banner__head {
+    grid-area: heading;
+  }
+  .stl-banner__cta {
+    grid-area: cta;
+  }
+  .stl-banner__hero {
+    grid-area: hero;
+  }
+  .stl-banner__wrapper.text-center {
+    grid-template-columns: minmax(0, 1fr);
+    column-gap: 0;
+  }
+}
+.stl-banner__wrapper--hero-only {
+  gap: 0;
+}
+
+.stl-banner__head {
+  --adjust-heading: var(--adjust-heading-desktop, var(--FONT-ADJUST-HEADING));
+  --adjust-body: var(--adjust-body-desktop);
+  width: 100%;
+  color: var(--text);
+}
+@media only screen and (max-width: 1023px) {
+  .stl-banner__head {
+    --adjust-heading: var(--adjust-heading-mobile, var(--FONT-ADJUST-HEADING));
+    --adjust-body: var(--adjust-body-mobile);
+  }
+}
+.stl-banner__head p {
+  margin-top: 0;
+}
+
+.stl-banner__heading {
+  margin-bottom: 0;
+}
+
+.stl-banner__rte p:last-child {
+  margin-bottom: 0;
+}
+
+.stl-banner__hero {
+  position: relative;
+}
+
+.stl-banner__image {
+  contain: paint;
+}
+
+.body--rounded-corners .wrapper--full-padded .stl-banner__image {
+  border-radius: var(--radius);
+}
+
+.stl-banner__quick-view-items {
+  position: relative;
+}
+
+.stl-banner__quick-view-item {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  z-index: -1;
+  width: 100%;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+}
+.stl-banner__quick-view-item.is-active {
+  position: relative;
+  inset-block-start: auto;
+  inset-inline-start: auto;
+  z-index: unset;
+  pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+}

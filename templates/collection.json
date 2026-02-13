@@ -1,0 +1,201 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "collection-image-with-title",
+      "disabled": true,
+      "settings": {
+        "banner_height": "one-third-height",
+        "text_position": "middle-center",
+        "show_image": true,
+        "text_color": "text-dark",
+        "overlay_opacity": 10,
+        "bg_color": "",
+        "gradient": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "b5058786-b763-4ab8-b375-d96e3dbab791": {
+      "type": "section-grid",
+      "blocks": {
+        "template--21524360200470__b5058786-b763-4ab8-b375-d96e3dbab791-image-1": {
+          "type": "image",
+          "settings": {
+            "width": "100",
+            "image": "{{ collection.image }}",
+            "overlay_opacity": 10,
+            "text_position": "center",
+            "subheading": "",
+            "title": "",
+            "text": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "overlay_text_color": "text-light"
+          }
+        }
+      },
+      "block_order": [
+        "template--21524360200470__b5058786-b763-4ab8-b375-d96e3dbab791-image-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_height": "three-fifty-height",
+        "enable_mobile_height": false,
+        "mobile_height": "four-fifty-height-mobile",
+        "heading_size": 130,
+        "text_size": 100,
+        "button_1_color": "btn--white",
+        "button_1_style": "btn--text",
+        "button_1_size": "btn--small",
+        "button_2_color": "btn--black",
+        "button_2_style": "btn--text",
+        "button_2_size": "btn--small",
+        "section_bg_color": "",
+        "gradient": "",
+        "enable_slider_mobile": true,
+        "columns_mobile": "1",
+        "overlay_text": true,
+        "width": "wrapper--full-padded",
+        "add_gutter": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "8d9a9dcc-b650-4240-8dbe-558bd59ba535": {
+      "type": "section-text",
+      "blocks": {
+        "template--21524360200470__8d9a9dcc-b650-4240-8dbe-558bd59ba535-heading-1": {
+          "type": "heading",
+          "settings": {
+            "text": "<p>{{ collection.title }}</p>",
+            "size": 100,
+            "heading_highlight_type": "italics",
+            "heading_tag": "h2",
+            "highlight_color": "#d43747",
+            "highlight_text_color": "#000000"
+          }
+        },
+        "template--21524360200470__8d9a9dcc-b650-4240-8dbe-558bd59ba535-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ collection.title }}</p>",
+            "size": 100
+          }
+        }
+      },
+      "block_order": [
+        "template--21524360200470__8d9a9dcc-b650-4240-8dbe-558bd59ba535-heading-1",
+        "template--21524360200470__8d9a9dcc-b650-4240-8dbe-558bd59ba535-text-1"
+      ],
+      "settings": {
+        "text_position": "left",
+        "bg_color": "",
+        "gradient": "",
+        "text_color": "text-dark",
+        "width": "wrapper--full-padded",
+        "padding_top": 16,
+        "padding_bottom": 0
+      }
+    },
+    "subcollections": {
+      "type": "subcollections",
+      "settings": {
+        "subcollections": [],
+        "limit": 8,
+        "layout": "grid",
+        "image_source": "collection",
+        "image_aspect_ratio": 0.6,
+        "image_overlay_opacity": 10,
+        "bg_color": "",
+        "gradient": "",
+        "text_color": "text-light",
+        "padding_top": 30,
+        "padding_bottom": 14
+      }
+    },
+    "main": {
+      "type": "collection",
+      "blocks": {
+        "96343c36-f832-4740-8cd6-2a90dcf9e4d9": {
+          "type": "promo",
+          "settings": {
+            "collection": "",
+            "position": 5,
+            "width": "half",
+            "title": "<p>Promotion title</p>",
+            "heading_size": 100,
+            "heading_highlight_type": "circle",
+            "highlight_color": "#fbcaff",
+            "highlight_text_color": "#ffffff",
+            "content": "Advertise a promotion or a sale",
+            "text_size": 100,
+            "text_color": "text-light",
+            "text_position": "bottom-left",
+            "layout": "stacked",
+            "overlay_opacity": 10,
+            "bg_color": "#f5f4f1",
+            "button_text": "",
+            "button_link": "",
+            "button_color": "btn--white",
+            "button_style": "btn--solid-border",
+            "button_size": "btn--small"
+          }
+        }
+      },
+      "block_order": [
+        "96343c36-f832-4740-8cd6-2a90dcf9e4d9"
+      ],
+      "disabled": true,
+      "settings": {
+        "show_breadcrumbs": true,
+        "enable_sorting": true,
+        "enable_filters": true,
+        "filters_layout": "open",
+        "show_more": true,
+        "filter_mode": "default",
+        "bg_color": "",
+        "padding_top": 30,
+        "padding_bottom": 60
+      }
+    },
+    "1746355973cf3827ea": {
+      "type": "apps",
+      "blocks": {
+        "convermax_year_make_model_collection_page_LqEL4r": {
+          "type": "shopify://apps/convermax-year-make-model/blocks/collection-page/874383ce-1b49-4436-9ea6-3697a3a5a3d5",
+          "settings": {
+            "wrapper_classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "convermax_year_make_model_collection_page_LqEL4r"
+      ],
+      "settings": {
+        "bg_color": "",
+        "width": "wrapper",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "b5058786-b763-4ab8-b375-d96e3dbab791",
+    "8d9a9dcc-b650-4240-8dbe-558bd59ba535",
+    "subcollections",
+    "main",
+    "1746355973cf3827ea"
+  ]
+}

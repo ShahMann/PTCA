@@ -1,0 +1,58 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "collection-image-with-title",
+      "settings": {
+      }
+    },
+    "subcollections": {
+      "type": "subcollections",
+      "settings": {
+      }
+    },
+    "main": {
+      "type": "collection",
+      "blocks": {
+        "promo-0": {
+          "type": "promo",
+          "settings": {
+            "width": "half"
+          }
+        },
+        "promo-1": {
+          "type": "promo",
+          "settings": {
+            "width": "auto"
+          }
+        },
+        "promo-2": {
+          "type": "promo",
+          "settings": {
+            "width": "full"
+          }
+        }
+      },
+      "block_order": [
+        "promo-0",
+        "promo-1",
+        "promo-2"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "subcollections",
+    "main"
+  ]
+}

@@ -1,0 +1,990 @@
+<!-- /sections/section-look.liquid -->
+
+{%- liquid
+  assign products_on_row = section.settings.products_on_row
+  assign image = section.settings.image
+  assign image_position = section.settings.image_position
+  assign enable_aspect_ratio = section.settings.enable_aspect_ratio
+  assign main_image_aspect_ratio = section.settings.main_image_aspect_ratio
+  assign heading = section.settings.title
+  assign heading_size = section.settings.heading_size | times: 0.01
+  assign text = section.settings.text
+  assign text_size = section.settings.text_size | times: 0.01
+  assign text_alignment = section.settings.text_alignment
+  assign show_hotspots = section.settings.show_hotspots
+  assign show_arrow = section.settings.show_arrow
+  assign popup_heading = section.settings.popup_heading
+  assign show_free_shipping_message = section.settings.show_free_shipping_message
+  assign text_color = section.settings.content_color
+  assign hotspot_color = section.settings.hotspot_color
+  assign bg_color = section.settings.bg_color
+  assign gradient = section.settings.gradient | default: 'none'
+  assign hotspot_contents_text_color = section.settings.hotspot_contents_text_color
+  assign hotspot_contents_bg_color = section.settings.hotspot_contents_bg_color
+  assign section_width = section.settings.width
+  assign padding_top = section.settings.padding_top
+  assign padding_bottom = section.settings.padding_bottom
+  assign blocks_size = section.blocks.size
+  assign arrow_style = settings.arrow_style
+  assign line_thickness = settings.line_thickness
+  assign animations_enabled = settings.animations_enabled
+  assign animation_anchor = '#Look--' | append: section.id
+
+  assign heading_size_mobile = heading_size
+  if heading_size > 1.5
+    assign heading_size_mobile = heading_size | times: 0.85
+  endif
+  assign text_size_mobile = text_size
+  if text_size > 1.5
+    assign text_size_mobile = text_size | times: 0.85
+  endif
+
+  capture hotspot_contents_props
+    if hotspot_contents_bg_color.alpha != 0.0 and hotspot_contents_bg_color != ''
+      echo '--bg: ' | append: hotspot_contents_bg_color | append: '; '
+    endif
+  endcapture
+
+  comment
+    Images sizes
+  endcomment
+
+  # Desktop widths
+  if section_width == 'wrapper--full-padded'
+    assign wrapper_width_lg = '100vw - 120px'
+  endif
+  if section_width == 'wrapper'
+    assign wrapper_width_lg = '1440px - 120px'
+  endif
+  assign img_width_lg = 'calc((' | append: wrapper_width_lg | append: ' - 60px) / 2' | append: ')'
+  assign img_width_xlg_pgi = 'calc(((' | append: wrapper_width_lg | append: ' - 60px) / 2 - 60px) / 2)'
+  assign img_width_lg_pgi = img_width_xlg_pgi
+  # Tablet widths
+  assign wrapper_width_md = '100vw - 2 * 20px'
+  assign img_width_md = 'calc((' | append: wrapper_width_md | append: ' - 20px) / 2' | append: ')'
+  assign img_width_md_pgi = 'calc(((' | append: wrapper_width_md | append: ' - 20px) / 2 - 20px) / 2)'
+  # Mobile widths
+  assign img_width_sm = 'calc(' | append: wrapper_width_md | append: ')'
+  assign img_width_sm_pgi = 'calc((100vw - 50px) / 2 - 17px)'
+
+  assign sizes = '(min-width: 1024px) ' | append: img_width_lg | append: ', (min-width: 768px) ' | append: img_width_md | append: ', ' | append: img_width_sm
+  assign sizes_pgi = '(min-width: 1440px) ' | append: img_width_xlg_pgi | append: ', (min-width: 1024px) ' | append: img_width_lg_pgi | append: ', (min-width: 768px) ' | append: img_width_md_pgi | append: ', ' | append: img_width_sm_pgi
+
+  capture button_arrow
+    if show_arrow
+      if arrow_style == 'chevron' and line_thickness == 'normal'
+        render 'icon-chevron-right'
+      elsif arrow_style == 'chevron' and line_thickness == 'bold'
+        render 'icon-chevron-right-bold'
+      elsif arrow_style == 'arrow' and line_thickness == 'normal'
+        render 'icon-arrow-right'
+      elsif arrow_style == 'arrow' and line_thickness == 'bold'
+        render 'icon-arrow-right-bold'
+      endif
+    endif
+  endcapture
+
+  capture stl_wrapper_classes
+    echo 'look__wrapper'
+    unless show_hotspots
+      echo ' look__wrapper--no-hotspots'
+    endunless
+    echo ' ' | append: text_color
+    echo ' ' | append: text_alignment
+    if image_position == 'is-reversed'
+      echo ' ' | append: image_position
+    endif
+  endcapture
+-%}
+
+{{ 'section-look.css' | asset_url | stylesheet_tag }}
+
+{%- if blocks_size > 0 -%}
+  {%- liquid
+    assign quick_view_items_template = ''
+    assign data_hotspot_array = ''
+    assign look_products = ''
+    assign no_js_markup = ''
+    assign hotspot_markup = ''
+    for i in (1..blocks_size)
+      assign data_hotspot_array = data_hotspot_array | append: '@@' | append: i
+    endfor
+    assign data_hotspot_array = data_hotspot_array | split: '@@'
+  -%}
+
+  {%- for block in section.blocks -%}
+    {%- liquid
+      assign product = all_products[block.settings.product]
+      if product != blank
+        assign hotspot_title = product.title | strip_html | escape
+        assign hotspot_url = product.url | within: collection
+      else
+        assign hotspot_title = 'homepage.onboarding.product_title' | t
+        assign hotspot_url = '#!'
+      endif
+
+      assign position_x_desktop = block.settings.position_x_desktop
+      assign position_y_desktop = block.settings.position_y_desktop
+      assign position_x_mobile = block.settings.position_x_mobile
+      assign position_y_mobile = block.settings.position_y_mobile
+      assign unique = 'quick-view-item-' | append: block.id
+      assign index = forloop.index
+      assign index_0 = forloop.index0
+      assign data_hotspot = section.id | append: '--' | append: data_hotspot_array[index]
+      assign info_bubbles_position_desktop = block.settings.info_bubbles_position_desktop
+      assign info_bubbles_position_mobile = block.settings.info_bubbles_position_mobile
+
+      capture hotspot_postions
+        echo ' --hotspot-x-lg: ' | append: position_x_desktop | append: '%;'
+        echo ' --hotspot-y-lg: ' | append: position_y_desktop | append: '%;'
+        echo ' --hotspot-x-sm: ' | append: position_x_mobile | append: '%;'
+        echo ' --hotspot-y-sm: ' | append: position_y_mobile | append: '%;'
+      endcapture
+
+      capture info_bubble_styles
+        # Alignment in "display: grid"
+        ## right half of the clock face
+        if info_bubbles_position_desktop > 0 and info_bubbles_position_desktop < 30
+          echo ' --justify-lg: start;'
+        endif
+        if info_bubbles_position_mobile > 0 and info_bubbles_position_mobile < 30
+          echo ' --justify-sm: start;'
+        endif
+        if info_bubbles_position_desktop == 15
+          echo ' --align-lg: center;'
+        endif
+        if info_bubbles_position_mobile == 15
+          echo ' --align-sm: center;'
+        endif
+        ## left half of the clock face
+        if info_bubbles_position_desktop > 30 and info_bubbles_position_desktop < 60
+          echo ' --justify-lg: end;'
+        endif
+        if info_bubbles_position_mobile > 30 and info_bubbles_position_mobile < 60
+          echo ' --justify-sm: end;'
+        endif
+        if info_bubbles_position_desktop == 45
+          echo ' --align-lg: center;'
+        endif
+        if info_bubbles_position_mobile == 45
+          echo ' --align-sm: center;'
+        endif
+
+        # Logical start and end offsets
+        ## 0-15 --- inset-block-start: auto;
+        ## 0-15 --- inset-inline-end: auto;
+        ## 15-30 -- inset-block-end: auto;
+        ## 15-30 -- inset-inline-end: auto;
+        ## 30-45 -- inset-block-end: auto;
+        ## 30-45 -- inset-inline-start: auto;
+        ## 45-60 -- inset-block-start: auto;
+        ## 45-60 -- inset-inline-start: auto;
+        if info_bubbles_position_desktop == 0
+          echo ' --inset-block-lg: auto calc(100% + var(--hotspot-offset));'
+          echo ' --inset-inline-lg: auto auto;'
+        endif
+        if info_bubbles_position_mobile == 0
+          echo ' --inset-block-sm: auto calc(100% + var(--hotspot-offset));'
+          echo ' --inset-inline-sm: auto auto;'
+        endif
+        if info_bubbles_position_desktop == 5
+          echo '--inset-block-lg: auto calc(100% + var(--hotspot-offset) - var(--hotspot-offset) * 0.33);'
+          echo '--inset-inline-lg: calc(33% + var(--hotspot-offset)) auto;'
+        endif
+        if info_bubbles_position_mobile == 5
+          echo '--inset-block-sm: auto calc(100% + var(--hotspot-offset) - var(--hotspot-offset) * 0.33);'
+          echo '--inset-inline-sm: calc(33% + var(--hotspot-offset)) auto;'
+        endif
+        if info_bubbles_position_desktop == 10
+          echo '--inset-block-lg: auto calc(33% + var(--hotspot-offset));'
+          echo '--inset-inline-lg: calc(100% + var(--hotspot-offset) - var(--hotspot-offset) * 0.33) auto;'
+        endif
+        if info_bubbles_position_mobile == 10
+          echo '--inset-block-sm: auto calc(33% + var(--hotspot-offset));'
+          echo '--inset-inline-sm: calc(100% + var(--hotspot-offset) - var(--hotspot-offset) * 0.33) auto;'
+        endif
+        if info_bubbles_position_desktop == 15
+          echo ' --inset-block-lg: auto auto;'
+          echo ' --inset-inline-lg: calc(0% + var(--hotspot-width) + var(--hotspot-offset)) auto;'
+        endif
+        if info_bubbles_position_mobile == 15
+          echo ' --inset-block-sm: auto auto;'
+          echo ' --inset-inline-sm: calc(0% + var(--hotspot-width) + var(--hotspot-offset)) auto;'
+        endif
+        if info_bubbles_position_desktop == 20
+          echo '--inset-block-lg: calc(33% + var(--hotspot-offset)) auto;'
+          echo '--inset-inline-lg: calc(100% + var(--hotspot-offset) - var(--hotspot-offset) * 0.33) auto;'
+        endif
+        if info_bubbles_position_mobile == 20
+          echo '--inset-block-sm: calc(33% + var(--hotspot-offset)) auto;'
+          echo '--inset-inline-sm: calc(100% + var(--hotspot-offset) - var(--hotspot-offset) * 0.33) auto;'
+        endif
+        if info_bubbles_position_desktop == 25
+          echo '--inset-block-lg: calc(100% + var(--hotspot-offset) - var(--hotspot-offset) * 0.33) auto;'
+          echo '--inset-inline-lg: calc(33% + var(--hotspot-offset)) auto;'
+        endif
+        if info_bubbles_position_mobile == 25
+          echo '--inset-block-sm: calc(100% + var(--hotspot-offset) - var(--hotspot-offset) * 0.33) auto;'
+          echo '--inset-inline-sm: calc(33% + var(--hotspot-offset)) auto;'
+        endif
+        if info_bubbles_position_desktop == 30
+          echo ' --inset-block-lg: calc(100% + var(--hotspot-offset)) auto;'
+          echo ' --inset-inline-lg: auto auto;'
+        endif
+        if info_bubbles_position_mobile == 30
+          echo ' --inset-block-sm: calc(100% + var(--hotspot-offset)) auto;'
+          echo ' --inset-inline-sm: auto auto;'
+        endif
+        if info_bubbles_position_desktop == 35
+          echo '--inset-block-lg: calc(100% + var(--hotspot-offset) - var(--hotspot-offset) * 0.33) auto;'
+          echo '--inset-inline-lg: auto calc(33% + var(--hotspot-offset));'
+        endif
+        if info_bubbles_position_mobile == 35
+          echo '--inset-block-sm: calc(100% + var(--hotspot-offset) - var(--hotspot-offset) * 0.33) auto;'
+          echo '--inset-inline-sm: auto calc(33% + var(--hotspot-offset));'
+        endif
+        if info_bubbles_position_desktop == 40
+          echo '--inset-block-lg: calc(33% + var(--hotspot-offset)) auto;'
+          echo '--inset-inline-lg: auto calc(100% + var(--hotspot-offset) - var(--hotspot-offset) * 0.33);'
+        endif
+        if info_bubbles_position_mobile == 40
+          echo '--inset-block-sm: calc(33% + var(--hotspot-offset)) auto;'
+          echo '--inset-inline-sm: auto calc(100% + var(--hotspot-offset) - var(--hotspot-offset) * 0.33);'
+        endif
+        if info_bubbles_position_desktop == 45
+          echo ' --inset-block-lg: auto auto;'
+          echo ' --inset-inline-lg: auto calc(0% + var(--hotspot-width) + var(--hotspot-offset));'
+        endif
+        if info_bubbles_position_mobile == 45
+          echo ' --inset-block-sm: auto auto;'
+          echo ' --inset-inline-sm: auto calc(0% + var(--hotspot-width) + var(--hotspot-offset));'
+        endif
+        if info_bubbles_position_desktop == 50
+          echo ' --inset-block-lg: auto calc(33% + var(--hotspot-offset));'
+          echo ' --inset-inline-lg: auto calc(100% + var(--hotspot-offset) - var(--hotspot-offset) * 0.33);'
+        endif
+        if info_bubbles_position_mobile == 50
+          echo ' --inset-block-sm: auto calc(33% + var(--hotspot-offset));'
+          echo ' --inset-inline-sm: auto calc(100% + var(--hotspot-offset) - var(--hotspot-offset) * 0.33);'
+        endif
+        if info_bubbles_position_desktop == 55
+          echo ' --inset-block-lg: auto calc(100% + var(--hotspot-offset) - var(--hotspot-offset) * 0.33);'
+          echo ' --inset-inline-lg: auto calc(33% + var(--hotspot-offset));'
+        endif
+        if info_bubbles_position_mobile == 55
+          echo ' --inset-block-sm: auto calc(100% + var(--hotspot-offset) - var(--hotspot-offset) * 0.33);'
+          echo ' --inset-inline-sm: auto calc(33% + var(--hotspot-offset));'
+        endif
+
+        # Hotspot line rotation values
+        ## Draw each line from a single center point
+        ## Starting from 90deg at the value of 0
+        ## Each next info bubble position, with a step of 5, adds another 30deg
+        assign rotation_lg = info_bubbles_position_desktop | divided_by: 5 | times: 30 | plus: 90
+        assign rotation_sm = info_bubbles_position_mobile | divided_by: 5 | times: 30 | plus: 90
+        echo ' --rotate-lg: ' | append: rotation_lg | append: 'deg;'
+        echo ' --rotate-sm: ' | append: rotation_sm | append: 'deg;'
+      endcapture
+    -%}
+
+    {%- capture look_products -%}
+      {{- look_products -}}
+
+      <div class="look__slide look__slide--{{ block.id }}" data-slide-item="{{ block.id }}">
+        {%- if product != blank -%}
+          {%- render 'product-grid-item',
+            product: product,
+            index: index,
+            animation_delay: index,
+            sizes: sizes_pgi,
+            animation_anchor: animation_anchor
+          %}
+        {%- else -%}
+          {%- render 'product-grid-item--onboarding',
+            title: 'Product Title',
+            placeholder_index: index,
+            index: index,
+            animation_delay: index,
+            animation_anchor: animation_anchor
+          -%}
+        {%- endif -%}
+      </div>
+    {%- endcapture -%}
+
+    {%- capture no_js_markup -%}
+      {{ no_js_markup }}
+
+      <div class="hotspot hotspot--links"
+        style="{{ hotspot_postions }} {{ info_bubble_styles }}"
+      >
+        <a href="{{ hotspot_url }}"
+          class="hotspot__target"
+          aria-label="{{ hotspot_title }}"
+        >
+          <span class="hotspot__target-inner"></span>
+        </a>
+
+        <span class="hotspot__line"></span>
+
+        <div class="hotspot__info-bubble">
+          <a href="{{ hotspot_url }}" class="hotspot__title h6">
+            {{ hotspot_title }}
+
+            {% if button_arrow != blank %}
+              {{ button_arrow }}
+            {% endif %}
+          </a>
+        </div>
+      </div>
+    {%- endcapture -%}
+
+    {%- capture hotspot_markup -%}
+      {{ hotspot_markup }}
+
+      <div id="hotspotItem--{{ block.id }}"
+        class="hotspot{% unless show_hotspots %} visually-hidden{% endunless %}"
+        style="{{ hotspot_postions }} {{ info_bubble_styles }}"
+        data-stl-hotspots-item
+        {% if animations_enabled %}
+          data-aos="fade"
+          data-aos-duration="200"
+          data-aos-anchor="{{ animation_anchor }}"
+          data-aos-intersection="0.5"
+        {% endif %}
+      >
+        <button type="button"
+          class="hotspot__target"
+          {% if index_0 == 0 %}aria-current="true"{% endif %}
+          aria-label="{{ 'general.accessibility.product' | t | append: '-' | append: index }}"
+          data-pointer="{{ index_0 }}"
+          data-handle="{{ product.handle }}"
+          data-hotspot="{{ data_hotspot }}"
+          data-button-quick-view
+          data-shop-the-look-quick-view
+          {{ block.shopify_attributes }}
+        >
+          <span class="hotspot__target-inner"></span>
+
+          {%- liquid
+            assign nav_thumbs = ''
+            assign nav_thumbs_class = 'popup-quick-view__nav-thumbs'
+          -%}
+
+          {%- for product_block in section.blocks -%}
+            {%- liquid
+              assign current_product = all_products[product_block.settings.product]
+              assign current_index = forloop.index
+              assign current_index_0 = forloop.index0
+
+              if current_product != blank
+                assign product_title = current_product.title | strip_html | escape
+                assign product_url = current_product.url
+              else
+                assign product_title = 'homepage.onboarding.product_title' | t
+                assign product_url = '#!'
+              endif
+
+              for i in (1..blocks_size)
+                if current_index == i
+                  assign current_data_hotspot = section.id | append: '--' | append: data_hotspot_array[current_index]
+                endif
+              endfor
+            -%}
+
+            {%- capture nav_media -%}
+              <div class="popup-quick-view__nav-media">
+                {%- if current_product != blank -%}
+                  {%- liquid
+                    assign product_block_unique = unique | append: '-' | append: current_product.id
+                    assign current_variant = current_product.selected_or_first_available_variant
+                    assign featured_media = current_variant.featured_media | default: current_product.featured_media
+                  -%}
+
+                  {%- if current_product.media.size > 0 -%}
+                    {%- render 'media-thumb',
+                      media: featured_media,
+                      featured_media: featured_media,
+                      unique: product_block_unique,
+                      has_link: false,
+                      product_title: product_title
+                    -%}
+                  {%- else -%}
+                    <div class="popup-quick-view__thumbnail">
+                      {%- render 'image-fill', is_background: true, aspect_ratio: 1, img_object: '', alt: product_title, placeholder_svg: 'image' -%}
+                    </div>
+                  {%- endif -%}
+
+                {%- else -%}
+                  <div class="popup-quick-view__thumbnail">
+                    {{- 'product-5' | placeholder_svg_tag: 'placeholder-svg' -}}
+                  </div>
+                {%- endif -%}
+              </div>
+            {%- endcapture -%}
+
+            {%- capture nav_thumbs -%}
+              {{- nav_thumbs -}}
+
+              <a href="{{ product_url }}"
+                class="popup-quick-view__nav-thumb{% if current_index_0 == index_0 %} is-active{% endif %}"
+                aria-label="{{ product_title }}"
+                data-shop-the-look-thumb
+                data-hotspot-ref="{{ current_data_hotspot }}">
+                {{- nav_media -}}
+              </a>
+            {%- endcapture -%}
+          {%- endfor -%}
+
+          {% capture quick_view_nav %}
+            <div class="popup-quick-view__nav{% if popup_heading == blank %} popup-quick-view__nav--thumbs-only{% endif %}">
+              {%- if popup_heading != blank -%}
+                <p class="popup-quick-view__nav-title h3">
+                  {{ popup_heading }}
+                </p>
+              {%- endif -%}
+
+              <div class="{{ nav_thumbs_class }}">
+                {{- nav_thumbs -}}
+              </div>
+            </div>
+          {% endcapture %}
+
+          {%- capture quick_view_item -%}
+            <div class="look__quick-view-item look__quick-view-item--{{ block.id }}{% if index_0 == 0 %} is-active{% endif %}"
+              data-hotspot="{{ data_hotspot }}"
+              data-quick-view-item-holder
+            >
+              <div class="popup-quick-view__item"
+                data-product
+                {% if product == blank %} data-quick-view-onboarding{% endif %}
+                data-quick-view-item
+              >
+                {%- render 'product',
+                  product: product,
+                  unique: unique,
+                  section: nil,
+                  section_type: 'quickview',
+                  quick_view_nav: quick_view_nav,
+                  multiple_quick_view_items: true,
+                  show_free_shipping_message: show_free_shipping_message
+                -%}
+              </div>
+            </div>
+          {%- endcapture -%}
+
+          {%- assign quick_view_items_template = quick_view_items_template | append: quick_view_item -%}
+        </button>
+
+        {% if show_hotspots %}
+          <span class="hotspot__line"></span>
+
+          <div class="hotspot__info-bubble">
+            <span class="hotspot__title h6" data-pointer-bubble>
+              {{ hotspot_title }}
+
+              {% if button_arrow != blank %}
+                {{ button_arrow }}
+              {% endif %}
+            </span>
+          </div>
+        {% endif %}
+      </div>
+    {%- endcapture -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- style -%}
+  #Look--{{ section.id }} {
+    --PT: {{ padding_top }}px;
+    --PB: {{ padding_bottom }}px;
+    --look-products: {{ products_on_row }};
+
+    {% if heading != blank -%}
+      --adjust-heading-desktop: calc(var(--FONT-ADJUST-HEADING) * {{ heading_size }});
+      --adjust-heading-mobile: calc(var(--FONT-ADJUST-HEADING) * {{ heading_size_mobile }});
+    {%- endif %}
+
+    {% if text != blank -%}
+      --adjust-body-desktop: calc(var(--FONT-ADJUST-BODY) * {{ text_size }});
+      --adjust-body-mobile: calc(var(--FONT-ADJUST-BODY) * {{ text_size_mobile }});
+    {%- endif %}
+  }
+
+  {%- if hotspot_color.alpha != 0.0 and hotspot_color != '' -%}
+    #Look--{{ section.id }} .hotspot { --hotspot-color: {{ hotspot_color }}; }
+  {%- endif -%}
+
+  {%- if bg_color.alpha != 0.0 and bg_color != '' %}
+    #Look--{{ section.id }} {
+      {% if gradient != 'none' -%}
+        --bg: {{ gradient }};
+      {%- else -%}
+        --bg: {{ bg_color }};
+      {%- endif %}
+    }
+  {%- endif %}
+
+  {%- if enable_aspect_ratio -%}
+    #Look--{{ section.id }} { --aspect-ratio: {{ main_image_aspect_ratio | times: 100 | append: '%' }}; }
+  {%- else -%}
+    {%- unless image == blank -%}
+      #Look--{{ section.id }} { --aspect-ratio: {{ 1 | divided_by: image.aspect_ratio | times: 100 | append: '%' }}; }
+    {%- else -%}
+      #Look--{{ section.id }} { --aspect-ratio: 100%; }
+    {%- endunless -%}
+  {%- endif -%}
+{%- endstyle -%}
+
+<section
+  id="Look--{{ section.id }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="look"
+  class="look section-padding"
+>
+  <div class="{{ section_width }}">
+    <div class="{{ stl_wrapper_classes }}">
+      {%- unless heading == blank and text == blank -%}
+        <div class="look__text">
+          {%- if heading != blank -%}
+            <h3
+              class="look__heading h2"
+              {% if animations_enabled %}
+                data-aos="come-up"
+                data-aos-duration="400"
+                data-aos-anchor="{{ animation_anchor }}"
+              {% endif %}
+            >
+              {{ heading }}
+            </h3>
+
+            {%- if settings.show_spacer_lines -%}
+              <hr
+                {% if animations_enabled %}
+                  data-aos="fade-up"
+                  data-aos-duration="400"
+                  data-aos-anchor="{{ animation_anchor }}"
+                {% endif %}
+              >
+            {%- endif -%}
+          {%- endif -%}
+
+          {%- if text != blank -%}
+            <div
+              class="look__rte"
+              {% if animations_enabled %}
+                data-aos="fade-up"
+                data-aos-duration="400"
+                data-aos-anchor="{{ animation_anchor }}"
+              {% endif %}
+            >
+              {{- text -}}
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endunless -%}
+
+      {%- if look_products -%}
+        <div
+          class="look__products"
+          data-slider
+          data-products="{{ products_on_row }}"
+          role="group"
+        >
+          {{- look_products -}}
+        </div>
+
+        <button
+          type="button"
+          class="look__button btn btn--primary{% if show_hotspots %} visually-hidden{% endif %}"
+          aria-controls="look__button--{{ section.id }}"
+          data-shop-the-look-quick-view-button
+        >
+          <hover-button></hover-button>
+          {{- 'general.accessibility.show_products' | t -}}
+        </button>
+
+        <template data-quick-view-items-template>
+          <div class="look__quick-view-items">
+            <div
+              class="popup-quick-view__inner"
+              data-section-id="{{ 'LookQuickViewItems--' | append: section.id }}"
+              data-quick-view-inner
+            >
+              {{- quick_view_items_template -}}
+            </div>
+          </div>
+        </template>
+      {%- endif -%}
+
+      <div
+        class="look__hero"
+        {% if animations_enabled %}
+          data-aos="fade"
+          data-aos-duration="500"
+          data-aos-anchor="{{ animation_anchor }}"
+        {% endif %}
+      >
+        <div class="look__hero-image">
+          {%- render 'image-fill',
+            is_background: true,
+            img_object: image,
+            sizes: sizes,
+            widths: '294, 336, 385, 422, 588, 654, 672, 770, 844, 900, 1236, 1308, 1540, 1688, 1800, 2472',
+            classes: 'look__image',
+            placeholder_svg: 'collection-1'
+          -%}
+        </div>
+
+        <div class="look__pointers {{ hotspot_contents_text_color }}" style="{{ hotspot_contents_props }}">
+          {{ hotspot_markup }}
+        </div>
+
+        <noscript class="{{ hotspot_contents_text_color }}" style="{{ hotspot_contents_props }}">
+          {{ no_js_markup }}
+        </noscript>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Shop the Look Grid",
+  "class": "section-look",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_on_row",
+      "label": "Products per row on desktop",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "default": "is-reversed",
+      "options": [
+        {"value": "is-reversed", "label": "Left"},
+        {"value": "", "label": "Right"}
+      ]
+    },
+    {
+      "id": "enable_aspect_ratio",
+      "type": "checkbox",
+      "label": "Set custom aspect ratio",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "main_image_aspect_ratio",
+      "label": "Aspect ratio",
+      "min": 0.5,
+      "max": 1.5,
+      "step": 0.1,
+      "unit": ":1",
+      "default": 1.0
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Shop the Look Grid"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "default": 120,
+      "min": 70,
+      "max": 200,
+      "step": 10,
+      "unit": "%"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Our most popular looks of the season</p>"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Text size",
+      "default": 100,
+      "min": 75,
+      "max": 175,
+      "step": 5,
+      "unit": "%"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "default": "text-left",
+      "info": "Desktop only",
+      "options": [
+        {"label": "Center", "value": "text-center"},
+        {"label": "Left", "value": "text-left"}
+      ]
+    },
+    {
+      "id": "show_hotspots",
+      "type": "checkbox",
+      "label": "Show hotspots",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrow",
+      "label": "Show buttons arrow",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "popup_heading",
+      "label": "Popup heading",
+      "default": "Shop the Look"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_free_shipping_message",
+      "label": "Show free shipping message",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "select",
+      "id": "content_color",
+      "label": "Text",
+      "default": "text-dark",
+      "options": [
+        {"value": "text-light", "label": "Light"},
+        {"value": "text-dark", "label": "Dark"}
+      ]
+    },
+    {
+      "type": "color",
+      "id": "hotspot_color",
+      "label": "Hotspot color"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color_background",
+      "id": "gradient",
+      "label": "Overlay gradient"
+    },
+    {
+      "type": "paragraph",
+      "content": "Hotspot contents"
+    },
+    {
+      "type": "select",
+      "id": "hotspot_contents_text_color",
+      "label": "Text",
+      "default": "text-dark",
+      "options": [
+        {"value": "text-light", "label": "Light"},
+        {"value": "text-dark", "label": "Dark"}
+      ]
+    },
+    {
+      "type": "color",
+      "id": "hotspot_contents_bg_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Width",
+      "default": "wrapper--full-padded",
+      "options": [
+        {"value": "wrapper--full-padded", "label": "Full width padded"},
+        {"value": "wrapper", "label": "Page width"}
+      ]
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Product",
+      "type": "product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "header",
+          "content": "Hotspot position"
+        },
+        {
+          "type": "paragraph",
+          "content": "Desktop"
+        },
+        {
+          "type": "range",
+          "id": "position_x_desktop",
+          "min": 10,
+          "max": 90,
+          "step": 1,
+          "label": "Horizontal",
+          "unit": "%",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "position_y_desktop",
+          "min": 10,
+          "max": 90,
+          "step": 1,
+          "label": "Vertical",
+          "unit": "%",
+          "default": 50
+        },
+        {
+          "type": "paragraph",
+          "content": "Mobile"
+        },
+        {
+          "type": "range",
+          "id": "position_x_mobile",
+          "min": 10,
+          "max": 90,
+          "step": 1,
+          "label": "Horizontal",
+          "unit": "%",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "position_y_mobile",
+          "min": 10,
+          "max": 90,
+          "step": 1,
+          "label": "Vertical",
+          "unit": "%",
+          "default": 50
+        },
+        {
+          "type": "header",
+          "content": "Product title position",
+          "info": "Values replicate the movement of the minute hand on a clock"
+        },
+        {
+          "type": "paragraph",
+          "content": "Desktop"
+        },
+        {
+          "type": "range",
+          "id": "info_bubbles_position_desktop",
+          "min": 0,
+          "max": 55,
+          "step": 5,
+          "label": "Placement",
+          "unit": "min",
+          "default": 30
+        },
+        {
+          "type": "paragraph",
+          "content": "Mobile"
+        },
+        {
+          "type": "range",
+          "id": "info_bubbles_position_mobile",
+          "min": 0,
+          "max": 55,
+          "step": 5,
+          "label": "Placement",
+          "unit": "min",
+          "default": 30
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop the Look Grid",
+      "blocks": [
+        {
+          "type": "product",
+          "settings": {
+            "position_x_desktop": 31,
+            "position_y_desktop": 41,
+            "info_bubbles_position_desktop": 55,
+            "position_x_mobile": 21,
+            "position_y_mobile": 42,
+            "info_bubbles_position_mobile": 5
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "position_x_desktop": 69,
+            "position_y_desktop": 46,
+            "info_bubbles_position_desktop": 5,
+            "position_x_mobile": 75,
+            "position_y_mobile": 45,
+            "info_bubbles_position_mobile": 30
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "position_x_desktop": 43,
+            "position_y_desktop": 70,
+            "info_bubbles_position_desktop": 25,
+            "position_x_mobile": 39,
+            "position_y_mobile": 66,
+            "info_bubbles_position_mobile": 25
+          }
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "aside", "footer"]
+  }
+}
+{% endschema %}

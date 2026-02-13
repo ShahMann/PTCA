@@ -1,0 +1,189 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "logo_T6yKRH": {
+          "type": "logo",
+          "settings": {
+            "alignment": "text-left",
+            "image": "shopify://shop_images/premiertirecaLogo_mi_1.jpg",
+            "logo_width": 100,
+            "show_shop_name": false,
+            "text": "",
+            "column_width": "20"
+          }
+        },
+        "footer-block-2": {
+          "type": "link",
+          "settings": {
+            "alignment": "text-left",
+            "menu": "footer",
+            "title": "Shop",
+            "column_width": "15"
+          }
+        },
+        "footer-block-3": {
+          "type": "link",
+          "settings": {
+            "alignment": "text-left",
+            "menu": "company",
+            "title": "Company",
+            "column_width": "15"
+          }
+        },
+        "link_3Fipqh": {
+          "type": "link",
+          "settings": {
+            "alignment": "text-left",
+            "menu": "info",
+            "title": "Info",
+            "column_width": "20"
+          }
+        },
+        "footer-block-4": {
+          "type": "newsletter",
+          "settings": {
+            "alignment": "text-left",
+            "title": "Sign up for offers",
+            "uppercase_heading": true,
+            "heading_size": 160,
+            "text": "<p>Stay up to date with the new collections, products and exclusive offers.</p>",
+            "button_text": "Sign up",
+            "button_color": "btn--primary",
+            "button_style": "btn--solid",
+            "column_width": "30"
+          }
+        }
+      },
+      "block_order": [
+        "logo_T6yKRH",
+        "footer-block-2",
+        "footer-block-3",
+        "link_3Fipqh",
+        "footer-block-4"
+      ],
+      "settings": {
+        "show_footer_wave": false,
+        "enable_footer_parallax": true,
+        "increase_border_radius": true,
+        "bottom_bar_alignment": "text-left",
+        "show_social_links": true,
+        "enable_follow_on_shop": true,
+        "show_payment_icons": true,
+        "enable_greyscale": false,
+        "bottom_menu": "",
+        "color_text": "#ffffff",
+        "color_bg": "#000000",
+        "color_border": "#ffffff",
+        "show_locale_selector": true,
+        "show_country_selector": true,
+        "show_country_flag": false,
+        "width": "wrapper",
+        "padding_top": 30,
+        "padding_bottom": 30
+      }
+    },
+    "payment_icons_FjGWRz": {
+      "type": "payment-icons",
+      "blocks": {
+        "icon_Tghdz9": {
+          "type": "icon",
+          "settings": {
+            "image": "shopify://shop_images/footer-visa.svg"
+          }
+        },
+        "icon_6RJFBL": {
+          "type": "icon",
+          "settings": {
+            "image": "shopify://shop_images/footer-mastercard.svg"
+          }
+        },
+        "icon_eeRbAX": {
+          "type": "icon",
+          "settings": {
+            "image": "shopify://shop_images/footer-discover.svg"
+          }
+        },
+        "icon_GxKjwA": {
+          "type": "icon",
+          "settings": {
+            "image": "shopify://shop_images/footer-amex.svg"
+          }
+        },
+        "icon_yYNNLP": {
+          "type": "icon",
+          "settings": {
+            "image": "shopify://shop_images/footer-paypal.svg"
+          }
+        },
+        "icon_A6a3Yc": {
+          "type": "icon",
+          "settings": {
+            "image": "shopify://shop_images/footer-sema.svg"
+          }
+        },
+        "icon_yR7TAe": {
+          "type": "icon",
+          "settings": {
+            "image": "shopify://shop_images/footer-accredited.svg"
+          }
+        },
+        "icon_YEtHKJ": {
+          "type": "icon",
+          "settings": {
+            "image": "shopify://shop_images/footer-verified.svg"
+          }
+        },
+        "icon_zbKAdt": {
+          "type": "icon",
+          "settings": {
+            "image": "shopify://shop_images/footer-upfront.svg"
+          }
+        },
+        "icon_WVPmma": {
+          "type": "icon",
+          "settings": {
+            "image": "shopify://shop_images/privacy-guaranteed.svg"
+          }
+        },
+        "icon_wKbPxT": {
+          "type": "icon",
+          "settings": {
+            "image": "shopify://shop_images/secure-payment.svg"
+          }
+        }
+      },
+      "block_order": [
+        "icon_Tghdz9",
+        "icon_6RJFBL",
+        "icon_eeRbAX",
+        "icon_GxKjwA",
+        "icon_yYNNLP",
+        "icon_A6a3Yc",
+        "icon_yR7TAe",
+        "icon_YEtHKJ",
+        "icon_zbKAdt",
+        "icon_WVPmma",
+        "icon_wKbPxT"
+      ],
+      "name": "Payment icons",
+      "settings": {}
+    }
+  },
+  "order": [
+    "footer",
+    "payment_icons_FjGWRz"
+  ]
+}
