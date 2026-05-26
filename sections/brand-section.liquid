@@ -144,13 +144,19 @@
                 {%- when 'logo' -%}
                   <div class="marquee-item">
                     {%- if block.settings.image -%}
-                      <div>
-                        {{ block.settings.image | image_url: width: 200 | image_tag:
-                          alt: block.settings.image.alt,
-                          loading: 'lazy',
-                          style: 'max-width: 100%; max-height: 100%; object-fit: contain;'
-                        }}
-                      </div>
+                      {% if block.settings.link %}
+                        <a href="{{ block.settings.link }}" target="_blank" rel="noopener noreferrer">
+                      {% endif %}
+                        <div>
+                          {{ block.settings.image | image_url: width: 200 | image_tag:
+                            alt: block.settings.image.alt,
+                            loading: 'lazy',
+                            style: 'max-width: 100%; max-height: 100%; object-fit: contain;'
+                          }}
+                        </div>
+                       {% if block.settings.link %}
+                        </a>
+                      {% endif %}
                     {%- endif -%}
                   </div>
               {%- endcase -%}
@@ -162,13 +168,19 @@
                 {%- when 'logo' -%}
                   <div class="marquee-item">
                     {%- if block.settings.image -%}
-                      <div>
-                        {{ block.settings.image | image_url: width: 200 | image_tag:
-                          alt: block.settings.image.alt,
-                          loading: 'lazy',
-                          style: 'max-width: 100%; max-height: 100%; object-fit: contain;'
-                        }}
-                      </div>
+                      {% if block.settings.link %}
+                        <a href="{{ block.settings.link }}" target="_blank" rel="noopener noreferrer">
+                      {% endif %}
+                        <div>
+                          {{ block.settings.image | image_url: width: 200 | image_tag:
+                            alt: block.settings.image.alt,
+                            loading: 'lazy',
+                            style: 'max-width: 100%; max-height: 100%; object-fit: contain;'
+                          }}
+                        </div>
+                      {% if block.settings.link %}
+                        </a>
+                      {% endif %}
                     {%- endif -%}
                   </div>
               {%- endcase -%}
@@ -184,13 +196,19 @@
                 {%- when 'logo' -%}
                   <div class="marquee-item">
                     {%- if block.settings.image -%}
-                      <div>
-                        {{ block.settings.image | image_url: width: 200 | image_tag:
-                          alt: block.settings.image.alt,
-                          loading: 'lazy',
-                          style: 'max-width: 100%; max-height: 100%; object-fit: contain;'
-                        }}
-                      </div>
+                      {% if block.settings.link %}
+                        <a href="{{ block.settings.link }}" target="_blank" rel="noopener noreferrer">
+                      {% endif %}
+                        <div>
+                          {{ block.settings.image | image_url: width: 200 | image_tag:
+                            alt: block.settings.image.alt,
+                            loading: 'lazy',
+                            style: 'max-width: 100%; max-height: 100%; object-fit: contain;'
+                          }}
+                        </div>
+                      {% if block.settings.link %}
+                        </a>
+                      {% endif %}
                     {%- endif -%}
                   </div>
               {%- endcase -%}
@@ -202,13 +220,19 @@
                 {%- when 'logo' -%}
                   <div class="marquee-item">
                     {%- if block.settings.image -%}
-                      <div>
-                        {{ block.settings.image | image_url: width: 200 | image_tag:
-                          alt: block.settings.image.alt,
-                          loading: 'lazy',
-                          style: 'max-width: 100%; max-height: 100%; object-fit: contain;'
-                        }}
-                      </div>
+                      {% if block.settings.link %}
+                        <a href="{{ block.settings.link }}" target="_blank" rel="noopener noreferrer">
+                      {% endif %}
+                        <div>
+                          {{ block.settings.image | image_url: width: 200 | image_tag:
+                            alt: block.settings.image.alt,
+                            loading: 'lazy',
+                            style: 'max-width: 100%; max-height: 100%; object-fit: contain;'
+                          }}
+                        </div>
+                      {% if block.settings.link %}
+                        </a>
+                      {% endif %}
                     {%- endif -%}
                   </div>
               {%- endcase -%}
@@ -273,6 +297,11 @@
           "type": "image_picker",
           "id": "image",
           "label": "Logo Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Logo Link"
         }
       ]
     }

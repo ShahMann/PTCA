@@ -26,8 +26,8 @@
         "heading_bFNiHa": {
           "type": "heading",
           "settings": {
-            "text": "<p>Top-Quality Automotive Services</p>",
-            "size": 100,
+            "text": "<p>Top-Tier Wheel And Tire Services</p>",
+            "size": 80,
             "heading_highlight_type": "underline-hand-drawn",
             "highlight_color": "#000000",
             "highlight_text_color": ""
@@ -36,7 +36,7 @@
         "text_mrYDbC": {
           "type": "text",
           "settings": {
-            "text": "<p>Premier Tire is committed to excellence in the automotive industry, offering unmatched repair and maintenance solutions.</p>",
+            "text": "<p>We provide top-tier wheel and tire services by combining <strong>premium products, advanced equipment, and expert technicians</strong> to ensure precise fitment, superior performance, and the highest level of care for every vehicle.</p>",
             "size": 100
           }
         }
@@ -47,11 +47,12 @@
       ],
       "name": "Banner image",
       "settings": {
-        "height": "full-height",
-        "enable_mobile_height": false,
-        "mobile_height": "full-height-mobile",
+        "height": "one-third-height",
+        "enable_mobile_height": true,
+        "mobile_height": "one-fifth-height-mobile",
         "image": "shopify://shop_images/resized_DSC00435.jpg",
-        "overlay_opacity": 45,
+        "image_mobile": "shopify://shop_images/S_Class_With_Vossen_Forged_Wheels.jpg",
+        "overlay_opacity": 55,
         "transition": "zoom-out",
         "enable_zoom_animation": true,
         "enable_card_scrolling": false,
@@ -73,15 +74,15 @@
           "settings": {
             "width": "33.33",
             "image": "shopify://shop_images/resized_DSC05283.jpg",
-            "overlay_opacity": 45,
+            "overlay_opacity": 55,
             "text_position": "center",
             "subheading": "",
-            "title": "Tire Installation",
-            "text": "Professional tire fitting and balancing for all vehicle types.",
-            "button_1_text": "Schedule A Repair",
+            "title": "Tire And Wheel Installation",
+            "text": "Professional tire fitting and balancing for all vehicle types. We use Road Force Balancers and State of the art tire changing equipment.",
+            "button_1_text": "Schedule An Installation",
             "button_1_link": "#",
             "button_2_text": "Learn more",
-            "button_2_link": "shopify://pages/tire-installation",
+            "button_2_link": "shopify://pages/tire-and-wheel-installation",
             "overlay_text_color": "text-light"
           }
         },
@@ -90,15 +91,15 @@
           "settings": {
             "width": "33.33",
             "image": "shopify://shop_images/resized_DSC05796.jpg",
-            "overlay_opacity": 45,
+            "overlay_opacity": 55,
             "text_position": "center",
             "subheading": "",
-            "title": "Brake Repair",
-            "text": "Reliable brake inspection and repair to keep you safe on the road.",
-            "button_1_text": "Schedule A Repair",
+            "title": "Seasonal Tire Storage",
+            "text": "Skip the hassle of transporting heavy tires every season. We will store, clean and re install your wheels between seasons.",
+            "button_1_text": "Book Your Storage Swap",
             "button_1_link": "#",
             "button_2_text": "Learn more",
-            "button_2_link": "shopify://pages/brake-repair",
+            "button_2_link": "shopify://pages/seaonal-tire-storage",
             "overlay_text_color": "text-light"
           }
         },
@@ -107,15 +108,15 @@
           "settings": {
             "width": "33.33",
             "image": "shopify://shop_images/resized_DSC05552.jpg",
-            "overlay_opacity": 45,
+            "overlay_opacity": 60,
             "text_position": "center",
             "subheading": "",
-            "title": "Oil Change",
-            "text": "Quick and efficient oil change service to keep your engine running smoothly.",
-            "button_1_text": "Schedule A Repair",
+            "title": "Mobile Tire Installation",
+            "text": "We bring professional tire installation directly to your home or workplace, saving you time with convenient, on-site service performed by our expert technicians.",
+            "button_1_text": "Book Mobile Service",
             "button_1_link": "#",
             "button_2_text": "Learn more",
-            "button_2_link": "shopify://pages/oil-change",
+            "button_2_link": "shopify://pages/mobile-tire-installation",
             "overlay_text_color": "text-light"
           }
         }

@@ -23,18 +23,40 @@
     "financing_options_DCcyAM": {
       "type": "financing-options",
       "blocks": {
+        "financing_option_WN6DCQ": {
+          "type": "financing_option",
+          "settings": {
+            "title": "<h3>Sezzle Financing</h3>",
+            "wippy_description": "<p>At <strong>Premier Tire</strong>, we make it easy to get the tires and wheels you need today while paying over time with Sezzle. Sezzle allows customers to split their purchase into <strong>four interest-free payments over six weeks</strong>, making it more convenient to upgrade your vehicle without paying the full amount upfront. Simply choose Sezzle at checkout online or in-store, get approved in seconds, and drive away with your new tires or wheels while spreading the cost into manageable payments.<br/></p>",
+            "button_text": "Apply for sezzle financing here",
+            "button_link": "https://dashboard.sezzle.com/customer/auth/phone",
+            "wippy_logo": "shopify://shop_images/Sezzle_1.png"
+          }
+        },
+        "financing_option_fhtWYU": {
+          "type": "financing_option",
+          "settings": {
+            "title": "<h3>AFFIRM FINANCING</h3>",
+            "wippy_description": "<p>With <strong>Affirm financing</strong>, Premier Tire makes upgrading your tires and wheels more affordable and convenient. Customers can enjoy flexible payment options that allow you to <strong>buy now and pay over time</strong> with simple, transparent terms and no hidden fees. The quick approval process lets you get the tires or wheel package you need today while spreading payments into manageable monthly installments that fit your budget.</p>",
+            "button_text": "GET SET UP WITH AFFIRM HERE",
+            "button_link": "https://www.affirm.ca/user/signup?locale=en_CA",
+            "wippy_logo": "shopify://shop_images/Affirm_logo_svg.png"
+          }
+        },
         "financing_option_CgbmnD": {
           "type": "financing_option",
           "settings": {
             "title": "<h2>Wippy Loans Financing</h2>",
             "wippy_description": "{{ page.metafields.page_financing.wippy_description | metafield_tag }}",
-            "button_text": "LEARN MORE",
-            "button_link": "shopify://policies/shipping-policy",
+            "button_text": "GET SET UP WITH WIPPY HERE",
+            "button_link": "https://app.wippy.com/get-started/licence-plate",
             "wippy_logo": "{{ page.metafields.page_financing.wippy_logo.value }}"
           }
         }
       },
       "block_order": [
+        "financing_option_WN6DCQ",
+        "financing_option_fhtWYU",
         "financing_option_CgbmnD"
       ],
       "name": "Financing Options",

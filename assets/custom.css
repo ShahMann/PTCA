@@ -80,11 +80,11 @@ footer#SiteFooter {
 }
 
 .product-single__wrapper .product-single__details .cm_vehicle-widget__verify-fitment.cm_vehicle-widget__collapsible .cm_vehicle-widget_title {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .product-single__wrapper .product-single__details .cm_vehicle-widget__verify-fitment.cm_vehicle-widget__collapsible .cm_vehicle-widget_header .cm_icon {
-    width: 14px;
+    width: 16px;
 }
 
 .section-financing {
@@ -275,7 +275,7 @@ footer#SiteFooter {
 }
 
 .inventory-local-delivery {
-    margin: 10px;
+    margin-top: 10px;
 }
 
 .b2b-toggle-btn {
@@ -419,4 +419,168 @@ footer#SiteFooter {
 .mobile-nav .b2b-toggle-btn--mobile.loading {
   opacity: 0.7;
   pointer-events: none;
+}
+
+.variant__countdown {
+    /* Badge View */
+  
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--count-bg, transparent);
+  color: var(--count-color, inherit);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.variant__countdown--in {
+  display: none;
+  padding-left: 18px;
+  position: relative;
+}
+
+
+.specifications-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  background: #f9f9fb;
+  padding: 30px;
+  border-radius: 12px;
+
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.specifications-grid p {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e8e8e8;
+  font-size: 12px;
+  gap: 5px;
+}
+.specifications-grid .label {
+  font-weight: 600;
+  color: #555;
+  width: 50%
+}
+
+@media (max-width: 1200px) {
+  .specifications-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Variant Count Down CSS - Start */
+.variant__countdown--low,
+.variant__countdown--out,
+.variant__countdown--unavailable {
+  display: none;
+  padding-left: 18px;
+  position: relative;
+}
+
+.variant__countdown--low::after,
+.variant__countdown--out::after,
+.variant__countdown--unavailable::after,
+.variant__countdown--in::before,
+.variant__countdown--low::before,
+.variant__countdown--out::before,
+.variant__countdown--unavailable::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--dot-size);
+  height: var(--dot-size);
+  border-radius: 50%;
+}
+.count-is-in {
+  --count-bg: color-mix(in srgb, var(--COLOR-SUCCESS) 12%, transparent);
+  --count-color: var(--COLOR-SUCCESS);
+}
+
+.count-is-low {
+  --count-bg: color-mix(in srgb, var(--COLOR-WARN) 14%, transparent);
+  --count-color: var(--COLOR-WARN);
+}
+
+.count-is-out {
+  --count-bg: color-mix(in srgb, var(--COLOR-ERROR) 12%, transparent);
+  --count-color: var(--COLOR-ERROR);
+}
+
+.count-is-unavailable {
+  --count-bg: color-mix(in srgb, var(--text-alpha-50) 20%, transparent);
+  --count-color: var(--text-alpha-50);
+}
+
+/* Variant Count Down CSS - End */
+
+.product-single__wrapper .product-single__details .cm_vehicle-widget__verify-fitment.cm_vehicle-widget__collapsible {
+    border: none;
+    border-bottom: 1px solid #000000;
+    border-radius: 0;
+}
+
+.product-single__wrapper .product-single__details .cm_select__pretty {
+    padding: 0 1.5em 0 1.5em;
+}
+
+.product-single__wrapper .product-single__details .cm_vehicle-widget__column .cm_vehicle-widget_select-container {
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.product-single__wrapper .product-single__details .cm_verify-fitment_change {
+    background-color: #fee500;
+    border-radius: 13px;
+    padding: 5px;
+}
+.product-single__wrapper .product-single__details .cm_verify-fitment_change:before, .product-single__wrapper .product-single__details .cm_verify-fitment_change:after {
+    content: none;
+}
+
+.product-single__wrapper .product-single__details .cm_verify-fitment_vehicle {
+    color: var(--text-alpha-50);
+}
+
+.podium-mobile-widget-active {
+    display: flex;
+}
+
+.globo-form .floating-button {
+    bottom: 10% !important;
+}
+
+.globo-form-app.float-layout {
+    z-index: 9999999991 !important;
+}
+
+.inventory-count {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+.inventory-count-wrapper {
+    display: flex;
+    flex-direction: column;
+    }
+
+.variant__countdown span {
+    color: #555;
+}
+.variant__countdown span strong {
+    color: black;
+}
+.variant__countdown.availability {
+    width: fit-content;
 }

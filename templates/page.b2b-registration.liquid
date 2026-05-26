@@ -14,7 +14,7 @@
     <p id="error-text"></p>
   </div>
 
-  <form id="wholesale-signup-form">
+  <form id="wholesale-signup-form" novalidate>
     <div class="form-section">
       <span class="wpd-secondary-header">PRIMARY CONTACT DETAILS</span>
       <div class="form-row-wrapper">
@@ -463,136 +463,352 @@
 </div>
 
 <script>
+(function() {
+  'use strict';
+
+  /* ─── Helpers ─── */
+
+  var SUPPRESSED_MESSAGES = [
+    'unexpected response from shopify'
+  ];
+
+  function isSuppressedMessage(msg) {
+    if (typeof msg !== 'string') return false;
+    var lower = msg.trim().toLowerCase();
+    return SUPPRESSED_MESSAGES.some(function(s) { return lower.indexOf(s) !== -1; });
+  }
+
   function getApiErrorMessage(result) {
-    if (!result) return 'An error occurred. Please try again.';
-    const messages = [];
-    if (typeof result.message === 'string' && result.message.trim()) {
-      messages.push(result.message);
-    }
-    if (typeof result.error === 'string' && result.error.trim()) {
-      messages.push(result.error);
-    }
-    if (result.error && typeof result.error === 'object' && result.error.message) {
-      messages.push(result.error.message);
-    }
+    if (!result) return 'Something went wrong. Please try again later.';
+    var messages = [];
+    if (typeof result.message === 'string' && result.message.trim() && !isSuppressedMessage(result.message)) { messages.push(result.message); }
+    if (typeof result.error === 'string' && result.error.trim() && !isSuppressedMessage(result.error)) { messages.push(result.error); }
+    if (result.error && typeof result.error === 'object' && result.error.message && !isSuppressedMessage(result.error.message)) { messages.push(result.error.message); }
     if (Array.isArray(result.errors)) {
       result.errors.forEach(function(err) {
-        if (typeof err === 'string' && err.trim()) {
-          messages.push(err);
-        } else if (err && typeof err === 'object' && (err.message || err.msg)) {
-          messages.push(err.message || err.msg);
-        }
+        if (typeof err === 'string' && err.trim() && !isSuppressedMessage(err)) { messages.push(err); }
+        else if (err && (err.message || err.msg) && !isSuppressedMessage(err.message || err.msg)) { messages.push(err.message || err.msg); }
       });
     }
-    if (typeof result.details === 'string' && result.details.trim()) {
-      messages.push(result.details);
-    }
+    if (typeof result.details === 'string' && result.details.trim() && !isSuppressedMessage(result.details)) { messages.push(result.details); }
     if (Array.isArray(result.details)) {
       result.details.forEach(function(d) {
-        if (typeof d === 'string') messages.push(d);
-        else if (d && (d.message || d.msg)) messages.push(d.message || d.msg);
+        if (typeof d === 'string' && !isSuppressedMessage(d)) messages.push(d);
+        else if (d && (d.message || d.msg) && !isSuppressedMessage(d.message || d.msg)) messages.push(d.message || d.msg);
       });
     }
-    const unique = messages.filter(function(m, i) { return messages.indexOf(m) === i; });
-    return unique.length ? unique.join('<br>') : (result.message || result.error || 'Failed to create company. Please try again.');
+    var unique = messages.filter(function(m, i) { return messages.indexOf(m) === i; });
+    return unique.length ? unique.join('<br>') : 'Something went wrong. Please try again later.';
   }
 
-document.getElementById('wholesale-signup-form').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  
-  const submitBtn = document.getElementById('submit-btn');
-  const btnText = document.getElementById('btn-text');
-  const btnLoader = document.getElementById('btn-loader');
-  const successMessage = document.getElementById('success-message');
-  const errorMessage = document.getElementById('error-message');
-  const errorText = document.getElementById('error-text');
-  const form = this;
-  
-  submitBtn.disabled = true;
-  btnText.style.display = 'none';
-  btnLoader.style.display = 'inline-flex';
-  
-  successMessage.style.display = 'none';
-  errorMessage.style.display = 'none';
-  const formData = new FormData(form);
-  
-  const payload = {
-    "company name": formData.get('company_name') || '',
-    "secondary contact name": formData.get('secondary_contact_name') || '',
-    "Email address": formData.get('email_address') || '',
-    "title": formData.get('title') || '',
-    "business address line1": formData.get('business_address_line1') || '',
-    "business address line2": formData.get('business_address_line2') || '',
-    "city": formData.get('city') || '',
-    "postal code": formData.get('postal_code') || '',
-    "country": formData.get('country') || '',
-    "business/companyName": formData.get('business_company_name') || '',
-    "website": formData.get('website') || '',
-    "phone number": formData.get('phone_number') || '',
-    "Business tax ID": formData.get('business_tax_id') || '',
-    "industry type": formData.get('industry_type') || '',
-    "business registration": formData.get('business_registration') || ''
-  };
-  
-  console.log('Sending payload:', payload);  
-try {
-     const response = await fetch ("https://premiertire.node.brainvire.dev/api/companies", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(payload)
+  /* ─── Validation Rules ─── */
+
+  // Each entry: { id, name, required, validate(value) → errorMsg|null }
+  var fieldRules = [
+    { id: 'company_name',    name: 'Business/Company Name (Primary Contact)', required: true },
+    {
+      id: 'email',
+      name: 'Email Address',
+      required: true,
+      validate: function(val) {
+        if (!val) return 'Email is required';
+        // basic RFC-ish pattern
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) return 'Invalid email address';
+        return null;
+      }
+    },
+    { id: 'address1',        name: 'Business Address line 1',                required: true },
+    { id: 'address2',        name: 'Business Address line 2',                required: true },
+    { id: 'city',            name: 'City',                                   required: true },
+    { id: 'postal_code',     name: 'Postal Code',                            required: true },
+    { id: 'country',         name: 'Country',                                required: true },
+    { id: 'company_name_2',  name: 'Business/Company Name (Business Details)', required: true },
+    {
+      id: 'website',
+      name: 'Website',
+      required: true,
+      validate: function(val) {
+        if (!val) return 'Website is required';
+        try {
+          var url = new URL(val);
+          if (url.protocol !== 'http:' && url.protocol !== 'https:') return 'Website must start with http:// or https://';
+        } catch(e) {
+          return 'Invalid website URL (e.g. https://www.example.com)';
+        }
+        return null;
+      }
+    },
+    {
+      id: 'phone',
+      name: 'Phone Number',
+      required: true,
+      validate: function(val) {
+        if (!val) return 'Phone number is required';
+        // Allow +, spaces, dashes, dots, parens; minimum 7 digits
+        var digits = val.replace(/\D/g, '');
+        if (digits.length < 7)  return 'Invalid phone number';
+        if (digits.length > 15) return 'Invalid phone number';
+        if (!/^[+\d][\d\s\-().+]{6,}$/.test(val)) return 'Invalid phone number';
+        return null;
+      }
+    },
+    { id: 'business_tax_id', name: 'Business Tax ID',                       required: true }
+  ];
+
+  /* ─── Inline error message helpers ─── */
+
+  // Get or create the inline <span class="field-error-msg"> beneath an input/select
+  function getOrCreateErrorEl(fieldId) {
+    var el = document.getElementById(fieldId);
+    if (!el) return null;
+    var group = el.closest('.form-group');
+    if (!group) return null;
+    var existing = group.querySelector('.field-error-msg');
+    if (existing) return existing;
+    var span = document.createElement('span');
+    span.className = 'field-error-msg';
+    span.setAttribute('role', 'alert');
+    span.style.cssText = 'display:none;color:#dc3545;font-size:12px;margin-top:4px;font-family:Inter,sans-serif;';
+    // Insert after the input/select element
+    el.insertAdjacentElement('afterend', span);
+    return span;
+  }
+
+  function showFieldError(fieldId, message) {
+    var el = document.getElementById(fieldId);
+    if (!el) return;
+    var group = el.closest('.form-group');
+    if (group) group.classList.add('has-error');
+    var errEl = getOrCreateErrorEl(fieldId);
+    if (errEl) {
+      errEl.textContent = message;
+      errEl.style.display = 'block';
+    }
+  }
+
+  function clearFieldError(fieldId) {
+    var el = document.getElementById(fieldId);
+    if (!el) return;
+    var group = el.closest('.form-group');
+    if (group) group.classList.remove('has-error');
+    var errEl = group ? group.querySelector('.field-error-msg') : null;
+    if (errEl) {
+      errEl.textContent = '';
+      errEl.style.display = 'none';
+    }
+  }
+
+  function clearAllFieldErrors() {
+    fieldRules.forEach(function(f) { clearFieldError(f.id); });
+  }
+
+  /* ─── Per-field live validation (on blur) ─── */
+
+  function validateField(rule) {
+    var el = document.getElementById(rule.id);
+    if (!el) return true; // skip missing elements
+    var val = (el.value || '').trim();
+
+    if (rule.required && val === '') {
+      showFieldError(rule.id, rule.name + ' is required');
+      return false;
+    }
+    if (val && rule.validate) {
+      var msg = rule.validate(val);
+      if (msg) {
+        showFieldError(rule.id, msg);
+        return false;
+      }
+    }
+    clearFieldError(rule.id);
+    return true;
+  }
+
+  /* ─── Email uniqueness check via Shopify customer search ─── */
+  // Uses Shopify storefront predictive search — falls back silently if unavailable
+  var emailCheckTimer = null;
+  function scheduleEmailUniquenessCheck(emailVal) {
+    clearTimeout(emailCheckTimer);
+    emailCheckTimer = setTimeout(function() {
+      // Shopify doesn't expose a public "check email exists" endpoint on storefront,
+      // so we attempt account creation via /account (non-destructive approach is not
+      // possible client-side without login). Instead, we rely on the API response
+      // after form submission to surface "email already taken" errors from the backend.
+      // This function is a no-op hook — backend should return a clear error message
+      // with the email field ID so it can be highlighted inline (see handleApiEmailError).
+    }, 400);
+  }
+
+  /* ─── Surface API-returned email errors inline ─── */
+  function handleApiEmailError(apiData) {
+    if (!apiData) return false;
+    var raw = JSON.stringify(apiData).toLowerCase();
+    if (raw.indexOf('email') !== -1 && (raw.indexOf('taken') !== -1 || raw.indexOf('already') !== -1 || raw.indexOf('exist') !== -1)) {
+      showFieldError('email', 'Email address is already taken');
+      var el = document.getElementById('email');
+      if (el) { el.focus(); el.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+      return true;
+    }
+    if (raw.indexOf('email') !== -1 && (raw.indexOf('invalid') !== -1 || raw.indexOf('format') !== -1)) {
+      showFieldError('email', 'Invalid email address');
+      var el2 = document.getElementById('email');
+      if (el2) { el2.focus(); el2.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+      return true;
+    }
+    return false;
+  }
+
+  /* ─── Full form validation ─── */
+
+  function validateAllFields() {
+    var firstInvalidId = null;
+    var allValid = true;
+
+    fieldRules.forEach(function(rule) {
+      var valid = validateField(rule);
+      if (!valid && !firstInvalidId) firstInvalidId = rule.id;
+      if (!valid) allValid = false;
     });
 
-    
-    console.log('Response status:', response.status);
-    
-    let result;
-    const contentType = response.headers.get('content-type');
-    if (contentType && contentType.includes('application/json')) {
-      result = await response.json();
-      console.log('Response data:', result);
-    } else {
-      const text = await response.text();
-      console.log('Response text:', text);
-      result = { message: text };
+    if (firstInvalidId) {
+      var firstEl = document.getElementById(firstInvalidId);
+      if (firstEl) {
+        firstEl.focus();
+        firstEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     }
-    
-    if (response.ok) {
-      successMessage.style.display = 'block';
-      form.style.display = 'none';
-      
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-      
-      console.log('Company created successfully!');
-    } else {
-      const apiErrorText = getApiErrorMessage(result);
-      errorMessage.style.display = 'block';
-      errorText.innerHTML = apiErrorText;
-      errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-    
-  } catch (error) {
-    console.error('Error submitting form:', error);
-    
-    errorMessage.style.display = 'block';
-    if (error.message && error.message !== 'Failed to create company') {
-      errorText.textContent = error.message;
-    } else {
-      errorText.textContent = 'Network error. Please check your connection and try again.';
-    }
-    
-    errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    
-  } finally {
-    submitBtn.disabled = false;
-    btnText.style.display = 'inline';
-    btnLoader.style.display = 'none';
+
+    return allValid;
   }
-});
+
+  /* ─── Init ─── */
+
+  function initB2bForm() {
+    var form = document.getElementById('wholesale-signup-form');
+    if (!form) return;
+
+    // Ensure error elements exist for all validated fields
+    fieldRules.forEach(function(rule) { getOrCreateErrorEl(rule.id); });
+
+    // Live validation: clear error on input/change; validate on blur
+    fieldRules.forEach(function(rule) {
+      var el = document.getElementById(rule.id);
+      if (!el) return;
+
+      el.addEventListener('input', function() {
+        clearFieldError(rule.id);
+        // Schedule email uniqueness check while typing
+        if (rule.id === 'email') {
+          scheduleEmailUniquenessCheck(el.value.trim());
+        }
+      });
+      el.addEventListener('change', function() {
+        clearFieldError(rule.id);
+      });
+      el.addEventListener('blur', function() {
+        validateField(rule);
+      });
+    });
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      var formEl = e.target;
+      clearAllFieldErrors();
+
+      if (!validateAllFields()) return;
+
+      var submitBtn = document.getElementById('submit-btn');
+      var btnText   = document.getElementById('btn-text');
+      var btnLoader = document.getElementById('btn-loader');
+      var successMessage = document.getElementById('success-message');
+      var errorMessage   = document.getElementById('error-message');
+      var errorText      = document.getElementById('error-text');
+
+      submitBtn.disabled = true;
+      if (btnText)   btnText.style.display   = 'none';
+      if (btnLoader) btnLoader.style.display  = 'inline-flex';
+      if (successMessage) successMessage.style.display = 'none';
+      if (errorMessage)   errorMessage.style.display   = 'none';
+
+      var formData = new FormData(formEl);
+      var payload = {
+        "company name":            formData.get('company_name') || '',
+        "secondary contact name":  formData.get('secondary_contact_name') || '',
+        "Email address":           formData.get('email_address') || '',
+        "title":                   formData.get('title') || '',
+        "business address line1":  formData.get('business_address_line1') || '',
+        "business address line2":  formData.get('business_address_line2') || '',
+        "city":                    formData.get('city') || '',
+        "postal code":             formData.get('postal_code') || '',
+        "country":                 formData.get('country') || '',
+        "business/companyName":    formData.get('business_company_name') || '',
+        "website":                 formData.get('website') || '',
+        "phone number":            formData.get('phone_number') || '',
+        "Business tax ID":         formData.get('business_tax_id') || '',
+        "industry type":           formData.get('industry_type') || '',
+        "business registration":   formData.get('business_registration') || ''
+      };
+
+      fetch('https://d347932ae7vrrw.cloudfront.net/api/companies', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+        .then(function(response) {
+          var contentType = response.headers.get('content-type');
+          if (contentType && contentType.indexOf('application/json') !== -1) {
+            return response.json().then(function(data) { return { ok: response.ok, status: response.status, data: data }; });
+          }
+          return response.text().then(function(text) { return { ok: response.ok, status: response.status, data: { message: text } }; });
+        })
+        .then(function(result) {
+          if (result.ok) {
+            if (successMessage) successMessage.style.display = 'block';
+            formEl.style.display = 'none';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else {
+            // Try to surface field-level errors inline before falling back to banner
+            var handledInline = handleApiEmailError(result.data);
+
+            // Check for phone-related errors from API
+            if (!handledInline) {
+              var rawData = JSON.stringify(result.data || '').toLowerCase();
+              if (rawData.indexOf('phone') !== -1 && (rawData.indexOf('invalid') !== -1 || rawData.indexOf('format') !== -1)) {
+                showFieldError('phone', 'Invalid phone number');
+                var phoneEl = document.getElementById('phone');
+                if (phoneEl) { phoneEl.focus(); phoneEl.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+                handledInline = true;
+              }
+            }
+
+            if (!handledInline) {
+              if (errorMessage) errorMessage.style.display = 'block';
+              if (errorText)    errorText.innerHTML = getApiErrorMessage(result.data);
+              if (errorMessage) errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+          }
+        })
+        .catch(function(err) {
+          if (errorMessage) errorMessage.style.display = 'block';
+          if (errorText)    errorText.textContent = (err && err.message) ? err.message : 'Network error. Please check your connection and try again.';
+          if (errorMessage) errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        })
+        .then(function() {
+          submitBtn.disabled = false;
+          if (btnText)   btnText.style.display   = 'inline';
+          if (btnLoader) btnLoader.style.display  = 'none';
+        });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initB2bForm);
+  } else {
+    initB2bForm();
+  }
+})();
 </script>
 
 <style>
@@ -702,6 +918,25 @@ try {
   .form-group select:focus {
     outline: none;
     border-color: #000;
+  }
+
+  /* Required field error state — red highlight (high specificity) */
+  .wholesale-signup-container .form-group.has-error label {
+    color: #b71c1c !important;
+    font-weight: 500;
+  }
+
+  .wholesale-signup-container .form-group.has-error input,
+  .wholesale-signup-container .form-group.has-error select {
+    border: 2px solid #dc3545 !important;
+    background-color: #fff5f5 !important;
+    box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25) !important;
+  }
+
+  .wholesale-signup-container .form-group.has-error input:focus,
+  .wholesale-signup-container .form-group.has-error select:focus {
+    border-color: #b71c1c !important;
+    background-color: #fff !important;
   }
 
   .form-actions {

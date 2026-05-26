@@ -1317,6 +1317,16 @@
         "id": "accept_terms_text",
         "label": "Checkbox label",
         "default": "<p>I agree to the terms and conditions<\/p>"
+      },
+      {
+        "type": "header",
+        "content": "Default product (Tires / Wheels)"
+      },
+      {
+        "type": "product",
+        "id": "cart_default_product",
+        "label": "Default product",
+        "info": "Product to add to cart with quantity equal to the maximum quantity among Tire and Wheel items. Only added when at least one Tire or Wheel is in the cart."
       }
     ]
   },
@@ -1970,6 +1980,17 @@
         "max": 200,
         "step": 5,
         "unit": "%"
+      }
+    ]
+  },
+  {
+    "name": "Cart Item Placeholder",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "cart_item_placeholder",
+        "label": "Product Placeholder Image",
+        "info": "Shown when a product has no image"
       }
     ]
   }

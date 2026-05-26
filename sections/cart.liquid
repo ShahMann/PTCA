@@ -66,6 +66,7 @@
   </script>
 {%- endif -%}
 
+{%- render 'cart-default-product-data' -%}
 <section id="{{ section_id }}"
   class="cart section-padding{% if settings.quantity_style == 'dropdown' %} cart--no-overflow{% endif %}"
   data-section-type="cart-template"
@@ -481,6 +482,17 @@
                     </div>
                   {%- endif -%}
                 </fieldset>
+                <br>
+                <fieldset class="cart__buttons__fieldset" data-cart-checkout-button>
+                  <button
+                    type="button"
+                    id="clear-cart-btn"
+                    class="cart__checkout btn {{ cart_button_style }} {{ cart_button_color }} {{ cart_button_size }} btn--advanced btn--advanced-width-height cart__checkout cart__checkout--no-js"
+                  >
+                    <hover-button></hover-button>
+                    {{- 'cart.general.clear_cart' | t -}}
+                  </button>
+                </fieldset>
               </div>
             </div>
 
@@ -491,7 +503,27 @@
     </form>
   </div>
 </section>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const cartWrapper = document.querySelector('.cart');
 
+    cartWrapper.addEventListener('click', function (e) {
+      if (e.target && e.target.id === 'clear-cart-btn') {
+        fetch('/cart/clear.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+          .then((response) => response.json())
+          .then(() => {
+            window.location.reload();
+          })
+          .catch((err) => console.error('Failed to clear cart:', err));
+      }
+    });
+  });
+</script>
 {% schema %}
 {
   "name": "Cart",

@@ -947,6 +947,7 @@
     {%- endunless -%}
   {%- endcapture -%}
                   {%- endif -%}
+                  {%- assign product_type_lower = product.type | downcase -%}
                   {%- form 'product',
                     product,
                     class: 'product__form',
@@ -955,10 +956,55 @@
                     data-recipient-errors: gift_card_recipient_feature_active,
                     data-max-inventory-reached: max_inventory_reached,
                     data-error-message-position: error_message_position,
-                    data-variant-title: current_variant_title
+                    data-variant-title: current_variant_title,
+                    data-product-type: product_type_lower
                   -%}
                     {% comment %} The input with name="id" submits to cart {% endcomment %}
-                    <input type="hidden" name="id" value="{{ current_variant.id }}" data-product-select>
+                  <input type="hidden" name="id" value="{{ current_variant.id }}" data-product-select >
+                  {%- assign product_type = product.type | downcase -%}
+                  {%- if product_type == 'wheel' or product_type == 'wheels' or product_type == 'tire' or product_type == 'tires' or product_type == 'tyre' or product_type == 'tyres' -%}
+                    {%- assign wheel_diameter = product.metafields.convermax.wheel_diameter | remove: '"' -%}
+                    {%- assign tire_diameter = product.metafields.convermax.tire_diameter | remove: '"' -%}
+                    {%- if wheel_diameter != blank -%}
+                      
+                        {%- assign tire_size = '' -%}
+                        {%- if wheel_diameter == '14' or wheel_diameter == '15' or wheel_diameter == '16' -%}
+                          {%- assign tire_size = '$30' -%}
+                        {%- elsif wheel_diameter == '17' or wheel_diameter == '18' or wheel_diameter == '19' -%}
+                          {%- assign tire_size = '$35' -%}
+                        {%- elsif wheel_diameter == '20' or wheel_diameter == '21' or wheel_diameter == '22' -%}
+                          {%- assign tire_size = '$40' -%}
+                        {%- elsif wheel_diameter == '23' or wheel_diameter == '24' -%}
+                          {%- assign tire_size = '$50' -%}
+                        {%- elsif wheel_diameter == '26' -%}
+                          {%- assign tire_size = '$100' -%}
+                        {%- elsif wheel_diameter == '28' or wheel_diameter == '30' -%}
+                          {%- assign tire_size = '$200' -%}
+                        {%- endif -%}
+                        {%- if tire_size != '' -%}
+                          <input type="hidden" name="properties[_laborCost]" value="{{ tire_size }}">
+                        {%- endif -%}
+                    {%- elsif tire_diameter != blank -%}
+                        
+                        {%- assign tire_size = '' -%}
+                        {%- if tire_diameter == '14' or tire_diameter == '15' or tire_diameter == '16' -%}
+                          {%- assign tire_size = '$30' -%}
+                        {%- elsif tire_diameter == '17' or tire_diameter == '18' or tire_diameter == '19' -%}
+                          {%- assign tire_size = '$35' -%}
+                        {%- elsif tire_diameter == '20' or tire_diameter == '21' or tire_diameter == '22' -%}
+                          {%- assign tire_size = '$40' -%}
+                        {%- elsif tire_diameter == '23' or tire_diameter == '24' -%}
+                          {%- assign tire_size = '$50' -%}
+                        {%- elsif tire_diameter == '26' -%}
+                          {%- assign tire_size = '$100' -%}
+                        {%- elsif tire_diameter == '28' or tire_diameter == '30' -%}
+                          {%- assign tire_size = '$200' -%}
+                        {%- endif -%}
+                        {%- if tire_size != '' -%}
+                          <input type="hidden" name="properties[_laborCost]" value="{{ tire_size }}">  
+                        {%- endif -%}
+                    {%- endif -%}
+                  {%- endif -%}
 
                     {%- unless show_quantity -%}
                       <input type="hidden" name="quantity" value="1">
@@ -977,6 +1023,34 @@
                         {{- size_chart_button -}}
                       </div>
                     {%- endunless -%}
+
+                    {% comment %} Finish selector for line item attribute (multi-value metafield) {% endcomment %}
+
+                    {% assign finish_options = product.metafields.convermax.finish_options.value %}
+
+                    {% if finish_options != blank and finish_options.size > 1 %}
+                      <div
+                        class="product-option product-option--finish"
+                        {% if animations_enabled %}
+                          data-aos="hero"
+                          data-aos-anchor="{{ animation_anchor }}"
+                          data-aos-order="{{ animation_order }}"
+                          {%- assign animation_order = animation_order | plus: 1 -%}
+                        {% endif %}
+                      >
+                        <label for="FinishSelect">Finish:</label>
+
+                        <select id="FinishSelect" name="properties[Finish]" class="product-form__input" required>
+                          {% for finish in finish_options %}
+                            {% unless finish == "Raw (Finish must be chosen)" %}
+                              <option value="{{ finish | escape }}">
+                                {{ finish }}
+                              </option>
+                            {% endunless %}
+                          {% endfor %}
+                        </select>
+                      </div>
+                    {% endif %}
 
                     {% comment %} Shop pay split payment terms {% endcomment %}
                     <div
@@ -2430,12 +2504,15 @@
                 {{ block_style }}
                 {{ block.shopify_attributes }}
               >
+              <div class="inventory-count">
+
                 {%- render 'inventory-countdown',
                   current_variant: current_variant,
                   product_variants: product.variants,
                   max_inventory: block.settings.max_inventory,
                   hide_inventory_count: block.settings.hide_inventory_count
                 -%}
+              </div>
               </div>
 
             {%- when 'popup_text' -%}
@@ -3001,6 +3078,7 @@
   -%}
 
   {%- if product != blank -%}
+    {%- assign product_type_lower = product.type | downcase -%}
     {%- form 'product',
       product,
       class: quickview_form_classes,
@@ -3010,7 +3088,8 @@
       data-recipient-errors: gift_card_recipient_feature_active,
       data-max-inventory-reached: max_inventory_reached,
       data-error-message-position: error_message_position,
-      data-variant-title: current_variant_title
+      data-variant-title: current_variant_title,
+      data-product-type: product_type_lower
     -%}
       <div
         class="popup-quick-view__wrapper product__form__wrapper{{ hide_labels_class }}{% if sold_out %} variant--soldout{% endif %}"
@@ -3525,6 +3604,25 @@
                   {{- size_chart_button -}}
                 </div>
               {%- endunless -%}
+
+              {% comment %} Finish selector for line item attribute (multi-value metafield) {% endcomment %}
+               <div class="test" style="display: none"></div>
+
+              {% assign finish_options = product.metafields.convermax.finish_options.value %}
+
+              {% if finish_options != blank and finish_options.size > 1 %}
+                <div class="product-option product-option--finish">
+                  <label for="FinishSelect">Finish:</label>
+
+                  <select id="FinishSelect" name="properties[Finish]" class="product-form__input" required>
+                    {% for finish in finish_options %}
+                      <option value="{{ finish | escape }}" {% if forloop.last %}selected{% endif %}>
+                        {{ finish }}
+                      </option>
+                    {% endfor %}
+                  </select>
+                </div>
+              {% endif %}
 
               {% comment %} Shop pay split payment terms {% endcomment %}
               <div

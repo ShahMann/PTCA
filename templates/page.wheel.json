@@ -25,54 +25,82 @@
     "wheel_brands_grid_gnRg9L": {
       "type": "wheel-brands-grid",
       "blocks": {
+        "brand_JiMyeL": {
+          "type": "brand",
+          "settings": {
+            "brand_image": "shopify://shop_images/Screenshot_2026-03-23_004721_-_Edited.png",
+            "brand_name": "720 Form",
+            "brand_url": "/collections/wheels?vendor/720-form"
+          }
+        },
+        "brand_J7jEFq": {
+          "type": "brand",
+          "settings": {
+            "brand_image": "shopify://shop_images/Screenshot_2026-03-23_005601_-_Edited.png",
+            "brand_name": "720 Luxury",
+            "brand_url": "/collections/wheels?vendor/720-luxury"
+          }
+        },
+        "brand_UbYiLJ": {
+          "type": "brand",
+          "settings": {
+            "brand_image": "shopify://shop_images/cfb0e35f-2984-41f5-9596-fe6a8a75f171.png",
+            "brand_name": "AL13",
+            "brand_url": "/collections/wheels?vendor/al13"
+          }
+        },
         "brand_AK9EeE": {
           "type": "brand",
           "settings": {
-            "brand_image": "shopify://shop_images/bmf.png",
-            "brand_name": "ART-Replica",
+            "brand_image": "shopify://shop_images/art_logo.png",
+            "brand_name": "ART Replica",
             "brand_url": "/collections/wheels?vendor/ART-Replica"
           }
         },
         "brand_cnfM6d": {
           "type": "brand",
           "settings": {
-            "brand_image": "shopify://shop_images/cragar.png",
-            "brand_name": "DAI-Wheels",
+            "brand_image": "shopify://shop_images/dai_logo.png",
+            "brand_name": "DAI Wheels",
             "brand_url": "/collections/wheels?vendor/DAI-Wheels"
+          }
+        },
+        "brand_gw7Az8": {
+          "type": "brand",
+          "settings": {
+            "brand_image": "shopify://shop_images/b1b319dd-5e51-494d-a331-a2dd7e26ecd3.png",
+            "brand_name": "MV Forged",
+            "brand_url": "/collections/wheels?vendor/MV-Forged"
           }
         },
         "brand_qbn36Y": {
           "type": "brand",
           "settings": {
-            "brand_image": "shopify://shop_images/black-rock.png",
-            "brand_name": "RNB",
+            "brand_image": "shopify://shop_images/image_-_Edited.png",
+            "brand_name": "RNB Steel Wheels",
             "brand_url": "/collections/wheels?vendor/RNB"
           }
         },
-        "brand_JiMyeL": {
+        "brand_Wtdq9E": {
           "type": "brand",
           "settings": {
-            "brand_image": "shopify://shop_images/cruiser-alloy.png",
-            "brand_name": "RNB",
-            "brand_url": "/collections/wheels?vendor/RNB"
-          }
-        },
-        "brand_J7jEFq": {
-          "type": "brand",
-          "settings": {
-            "brand_image": "shopify://shop_images/cragar.png",
-            "brand_name": "RNB",
-            "brand_url": "/collections/wheels?vendor/RNB"
+            "brand_image": "shopify://shop_images/Screenshot_2026-03-23_010250_-_Edited.png",
+            "brand_name": "Vossen",
+            "brand_url": "/collections/wheels?vendor/vossen-wheels"
           }
         }
       },
       "block_order": [
+        "brand_JiMyeL",
+        "brand_J7jEFq",
+        "brand_UbYiLJ",
         "brand_AK9EeE",
         "brand_cnfM6d",
+        "brand_gw7Az8",
         "brand_qbn36Y",
-        "brand_JiMyeL",
-        "brand_J7jEFq"
+        "brand_Wtdq9E"
       ],
+      "custom_css": [],
       "name": "Wheel Brands Grid",
       "settings": {}
     },

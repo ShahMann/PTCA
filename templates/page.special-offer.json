@@ -26,19 +26,180 @@
         "rebate_tier_MfhMAT": {
           "type": "rebate_tier",
           "settings": {
-            "rebate_amount": "$80 Rebate",
-            "image": "shopify://shop_images/035f29a2-d323-4ae7-98d0-470c0c2b7d99.png",
-            "credit_card_rebate": "Increases to $180 when you purchase with your Goodyear Credit Card.",
-            "tire_models": "Assurance WeatherReady,Assurance WeatherReady2,Wrangler DuraTrac,Wrangler DuraTrac RT,Wrangler Steadfast HT",
+            "rebate_amount": "UP TO $100 REBATE ON BF GOODRICH TIRES",
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_2.png",
+            "credit_card_rebate": "All tire models not listed have a $70 rebate.",
+            "tire_models": "All-Terrain T/A K03, All -Terrain T/A K02, Trail-Terrain, HD-Terrain T/A KT, Mud-Terrain T/A KM3",
             "custom_links_per_column": 0
           }
         },
-        "rebate_tier_RKACgP": {
+        "rebate_tier_iAqV44": {
           "type": "rebate_tier",
           "settings": {
-            "rebate_amount": "$60 Rebate",
-            "credit_card_rebate": "Increases to $160 when you purchase with your Goodyear Credit Card.",
-            "tire_models": "Assurance ComfortDrive,Assurance MaxLife,Wrangler All-Terrain Adventure with Kevlar",
+            "rebate_amount": "UP TO $100 Rebate ON BRIDGESTONE TIRES",
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_3.png",
+            "credit_card_rebate": "$100 on Potenza eligible patterns and $90 on all models listed.",
+            "tire_models": "Alenza, Driveguard, Dueler, Turanza, WeatherPeak",
+            "custom_links_per_column": 0
+          }
+        },
+        "rebate_tier_QD9XWn": {
+          "type": "rebate_tier",
+          "settings": {
+            "rebate_amount": "UP TO $110 Rebate ON CONTINENTAL TIRES",
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE.png",
+            "credit_card_rebate": "$110 Rebate for all models listed. $70 Rebate on all other Continental tires(Excluding UltimateContact and UltimateContact Winter)",
+            "tire_models": "TrueContact Tour54, CrossContact LX25, SecureContact AW,ExtremeContact DWS 06 Plus, ExtremeContact Sport 02,SportContact 3, SportContact5, SportContact5P, SportContact6 and SportContact7",
+            "custom_links_per_column": 0
+          }
+        },
+        "rebate_tier_7A946f": {
+          "type": "rebate_tier",
+          "settings": {
+            "rebate_amount": "UP TO $80 REBATE ON FALKEN TIRES",
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_2_1d072655-00f8-423c-899a-19da67895d92.png",
+            "credit_card_rebate": "$200 Rebate on a set of 4 Dunlop Blue Response A/S Tires",
+            "tire_models": "Dunlop Blue Response A/S",
+            "custom_links_per_column": 0
+          }
+        },
+        "rebate_tier_R8NGW4": {
+          "type": "rebate_tier",
+          "settings": {
+            "rebate_amount": "UP TO $80 REBATE ON FALKEN TIRES",
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_3_e4fb6941-152e-443e-b4ec-439089b2dff7.png",
+            "credit_card_rebate": "$80 Rebate for all models listed, $70 Rebate for Aklimate, $60 Rebate for all others not listed.",
+            "tire_models": "Azenis FK510, Azenis FK510 SUV, Azenis FK460 A/S, Azenis FK460A/S Silentcore, Wildpeak A/T4W, Wildpeak HT02, Wildpeak R/T01",
+            "custom_links_per_column": 0
+          }
+        },
+        "rebate_tier_geFPPP": {
+          "type": "rebate_tier",
+          "settings": {
+            "rebate_amount": "UP TO $80 REBATE ON FIRESTONE TIRES",
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_4.png",
+            "credit_card_rebate": "$80 Rebate for most models. Eligible models are listed. $50 Rebate for all other All Season Tires not listed.",
+            "tire_models": "Affinity AS, Destination, Firehawk, WeatherGrip",
+            "custom_links_per_column": 0
+          }
+        },
+        "rebate_tier_VxXnfV": {
+          "type": "rebate_tier",
+          "settings": {
+            "rebate_amount": "UP TO $100 REBATE ON GENERAL TIRES",
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_5.png",
+            "credit_card_rebate": "$100 Rebate for models listed, $70 Rebate on all Grabber tires, $50 Rebate on all other General Tires (Excluding Evertrek GT)",
+            "tire_models": "G-Max AS07, G-Max RS",
+            "custom_links_per_column": 0
+          }
+        },
+        "rebate_tier_6fTMxy": {
+          "type": "rebate_tier",
+          "settings": {
+            "rebate_amount": "$100 REBATE ON HANKOOK TIRES",
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_6.png",
+            "credit_card_rebate": "$100 Rebate on All Season or All Weather Hankook tires.",
+            "tire_models": "",
+            "custom_links_per_column": 0
+          }
+        },
+        "rebate_tier_KM48Ly": {
+          "type": "rebate_tier",
+          "settings": {
+            "rebate_amount": "$60 REBATE ON KUMHO TIRES",
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_7.png",
+            "credit_card_rebate": "$60 Rebate on all Kumho Tires listed.",
+            "tire_models": "A51a, HP71, HT51, HA32, AT52, MT71, Ecsta Sport / Sport S (PS72),Ecsta Sport A/S (PA71), Road Venture RT (RT51)",
+            "custom_links_per_column": 0
+          }
+        },
+        "rebate_tier_NKqq4V": {
+          "type": "rebate_tier",
+          "settings": {
+            "rebate_amount": "$40 REBATE ON LAUFENN TIRES",
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_8.png",
+            "credit_card_rebate": "$40 Rebate on All Season or All Weather Laufenn tires.",
+            "tire_models": "",
+            "custom_links_per_column": 0
+          }
+        },
+        "rebate_tier_fQJCAK": {
+          "type": "rebate_tier",
+          "settings": {
+            "rebate_amount": "$100 REBATE ON MICHELIN TIRES",
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_9.png",
+            "credit_card_rebate": "$100 Rebate on any set of 4 Michelin Tires.",
+            "tire_models": "",
+            "custom_links_per_column": 0
+          }
+        },
+        "rebate_tier_HmAk79": {
+          "type": "rebate_tier",
+          "settings": {
+            "rebate_amount": "$80 Rebate on nexen tires",
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_10.png",
+            "credit_card_rebate": "Up To $80 Rebates on Nexen Tires listed, All other Nexen tires qualify for a $60 mail in rebate per set of 4.",
+            "tire_models": "NFERA Supreme, NFERA Sport, Roadian ATX, N’BLUE 4 Season2",
+            "custom_links_per_column": 0
+          }
+        },
+        "rebate_tier_YrnrRP": {
+          "type": "rebate_tier",
+          "settings": {
+            "rebate_amount": "UP TO $70 REBATE ON NITTO TIRES",
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_11.png",
+            "credit_card_rebate": "$70 Rebate for all Nitto Tire models listed. $60 Rebate if tire model is not listed. Per set of 4.",
+            "tire_models": "Terra Grappler G3-G2, Recon Grappler, Ridge Grappler,Nomad Grappler AW, EXO Grappler AWT, Trail Grappler M/T,Mud Grappler, Dura Grapple",
+            "custom_links_per_column": 0
+          }
+        },
+        "rebate_tier_QFUMJf": {
+          "type": "rebate_tier",
+          "settings": {
+            "rebate_amount": "UP TO $100 REBATE ON PIRELLI TIRES",
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_12.png",
+            "credit_card_rebate": "Up to $100 IN REBATES with the purchase of 4 eligible Pirelli Tires.",
+            "tire_models": "Scorpion XTM AT, Weatheractive Family, Scorpion AS Plus 3",
+            "custom_links_per_column": 0
+          }
+        },
+        "rebate_tier_RiH6gc": {
+          "type": "rebate_tier",
+          "settings": {
+            "rebate_amount": "UP TO $100 REBATE ON TOYO TIRES",
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_13.png",
+            "credit_card_rebate": "$100 Rebate on ANY Proxes tires, $80 Rebate on tire models listed and $60 Rebate on Extensa A/S II, Extensa HP II models.",
+            "tire_models": "Celsius II, Celsius Sport, Celsius Cargo, OpenCountry Q/T, Open Country H/T II, Open Country A/T III, Open CountryA/T III EV, Open Country C/T, Open Country R/T Trail, Open Country M/T",
+            "custom_links_per_column": 0
+          }
+        },
+        "rebate_tier_kVBATU": {
+          "type": "rebate_tier",
+          "settings": {
+            "rebate_amount": "$50 REBATE ON UNIROYAL TIRES",
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_14.png",
+            "credit_card_rebate": "$50 Rebate on any 4 Uniroyal Tires.",
+            "tire_models": "",
+            "custom_links_per_column": 0
+          }
+        },
+        "rebate_tier_86bwnk": {
+          "type": "rebate_tier",
+          "settings": {
+            "rebate_amount": "Up To $125 Rebate on Yokohama Tires",
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_15.png",
+            "credit_card_rebate": "Yokohama is offering a $125 Rebate on GEOLANDAR X-AT G016. There will be an $85 Rebate on GEOLANDAR A/T4 G018, GEOLANDAR A/T XD G017, GEOLANDARCV 4S G061, GEOLANDAR CV G058, GEOLANDAR X-CV G057, AVID ASCEND GT models. There will be a $70 rebate for the models listed, $50 rebate for the models AVID Ascend LX, PARADA Spec- and a $40 Rebate for the AVID Touring-S.",
+            "tire_models": "ADVAN Apex, ADVANFleva, ADVAN Neova AD09, ADVAN SportV107, ADVAN Sport AS+, ADVAN Sport EVAS, GEOLANDAR H/T G056, GEOLANDAR M/TG003, GEOLANDAR X-MT G005",
+            "custom_links_per_column": 0
+          }
+        },
+        "rebate_tier_JkYfCY": {
+          "type": "rebate_tier",
+          "settings": {
+            "rebate_amount": "$80 rebate on nokian tires",
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_4_6a333b22-37c4-4832-b2a0-86ba05cf4dad.png",
+            "credit_card_rebate": "Up to $80 on select Nokian Tires",
+            "tire_models": "",
             "custom_links_per_column": 0
           }
         },
@@ -46,14 +207,14 @@
           "type": "rebate_step",
           "settings": {
             "step_title": "Before you submit your claim, make sure you have a copy of your original sales receipt, which shows:",
-            "step_content": "<ul><li>Customer name</li><li>Tire product purchased</li><li>Date the tires were purchased</li><li>Name and address of the store where the tires were purchased</li><li>Proof of installation</li></ul><p><strong>Submit online at </strong><a href=\"https://www.Goodyearrebates.com\" target=\"_blank\"><strong>Goodyearrebates.com</strong></a><strong> and get the rebate faster!</strong></p>"
+            "step_content": "<ul><li>Customer name</li><li>Tire product purchased</li><li>Date the tires were purchased</li><li>Name and address of the store where the tires were purchased</li><li>Proof of installation</li></ul><p><strong>Submit online at:<br/>BF GOODRICH - </strong><a href=\"https://www.bfgoodrich.ca/en/promotions-and-rebates\" target=\"_blank\" title=\"https://www.bfgoodrich.ca/en/promotions-and-rebates\"><strong>CLICK HERE TO ACCESS THE BF GOODRICH REBATE SUBMISSION LINK</strong></a></p><p><strong>BRIDGESTONE - </strong><a href=\"https://www.bridgestonerewards.com/\" target=\"_blank\" title=\"https://www.bridgestonerewards.com/\"><strong>CLICK HERE TO ACCESS THE BRIDGESTONE REBATE SUBMISSION LINK</strong></a></p><p><strong>CONTINENTAL - </strong><a href=\"http://www.continentaltirerewards.ca/\" target=\"_blank\" title=\"http://www.continentaltirerewards.ca/\"><strong>CLICK HERE TO ACCESS THE CONTINENTAL REBATE SUBMISSION LINK</strong></a></p><p><strong>DUNLOP - </strong><a href=\"https://www.dtnarebates.com/\" target=\"_blank\" title=\"https://www.dtnarebates.com/\"><strong>CLICK HERE TO ACCES THE DUNLOP REBATE SUBMISSION LINK</strong></a></p><p><strong>FALKEN - </strong><a href=\"https://www.dtnarebates.com/\" target=\"_blank\" title=\"https://www.dtnarebates.com/\"><strong>CLICK HERE TO ACCES THE FALKEN REBATE SUBMISSION LINK</strong></a></p><p><strong>FIRESTONE - </strong><a href=\"https://www.firestonerewards.com/\" target=\"_blank\" title=\"https://www.firestonerewards.com/\"><strong>CLICK HERE TO ACCES THE FIRESTONE REBATE SUBMISSION LINK</strong></a></p><p><strong>GENERAL - </strong><a href=\"https://www.generaltirerewards.ca/\" target=\"_blank\" title=\"https://www.generaltirerewards.ca/\"><strong>CLICK HERE TO ACCES THE GENERAL REBATE SUBMISSION LINK</strong></a></p><p><strong>HANKOOK - </strong><a href=\"https://hankookcanadapromotions.com/Default.aspx\" target=\"_blank\" title=\"https://hankookcanadapromotions.com/Default.aspx\"><strong>CLICK HERE TO ACCES THE HANKOOK REBATE SUBMISSION LINK</strong></a></p><p><strong>KUMHO - </strong><a href=\"https://www.kumhotirerebates.com/\" target=\"_blank\" title=\"https://www.kumhotirerebates.com/\"><strong>CLICK HERE TO ACCES THE KUMHO REBATE SUBMISSION LINK</strong></a></p><p><strong>LAUFENN - </strong><a href=\"https://hankookcanadapromotions.com/Default.aspx\" target=\"_blank\" title=\"https://hankookcanadapromotions.com/Default.aspx\"><strong>CLICK HERE TO ACCES THE LAUFENN REBATE SUBMISSION LINK</strong></a></p><p><strong>MICHELIN - </strong><a href=\"https://www.michelin.ca/en/promotions-and-rebates\" target=\"_blank\" title=\"https://www.michelin.ca/en/promotions-and-rebates\"><strong>CLICK HERE TO ACCESS THE MICHELIN REBATE SUBMISSION LINK </strong></a><strong><br/></strong></p><p><strong>NEXEN - </strong><a href=\"https://www.nexentirepromo.ca/\" target=\"_blank\" title=\"https://www.nexentirepromo.ca/\"><strong>CLICK HERE TO ACCES THE NEXEN REBATE SUBMISSION LINK</strong></a></p><p><strong>NITTO - </strong><a href=\"https://nittorebate.ca/\" target=\"_blank\" title=\"https://nittorebate.ca/\"><strong>CLICK HERE TO ACCES THE NITTO REBATE SUBMISSION LINK</strong></a></p><p><strong>NOKIAN - </strong><a href=\"https://na.nokiantyres.com/rebates/\" target=\"_blank\" title=\"https://na.nokiantyres.com/rebates/\"><strong>CLICK HERE TO ACCES THE NOKIAN REBATE SUBMISSION LINK</strong></a></p><p><strong>PIRELLI - </strong><a href=\"https://pirellipromo.net/en\" target=\"_blank\" title=\"https://pirellipromo.net/en\"><strong>CLICK HERE TO ACCES THE PIRELLI REBATE SUBMISSION LINK</strong></a></p><p><strong>TOYO - </strong><a href=\"https://toyorebate.ca/\" target=\"_blank\" title=\"https://toyorebate.ca/\"><strong>CLICK HERE TO ACCES THE TOYO REBATE SUBMISSION LINK</strong></a></p><p><strong>UNIROYAL - </strong><a href=\"https://www.uniroyal.ca/promotion\" target=\"_blank\" title=\"https://www.uniroyal.ca/promotion\"><strong>CLICK HERE TO ACCES THE UNIROYAL REBATE SUBMISSION LINK</strong></a></p><p><strong>YOKOHAMA - </strong><a href=\"https://www.yokohama.ca/en/spring-rebate\" target=\"_blank\" title=\"https://www.yokohama.ca/en/spring-rebate\"><strong>CLICK HERE TO ACCES THE YOKOHAMA REBATE SUBMISSION LINK</strong></a></p><p><strong>UNIROYAL - </strong><a href=\"https://www.uniroyal.ca/promotion\" target=\"_blank\" title=\"https://www.uniroyal.ca/promotion\"><strong>CLICK HERE TO ACCESS THE UNIROYAL REBATE SUBMISSION LINK</strong></a></p>"
           }
         },
         "rebate_step_Nt3mTF": {
           "type": "rebate_step",
           "settings": {
-            "step_title": "Submit by mail:",
-            "step_content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0866/0847/8512/files/G528_Goodyear_TR.pdf?v=1746685739\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0866/0847/8512/files/G528_Goodyear_TR.pdf?v=1746685739\">Download Redemption Form</a></p><p>Mail your completed rebate form, along with your original sales receipt, in an envelope to the following address:<br/><strong>Goodyear Offer 925110</strong><br/>P.O. Box 787<br/>Portsmouth, NH 03801</p><p>NOTE: Submissions must be postmarked or submitted online by 6/30/25. Work orders not accepted. Allow six to eight weeks for Goodyear Mastercard Prepaid Card/Virtual Card delivery.</p>"
+            "step_title": "Submission deadlines vary by manufacturer.",
+            "step_content": "<p>NOTE: Submissions must be postmarked or submitted online by the manufacturers required date. Work orders not accepted. Allow two to 8 weeks to receive mail in rebates.</p>"
           }
         },
         "sidebar_link_8YdwnA": {
@@ -61,13 +222,6 @@
           "settings": {
             "link_text": "Terms & Conditions",
             "link_url": "shopify://policies/terms-of-service"
-          }
-        },
-        "sidebar_link_3HXaAY": {
-          "type": "sidebar_link",
-          "settings": {
-            "link_text": "Redemption Form",
-            "link_url": "shopify://policies/privacy-policy"
           }
         },
         "sidebar_category_LjqEVb": {
@@ -134,11 +288,26 @@
       },
       "block_order": [
         "rebate_tier_MfhMAT",
-        "rebate_tier_RKACgP",
+        "rebate_tier_iAqV44",
+        "rebate_tier_QD9XWn",
+        "rebate_tier_7A946f",
+        "rebate_tier_R8NGW4",
+        "rebate_tier_geFPPP",
+        "rebate_tier_VxXnfV",
+        "rebate_tier_6fTMxy",
+        "rebate_tier_KM48Ly",
+        "rebate_tier_NKqq4V",
+        "rebate_tier_fQJCAK",
+        "rebate_tier_HmAk79",
+        "rebate_tier_YrnrRP",
+        "rebate_tier_QFUMJf",
+        "rebate_tier_RiH6gc",
+        "rebate_tier_kVBATU",
+        "rebate_tier_86bwnk",
+        "rebate_tier_JkYfCY",
         "rebate_step_mWrxAR",
         "rebate_step_Nt3mTF",
         "sidebar_link_8YdwnA",
-        "sidebar_link_3HXaAY",
         "sidebar_category_LjqEVb",
         "sidebar_category_8GWV9A",
         "sidebar_category_pQUMMU",
@@ -150,22 +319,22 @@
       ],
       "name": "Special Offers",
       "settings": {
-        "promo_title": "Special Offers",
-        "promo_subtitle": "Get Up to $80 Back* from Goodyear or Up to $180 When You Use Your Goodyear Credit Card",
-        "promo_image": "shopify://shop_images/promotion_apple.png",
-        "promo_image_mobile": "shopify://shop_images/promotion_apple.png",
-        "end_date": "May 31, 2025",
+        "promo_title": "Manufacturer Rebates",
+        "promo_subtitle": "Major tire manufacturers offer tire rebate promotions twice per year, typically during the spring tire season and winter tire season when drivers are switching their tires. Leading brands such as Michelin, Bridgestone, Goodyear, Pirelli, and Continental commonly provide seasonal tire rebates when customers purchase a set of four tires, making these promotions the best time to find discounted tires and the best tire deals.",
+        "promo_image": "shopify://shop_images/BIG_BRANDS_BIGGER_REBATES.gif",
+        "promo_image_mobile": "shopify://shop_images/BIG_BRANDS_BIGGER_REBATES.gif",
+        "end_date": "May 31st 2026, Kumho Ends June 15th and Laufenn Ends June 30th.",
         "check_vehicle_url": "shopify://pages/offer-page",
-        "check_vehicle_text": "Which Goodyear tires are available for my vehicle?",
-        "promo_description": "<p>When you purchase a set of four select Goodyear tires you may be eligible to receive up to an $80 Goodyear Mastercard® Prepaid Card or Virtual Card by online or mail-in rebate. Offer valid on tires purchased from Tire Rack's in-stock inventory between 12:00 a.m. EDT April 1, 2025 and 11:59 p.m. EDT May 31, 2025.</p>",
-        "credit_card_info": "<p>Increase your rebate by up to $100 when you use your Goodyear Credit Card.* Don't have a card?</p>",
-        "apply_now_url": "shopify://pages/financing",
-        "credit_card_terms_url": "shopify://policies/terms-of-service",
-        "credit_card_terms_title": "Goodyear Credit Card Terms & Conditions",
-        "eligibility_info": "<p>Offer valid only for U.S. residents who are individual consumers with mailing addresses in the U.S. or U.S. territories (American Samoa, Guam, Northern Mariana Islands, Puerto Rico, & U.S. Virgin Islands) including APO/FPO addresses.</p>",
-        "eligible_products_title": "Eligible Goodyear Tires",
+        "check_vehicle_text": "How Much Is The Rebate?",
+        "promo_description": "<p>Spring tire rebate offers from major manufacturers typically range from <strong>$40 to $200 when purchasing a set of four tires</strong>. These limited-time promotions are offered by leading brands and provide customers with an excellent opportunity to upgrade their vehicle’s tires while saving money. Rebates are usually issued as prepaid cards or online claims after purchase and vary depending on the brand, tire model, and promotion period. Taking advantage of seasonal tire rebate programs is one of the best ways to get <strong>premium tires at a lower cost</strong> while ensuring your vehicle is equipped with high-quality, reliable performance for the road ahead. See below for individual rebate deatils per brand. <br/><br/></p>",
+        "credit_card_info": "",
+        "apply_now_url": "",
+        "credit_card_terms_url": "",
+        "credit_card_terms_title": "",
+        "eligibility_info": "<p><strong>Manufacturer Rebate Terms & Conditions</strong><br/><br/>Manufacturer rebate promotions advertised are offered directly by the tire manufacturers and are <strong>valid only for residents of Canada</strong>. Eligible purchases must be made within Canada during the specified promotional period and submitted according to the manufacturer’s rebate instructions. Rebates typically apply to the purchase of <strong>four (4) qualifying tires</strong> and may range between <strong>$40 and $200 depending on the brand, model, and promotion</strong>. Rebate amounts, eligibility requirements, and submission deadlines are determined by the manufacturer and are subject to change without notice.</p><p>Rebates are issued directly by the manufacturer in the form of prepaid cards, electronic transfers, or other methods specified in the promotion. <strong>Premier Tire is not responsible for the processing, approval, or fulfillment of manufacturer rebates.</strong> Customers are responsible for submitting all required documentation within the manufacturer’s deadline. Offers are <strong>void where prohibited</strong> and <strong>not valid outside of Canada</strong>.</p><p>All promotions are <strong>while supplies last and cannot be combined with certain other offers unless explicitly stated</strong>. Additional manufacturer terms and conditions may apply.</p>",
+        "eligible_products_title": "CURRENT TIRE REBATES ACTIVE.",
         "redemption_info": "<p><strong>How To Redeem:</strong></p>",
-        "disclaimer": "<p><em>Tire Rack will mail a redemption form (also available </em><a href=\"../../images/promos/retail/2025/gy/04/G528_Goodyear_TR.pdf\"><em>here</em></a><em>) and a copy of your invoice to your billing address within one to two weeks. An invoice will also be shipped with your order. (Website order placed page and order/shipment confirmation emails not accepted.) If you do not receive your redemption form by mail within two weeks of shipment, please download a copy of the form </em><a href=\"../../images/promos/retail/2025/gy/04/G528_Goodyear_TR.pdf\"><em>here</em></a><em>, or contact Tire Rack's customer service department by calling 888-981-3953.</em></p><p>*By Rebate. Subject to credit approval. Terms and conditions apply.</p>",
+        "disclaimer": "<p><em>Premier Tire can email a copy of your invoice to your email address within one to two weeks. An invoice will also be shipped with your order. (Website order placed page and order/shipment confirmation emails not accepted.) All rebate claims are the </em>responsibility<em> of the end user and should be submitted within stated acttive promo periods. </em></p><p>*Terms and conditions may apply.</p>",
         "terms_url": "shopify://policies/terms-of-service",
         "newsletter_enable": true,
         "newsletter_heading": "GET OUR EMAILS",

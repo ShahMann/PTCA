@@ -7011,7 +7011,10 @@ toggle-ellipsis {
 .shopify-section-header {
   position: relative;
   width: 100%;
-  z-index: 9000;
+  z-index: 9999999992;
+}
+.shopify-section-mobile-menu:has(.is-open) + .shopify-section-header {
+    z-index: 9000;
 }
 
 .site-header {
@@ -17249,7 +17252,7 @@ hover-slideshow .btn-quick-buy {
 
 /*================ PhotoSwipe overwrites  ================*/
 .pswp {
-  z-index: 10000;
+  z-index: 9999999993;
 }
 .pswp .pswp__bg {
   background: var(--black-alpha-60);

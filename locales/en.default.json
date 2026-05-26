@@ -194,7 +194,8 @@
       "continue_shopping": "Continue Shopping",
       "close_cart": "Close Cart",
       "free_shipping_message_html": "Spend <span data-free-shipping-amount=\"\">{{ amount }}</span> to qualify for free shipping",
-      "qualified_shipping_message": "FREE shipping will be applied at checkout"
+      "qualified_shipping_message": "FREE shipping will be applied at checkout",
+      "clear_cart": "Clear Cart"
     },
     "label": {
       "product": "Product",

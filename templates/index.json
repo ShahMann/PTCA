@@ -23,13 +23,13 @@
             "text_alignment": "text-center",
             "text_color": "text-light",
             "subheading": "",
-            "title": "<h4>Ride On Your Dream<br/>Wheels With Us!</h4>",
-            "heading_size": 150,
+            "title": "<h4>Got Wheels? We do!</h4>",
+            "heading_size": 140,
             "heading_highlight_type": "underline-hand-drawn",
             "highlight_color": "#ffffff",
             "highlight_text_color": "#ffffff",
-            "text": "Choose from Several Brands",
-            "text_size": 100,
+            "text": "The Best Brands, At The Best Prices. \nGUARANTEED!",
+            "text_size": 80,
             "stacked_button": false,
             "button_1_text": "View Wheels Now!",
             "button_1_link": "shopify://collections/all",
@@ -267,14 +267,14 @@
           "type": "image",
           "settings": {
             "width": "100",
-            "image": "shopify://shop_images/resized_DSC05291.jpg",
+            "image": "shopify://shop_images/AUDI_RS6_WITH_23X11_AL13_FORGED_WHEELS.jpg",
             "overlay_opacity": 45,
             "text_position": "center",
-            "subheading": "",
-            "title": "Gadget friendly",
-            "text": "Made for digital nomads and office workers",
-            "button_1_text": "",
-            "button_1_link": "#",
+            "subheading": "NEED WHEELS?",
+            "title": "Shop Wheels By Size",
+            "text": "Made for enthusiasts that KNOW fitment.",
+            "button_1_text": "Show me wheels",
+            "button_1_link": "shopify://collections/wheels",
             "button_2_text": "",
             "button_2_link": "",
             "overlay_text_color": "text-light"
@@ -284,11 +284,11 @@
           "type": "image",
           "settings": {
             "width": "50",
-            "image": "shopify://shop_images/resized_DSC05291.jpg",
+            "image": "shopify://shop_images/BMW_M3_with_1221_Forged_Wheels.jpg",
             "overlay_opacity": 45,
             "text_position": "center",
             "subheading": "Final markdowns",
-            "title": "Clearance",
+            "title": "Clearance Wheels",
             "text": "While supplies last",
             "button_1_text": "",
             "button_1_link": "#",
@@ -304,9 +304,9 @@
             "image": "shopify://shop_images/resized_DSC05566.jpg",
             "overlay_opacity": 45,
             "text_position": "center",
-            "subheading": "Bestselling",
-            "title": "Commuter bags",
-            "text": "Travel to your next destination",
+            "subheading": "Forged Deals On",
+            "title": "FORGED WHEELS",
+            "text": "1pc, 2pc and 3pc forged wheels.",
             "button_1_text": "",
             "button_1_link": "#",
             "button_2_text": "",
@@ -481,23 +481,23 @@
       "name": "Video",
       "settings": {
         "video_height": "six-fifty-height",
-        "width": "wrapper--full",
+        "width": "wrapper",
         "enable_mobile_height": true,
-        "mobile_height": "six-fifty-height-mobile",
-        "text_width": "normal",
+        "mobile_height": "one-fifth-height-mobile",
+        "text_width": "wide",
         "text_position": "middle-center",
-        "video_link_bg": "https://cdn.shopify.com/videos/c/o/v/53dd468ccb1c47b5acd853d3177890b0.mp4",
-        "video_link": "",
-        "overlay_opacity": 55,
+        "video_link_bg": "https://cdn.shopify.com/videos/c/o/v/1efaffe493904063a4b1e16948176392.mp4",
+        "video_link": "https://youtu.be/f2Cz-eUHwHE?si=87lxuPWHBLiyC3Sd&t=12",
+        "overlay_opacity": 0,
         "text_color": "text-light",
-        "title": "<p>Unleash the Road with Confidence</p>",
+        "title": "",
         "heading_size": 100,
         "heading_highlight_type": "underline-hand-drawn",
         "highlight_color": "#000000",
         "highlight_text_color": "",
-        "text": "From off-road adventures to city streets, our tires are engineered to deliver unmatched grip, durability, and performance. Watch how we put our products to the ultimate test.",
+        "text": "",
         "text_size": 100,
-        "button_1_text": "Learn More",
+        "button_1_text": "",
         "button_1_link": "",
         "button_1_color": "btn--primary",
         "button_1_style": "btn--solid",
@@ -514,16 +514,16 @@
     "section_grid_9Nyknf": {
       "type": "section-grid",
       "blocks": {
-        "image_piyEXw": {
+        "image_3zirKq": {
           "type": "image",
           "settings": {
             "width": "50",
-            "image": "shopify://shop_images/resized_DSC05291.jpg",
+            "image": "shopify://shop_images/DSC07908.jpg",
             "overlay_opacity": 45,
             "text_position": "center",
             "subheading": "",
-            "title": "Limited editions",
-            "text": "Exclusive styles you won't want to miss",
+            "title": "Exclusive offers",
+            "text": "Last Chance To Save BIG on Discontinued Items",
             "button_1_text": "Shop Now",
             "button_1_link": "#",
             "button_2_text": "",
@@ -531,16 +531,16 @@
             "overlay_text_color": "text-light"
           }
         },
-        "image_3zirKq": {
+        "image_piyEXw": {
           "type": "image",
           "settings": {
             "width": "50",
-            "image": "shopify://shop_images/resized_DSC05566.jpg",
+            "image": "shopify://shop_images/Merch_Samples_279ef2a9-d6b1-48c5-bf50-a217ab16703d.png",
             "overlay_opacity": 45,
             "text_position": "center",
             "subheading": "",
-            "title": "Exclusive offers",
-            "text": "Last chance to shop our seasonal sale",
+            "title": "SHOP PT MERCH",
+            "text": "Seasonal Drops With Stylish Designs and Premium Quality.",
             "button_1_text": "Shop Now",
             "button_1_link": "#",
             "button_2_text": "",
@@ -550,8 +550,8 @@
         }
       },
       "block_order": [
-        "image_piyEXw",
-        "image_3zirKq"
+        "image_3zirKq",
+        "image_piyEXw"
       ],
       "name": "Grid",
       "settings": {
@@ -583,49 +583,57 @@
         "logo_GMfQW8": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/logo_uniroyal.png"
+            "image": "shopify://shop_images/logo_uniroyal.png",
+            "link": "/collections/vendors?q=Uniroyal"
           }
         },
         "logo_wMJ6KX": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/logo_bfgoodrich.png"
+            "image": "shopify://shop_images/logo_bfgoodrich.png",
+            "link": "/collections/vendors?q=Goodyear"
           }
         },
         "logo_jUwpHF": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/logo_bridgestone.png"
+            "image": "shopify://shop_images/logo_bridgestone.png",
+            "link": "/collections/vendors?q=Bridgestone"
           }
         },
         "logo_LPHQDL": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/logo_continental.png"
+            "image": "shopify://shop_images/logo_continental.png",
+            "link": "/collections/vendors?q=Continental"
           }
         },
         "logo_XtmrJL": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/logo_kumho.png"
+            "image": "shopify://shop_images/logo_kumho.png",
+            "link": "/collections/vendors?q=Kumho"
           }
         },
         "logo_VQzNeg": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/logo_firestone_efa634ce-a7e9-40c5-bd55-5374c49321e1.png"
+            "image": "shopify://shop_images/logo_firestone_efa634ce-a7e9-40c5-bd55-5374c49321e1.png",
+            "link": "/collections/vendors?q=Firestone"
           }
         },
         "logo_Lky7Ec": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/logo_goodyear.png"
+            "image": "shopify://shop_images/logo_goodyear.png",
+            "link": "/collections/vendors?q=Goodyear"
           }
         },
         "logo_wPgKYc": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/logo_michelin.png"
+            "image": "shopify://shop_images/logo_michelin.png",
+            "link": "/collections/vendors?q=Michelin"
           }
         }
       },
@@ -647,9 +655,125 @@
         "padding_bottom": 14
       }
     },
+    "section_accordions_with_images_yKBCnJ": {
+      "type": "section-accordions-with-images",
+      "blocks": {
+        "text_LVjrUm": {
+          "type": "text",
+          "settings": {
+            "title": "Guaranteed Lowest Tire & Wheel Prices",
+            "text": "<p>At Premier Tire, we guarantee the <strong>lowest prices on tires and wheels in Canada</strong>. Found a better price? We’ll <strong>match or beat any competitor’s written quote</strong>, ensuring you always get the best value without compromising quality or service.</p>",
+            "icon_image": "shopify://shop_images/ChatGPT_Image_Feb_28_2026_12_37_44_PM.png",
+            "icon_width": 100,
+            "icon_position": "inline-left"
+          }
+        },
+        "text_xLcp4B": {
+          "type": "text",
+          "settings": {
+            "title": "Professional Installation & Advanced State Of The Art Equipment",
+            "text": "<p>Our certified technicians use <strong>state-of-the-art tire mounting and road-force balancing equipment</strong> to protect your wheels and ensure smooth, vibration-free driving. Trusted for performance, luxury, and high-end vehicles. Further to this, Premier Tire offers, custom made, direct fit, same day wheels that are cut on our in house HAAS CNC Machinery. We truly set the standard. </p>",
+            "icon_image": "shopify://shop_images/ChatGPT_Image_Feb_28_2026_12_37_44_PM.png",
+            "icon_width": 100,
+            "icon_position": "inline-left"
+          }
+        },
+        "text_HMThH4": {
+          "type": "text",
+          "settings": {
+            "title": "Largest Selection Of Tires & Custom Wheels",
+            "text": "<p><br/>Shop from a massive inventory of <strong>brand-name tires, performance tires, winter tires, and custom wheel packages</strong>. From daily vehicles to luxury and exotic cars, Premier Tire offers fitments and styles trusted by drivers across <strong>Vaughan, Toronto, GTA and all of Canada. </strong></p>",
+            "icon_image": "shopify://shop_images/ChatGPT_Image_Feb_28_2026_12_37_44_PM.png",
+            "icon_width": 100,
+            "icon_position": "inline-left"
+          }
+        },
+        "text_QFXRBQ": {
+          "type": "text",
+          "settings": {
+            "title": "Fast Service From Canada’s Trusted Wheel And Tire Experts",
+            "text": "<p>Premier Tire is known for <strong>fast turnaround times, honest advice, and expert service</strong>. Whether you need tire replacement, seasonal tire changeovers, or complete wheel and tire packages, we make the process easy from purchase to installation. We have over 30 staff members between our locations to ensure the ball is kept rolling and satisfaction is consistently delivered to our valued clients. </p>",
+            "icon_image": "shopify://shop_images/ChatGPT_Image_Feb_28_2026_12_37_44_PM.png",
+            "icon_width": 100,
+            "icon_position": "inline-left"
+          }
+        }
+      },
+      "block_order": [
+        "text_LVjrUm",
+        "text_xLcp4B",
+        "text_HMThH4",
+        "text_QFXRBQ"
+      ],
+      "name": "Accordions with Images",
+      "settings": {
+        "layout": "two-columns",
+        "show_accordion_divider": false,
+        "line_thickness": "normal",
+        "content_alignment": "text-center",
+        "subheading": "",
+        "title": "Why choose the premier tire team?",
+        "type_style": "font-heading",
+        "heading_size": 120,
+        "text": "",
+        "tabs_bg_color": "#fafafa",
+        "bg_color": "",
+        "gradient": "",
+        "text_color": "text-dark",
+        "border_color": "",
+        "width": "wrapper",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "section_press_7PT3DY": {
       "type": "section-press",
       "blocks": {
+        "press_YUipGY": {
+          "type": "press",
+          "settings": {
+            "text": "<p>Friendly & Professional Staff, Very Fast & Efficient Service. Found reason for leakage. Great Service All Around. Thanks Again!</p>",
+            "link": "",
+            "press_title": "Sandra D",
+            "logo_width": 70
+          }
+        },
+        "press_hChwPx": {
+          "type": "press",
+          "settings": {
+            "text": "<p>Fast service. Good rates. Very accommodating and friendly staff.</p>",
+            "link": "",
+            "press_title": "Rakhavan Ketheeswaran",
+            "logo_width": 70
+          }
+        },
+        "press_Km46Dg": {
+          "type": "press",
+          "settings": {
+            "text": "<p>Ivan and his crew are the very best. Yesterday they executed a difficult task in removing and installing new ultra high performance all season tires for my C7 corvette without a single scratch to my rims.<br/><br/>My standards are high and had some anxiety regarding the work.<br/><br/>At the end of all the work I was tottaly satisfied and in the future will use Premier Tire for all of my six cars.</p>",
+            "link": "",
+            "press_title": "Rob C",
+            "logo_width": 70
+          }
+        },
+        "press_W4MhDN": {
+          "type": "press",
+          "settings": {
+            "text": "<p>Had 2 flat tires in 1 week due to pot holes … frank and Winston both were very accommodating and ensure I not only got my car looked after , but also sent out a mobile unit so I could avoid a tow truck charge … I also take my car to them every season for my tire swaps and storage … would recommend A++</p>",
+            "link": "",
+            "press_title": "Steve Mendoza",
+            "logo_width": 70
+          }
+        },
+        "press_MpQhEw": {
+          "type": "press",
+          "settings": {
+            "text": "<p>Amazing service, did a good job with installing my tires , wheel were just freshly powder coated so I was worried for scratching and it was in perfect condition when I picked them up !</p>",
+            "link": "",
+            "press_title": "6ix Sneakers",
+            "logo_width": 70
+          }
+        },
         "press_LWtgfa": {
           "type": "press",
           "settings": {
@@ -668,13 +792,21 @@
             "logo_width": 70
           }
         },
+        "press_xzKJXh": {
+          "type": "press",
+          "settings": {
+            "text": "<p>This was my 2nd visit at Premier Tire Hwy7 in Woodbridge for a flat tire repair. This was the best customer care experience. All the staff are welcoming and ready to help. Yesterday Harrison’s service was outstanding. Thank you so much.</p>",
+            "link": "",
+            "press_title": "Sylvie Rainville",
+            "logo_width": 70
+          }
+        },
         "press_PqwL7V": {
           "type": "press",
-          "disabled": true,
           "settings": {
-            "text": "<p>Premier Rims went above and beyond to resolve an issue with my rims — no hassle, just real commitment to customer service. Highly recommend them for their honesty and professionalism.</p>",
+            "text": "<p>Had a great eperience with Premier Tire - Etobicoke. We had an insane snowfall and even with all the closures, slow downs and snow, they were able to assist us within an hour of calling them. They were very polite and had great customer service. Would definitely call them again should i require assistance.</p>",
             "link": "",
-            "press_title": "CARMEN MOUSHIKH",
+            "press_title": "Claudia Chavez",
             "logo_width": 70
           }
         },
@@ -689,8 +821,14 @@
         }
       },
       "block_order": [
+        "press_YUipGY",
+        "press_hChwPx",
+        "press_Km46Dg",
+        "press_W4MhDN",
+        "press_MpQhEw",
         "press_LWtgfa",
         "press_7TqJp3",
+        "press_xzKJXh",
         "press_PqwL7V",
         "press_yiN9kR"
       ],
@@ -715,42 +853,42 @@
         "product_qgYTtp": {
           "type": "product",
           "settings": {
-            "product": "ironman-all-country-mt-37x12-50r17",
+            "product": "sailun-atrezzo-zsr-suv-275-40r20-106y-xl-bsw",
             "position_x_desktop": 59,
-            "position_y_desktop": 77,
+            "position_y_desktop": 73,
             "position_x_mobile": 58,
             "position_y_mobile": 80,
-            "info_bubbles_position_desktop": 55,
-            "info_bubbles_position_mobile": 5
+            "info_bubbles_position_desktop": 10,
+            "info_bubbles_position_mobile": 0
           }
         },
-        "product_NxV4gH": {
+        "product_PHc78H": {
           "type": "product",
           "settings": {
-            "product": "vossen-hf-5-20x9-32-matte-gunmetal",
-            "position_x_desktop": 65,
-            "position_y_desktop": 82,
-            "position_x_mobile": 68,
-            "position_y_mobile": 77,
-            "info_bubbles_position_desktop": 5,
-            "info_bubbles_position_mobile": 30
+            "product": "sailun-atrezzo-zsr-suv-315-35r20-110y-xl-bsw",
+            "position_x_desktop": 90,
+            "position_y_desktop": 79,
+            "position_x_mobile": 90,
+            "position_y_mobile": 86,
+            "info_bubbles_position_desktop": 30,
+            "info_bubbles_position_mobile": 35
           }
         }
       },
       "block_order": [
         "product_qgYTtp",
-        "product_NxV4gH"
+        "product_PHc78H"
       ],
       "name": "Shop the Look Grid",
       "settings": {
         "products_on_row": 2,
         "image": "shopify://shop_images/resized_DSC05281.jpg",
         "image_position": "is-reversed",
-        "enable_aspect_ratio": true,
+        "enable_aspect_ratio": false,
         "main_image_aspect_ratio": 1,
-        "title": "Streamline your gear",
+        "title": "SHOP THIS LOOK",
         "heading_size": 120,
-        "text": "<p>Efficient and organized</p>",
+        "text": "<p>Get this same setup for your ride.</p>",
         "text_size": 100,
         "text_alignment": "text-left",
         "show_hotspots": true,
@@ -775,7 +913,7 @@
           "type": "heading",
           "settings": {
             "text": "<h4>Our collection of sleek, <em>high-performance</em> tires represents the perfect fusion of cutting-edge technology, rugged durability, and modern engineering. Crafted with precision and a focus on detail, each tire stands as a testament to our commitment to delivering performance that not only keeps up with today’s demanding roads but elevates every drive.</h4>",
-            "size": 100,
+            "size": 70,
             "heading_highlight_type": "highlight",
             "heading_tag": "h4",
             "highlight_color": "#ffffff",
@@ -799,7 +937,7 @@
       ],
       "name": "Text",
       "settings": {
-        "text_position": "left",
+        "text_position": "center",
         "bg_color": "#000000",
         "gradient": "",
         "text_color": "text-light",
@@ -815,8 +953,13 @@
           "type": "shopify://apps/testimonials-slider/blocks/cards-widget-block/cd756d38-7c3d-4332-af00-4ff87263e921",
           "settings": {
             "themeId": "light",
+            "font": "default",
             "configNumber": "1",
-            "showAvatar": false
+            "showAvatar": false,
+            "ratingType": "stars",
+            "emojiType": "0",
+            "solidShadow": false,
+            "shadowColor": "#ffe986"
           }
         },
         "testimonials_slider_slider_widget_block_Tt3xdt": {
@@ -824,9 +967,14 @@
           "disabled": true,
           "settings": {
             "themeId": "light",
+            "font": "default",
             "configNumber": "1",
             "autoscroll": true,
-            "showAvatar": false
+            "showAvatar": false,
+            "ratingType": "stars",
+            "emojiType": "0",
+            "solidShadow": false,
+            "shadowColor": "#ffe986"
           }
         }
       },
@@ -845,18 +993,239 @@
     "section_columns_AwKFth": {
       "type": "section-columns",
       "blocks": {
-        "text_block_eg67JX": {
+        "text_block_BhDiGf": {
           "type": "text_block",
           "settings": {
-            "image": "shopify://shop_images/f6141b40-a616-47d6-aa63-1370b656d85e.png",
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_12.png",
             "title": "",
             "heading_size": 120,
             "text": "",
             "text_size": 100,
             "button_text": "",
-            "button_link": "",
+            "button_link": "https://pirellipromo.net/en",
             "button_color": "btn--black",
-            "button_style": "btn--text",
+            "button_style": "btn--none",
+            "button_size": "btn--small",
+            "video_link_popup": "",
+            "video_link_color": "text-dark"
+          }
+        },
+        "text_block_NibCrA": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_9.png",
+            "title": "",
+            "heading_size": 120,
+            "text": "",
+            "text_size": 100,
+            "button_text": "",
+            "button_link": "https://www.michelin.ca/en/promotions-and-rebates",
+            "button_color": "btn--black",
+            "button_style": "btn--none",
+            "button_size": "btn--medium",
+            "video_link_popup": "",
+            "video_link_color": "text-dark"
+          }
+        },
+        "text_block_XRFb49": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_13.png",
+            "title": "",
+            "heading_size": 120,
+            "text": "",
+            "text_size": 100,
+            "button_text": "",
+            "button_link": "https://toyorebate.ca/",
+            "button_color": "btn--black",
+            "button_style": "btn--none",
+            "button_size": "btn--medium",
+            "video_link_popup": "",
+            "video_link_color": "text-dark"
+          }
+        },
+        "text_block_HkBphX": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_3_e4fb6941-152e-443e-b4ec-439089b2dff7.png",
+            "title": "",
+            "heading_size": 120,
+            "text": "",
+            "text_size": 100,
+            "button_text": "",
+            "button_link": "https://www.dtnarebates.com",
+            "button_color": "btn--black",
+            "button_style": "btn--none",
+            "button_size": "btn--medium",
+            "video_link_popup": "",
+            "video_link_color": "text-dark"
+          }
+        },
+        "text_block_fhTtHJ": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_11.png",
+            "title": "",
+            "heading_size": 120,
+            "text": "",
+            "text_size": 100,
+            "button_text": "",
+            "button_link": "https://www.nittorebate.ca",
+            "button_color": "btn--black",
+            "button_style": "btn--none",
+            "button_size": "btn--medium",
+            "video_link_popup": "",
+            "video_link_color": "text-dark"
+          }
+        },
+        "text_block_eMkJze": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_5.png",
+            "title": "",
+            "heading_size": 120,
+            "text": "",
+            "text_size": 100,
+            "button_text": "",
+            "button_link": "https://www.generaltirerewards.ca",
+            "button_color": "btn--black",
+            "button_style": "btn--none",
+            "button_size": "btn--medium",
+            "video_link_popup": "",
+            "video_link_color": "text-dark"
+          }
+        },
+        "text_block_L7PCdq": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE.png",
+            "title": "",
+            "heading_size": 120,
+            "text": "",
+            "text_size": 100,
+            "button_text": "",
+            "button_link": "https://www.continentaltirerewards.com",
+            "button_color": "btn--black",
+            "button_style": "btn--none",
+            "button_size": "btn--medium",
+            "video_link_popup": "",
+            "video_link_color": "text-dark"
+          }
+        },
+        "text_block_dAnGwc": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_7.png",
+            "title": "",
+            "heading_size": 120,
+            "text": "",
+            "text_size": 100,
+            "button_text": "",
+            "button_link": "https://www.kumhotirerebates.com",
+            "button_color": "btn--black",
+            "button_style": "btn--none",
+            "button_size": "btn--medium",
+            "video_link_popup": "",
+            "video_link_color": "text-dark"
+          }
+        },
+        "text_block_Wbg4Bf": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_15.png",
+            "title": "",
+            "heading_size": 120,
+            "text": "",
+            "text_size": 100,
+            "button_text": "",
+            "button_link": "https://www.yokohamarebate.ca",
+            "button_color": "btn--black",
+            "button_style": "btn--none",
+            "button_size": "btn--medium",
+            "video_link_popup": "",
+            "video_link_color": "text-dark"
+          }
+        },
+        "text_block_4FXCQw": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_14_f9b5b7f5-a6e8-4fee-902c-3e759ec53c87.png",
+            "title": "",
+            "heading_size": 120,
+            "text": "",
+            "text_size": 100,
+            "button_text": "",
+            "button_link": "https://www.uniroyal.ca/promotion",
+            "button_color": "btn--black",
+            "button_style": "btn--none",
+            "button_size": "btn--medium",
+            "video_link_popup": "",
+            "video_link_color": "text-dark"
+          }
+        },
+        "text_block_Bmdjp7": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_3.png",
+            "title": "",
+            "heading_size": 120,
+            "text": "",
+            "text_size": 100,
+            "button_text": "",
+            "button_link": "https://www.bridgestonerewards.com",
+            "button_color": "btn--black",
+            "button_style": "btn--none",
+            "button_size": "btn--medium",
+            "video_link_popup": "",
+            "video_link_color": "text-dark"
+          }
+        },
+        "text_block_NX6B76": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_4.png",
+            "title": "",
+            "heading_size": 120,
+            "text": "",
+            "text_size": 100,
+            "button_text": "",
+            "button_link": "https://www.firestonerewards.com",
+            "button_color": "btn--black",
+            "button_style": "btn--none",
+            "button_size": "btn--medium",
+            "video_link_popup": "",
+            "video_link_color": "text-dark"
+          }
+        },
+        "text_block_k6wJQA": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_6.png",
+            "title": "",
+            "heading_size": 120,
+            "text": "",
+            "text_size": 100,
+            "button_text": "",
+            "button_link": "https://www.hankookcanadapromotions.com",
+            "button_color": "btn--black",
+            "button_style": "btn--none",
+            "button_size": "btn--medium",
+            "video_link_popup": "",
+            "video_link_color": "text-dark"
+          }
+        },
+        "text_block_T8pDnc": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_8.png",
+            "title": "",
+            "heading_size": 120,
+            "text": "",
+            "text_size": 100,
+            "button_text": "",
+            "button_link": "https://www.hankookcanadapromotions.com",
+            "button_color": "btn--black",
+            "button_style": "btn--none",
             "button_size": "btn--medium",
             "video_link_popup": "",
             "video_link_color": "text-dark"
@@ -865,15 +1234,15 @@
         "text_block_bm9fMw": {
           "type": "text_block",
           "settings": {
-            "image": "shopify://shop_images/035f29a2-d323-4ae7-98d0-470c0c2b7d99.png",
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_1_368e6e28-4b9c-4851-b1e1-2881682f483e.png",
             "title": "",
             "heading_size": 120,
             "text": "",
             "text_size": 100,
             "button_text": "",
-            "button_link": "",
+            "button_link": "https://www.dtnarebates.com",
             "button_color": "btn--black",
-            "button_style": "btn--text",
+            "button_style": "btn--none",
             "button_size": "btn--medium",
             "video_link_popup": "",
             "video_link_color": "text-dark"
@@ -882,32 +1251,49 @@
         "text_block_VFdWhW": {
           "type": "text_block",
           "settings": {
-            "image": "shopify://shop_images/f6141b40-a616-47d6-aa63-1370b656d85e.png",
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_10.png",
             "title": "",
             "heading_size": 120,
             "text": "",
             "text_size": 100,
             "button_text": "",
-            "button_link": "",
+            "button_link": "https://www.nexentirepromo.ca",
             "button_color": "btn--black",
-            "button_style": "btn--text",
+            "button_style": "btn--none",
             "button_size": "btn--medium",
             "video_link_popup": "",
             "video_link_color": "text-dark"
           }
         },
-        "text_block_QLyVyf": {
+        "text_block_JQwwEG": {
           "type": "text_block",
           "settings": {
-            "image": "shopify://shop_images/035f29a2-d323-4ae7-98d0-470c0c2b7d99.png",
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_2.png",
             "title": "",
             "heading_size": 120,
             "text": "",
             "text_size": 100,
             "button_text": "",
-            "button_link": "",
+            "button_link": "https://www.bfgoodrich.ca/en/promotions-and-rebates",
             "button_color": "btn--black",
-            "button_style": "btn--text",
+            "button_style": "btn--none",
+            "button_size": "btn--medium",
+            "video_link_popup": "",
+            "video_link_color": "text-dark"
+          }
+        },
+        "text_block_UgDf9c": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/GET_UP_TO_100_REBATE_4_6a333b22-37c4-4832-b2a0-86ba05cf4dad.png",
+            "title": "",
+            "heading_size": 120,
+            "text": "",
+            "text_size": 100,
+            "button_text": "",
+            "button_link": "https://na.nokiantyres.com/rebates/",
+            "button_color": "btn--black",
+            "button_style": "btn--none",
             "button_size": "btn--medium",
             "video_link_popup": "",
             "video_link_color": "text-dark"
@@ -915,98 +1301,41 @@
         }
       },
       "block_order": [
-        "text_block_eg67JX",
+        "text_block_BhDiGf",
+        "text_block_NibCrA",
+        "text_block_XRFb49",
+        "text_block_HkBphX",
+        "text_block_fhTtHJ",
+        "text_block_eMkJze",
+        "text_block_L7PCdq",
+        "text_block_dAnGwc",
+        "text_block_Wbg4Bf",
+        "text_block_4FXCQw",
+        "text_block_Bmdjp7",
+        "text_block_NX6B76",
+        "text_block_k6wJQA",
+        "text_block_T8pDnc",
         "text_block_bm9fMw",
         "text_block_VFdWhW",
-        "text_block_QLyVyf"
+        "text_block_JQwwEG",
+        "text_block_UgDf9c"
       ],
       "name": "Text columns with images",
       "settings": {
-        "title": "Coupons",
+        "title": "MANUFACTURER REBATES",
         "heading_size": 120,
         "align_text": "text-center",
-        "columns": 3,
-        "columns_mobile": "1",
+        "columns": 4,
+        "columns_mobile": "2",
         "show_images": true,
         "show_borders": false,
         "equalize_height": true,
         "desktop_aspect_ratio": 0.8,
-        "mobile_aspect_ratio": 0.8,
+        "mobile_aspect_ratio": 0.5,
         "bg_color": "",
         "gradient": "",
         "color_borders": "#000000",
         "layout_mobile": "carousel",
-        "width": "wrapper",
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
-    },
-    "section_accordions_with_images_yKBCnJ": {
-      "type": "section-accordions-with-images",
-      "blocks": {
-        "text_LVjrUm": {
-          "type": "text",
-          "settings": {
-            "title": "We Provide Affordable Tires!",
-            "text": "<p>Driven by the thirst to satisfy our customers, our entire existence is focused on saving you money and providing the absolute value you deserve. Don’t believe us? Give us a try and find out for yourself. We are confident that our pricing, combined with our unparalleled service, is the right fit for your needs.</p>",
-            "icon_image": "shopify://shop_images/home-banner-why33.webp",
-            "icon_width": 100,
-            "icon_position": "inline-left"
-          }
-        },
-        "text_xLcp4B": {
-          "type": "text",
-          "settings": {
-            "title": "We Provide Affordable Tires!",
-            "text": "<p>Driven by the thirst to satisfy our customers, our entire existence is focused on saving you money and providing the absolute value you deserve. Don’t believe us? Give us a try and find out for yourself. We are confident that our pricing, combined with our unparalleled service, is the right fit for your needs.</p>",
-            "icon_image": "shopify://shop_images/home-banner-why33.webp",
-            "icon_width": 100,
-            "icon_position": "inline-left"
-          }
-        },
-        "text_HMThH4": {
-          "type": "text",
-          "settings": {
-            "title": "We Offer Huge Discounts!",
-            "text": "<p>By working directly with manufacturers and having strong relationships with tire companies, we’re able to offer high discounts. We even offer additional discounts when you choose to purchase wheel and tire packages! We proudly display the amount of money you’ll save when choosing to buy through onlinetires.com. Browse through your favorite brands and see for yourself: We can meet your needs at prices that our competitors simply cannot match.</p>",
-            "icon_image": "shopify://shop_images/home-banner-why33.webp",
-            "icon_width": 100,
-            "icon_position": "inline-left"
-          }
-        },
-        "text_QFXRBQ": {
-          "type": "text",
-          "settings": {
-            "title": "We Have the Lowest Tire Prices!",
-            "text": "<p>At premiertire.ca, we’re here for you. Our goal is to match your vehicle with the best tire brand at the lowest cost. We don’t deal with middlemen; we work directly with manufacturers to ensure that you don’t overpay for a quality tire that is built to last. We work hard so you don’t have to! You can browse through our selection with confidence because you are shopping at the lowest possible price on the web.</p>",
-            "icon_image": "shopify://shop_images/home-banner-why33.webp",
-            "icon_width": 100,
-            "icon_position": "inline-left"
-          }
-        }
-      },
-      "block_order": [
-        "text_LVjrUm",
-        "text_xLcp4B",
-        "text_HMThH4",
-        "text_QFXRBQ"
-      ],
-      "name": "Accordions with Images",
-      "settings": {
-        "layout": "two-columns",
-        "show_accordion_divider": false,
-        "line_thickness": "normal",
-        "content_alignment": "text-center",
-        "subheading": "",
-        "title": "Why Premiertire.ca?",
-        "type_style": "font-heading",
-        "heading_size": 120,
-        "text": "",
-        "tabs_bg_color": "#fafafa",
-        "bg_color": "",
-        "gradient": "",
-        "text_color": "text-dark",
-        "border_color": "",
         "width": "wrapper",
         "padding_top": 60,
         "padding_bottom": 60
@@ -1065,11 +1394,11 @@
           "settings": {
             "image": "shopify://shop_images/Photo_2024-08-19_3_48_26_PM_2.png",
             "overlay_opacity": 50,
-            "subheading": "Ride On Your DreamWheels With Us!",
-            "heading": "",
+            "subheading": "Do you want to start selling wheels and tires?",
+            "heading": "GET SET UP ON OUR WHOLESALE PROGRAM",
             "text": "<p>Register today to access exclusive business pricing, bulk order discounts, priority support, and a personalized purchasing experience.<br/></p>",
-            "button_text": "B2B Registration",
-            "button_link": ""
+            "button_text": "Click Here To Set Up Your Business",
+            "button_link": "shopify://pages/b2b-registration"
           }
         }
       },
@@ -1172,12 +1501,12 @@
     "section_video_V7ihLc",
     "section_grid_9Nyknf",
     "brand_section_KMptFU",
+    "section_accordions_with_images_yKBCnJ",
     "section_press_7PT3DY",
     "section_look_DxwXzq",
     "section_text_kkBBnD",
     "1745832394de6c79c0",
     "section_columns_AwKFth",
-    "section_accordions_with_images_yKBCnJ",
     "section_custom_content_EGfUzf",
     "section_banner_text_columns_wJ6FYJ",
     "section_blog_qBNNzj",

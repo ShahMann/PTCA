@@ -399,7 +399,8 @@
 }
 
 .header__dropdown {
-  --text: var(--COLOR-TEXT);
+  /* --text: var(--COLOR-TEXT); */
+  text : #FFF;
   position: absolute;
   top: 100%;
   background: transparent;
@@ -515,6 +516,7 @@
   transform-origin: center top;
   transform: scaleY(0);
   transition: transform 0.2s ease, visibility 0s 0.3s;
+
 }
 .parent .header__dropdown__wrapper {
   transition: transform 0.2s, opacity 0.1s;

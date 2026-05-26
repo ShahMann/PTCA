@@ -72,7 +72,7 @@
   <span data-remaining-count>{{ current_inventory | default: 0 }}</span>
 {%- endcapture -%}
 
-<div class="variant__countdown {{ show_remaining_class }}" data-remaining-max="{{ max_inventory }}" data-remaining-wrapper>
+<div class="variant__countdown availability {{ show_remaining_class }}" data-remaining-max="{{ max_inventory }}" data-remaining-wrapper>
   <span class="variant__countdown--in">{{ 'products.product.in_stock' | t }}</span>
   {%- if hide_inventory_count -%}
     <span class="variant__countdown--low">{{ 'products.product.remaining_no_count' | t }}</span>
@@ -83,8 +83,19 @@
   <span class="variant__countdown--out">{{ 'products.product.out_of_stock' | t }}</span>
   <span class="variant__countdown--unavailable">{{ 'products.product.item_unavailable' | t }}</span>
 </div>
-<div class="variant__countdown inventory-local-delivery">
-  <span>Local Delivery: <strong id="local-stock">{{ product.selected_or_first_available_variant.inventory_quantity }}
-</strong></span>
-  
+<div class="inventory-count-wrapper">
+  <div class="variant__countdown inventory-local-delivery">
+    <span>IN STOCK AT STORE: <strong id="local-stock">{{ product.metafields.custom.local_inventory.value |  default: 0 }}</strong></span>
+  </div>
+  <div class="variant__countdown inventory-in-town">
+    <span>IN STOCK AT  WAREHOUSE: <strong id="in-town-stock">{{ product.metafields.custom.in_town_inventory.value | default: 0 }}</strong></span>
+  </div>
+  <div class="variant__countdown inventory-out-of-town">
+    <span>Available At Manufacturer: <strong id="out-of-town-stock">{{ product.metafields.custom.out_of_town_inventory.value | default: 0 }} {{ '(Freight fees may apply in checkout - Please allow time for transit.)' }}</strong></span>
+  </div>
+  {% if product.vendor == 'Nokian' or product.vendor == 'Nordman' %}
+  <div class="variant__countdown  inventory-fluctuation">
+    <b>**{{ product.vendor }} product inventory may fluctuate.</b>
+  </div>
+  {% endif %}
 </div>

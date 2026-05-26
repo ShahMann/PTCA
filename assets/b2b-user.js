@@ -14,10 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const customerId = window.B2B_CUSTOMER_ID;
   
   // Console log customer ID and metafield value
-  console.log("=== B2B User Info ===");
-  console.log("Customer ID:", customerId);
-  console.log("Metafield Value (hide_price):", initialMetafieldValue);
-  console.log("====================");
+  // console.log("=== B2B User Info ===");
+  // console.log("Customer ID:", customerId);
+  // console.log("Metafield Value (hide_price):", initialMetafieldValue);
+  // console.log("====================");
 
   /* Open / close dropdown (desktop only) */
   if (trigger && dropdown) {
@@ -57,10 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const currentMetafieldValue = window.B2B_HIDE_PRICE || "Show";
       
       // Console log customer ID and metafield value before update
-      console.log("=== B2B Toggle Click ===");
-      console.log("Customer ID:", customerId);
-      console.log("Current Metafield Value:", currentMetafieldValue);
-      console.log("========================");
+      // console.log("=== B2B Toggle Click ===");
+      // console.log("Customer ID:", customerId);
+      // console.log("Current Metafield Value:", currentMetafieldValue);
+      // console.log("========================");
       
       if (!customerId) {
         console.error("Customer ID not found");
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const currentState = btn.dataset.state || initialMetafieldValue;
       const nextState = currentState === "Show" ? "Hide" : "Show";
       
-      console.log("Current state:", currentState, "-> Next state:", nextState);
+      // console.log("Current state:", currentState, "-> Next state:", nextState);
 
       toggleBtns.forEach((b) => {
         b.classList.add("loading");
@@ -92,10 +92,10 @@ document.addEventListener("DOMContentLoaded", () => {
           hidePrice: hidePriceValue
         };
         
-        console.log("Sending B2B toggle request:", requestBody);
+        // console.log("Sending B2B toggle request:", requestBody);
         
         const response = await fetch(
-          "https://premiertire.node.brainvire.dev/api/customers/update",
+          "https://d347932ae7vrrw.cloudfront.net/api/customers/update",
           {
             method: "POST",
             headers: {
@@ -107,12 +107,12 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         );
 
-        console.log("Response status:", response.status);
+        // console.log("Response status:", response.status);
 
         let data;
         try {
           data = await response.json();
-          console.log("B2B toggle response:", data);
+          // console.log("B2B toggle response:", data);
         } catch (parseError) {
           console.error("Failed to parse response:", parseError);
           throw new Error("Invalid response from server");
@@ -134,8 +134,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // Update window object to reflect new state
         window.B2B_HIDE_PRICE = nextState;
 
-        console.log("Settings updated successfully. New state:", nextState);
-        console.log("API Response:", data);
+        // console.log("Settings updated successfully. New state:", nextState);
+        // console.log("API Response:", data);
 
         // Reload after a short delay to show the change
         setTimeout(() => {
@@ -164,5 +164,5 @@ document.addEventListener("DOMContentLoaded", () => {
     window.B2B_HIDE_PRICE = "Show";
   }
   
-  console.log("B2B Toggle initialized with state:", normalizedState);
+  // console.log("B2B Toggle initialized with state:", normalizedState);
 });

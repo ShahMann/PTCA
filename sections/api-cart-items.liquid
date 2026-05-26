@@ -1,6 +1,7 @@
 <div data-api-content>
   {%- if cart.item_count > 0 -%}
     <div data-api-line-items>
+      {%- render 'cart-default-product-data' -%}
       {%- render 'cart-line-items', part: 'line-items', aos_anchor: '#cartItemsHolder' -%}
     </div>
     <div data-api-upsell-items>

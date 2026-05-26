@@ -98,8 +98,8 @@
         "locations-0": {
           "type": "locations",
           "settings": {
-            "store_name": "Premier Tire",
-            "title": "5274 Highway 7Woodbridge, ON L4L 1T3",
+            "store_name": "Premier Tire Woodbridge",
+            "title": "5274 Highway 7, Woodbridge, ON L4L 1T3",
             "working_time": "<p>Monday: 8:00 AM - 6:00 PM<br/>Tuesday: 8:00 AM - 6:00 PM<br/>Wednesday: 8:00 AM - 6:00 PM<br/>Thursday: 8:00 AM - 6:00 PM<br/>Friday: 8:00 AM - 6:00 PM<br/>Saturday: 8:00 AM - 2:00 PM<br/>Sunday:Closed</p>",
             "image": "shopify://shop_images/resized_DSC05566.jpg"
           }
@@ -108,15 +108,25 @@
           "type": "locations",
           "settings": {
             "store_name": "Premier Tire Etobicoke",
-            "title": "249 Rexdale BoulevardEtobicoke, ON M9W 1P7",
+            "title": "249 Rexdale Boulevard, Etobicoke, ON M9W 1P7",
             "working_time": "<p>Monday: 9:00 AM - 5:00 PM<br/>Tuesday: 9:00 AM - 5:00 PM<br/>Wednesday: 9:00 AM - 5:00 PM<br/>Thursday: 9:00 AM - 5:00 PM<br/>Friday: 9:00 AM - 5:00 PM<br/>Saturday: 8:00 AM - 2:00 PM<br/>Sunday:Closed</p>",
             "image": "shopify://shop_images/resized_DSC05336.jpg"
+          }
+        },
+        "locations_TrJXzr": {
+          "type": "locations",
+          "settings": {
+            "store_name": "Premier Tire Mobile Service",
+            "title": "Servicing All Of Greater Toronto Area",
+            "working_time": "<p>Mon - Fri: 8am - 9pm</p><p>Sat: 8am - 9pm</p><p>Sun: By Appointment Only</p>",
+            "image": "shopify://shop_images/2AE4D5CC-3956-4BF4-A227-69B3333F1FAA.png"
           }
         }
       },
       "block_order": [
         "locations-0",
-        "locations-2"
+        "locations-2",
+        "locations_TrJXzr"
       ],
       "settings": {
         "subheading": "Our stores",
@@ -231,7 +241,7 @@
           "settings": {
             "icon_name": "phone",
             "title": "Call",
-            "text": "<p><a href=\"tel:(905) 856-7467\" title=\"Phone\">(905) 856-7467</a></p>"
+            "text": "<p>WOODBRIDGE - <a href=\"tel:(905) 856-7467\" title=\"Phone\">(905) 856-7467<br/></a>ETOBICOKE- <a href=\"tel:(905) 856-7467\" title=\"Phone\">(416) 746-7467</a></p>"
           }
         }
       },

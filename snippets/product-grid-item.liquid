@@ -524,7 +524,8 @@
           {%- if single_variant -%}
             {%- capture unique -%}{{ section.id }}-{{ product.id }}{%- endcapture -%}
 
-            {%- form 'product', product, data-product-form: '', data-quickbuy-form: '', id: unique, class: 'quick__form' -%}
+            {%- assign product_type_lower = product.type | downcase -%}
+            {%- form 'product', product, data-product-form: '', data-quickbuy-form: '', id: unique, class: 'quick__form', data-product-type: product_type_lower -%}
               <input type="hidden" name="quantity" value="1">
               <input type="hidden" name="id" value="{{ current_variant.id }}">
               <button type="submit" name="add" class="btn-quick-buy {{ settings.button_style }}" data-add-to-cart data-atc-trigger{% if index > 1 %} tabindex="-1"{% endif %}>

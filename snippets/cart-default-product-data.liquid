@@ -1,0 +1,49 @@
+{%- comment -%}
+  Schema product (cart default product) is synced to the cart only when the cart contains
+  products whose product.type is: tire, tires, tyre, or tyres (case-insensitive).
+  The schema product quantity equals the total quantity of all such qualifying items.
+  Outputs data for JS to add/update/remove the schema product via AJAX.
+{%- endcomment -%}
+{%- liquid
+  comment
+    Product type setting may store the product handle (string). Resolve to product object via all_products if so.
+  endcomment
+  assign default_product = nil
+  if settings.cart_default_product != blank
+    if settings.cart_default_product.id
+      assign default_product = settings.cart_default_product
+    else
+      assign default_product = all_products[settings.cart_default_product]
+    endif
+  endif
+
+  assign valid_types_list = ',tire,tires,tyre,tyres,'
+  assign total_qty = 0
+
+  for line_item in cart.items
+    assign type_lower = line_item.product.type | downcase | strip
+    assign type_check = ',' | append: type_lower | append: ','
+    if valid_types_list contains type_check
+      assign total_qty = total_qty | plus: line_item.quantity
+    endif
+  endfor
+
+  assign variant_id = 0
+  if default_product != blank
+    assign default_variant = default_product.selected_or_first_available_variant
+    if default_variant != blank
+      assign variant_id = default_variant.id
+    endif
+  endif
+  assign add_default_enabled = false
+  if default_product != blank and variant_id != 0 and total_qty > 0
+    assign add_default_enabled = true
+  endif
+-%}
+<script type="application/json" data-cart-default-product>
+  {
+    "variantId": {{ variant_id | json }},
+    "quantity": {{ total_qty | json }},
+    "enabled": {{ add_default_enabled | json }}
+  }
+</script>

@@ -3,14 +3,32 @@
   assign bg_color = section.settings.bg_color
   assign color = section.settings.color
   assign image = section.settings.logo_not_home
-  if customer and customer.tags contains 'B2BUSER' and section.settings.logo_b2b != blank
-    assign image = section.settings.logo_b2b
+  assign company_logo_url = ''
+  if customer and customer.tags contains 'B2BUSER'
+    if customer.current_company.metafields.custom.company_logo != blank
+      assign company_logo_url = customer.current_company.metafields.custom.company_logo.value | strip
+    endif
+    if company_logo_url == '' and section.settings.logo_b2b != blank
+      assign image = section.settings.logo_b2b
+    endif
   endif
   assign image_width = section.settings.logo_max_width
 -%}
 
 {%- capture logo -%}
-  {%- if image != blank -%}
+  {%- if company_logo_url != '' -%}
+    <a href="{{ routes.root_url }}" class="drawer__logo" style="--logo-width: {{ image_width }}px">
+      <img
+        src="{{ company_logo_url }}"
+        alt="{{ shop.name }}"
+        class="drawer__logo-image"
+        width="{{ image_width }}"
+        height="{{ image_width }}"
+        loading="lazy"
+        style="object-fit: contain; max-width: {{ image_width }}px; height: auto;"
+      >
+    </a>
+  {%- elsif image != blank -%}
     {%- liquid
       assign image_alt = image.alt | escape
       assign image_height = image_width | divided_by: image.aspect_ratio

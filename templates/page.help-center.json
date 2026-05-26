@@ -1,0 +1,389 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_page_title": true,
+        "bg_color": "",
+        "gradient": "",
+        "padding_top": 60,
+        "padding_bottom": 34
+      }
+    },
+    "financing_options_DCcyAM": {
+      "type": "financing-options",
+      "blocks": {
+        "financing_option_CgbmnD": {
+          "type": "financing_option",
+          "settings": {
+            "title": "<h2>Wippy Loans Financing</h2>",
+            "wippy_description": "{{ page.metafields.page_financing.wippy_description | metafield_tag }}",
+            "button_text": "LEARN MORE",
+            "button_link": "shopify://policies/shipping-policy",
+            "wippy_logo": "{{ page.metafields.page_financing.wippy_logo.value }}"
+          }
+        }
+      },
+      "block_order": [
+        "financing_option_CgbmnD"
+      ],
+      "disabled": true,
+      "name": "Financing Options",
+      "settings": {
+        "header_text": "<h1>FINANCING AVAILABLE</h1>",
+        "header_bg_color": "#ffffff",
+        "header_text_color": "#000000",
+        "intro_text": "{{ page.metafields.page_financing.financing_intro_text | metafield_tag }}",
+        "box_bg_color": "#f9f9f9",
+        "heading_color": "#000000",
+        "text_color": "#000000",
+        "button_bg_color": "#fee500",
+        "button_text_color": "#000000",
+        "button_hover_bg_color": "#fee500d1",
+        "hide_image_on_mobile": false
+      }
+    },
+    "section_text_MgFa6E": {
+      "type": "section-text",
+      "blocks": {
+        "heading_epYcpQ": {
+          "type": "heading",
+          "settings": {
+            "text": "<p>Help Center</p>",
+            "size": 100,
+            "heading_highlight_type": "underline-hand-drawn",
+            "heading_tag": "h2",
+            "highlight_color": "#000000",
+            "highlight_text_color": ""
+          }
+        },
+        "text_Ljk76C": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Welcome to our Help Center. Explore comprehensive guides, product return processes, fitment advice, FAQs, and helpful tips to make your experience smooth and worry-free.</p>",
+            "size": 100
+          }
+        }
+      },
+      "block_order": [
+        "heading_epYcpQ",
+        "text_Ljk76C"
+      ],
+      "name": "Text",
+      "settings": {
+        "text_position": "center",
+        "bg_color": "",
+        "gradient": "",
+        "text_color": "text-dark",
+        "width": "wrapper--narrow",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "section_image_with_text_YWTeFg": {
+      "type": "section-image-with-text",
+      "blocks": {
+        "heading_kMXQGY": {
+          "type": "heading",
+          "settings": {
+            "title": "<h3>Fitment Details</h3>",
+            "size": 120,
+            "text_position": "left",
+            "heading_highlight_type": "underline-hand-drawn",
+            "highlight_color": "#000000",
+            "highlight_text_color": "",
+            "spacing_bottom": 12
+          }
+        },
+        "text_nFf469": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Ensuring perfect fitment enhances performance, safety, and fuel efficiency. Here's how:</p><ul><li>Check your vehicle’s owner manual for recommended tire sizes.</li><li>Measure your existing tires’ sidewall for size verification.</li><li>Use our online fitment tool by simply entering your vehicle’s year, make, and model.</li><li>Reach out to our experts for custom fitment solutions for rare models.</li></ul>",
+            "size": 100,
+            "text_position": "left",
+            "spacing_bottom": 12
+          }
+        },
+        "button_Eh9XEA": {
+          "type": "button",
+          "settings": {
+            "button_text": "View the full fitment guide",
+            "button_link": "#",
+            "button_color": "btn--black",
+            "button_style": "btn--text",
+            "button_size": "btn--small",
+            "video_link": "",
+            "text_position": "left",
+            "spacing_bottom": 12
+          }
+        }
+      },
+      "block_order": [
+        "heading_kMXQGY",
+        "text_nFf469",
+        "button_Eh9XEA"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "show_accordion_divider": true,
+        "increase_border_radius": false,
+        "section_height": "four-fifty-height",
+        "enable_mobile_height": false,
+        "mobile_height": "four-fifty-height-mobile",
+        "layout": "inline",
+        "image_location": "left",
+        "image_width": "standard",
+        "image": "shopify://shop_images/resized_DSC04647.jpg",
+        "block_bg_color": "",
+        "text_color": "text-dark",
+        "bg_color": "",
+        "gradient": "",
+        "section_width": "wrapper",
+        "add_gutter": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "section_image_with_text_mDJrcP": {
+      "type": "section-image-with-text",
+      "blocks": {
+        "heading_T9BW66": {
+          "type": "heading",
+          "settings": {
+            "title": "<h3>Frequently Asked Questions (FAQs)</h3>",
+            "size": 70,
+            "text_position": "left",
+            "heading_highlight_type": "underline-hand-drawn",
+            "highlight_color": "#000000",
+            "highlight_text_color": "",
+            "spacing_bottom": 12
+          }
+        },
+        "text_D9BTqN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Need quick answers? Check out our most commonly asked questions.</p>",
+            "size": 100,
+            "text_position": "left",
+            "spacing_bottom": 18
+          }
+        },
+        "accordion_mDTgQ3": {
+          "type": "accordion",
+          "settings": {
+            "icon_width": 25,
+            "icon_position": "inline-left",
+            "heading": "How do I check my tire size?",
+            "type_style": "font-heading",
+            "heading_size": 120,
+            "text": "<p>Look at the <strong>sidewall of your tire</strong> (the outer wall of the tire). You’ll see a series of numbers and letters that look something like this:</p><p><strong>Example:</strong> 225/45R17</p><ul><li><strong>225</strong> = Tire width (in millimeters)<br/></li><li><strong>45</strong> = Tire profile / sidewall height<br/></li><li><strong>R17</strong> = Wheel size (rim diameter in inches)<br/></li></ul><p>👉 The <strong>full tire size is this entire number sequence</strong> printed on the tire.</p><p><strong>Tire Tips:</strong><br/><br/>You can also find your tire size:</p><ul><li>Inside the <strong>driver’s door jamb sticker</strong><br/></li><li>In your <strong>owner’s manual</strong></li></ul>",
+            "text_size": 75,
+            "tabs_bg_color": "",
+            "line_thickness": "normal",
+            "spacing_bottom": 0
+          }
+        },
+        "accordion_ptbHFW": {
+          "type": "accordion",
+          "settings": {
+            "icon_width": 25,
+            "icon_position": "inline-left",
+            "heading": "What is your warranty policy?",
+            "type_style": "font-heading",
+            "heading_size": 120,
+            "text": "<h4><strong>Premier Tire – Limited Product & Installation Warranty</strong></h4><p>This Limited Warranty outlines the coverage and conditions applicable to tires, wheels, and related services purchased from <strong>Premier Tire</strong>.</p><p>Premier Tire acts solely as a <strong>retailer and installer</strong> of products manufactured by third parties. All warranties are limited and subject to manufacturer approval where applicable.</p><h4><strong>1. Tire Limited Warranty</strong></h4><p>All tires sold by Premier Tire carry a <strong>two (2) year limited manufacturer defect warranty</strong> covering defects in materials or workmanship under normal driving conditions.</p><p>Select manufacturers including <strong>Continental, Falken, General Tire, and Nexen</strong> may include <strong>Road Hazard Protection</strong>, where applicable.</p><p>All tire warranty coverage is:</p><ul><li><strong>Prorated based on tread wear and time in service</strong><br/></li><li>Subject to manufacturer inspection and approval<br/></li><li>Limited to repair, replacement, or prorated credit only<br/></li></ul><p>Premier Tire does not provide independent tire warranties beyond proper installation at the time of service.</p><h4>Tire Warranty Exclusions</h4><p>Warranty coverage does not apply to:</p><ul><li>Road impacts, potholes, or debris (unless approved under manufacturer road hazard programs)<br/></li><li>Improper inflation, alignment, suspension, or mechanical vehicle issues<br/></li><li>Irregular wear<br/></li><li>Motorsports, commercial, or abnormal use<br/></li><li>Damage occurring after installation<br/></li></ul><h4><strong>2. Wheel Structural Warranty</strong></h4><p>All wheels include a <strong>one (1) year limited manufacturer defect warranty</strong> covering structural manufacturing defects only.</p><p>Structural warranty applies strictly to manufacturing faults and <strong>does not include cosmetic or finish-related conditions</strong>.</p><h4><strong>3. Wheel Finish & Cosmetic Protection Limitations (IMPORTANT)</strong></h4><p>Wheel finishes are considered <strong>wear-and-environmental-sensitive surfaces</strong> and are <strong>not guaranteed against environmental exposure</strong>.</p><p>The following conditions are <strong>expressly excluded from warranty coverage</strong>:</p><ul><li>Corrosion, oxidation, or finish deterioration<br/></li><li>Damage caused by road salt, calcium, brine, or winter chemicals<br/></li><li>Brake dust accumulation or heat exposure<br/></li><li>Automatic or touchless car washes<br/></li><li>Acidic or alkaline cleaning agents<br/></li><li>Pressure washing or improper cleaning methods<br/></li><li>Stone chips, curb damage, scratches, or road debris<br/></li><li>Water spotting or staining<br/></li><li>Chrome peeling, clear coat lifting, or discoloration occurring after installation<br/></li><li>Normal aging or environmental wear<br/></li></ul><h4>Winter Usage Limitation</h4><p>Any wheel <strong>not specifically designated by the manufacturer as winter-approved</strong> will have <strong>all finish-related warranty coverage voided</strong> if used in winter driving conditions.</p><h4><strong>4. Storage Requirement (Off-Season Wheels)</strong></h4><p>To maintain eligibility for any finish-related consideration, wheels must be stored in a <strong>clean, dry, climate-controlled indoor environment</strong> when not in use.</p><p>Storage in garages subject to moisture, outdoor sheds, or uncontrolled environments may result in corrosion and is <strong>not covered under warranty</strong>.</p><h4><strong>5. Custom, Forged & Special-Order Wheels</strong></h4><p>All <strong>custom-built, forged, machined, or special-order wheels</strong> are <strong>final sale</strong> once production has begun.</p><p>Due to the custom manufacturing process:</p><ul><li>Minor variations in finish, machining marks, color tone, or texture are considered normal.<br/></li><li>Fitment approved or requested by the customer becomes the customer’s responsibility.<br/></li><li>Custom orders cannot be cancelled, returned, or exchanged.<br/></li></ul><p>Warranty applies only to verified manufacturing structural defects.</p><h4><strong>6. Installation & Torque Responsibility</strong></h4><p>Premier Tire follows industry-standard installation and torque procedures at the time of service.</p><p>Customers acknowledge and agree that:</p><ul><li>Wheel fasteners must be <strong>re-torqued after 50–100 km of driving</strong>.<br/></li><li>Failure to re-torque may result in loosening caused by normal vehicle operation.<br/></li><li>Premier Tire is not responsible for issues arising after the vehicle leaves the premises.<br/></li></ul><p>Premier Tire assumes no liability for:</p><ul><li>Road conditions<br/></li><li>Driver operation<br/></li><li>Third-party servicing<br/></li><li>Subsequent mechanical or vehicle-related issues.<br/></li></ul><h4><strong>7. No Performance or Damage Guarantee</strong></h4><p>Wheels and tires are exposed to unpredictable road conditions. Premier Tire does <strong>not guarantee protection against bending, cracking, vibration, or cosmetic damage</strong> caused by potholes, impacts, or driving hazards.</p><h4><strong>8. Warranty Claim Requirements</strong></h4><p>All claims must:</p><ul><li>Include original proof of purchase<br/></li><li>Be inspected by Premier Tire<br/></li><li>Receive manufacturer authorization where applicable<br/></li></ul><p>Warranty resolution may include repair, replacement, or prorated credit at manufacturer discretion only.</p><h4><strong>9. Limitation of Liability</strong></h4><p>Premier Tire shall not be liable for any indirect or consequential damages including but not limited to:</p><ul><li>Vehicle damage<br/></li><li>Loss of vehicle use<br/></li><li>Rental vehicles<br/></li><li>Towing expenses<br/></li><li>Loss of income<br/></li><li>Personal inconvenience<br/></li></ul><p>Maximum liability, if any, shall not exceed the original purchase price of the product.</p>",
+            "text_size": 75,
+            "tabs_bg_color": "",
+            "line_thickness": "normal",
+            "spacing_bottom": 0
+          }
+        },
+        "accordion_YPyqWi": {
+          "type": "accordion",
+          "settings": {
+            "icon_width": 25,
+            "icon_position": "inline-left",
+            "heading": "How can I track my order?",
+            "type_style": "font-heading",
+            "heading_size": 120,
+            "text": "<p>Once order is received by the Premier Tire sales team, Items will be processed and tracking information will be sent out once available, at the earliest available opportunity. </p>",
+            "text_size": 75,
+            "tabs_bg_color": "",
+            "line_thickness": "normal",
+            "spacing_bottom": 0
+          }
+        },
+        "accordion_jRmQLp": {
+          "type": "accordion",
+          "settings": {
+            "icon_width": 25,
+            "icon_position": "inline-left",
+            "heading": "Can I change my shipping address after placing an order?",
+            "type_style": "font-heading",
+            "heading_size": 120,
+            "text": "<p>Shipping address change is something not available. No re routes are permitted. Please ensure to double check all shipping and personal information prior to processing order. </p>",
+            "text_size": 75,
+            "tabs_bg_color": "",
+            "line_thickness": "normal",
+            "spacing_bottom": 0
+          }
+        }
+      },
+      "block_order": [
+        "heading_T9BW66",
+        "text_D9BTqN",
+        "accordion_mDTgQ3",
+        "accordion_ptbHFW",
+        "accordion_YPyqWi",
+        "accordion_jRmQLp"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "show_accordion_divider": true,
+        "increase_border_radius": false,
+        "section_height": "six-fifty-height",
+        "enable_mobile_height": false,
+        "mobile_height": "four-fifty-height-mobile",
+        "layout": "inline",
+        "image_location": "right",
+        "image_width": "standard",
+        "image": "shopify://shop_images/resized_DSC04844-Edit.jpg",
+        "block_bg_color": "",
+        "text_color": "text-dark",
+        "bg_color": "",
+        "gradient": "",
+        "section_width": "wrapper",
+        "add_gutter": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "section_image_with_text_BcJzNK": {
+      "type": "section-image-with-text",
+      "blocks": {
+        "heading_6tYwwQ": {
+          "type": "heading",
+          "settings": {
+            "title": "<h3>How-To Guides</h3>",
+            "size": 120,
+            "text_position": "left",
+            "heading_highlight_type": "underline-hand-drawn",
+            "highlight_color": "#000000",
+            "highlight_text_color": "",
+            "spacing_bottom": 12
+          }
+        },
+        "subheading_ytQaQW": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Master tire care with our simple, actionable guides:",
+            "size": 105,
+            "text_position": "left",
+            "spacing_bottom": 12
+          }
+        },
+        "text_87tCf4": {
+          "type": "text",
+          "settings": {
+            "text": "<p><a href=\"#\" title=\"#\">Step-by-Step Guide to Installing New Tires Safely at Home or at a Workshop</a><br/><br/><a href=\"#\" title=\"#\">How to Accurately Check and Maintain Tire Pressure for Best Performance and Safety</a><br/><br/><a href=\"#\" title=\"#\">The Complete Guide to Proper Tire Rotation to Maximize Tread Life and Efficiency</a><br/><br/><a href=\"#\" title=\"#\">Learn to Read Tire Codes: Understanding Size, Load Index, Speed Rating, and More</a></p>",
+            "size": 100,
+            "text_position": "left",
+            "spacing_bottom": 12
+          }
+        }
+      },
+      "block_order": [
+        "heading_6tYwwQ",
+        "subheading_ytQaQW",
+        "text_87tCf4"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "show_accordion_divider": true,
+        "increase_border_radius": false,
+        "section_height": "four-fifty-height",
+        "enable_mobile_height": false,
+        "mobile_height": "three-fifty-height-mobile",
+        "layout": "inline",
+        "image_location": "left",
+        "image_width": "standard",
+        "image": "shopify://shop_images/resized_DSC04874-Edit.jpg",
+        "block_bg_color": "",
+        "text_color": "text-dark",
+        "bg_color": "",
+        "gradient": "",
+        "section_width": "wrapper",
+        "add_gutter": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "section_text_YEfgma": {
+      "type": "section-text",
+      "blocks": {
+        "heading_marzRR": {
+          "type": "heading",
+          "settings": {
+            "text": "<h3>Additional Resources</h3>",
+            "size": 100,
+            "heading_highlight_type": "underline-hand-drawn",
+            "heading_tag": "h2",
+            "highlight_color": "#000000",
+            "highlight_text_color": ""
+          }
+        },
+        "text_W9aAEW": {
+          "type": "text",
+          "settings": {
+            "text": "<p>From seasonal care tips to selecting the right winter tires — we've compiled resources you can trust.</p>",
+            "size": 100
+          }
+        },
+        "button_jiwpwP": {
+          "type": "button",
+          "settings": {
+            "button_text": "Explore Resources",
+            "button_link": "#",
+            "button_color": "btn--primary",
+            "button_style": "btn--solid",
+            "button_size": "btn--large"
+          }
+        }
+      },
+      "block_order": [
+        "heading_marzRR",
+        "text_W9aAEW",
+        "button_jiwpwP"
+      ],
+      "name": "Text",
+      "settings": {
+        "text_position": "center",
+        "bg_color": "",
+        "gradient": "",
+        "text_color": "text-dark",
+        "width": "wrapper--narrow",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "main",
+    "financing_options_DCcyAM",
+    "section_text_MgFa6E",
+    "section_image_with_text_YWTeFg",
+    "section_image_with_text_mDJrcP",
+    "section_image_with_text_BcJzNK",
+    "section_text_YEfgma"
+  ]
+}

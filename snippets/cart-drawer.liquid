@@ -422,6 +422,17 @@
                 {%- endif -%}
 
               </fieldset>
+              <br>
+              <fieldset class="cart__buttons__fieldset" data-cart-checkout-button>
+                <button
+                  type="button"
+                  id="clear-cart-btn"
+                  class="cart__checkout btn {{ cart_button_style }} {{ cart_button_color }} {{ cart_button_size }} btn--advanced btn--advanced-width-height btn--advanced-adaptive-width"
+                >
+                  <hover-button></hover-button>
+                  {{- 'cart.general.clear_cart' | t -}}
+                </button>
+              </fieldset>
             </div>
           </div>
 
@@ -438,3 +449,24 @@
     </div>
   </template>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const cartWrapper = document.getElementById('cart-drawer'); // or whatever your static wrapper is
+
+    cartWrapper.addEventListener('click', function (e) {
+      if (e.target && e.target.id === 'clear-cart-btn') {
+        fetch('/cart/clear.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+          .then((response) => response.json())
+          .then(() => {
+            window.location.reload();
+          })
+          .catch((err) => console.error('Failed to clear cart:', err));
+      }
+    });
+  });
+</script>

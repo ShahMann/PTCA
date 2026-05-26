@@ -16,6 +16,10 @@
   assign logo = section.settings.logo
   assign logo_not_home = section.settings.logo_not_home
   assign logo_b2b = section.settings.logo_b2b
+  assign company_logo_url = ''
+  if customer and customer.tags contains 'B2BUSER' and customer.current_company.metafields.custom.company_logo != blank
+    assign company_logo_url = customer.current_company.metafields.custom.company_logo.value | strip
+  endif
   if logo != blank
     assign logo_aspect_ratio = logo.aspect_ratio
     assign logo_height = logo_width | divided_by: logo_aspect_ratio
@@ -48,10 +52,16 @@
   endif
 
   assign drawer_logo = logo_not_home
-  if customer and customer.tags contains 'B2BUSER' and logo_b2b != blank
-    assign drawer_logo = logo_b2b
+  assign drawer_logo_url = ''
+  if customer and customer.tags contains 'B2BUSER'
+    if company_logo_url != ''
+      assign drawer_logo_url = company_logo_url
+      assign drawer_logo = logo_b2b
+    elsif logo_b2b != blank
+      assign drawer_logo = logo_b2b
+    endif
   endif
-  render 'nav-drawer', image: drawer_logo, image_width: logo_width
+  render 'nav-drawer', image: drawer_logo, image_width: logo_width, logo_url: drawer_logo_url
 
   if settings.cart_type == 'drawer' and template.name != 'cart'
     render 'cart-drawer', cart: cart
@@ -241,7 +251,25 @@
 {%- endcapture -%}
 
     {%- capture logo_cwd_markup -%}
-  {%- if logo_b2b != blank -%}
+  {%- if company_logo_url != '' -%}
+    {%- assign b2b_logo_height = logo_height | round -%}
+    {%- if b2b_logo_height == 0 -%}
+      {%- assign b2b_logo_height = logo_width -%}
+    {%- endif -%}
+    <a href="{{ routes.root_url }}" aria-label="{{ shop.name }}" class="logo__image-link logo__image-link--b2b logo__image-link--single">
+      <img
+        src="{{ company_logo_url }}"
+        alt="{{ shop.name }}"
+        class="logo__image"
+        width="{{ logo_width }}"
+        height="{{ b2b_logo_height }}"
+        loading="eager"
+        fetchpriority="high"
+        style="object-fit: contain;"
+      >
+      <span class="logo__image-push" style="padding-top: 50%"></span>
+    </a>
+  {%- elsif logo_b2b != blank -%}
     {%- liquid
       assign logo_padding_top = 1 | divided_by: logo_b2b.aspect_ratio | times: 100 | round: 1
       assign image_alt = logo_b2b.alt | escape
@@ -267,7 +295,7 @@
 {%- endcapture -%}
 
     <h1 class="logo" data-logo data-takes-space>
-      {%- if customer and customer.tags contains 'B2BUSER' and logo_b2b != blank -%}
+      {%- if customer and customer.tags contains 'B2BUSER' and company_logo_url != '' or logo_b2b != blank -%}
         {{- logo_cwd_markup -}}
       {%- else -%}
         {%- if logo_not_home_markup != blank or logo_markup != blank -%}
@@ -286,6 +314,7 @@
       assign header_text_color = section.settings.header_text_color
       assign secondary_menu = section.settings.main_menu_secondary
       assign summary_classes = 'navlink navlink--icon'
+      assign b2b_hide_menu_items = section.settings.b2b_hide_menu_items | default: '' | downcase | split: ','
 
       assign link_hover_dot = false
       if section.settings.link_hover_effect == 'dot'
@@ -384,7 +413,20 @@
 
       <div class="menu__items" data-takes-space>
         {%- for link in linklists[section.settings['main-menu']].links -%}
-          {%- render 'nav-item', link: link, index: forloop.index, link_hover_dot: link_hover_dot -%}
+          {%- assign show_link = true -%}
+          {%- if customer and customer.tags contains 'B2BUSER' and section.settings.b2b_hide_menu_items != blank -%}
+            {%- assign link_title_lowercase = link.title | strip_html | strip | downcase -%}
+            {%- for hidden_item in b2b_hide_menu_items -%}
+              {%- assign hidden_item_clean = hidden_item | strip_html | strip | downcase -%}
+              {%- if hidden_item_clean != blank and link_title_lowercase == hidden_item_clean -%}
+                {%- assign show_link = false -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endif -%}
+
+          {%- if show_link -%}
+            {%- render 'nav-item', link: link, index: forloop.index, link_hover_dot: link_hover_dot -%}
+          {%- endif -%}
         {%- endfor -%}
       </div>
 
@@ -396,13 +438,26 @@
         {%- if secondary_menu != blank -%}
           <div class="menu__items menu__items--secondary">
             {%- for link in linklists[secondary_menu].links limit: 4 -%}
-              {%- render 'nav-item',
-                link: link,
-                section: section,
-                index: forloop.index,
-                link_hover_dot: link_hover_dot,
-                nav_secondary: true
-              -%}
+              {%- assign show_link = true -%}
+              {%- if customer and customer.tags contains 'B2BUSER' and section.settings.b2b_hide_menu_items != blank -%}
+                {%- assign link_title_lowercase = link.title | strip_html | strip | downcase -%}
+                {%- for hidden_item in b2b_hide_menu_items -%}
+                  {%- assign hidden_item_clean = hidden_item | strip_html | strip | downcase -%}
+                  {%- if hidden_item_clean != blank and link_title_lowercase == hidden_item_clean -%}
+                    {%- assign show_link = false -%}
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endif -%}
+
+              {%- if show_link -%}
+                {%- render 'nav-item',
+                  link: link,
+                  section: section,
+                  index: forloop.index,
+                  link_hover_dot: link_hover_dot,
+                  nav_secondary: true
+                -%}
+              {%- endif -%}
             {%- endfor -%}
           </div>
         {%- endif -%}
@@ -639,6 +694,12 @@
       "id": "main_menu_secondary",
       "label": "Secondary menu",
       "info": "Limited to 4 menu items"
+    },
+    {
+      "type": "textarea",
+      "id": "b2b_hide_menu_items",
+      "label": "B2B hide menu items",
+      "info": "Enter comma-separated top-level menu titles to hide for B2B users. Example: Shop, About, Contact"
     },
     {
       "type": "checkbox",

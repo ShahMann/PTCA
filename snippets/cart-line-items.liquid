@@ -1,13 +1,13 @@
 {%- comment -%}
-    Renders list of cart items or upsell products
+  Renders list of cart items or upsell products
 
-    Accepts:
-    - part: {String} Accepts 'line-items' or 'upsell-items' (required)
-    - aos_anchor: {String} Hook for the AOS animation
-    - aos_order: {Number} Sets the starting number of all elements that would be animated in order
+  Accepts:
+  - part: {String} Accepts 'line-items' or 'upsell-items' (required)
+  - aos_anchor: {String} Hook for the AOS animation
+  - aos_order: {Number} Sets the starting number of all elements that would be animated in order
 
-    Usage:
-    {%- render 'cart-line-items', part: 'line-items', aos_anchor: '#cartItemsHolder', aos_order: 1 -%}
+  Usage:
+  {%- render 'cart-line-items', part: 'line-items', aos_anchor: '#cartItemsHolder', aos_order: 1 -%}
 {%- endcomment -%}
 
 {%- liquid
@@ -23,13 +23,39 @@
 {%- for line_item in cart.items -%}
   {%- liquid
     assign cart_products = cart_products | append: line_item.product.id | append: ','
+
+    assign surcharge_variant_id = 0
+    if settings.cart_default_product != blank
+      assign default_product_for_surcharge = null
+      if settings.cart_default_product.id
+        assign default_product_for_surcharge = settings.cart_default_product
+      else
+        assign default_product_for_surcharge = all_products[settings.cart_default_product]
+      endif
+      if default_product_for_surcharge != blank
+        assign default_variant = default_product_for_surcharge.selected_or_first_available_variant
+        if default_variant != blank
+          assign surcharge_variant_id = default_variant.id
+        endif
+      endif
+    endif
+    assign is_surcharge = false
+    if line_item.variant_id == surcharge_variant_id
+      assign is_surcharge = true
+    endif
+
+    # Also check for _surcharge property
+    if line_item.properties._surcharge != blank
+      assign is_surcharge = true
+    endif
   -%}
 
   {%- capture cart_line_item -%}
-    <div class="cart__item{% if forloop.last %} cart__item--no-border{% endif %}"
+    <div class="cart__item{% if forloop.last %} cart__item--no-border{% endif %}{% if is_surcharge %} cart__item--surcharge{% endif %}"
       data-item="{{ line_item.key }}"
       data-item-index="{{ forloop.index }}"
       data-item-title="{{ line_item.title | strip_html }}"
+      {% if is_surcharge %}data-surcharge-item="true"{% endif %}
       {% if animations_enabled %}
         data-aos="come-in-from-right"
         data-aos-anchor="{{ aos_anchor }}"
@@ -46,14 +72,24 @@
             assign image_widths = '100, 150, 200'
             assign sizes = '100px'
           -%}
-
-          {%- render 'image',
-            image: image,
-            width: retina_size,
-            widths: image_widths,
-            sizes: sizes,
-            alt: image_alt,
-            placeholder_svg: 'product-apparel-1' -%}
+          {%- assign placeholder_image = settings.cart_item_placeholder -%}
+          {%- if image -%}
+            {%- render 'image',
+              image: image,
+              width: retina_size,
+              widths: image_widths,
+              sizes: sizes,
+              alt: image_alt -%}
+            {%- elsif placeholder_image -%}
+              {%- render 'image',
+                  image: placeholder_image,
+                  width: retina_size,
+                  widths: image_widths,
+                  sizes: sizes,
+                  alt: image_alt | default: shop.name -%}
+            {%- else -%}
+              {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
         </a>
       </div>
 
@@ -172,50 +208,58 @@
               assign quantity = quantity_max
             endif
           -%}
-          {%- if settings.quantity_style == 'dropdown' and quantity < 10 -%}
-            <popout-select class="select-popout select-popout--small" data-popout-prevent="true">
-              <button type="button" class="select-popout__toggle{% if variants_style == 'boxes' %} select-popout__toggle--qty{% endif %}" aria-expanded="false" aria-controls="{{ unique }}-select-quantity" aria-labelledby="{{ unique }}-select-quantity-label" data-popout-toggle data-popout-quantity>
-                <span class="select-popout__value" data-popout-text data-quantity-select>{{ quantity }}</span>
-                {%- render 'icon-select' -%}
+          
+          {%- if is_surcharge -%}
+            <div class="cart__item__quantity cart__item__quantity--readonly">
+              <span class="cart__item__quantity-label">{{ 'cart.label.quantity' | t }}:</span>
+              <span class="cart__item__quantity-value">{{ quantity }}</span>
+            </div>
+          {%- else -%}
+            {%- if settings.quantity_style == 'dropdown' and quantity < 10 -%}
+              <popout-select class="select-popout select-popout--small" data-popout-prevent="true">
+                <button type="button" class="select-popout__toggle{% if variants_style == 'boxes' %} select-popout__toggle--qty{% endif %}" aria-expanded="false" aria-controls="{{ unique }}-select-quantity" aria-labelledby="{{ unique }}-select-quantity-label" data-popout-toggle data-popout-quantity>
+                  <span class="select-popout__value" data-popout-text data-quantity-select>{{ quantity }}</span>
+                  {%- render 'icon-select' -%}
+                </button>
+
+                <div id="{{ unique }}-select-quantity" class="select-popout__list" data-popout-list>
+                  <ul class="select-popout__list__scroll" data-scroll-lock-scrollable tabindex="-1">
+                    {%- for idx in (1..10) -%}
+                      <li class="select-popout__item{% if forloop.index == 1 %} select-popout__item--current{% endif %}">
+                        <a class="select-popout__option" href="#" {% if forloop.index == 1 %}aria-current="true"{% endif %} data-value="{{ forloop.index }}" data-popout-option>
+                          <span>{{ forloop.index }} {% if forloop.last %}+{% endif %}</span>
+                        </a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </div>
+              </popout-select>
+            {%- endif -%}
+
+            <quantity-counter class="cart__item__quantity" data-quantity-holder>
+              <button type="button" class="cart__item__quantity-minus" data-quantity-minus data-quantity-button title="
+                {{- 'general.accessibility.decrease' | t }} - {{ line_item.product.title | strip_html -}}">
+                <span class="visually-hidden">{{ 'general.accessibility.decrease' | t }}</span>
+                {%- render 'icon-toggle-minus' -%}
               </button>
 
-              <div id="{{ unique }}-select-quantity" class="select-popout__list" data-popout-list>
-                <ul class="select-popout__list__scroll" data-scroll-lock-scrollable tabindex="-1">
-                  {%- for idx in (1..10) -%}
-                    <li class="select-popout__item{% if forloop.index == 1 %} select-popout__item--current{% endif %}">
-                      <a class="select-popout__option" href="#" {% if forloop.index == 1 %}aria-current="true"{% endif %} data-value="{{ forloop.index }}" data-popout-option>
-                        <span>{{ forloop.index }} {% if forloop.last %}+{% endif %}</span>
-                      </a>
-                    </li>
-                  {%- endfor -%}
-                </ul>
-              </div>
-            </popout-select>
+              <input type="number" name="updates[]" id="updates_{{ line_item.key }}" class="cart__item__quantity-field"
+              data-quantity-field
+              data-quantity-max="{{ quantity_max }}"
+              data-id="{{- line_item.key -}}" value="{{- quantity -}}"
+              title="{{- 'cart.label.quantity' | t }} - {{ line_item.product.title | strip_html -}}" pattern="[0-9]*">
+
+              <button type="button" class="cart__item__quantity-plus" data-quantity-plus data-quantity-button title="
+                {{- 'general.accessibility.increase' | t }} - {{ line_item.product.title | strip_html -}}">
+                <span class="visually-hidden">{{ 'general.accessibility.increase' | t }}</span>
+                {%- render 'icon-toggle-plus' -%}
+              </button>
+            </quantity-counter>
+
+            <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0" class="cart__item__remove" data-item-remove data-id="{{ line_item.key }}" title="{{ 'cart.general.remove' | t }}">
+              <span>{{ 'cart.general.remove' | t }}</span>
+            </a>
           {%- endif -%}
-
-          <quantity-counter class="cart__item__quantity" data-quantity-holder>
-            <button type="button" class="cart__item__quantity-minus" data-quantity-minus data-quantity-button title="
-              {{- 'general.accessibility.decrease' | t }} - {{ line_item.product.title | strip_html -}}">
-              <span class="visually-hidden">{{ 'general.accessibility.decrease' | t }}</span>
-              {%- render 'icon-toggle-minus' -%}
-            </button>
-
-            <input type="number" name="updates[]" id="updates_{{ line_item.key }}" class="cart__item__quantity-field"
-            data-quantity-field
-            data-quantity-max="{{ quantity_max }}"
-            data-id="{{- line_item.key -}}" value="{{- quantity -}}"
-            title="{{- 'cart.label.quantity' | t }} - {{ line_item.product.title | strip_html -}}" pattern="[0-9]*">
-
-            <button type="button" class="cart__item__quantity-plus" data-quantity-plus data-quantity-button title="
-              {{- 'general.accessibility.increase' | t }} - {{ line_item.product.title | strip_html -}}">
-              <span class="visually-hidden">{{ 'general.accessibility.increase' | t }}</span>
-              {%- render 'icon-toggle-plus' -%}
-            </button>
-          </quantity-counter>
-
-          <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0" class="cart__item__remove" data-item-remove data-id="{{ line_item.key }}" title="{{ 'cart.general.remove' | t }}">
-            <span>{{ 'cart.general.remove' | t }}</span>
-          </a>
         </div>
       </div>
 
@@ -249,11 +293,7 @@
     assign upsell_product_list = line_item.product.metafields.theme.upsell_list
     assign upsell_product = line_item.product.metafields.theme.upsell
 
-    if upsell_product_list.value != nil and upsell_product_list.type == 'list.product_reference'
-      comment
-        Product meta field type "List of products"
-      endcomment
-
+    if upsell_product_list.value != null and upsell_product_list.type == 'list.product_reference'
       for upsell_product in upsell_product_list.value
         if cart_products contains upsell_product.id or upsell_product.available == false
           continue
@@ -265,11 +305,7 @@
       endfor
     endif
 
-    comment
-      Product meta field type "One product"
-    endcomment
-
-    if upsell_product.value != nil and upsell_product.type == 'product_reference'
+    if upsell_product.value != null and upsell_product.type == 'product_reference'
       assign upsell_product = upsell_product.value
 
       if cart_products contains upsell_product.id or upsell_product.available == false

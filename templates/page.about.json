@@ -16,18 +16,18 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/bg-heroshot.jpg",
-            "overlay_opacity": 55,
+            "overlay_opacity": 75,
             "content_width": 80,
-            "text_position": "center",
-            "text_alignment": "text-center",
+            "text_position": "left",
+            "text_alignment": "text-left",
             "text_color": "text-light",
             "subheading": "",
             "title": "<p>Our Story</p>",
-            "heading_size": 150,
+            "heading_size": 140,
             "heading_highlight_type": "underline-hand-drawn",
             "highlight_color": "#000000",
             "highlight_text_color": "",
-            "text": "Add more info or delete this text",
+            "text": "Premier Tire was founded with a bold vision: to redefine the tire and wheel buying experience in Canada through innovation, expertise, and unmatched customer service. What began as a local tire shop in Woodbridge, Ontario has grown into one of the most recognized tire and custom wheel specialists in Canada.",
             "text_size": 100,
             "stacked_button": false,
             "button_1_text": "",
@@ -141,7 +141,7 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "text": "<p>Our Story</p>",
+            "text": "<p>The Premier Tire Story</p>",
             "size": 100,
             "heading_highlight_type": "italics",
             "heading_tag": "h2",
@@ -152,26 +152,15 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "text": "<p><strong>Premier Tire</strong> was founded with a bold vision: to redefine the tire and wheel buying experience in Canada through innovation, expertise, and unmatched customer service. What began as a local tire shop in <strong>Woodbridge, Ontario</strong> has grown into one of the <strong>most recognized tire and custom wheel specialists in Canada</strong>.</p><p>Premier Tire gained national attention after being <strong>featured on CBC’s </strong><em><strong>Dragon’s Den</strong></em>, where founder <strong>Carmen Moushikh</strong> was recognized by the Dragons as <strong>one of the most confident entrepreneurs the Den has seen</strong> — a reflection of the company’s ambitious approach to disrupting the traditional tire industry.</p><p>Today, Premier Tire continues to lead innovation as <strong>the only tire and wheel retailer in Canada offering same-day custom fitted wheel solutions</strong> using advanced <strong>Haas CNC machining technology</strong>. This allows customers to receive <strong>precision-machined, vehicle-specific wheel fitments completed the very same day</strong>, something previously unavailable in the Canadian market.</p><p>Serving customers across <strong>Vaughan, Toronto, Woodbridge, and the GTA</strong>, Premier Tire specializes in:</p><ul><li>Passenger, performance, SUV, and truck tires<br/></li><li>Custom wheels and precision fitments<br/></li><li>Same-day custom machining & installations<br/></li><li>Seasonal tire changeovers and tire storage<br/></li><li>Luxury and performance vehicle applications<br/></li></ul><p>Built on a reputation for <strong>expert advice, competitive pricing, and industry-leading technology</strong>, Premier Tire has become a trusted destination for drivers, car enthusiasts, and dealerships looking for premium tire and wheel solutions.</p><p><strong>Premier Tire isn’t just a tire shop — it’s where innovation meets automotive expertise.</strong></p>",
             "size": 100
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_text": "Read More",
-            "button_link": "",
-            "button_color": "btn--primary",
-            "button_style": "btn--solid",
-            "button_size": "btn--small"
           }
         }
       },
       "block_order": [
         "subheading",
         "heading",
-        "text",
-        "button"
+        "text"
       ],
       "settings": {
         "text_position": "center",
@@ -279,6 +268,7 @@
         "column-2",
         "column-3"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_size": 120,
@@ -370,7 +360,7 @@
           "settings": {
             "icon_name": "truck",
             "title": "Free Shipping",
-            "text": "<p>on all order over $99</p>"
+            "text": "<p>on all wheel and tire packages valued over $5000.00</p>"
           }
         },
         "template--18952593965377__51e7d4e9-f6b0-466d-bd09-84d7da4cdcb5-1683134998a2f033f1-1": {
@@ -385,9 +375,9 @@
         "template--18952593965377__51e7d4e9-f6b0-466d-bd09-84d7da4cdcb5-1683134998a2f033f1-2": {
           "type": "text",
           "settings": {
-            "icon_name": "eco-friendly",
-            "title": "1% Donated Annually",
-            "text": "<p>to forest conservation</p>"
+            "icon_name": "star",
+            "title": "Highly Rated",
+            "text": "<p>Premier Tire Has Received Over 900 Google Reviews Rating us 5 stars! </p>"
           }
         }
       },

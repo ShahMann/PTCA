@@ -94,13 +94,7 @@
   <div class="{{ section_width }}">
     {%- if section.settings.title != '' -%}
       <div class="section__header">
-        <h2
-          class="section__heading h2"
-          data-aos="fade-up"
-          data-aos-anchor="{{ animation_anchor }}"
-          data-aos-delay="{{ animation_delay }}"
-          {%- assign animation_delay = animation_delay | plus: 150 -%}
-        >
+        <h2 class="section__heading h2" data-aos="fade-up" data-aos-anchor="{{ animation_anchor }}"  data-aos-delay="{{ animation_delay }}"{%- assign animation_delay = animation_delay | plus: 150 -%}>
           {{ section.settings.title }}
         </h2>
 
@@ -212,6 +206,9 @@
 
               <div class="column-item__inner">
                 {%- if show_images -%}
+                  {%- if button_style == 'btn--none' and button_link != blank -%}
+                    <a href="{{ button_link }}" target= "_blank" class="column-item__image-link">
+                  {%- endif -%}
                   <div
                     id="columnItemImage--{{ block.id }}"
                     class="column-item__image-wrapper"
@@ -232,53 +229,53 @@
                     -%}
 
                     {%- if video_link != blank -%}{%- liquid
-  assign video_link_downcase = video_link | downcase
-  assign video_type = ''
-  assign video_id = ''
-  assign video_parent_id = 'item-video-' | append: unique
+                      assign video_link_downcase = video_link | downcase
+                      assign video_type = ''
+                      assign video_id = ''
+                      assign video_parent_id = 'item-video-' | append: unique
 
-  if video_link contains 'vimeo.com'
-    assign video_type = 'vimeo'
-  elsif video_link contains 'youtube.com'
-    assign video_type = 'youtube'
-  elsif video_link contains 'youtu.be'
-    assign video_type = 'youtube'
-    assign youtube_shortlink = true
-  elsif video_link_downcase contains '.mp4'
-    assign video_type = 'native'
-  endif
+                      if video_link contains 'vimeo.com'
+                        assign video_type = 'vimeo'
+                      elsif video_link contains 'youtube.com'
+                        assign video_type = 'youtube'
+                      elsif video_link contains 'youtu.be'
+                        assign video_type = 'youtube'
+                        assign youtube_shortlink = true
+                      elsif video_link_downcase contains '.mp4'
+                        assign video_type = 'native'
+                      endif
 
-  assign link_array = video_link | split: '/'
-  assign id_with_params = link_array | last
+                      assign link_array = video_link | split: '/'
+                      assign id_with_params = link_array | last
 
-  if video_type == 'vimeo' or youtube_shortlink
-    comment
-      https://vimeo.com/[ID]?foo=bar&baz=boo
-      https://youtu.be/[ID]?foo=bar&baz=boo
-    endcomment
-    assign starts_with_id = id_with_params | split: '?'
-    assign video_id = starts_with_id | first
-  elsif video_type == 'youtube'
-    comment
-      https://youtube.com/watch?v=[ID]?foo=bar&baz=boo
-    endcomment
-    assign first_param = id_with_params | split: '&' | first
-    assign watch_then_id = first_param | split: '?'
-    assign equals_id = watch_then_id[1]
-    assign ends_with_id = equals_id | split: '='
-    assign video_id = ends_with_id | last
-  endif
+                      if video_type == 'vimeo' or youtube_shortlink
+                        comment
+                          https://vimeo.com/[ID]?foo=bar&baz=boo
+                          https://youtu.be/[ID]?foo=bar&baz=boo
+                        endcomment
+                        assign starts_with_id = id_with_params | split: '?'
+                        assign video_id = starts_with_id | first
+                      elsif video_type == 'youtube'
+                        comment
+                          https://youtube.com/watch?v=[ID]?foo=bar&baz=boo
+                        endcomment
+                        assign first_param = id_with_params | split: '&' | first
+                        assign watch_then_id = first_param | split: '?'
+                        assign equals_id = watch_then_id[1]
+                        assign ends_with_id = equals_id | split: '='
+                        assign video_id = ends_with_id | last
+                      endif
 
-  if video_type == 'youtube'
-    capture video_link
-      echo 'https://www.youtube.com/watch?v=' | append: video_id
-    endcapture
-  elsif video_type == 'vimeo'
-    capture video_link
-      echo 'https://vimeo.com/' | append: video_id
-    endcapture
-  endif
--%}
+                      if video_type == 'youtube'
+                        capture video_link
+                          echo 'https://www.youtube.com/watch?v=' | append: video_id
+                        endcapture
+                      elsif video_type == 'vimeo'
+                        capture video_link
+                          echo 'https://vimeo.com/' | append: video_id
+                        endcapture
+                      endif
+                    -%}
 <div class="column-item__video-link">
                         <a
                           class="play-button {{ video_link_color }}"
@@ -290,6 +287,9 @@
                       </div>
                     {%- endif -%}
                   </div>
+                  {%- if button_style == 'btn--none' and button_link != blank -%}
+                    </a>
+                  {%- endif -%}
                 {%- endif -%}
 
                 <div
@@ -308,7 +308,7 @@
                     <div class="column-item__text">{{ text }}</div>
                   {%- endif -%}
 
-                  {%- if button_text != '' -%}
+                  {%- if button_text != '' and button_style != 'btn--none' -%}
                     <a
                       href="{{ button_link }}"
                       class="column-item__button btn {{ button_style }} {{ button_size }} {{ button_color }} {{ button_advanced_class }}"
@@ -577,7 +577,8 @@
             {"label": "Outline", "value": "btn--outline"},
             {"label": "Solid with border", "value": "btn--solid-border"},
             {"label": "Soft", "value": "btn--soft"},
-            {"label": "Text", "value": "btn--text"}
+            {"label": "Text", "value": "btn--text"},
+            {"label": "None", "value": "btn--none"}
           ]
         },
         {

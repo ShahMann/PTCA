@@ -39,11 +39,11 @@
       ],
       "name": "Banner image",
       "settings": {
-        "height": "six-fifty-height",
-        "enable_mobile_height": false,
-        "mobile_height": "four-fifty-height-mobile",
+        "height": "one-third-height",
+        "enable_mobile_height": true,
+        "mobile_height": "one-fifth-height-mobile",
         "image": "{{ page.metafields.custom.service_details_banner_image.value }}",
-        "overlay_opacity": 45,
+        "overlay_opacity": 70,
         "transition": "zoom-out",
         "enable_zoom_animation": true,
         "enable_card_scrolling": false,
@@ -64,8 +64,8 @@
           "type": "heading",
           "settings": {
             "title": "<p>{{ page.metafields.custom.service_details_title.value }}</p>",
-            "size": 120,
-            "text_position": "left",
+            "size": 70,
+            "text_position": "center",
             "heading_highlight_type": "underline-hand-drawn",
             "highlight_color": "#000000",
             "highlight_text_color": "",
@@ -77,7 +77,7 @@
           "settings": {
             "text": "{{ page.metafields.custom.service_details_description | metafield_tag }}",
             "size": 100,
-            "text_position": "left",
+            "text_position": "center",
             "spacing_bottom": 12
           }
         },
@@ -90,7 +90,7 @@
             "button_style": "btn--solid",
             "button_size": "btn--small",
             "video_link": "",
-            "text_position": "left",
+            "text_position": "center",
             "spacing_bottom": 12
           }
         }
@@ -105,12 +105,12 @@
         "show_accordion_divider": true,
         "increase_border_radius": false,
         "section_height": "five-fifty-height",
-        "enable_mobile_height": false,
-        "mobile_height": "four-fifty-height-mobile",
+        "enable_mobile_height": true,
+        "mobile_height": "two-fifty-height-mobile",
         "layout": "inline",
         "image_location": "left",
         "image_width": "standard",
-        "image": "{{ page.metafields.custom.service_details_image.value }}",
+        "image": "shopify://shop_images/2AE4D5CC-3956-4BF4-A227-69B3333F1FAA.png",
         "block_bg_color": "rgba(0,0,0,0)",
         "text_color": "text-dark",
         "bg_color": "rgba(0,0,0,0)",
@@ -154,63 +154,6 @@
         "button_2_size": "btn--medium",
         "padding_top": 0,
         "padding_bottom": 0
-      }
-    },
-    "section_text_K6L96V": {
-      "type": "section-text",
-      "blocks": {
-        "subheading_XL44GL": {
-          "type": "subheading",
-          "settings": {
-            "text": "<p>Subheading</p>",
-            "size": 100,
-            "margin_bottom": 16
-          }
-        },
-        "heading_HBbrTg": {
-          "type": "heading",
-          "settings": {
-            "text": "<p>Our Story</p>",
-            "size": 100,
-            "heading_highlight_type": "underline-hand-drawn",
-            "heading_tag": "h2",
-            "highlight_color": "#000000",
-            "highlight_text_color": ""
-          }
-        },
-        "text_wdGM7t": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
-            "size": 100
-          }
-        },
-        "button_rQ6gm6": {
-          "type": "button",
-          "settings": {
-            "button_text": "Read More",
-            "button_link": "",
-            "button_color": "btn--black",
-            "button_style": "btn--solid",
-            "button_size": "btn--medium"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_XL44GL",
-        "heading_HBbrTg",
-        "text_wdGM7t",
-        "button_rQ6gm6"
-      ],
-      "name": "Text",
-      "settings": {
-        "text_position": "center",
-        "bg_color": "",
-        "gradient": "",
-        "text_color": "text-dark",
-        "width": "wrapper--narrow",
-        "padding_top": 60,
-        "padding_bottom": 60
       }
     },
     "section_icons_row_Xe6KtD": {
@@ -281,7 +224,6 @@
     "section_banner_image_ibjRdN",
     "section_image_with_text_ytgyG7",
     "section_video_UiWkPJ",
-    "section_text_K6L96V",
     "section_icons_row_Xe6KtD"
   ]
 }

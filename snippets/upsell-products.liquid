@@ -71,7 +71,8 @@
           </div>
 
           {%- if upsell_product.variants.size == 1 and upsell_product.selling_plan_groups.size == 0 -%}
-            {%- form 'product', upsell_product, data-product-form-upsell: '', id: upsell_form_id -%}
+            {%- assign upsell_product_type_lower = upsell_product.type | downcase -%}
+            {%- form 'product', upsell_product, data-product-form-upsell: '', id: upsell_form_id, data-product-type: upsell_product_type_lower -%}
               <input type="hidden" name="id" value="{{ upsell_product.first_available_variant.id }}">
 
               <button type="button" name="add"

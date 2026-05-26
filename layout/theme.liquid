@@ -246,9 +246,13 @@
   <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
 {%- endif -%}
 
+{% comment %} <script src="{{ 'cart-labor-cost.js' | asset_url }}" defer="defer"></script> {% endcomment %}
 <script src="{{ 'vendor.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'cart-default-product.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'b2b-user.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'cart-hold.js' | asset_url }}" defer="defer"></script>
+
 
 {%- if request.design_mode -%}
   <script
@@ -266,6 +270,7 @@
 
   Then call theme.dev.js file by editing the row above from:
   <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'cart-default-product.js' | asset_url }}" defer="defer"></script>
   to
   <script src="{{ 'theme.dev.js' | asset_url }}" defer="defer"></script>
 {%- endcomment -%}
@@ -290,6 +295,8 @@ template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}
 {%- endcapture -%}
 {%- assign body_classes = body_classes | strip_newlines | strip -%}
 <body id="{{ page_title | handle }}" class="{{ body_classes }}">
+{%- comment -%} Schema product (cart default) config: always in DOM so JS can sync after AJAX cart updates. {%- endcomment -%}
+{%- render 'cart-default-product-data' -%}
 {% if customer %}
   <script>
     window.B2B_CUSTOMER_ID = {{ customer.id }};

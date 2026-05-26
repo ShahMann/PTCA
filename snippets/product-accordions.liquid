@@ -78,125 +78,126 @@
           enable_full_width: enable_full_width,
           show_read_more: show_read_more
         -%}
-
-        {%- comment -%} {% if heading == 'Specification' %}{%- endcomment -%}
-        {% if product.metafields.convermax.model != blank %}
-          <p>Model : {{ product.metafields.convermax.model }}</p>
-        {% endif %}
-
-        {% if product.metafields.convermax.manufacturer != blank %}
-          <p>Manufacturer : {{ product.metafields.convermax.manufacturer }}</p>
-        {% endif %}
-
-        {% if product.metafields.convermax.finish != blank %}
-          <p>FINISH : {{ product.metafields.convermax.finish }}</p>
-        {% endif %}
-
-        {% if product.metafields.convermax.seat_type != blank %}
-          <p>Seat Type : {{ product.metafields.convermax.seat_type }}</p>
-        {% endif %}
-        {% if product.metafields.convermax.backspacing != blank %}
-          <p>Backspacing : {{ product.metafields.convermax.backspacing }}</p>
-        {% endif %}
-        {% if product.metafields.convermax.winter_compatible != blank %}
-          <p>Winter Compatible : {{ product.metafields.convermax.winter_compatible }}</p>
-        {% endif %}
-        {% if product.metafields.convermax.load_rating != blank %}
-          <p>Load rating : {{ product.metafields.convermax.load_rating }}</p>
-        {% endif %}
-        {% if product.metafields.convermax.wheel_bore != blank %}
-          <p>Wheel bore : {{ product.metafields.convermax.wheel_bore }}</p>
-        {% endif %}
-        {% if product.metafields.convermax.wheel_offset != blank %}
-          <p>Wheel offset : {{ product.metafields.convermax.wheel_offset }}</p>
-        {% endif %}
-        {% if product.metafields.convermax.wheel_bolt_pattern != blank %}
-          <p>Wheel bolt pattern : {{ product.metafields.convermax.wheel_bolt_pattern }}</p>
-        {% endif %}
-        {% if product.metafields.convermax.wheel_size != blank %}
-          <p>Wheel Size : {{ product.metafields.convermax.wheel_size }}</p>
-        {% endif %}
-
-        {% if product.metafields.convermax.tire_width != blank %}
-          <p>Tire Width : {{ product.metafields.convermax.tire_width }}</p>
-        {% endif %}
-
-        {% if product.metafields.convermax.tire_speed_rating != blank %}
-          <p>Tire Speed Rating : {{ product.metafields.convermax.tire_speed_rating }}</p>
-        {% endif %}
-
-        {% if product.metafields.convermax.tire_load_index != blank %}
-          <p>Tire Load Index : {{ product.metafields.convermax.tire_load_index }}</p>
-        {% endif %}
-
-        {% if product.metafields.convermax.run_flat != blank %}
-          <p>Run Flat : {{ product.metafields.convermax.run_flat }}</p>
-        {% endif %}
-
-        {% if product.metafields.convermax.season != blank %}
-          <p>Season : {{ product.metafields.convermax.season }}</p>
-        {% endif %}
-
-        {% if product.metafields.convermax.profile != blank %}
-          <p>Profile : {{ product.metafields.convermax.profile }}</p>
-        {% endif %}
-        {%- comment -%}
-          {% if product.variants.first.weight > 0 %}
-            <p>
-              Weight: {{ product.variants.first.weight }}
-              {{ product.variants.first.weight_unit }}
-            </p>
+        <div class="specifications-grid">
+          {%- comment -%} {% if heading == 'Specification' %}{%- endcomment -%}
+          {% if product.metafields.convermax.model != blank %}
+            <p><span class="label">Model :</span> {{ product.metafields.convermax.model }}</p>
           {% endif %}
-        {%- endcomment -%}
 
-        {% if product.metafields.convermax.shipping_weight != blank %}
-          <p>Shipping Weight : {{ product.metafields.convermax.shipping_weight }}</p>
-        {% endif %}
+          {% if product.metafields.convermax.manufacturer != blank %}
+            <p><span class="label">Manufacturer :</span> {{ product.metafields.convermax.manufacturer }}</p>
+          {% endif %}
 
-        {% if product.metafields.convermax.wheel_diameter != blank %}
-          <p>Wheel diameter : {{ product.metafields.convermax.wheel_diameter }}</p>
-        {% endif %}
+          {% if product.metafields.convermax.finish != blank %}
+            <p><span class="label">Finish :</span> {{ product.metafields.convermax.finish }}</p>
+          {% endif %}
 
-        {% if product.metafields.convermax.utqg != blank %}
-          <p>UTQG : {{ product.metafields.convermax.utqg }}</p>
-        {% endif %}
+          {% if product.metafields.convermax.seat_type != blank %}
+            <p><span class="label">Seat Type :</span> {{ product.metafields.convermax.seat_type }}</p>
+          {% endif %}
+          {% if product.metafields.convermax.backspacing != blank %}
+            <p><span class="label">Backspacing :</span> {{ product.metafields.convermax.backspacing }}</p>
+          {% endif %}
+          {% if product.metafields.convermax.winter_compatible != blank %}
+            <p><span class="label">Winter Compatible :</span> {{ product.metafields.convermax.winter_compatible }}</p>
+          {% endif %}
+          {% if product.metafields.convermax.load_rating != blank %}
+            <p><span class="label">Load rating :</span> {{ product.metafields.convermax.load_rating }}</p>
+          {% endif %}
+          {% if product.metafields.convermax.wheel_bore != blank %}
+            <p><span class="label">Wheel bore :</span> {{ product.metafields.convermax.wheel_bore }}</p>
+          {% endif %}
+          {% if product.metafields.convermax.wheel_offset != blank %}
+            <p><span class="label">Wheel offset :</span> {{ product.metafields.convermax.wheel_offset }}</p>
+          {% endif %}
+          {% if product.metafields.convermax.wheel_bolt_pattern != blank %}
+            <p><span class="label">Wheel bolt pattern :</span> {{ product.metafields.convermax.wheel_bolt_pattern }}</p>
+          {% endif %}
+          {% if product.metafields.convermax.wheel_size != blank %}
+            <p><span class="label">Wheel Size :</span> {{ product.metafields.convermax.wheel_size }}</p>
+          {% endif %}
 
-        {% if product.metafields.convermax.utqg != blank %}
-          <p>Load Description : {{ product.metafields.convermax.load_description }}</p>
-        {% endif %}
+          {% if product.metafields.convermax.tire_width != blank %}
+            <p><span class="label">Tire Width :</span> {{ product.metafields.convermax.tire_width }}</p>
+          {% endif %}
 
-        {% if product.metafields.convermax.Size1 != blank %}
-          {% assign raw_size = product.metafields.convermax.Size1 %}
+          {% if product.metafields.convermax.tire_speed_rating != blank %}
+            <p><span class="label">Tire Speed Rating :</span> {{ product.metafields.convermax.tire_speed_rating }}</p>
+          {% endif %}
 
-          {% if raw_size.first %}
-            {%- comment -%} It's an array — show without * before first {%- endcomment -%}
-            {% for item in raw_size %}
-              {% if forloop.first %}
-                {{ item }}
-              {% else %}
-                *{{ item }}
-              {% endif %}
-              {% unless forloop.last %} {% endunless %}
-            {% endfor %}
-          {% else %}
-            {%- comment -%} It's a string — clean brackets and format {%- endcomment -%}
-            {% assign cleaned = raw_size | replace: '[', '' | replace: ']', '' | replace: '"', '' %}
-            {% assign parts = cleaned | split: ',' %}
-            <p>
-              {% for part in parts %}
+          {% if product.metafields.convermax.tire_load_index != blank %}
+            <p><span class="label">Tire Load Index :</span> {{ product.metafields.convermax.tire_load_index }}</p>
+          {% endif %}
+
+          {% if product.metafields.convermax.run_flat != blank %}
+            <p><span class="label">Run Flat :</span> {{ product.metafields.convermax.run_flat }}</p>
+          {% endif %}
+
+          {% if product.metafields.convermax.season != blank %}
+            <p><span class="label">Season :</span> {{ product.metafields.convermax.season }}</p>
+          {% endif %}
+
+          {% if product.metafields.convermax.profile != blank %}
+            <p><span class="label">Profile :</span> {{ product.metafields.convermax.profile }}</p>
+          {% endif %}
+          {%- comment -%}
+            {% if product.variants.first.weight > 0 %}
+              <p>
+                Weight: {{ product.variants.first.weight }}
+                {{ product.variants.first.weight_unit }}
+              </p>
+            {% endif %}
+          {%- endcomment -%}
+
+          {% if product.metafields.convermax.shipping_weight != blank %}
+            <p><span class="label">Shipping Weight :</span> {{ product.metafields.convermax.shipping_weight }}</p>
+          {% endif %}
+
+          {% if product.metafields.convermax.wheel_diameter != blank %}
+            <p><span class="label">Wheel diameter :</span> {{ product.metafields.convermax.wheel_diameter }}</p>
+          {% endif %}
+
+          {% if product.metafields.convermax.utqg != blank %}
+            <p><span class="label">UTQG :</span> {{ product.metafields.convermax.utqg }}</p>
+          {% endif %}
+
+          {% if product.metafields.convermax.utqg != blank %}
+            <p><span class="label">Load Description :</span> {{ product.metafields.convermax.load_description }}</p>
+          {% endif %}
+
+          {% if product.metafields.convermax.Size1 != blank %}
+            {% assign raw_size = product.metafields.convermax.Size1 %}
+
+            {% if raw_size.first %}
+              {%- comment -%} It's an array — show without * before first {%- endcomment -%}
+              {% for item in raw_size %}
                 {% if forloop.first %}
-                  Size : {{ part }}
+                  {{ item }}
                 {% else %}
-                  *{{ part }}
+                  *{{ item }}
                 {% endif %}
+                {% unless forloop.last %} {% endunless %}
               {% endfor %}
-            </p>
+            {% else %}
+              {%- comment -%} It's a string — clean brackets and format {%- endcomment -%}
+              {% assign cleaned = raw_size | replace: '[', '' | replace: ']', '' | replace: '"', '' %}
+              {% assign parts = cleaned | split: ',' %}
+              <p>
+                {% for part in parts %}
+                  {% if forloop.first %}
+                    <span class="label">Size :</span> {{ part }}
+                  {% else %}
+                    *{{ part }}
+                  {% endif %}
+                {% endfor %}
+              </p>
+            {% endif %}
           {% endif %}
-        {% endif %}
 
-        {% if product.metafields.convermax.homologation != blank %}
-          <p>Homologation : {{ product.metafields.convermax.homologation }}</p>
-        {% endif %}
+          {% if product.metafields.convermax.homologation != blank %}
+            <p><span class="label">Homologation :</span> {{ product.metafields.convermax.homologation }}</p>
+          {% endif %}
+        </div>
 
         {%- comment -%}{% endif %}{%- endcomment -%}
       </div>

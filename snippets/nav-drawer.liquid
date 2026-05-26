@@ -7,10 +7,23 @@
   assign links_images_aspect_ratio = section.settings.image_aspect_ratio
   assign enable_custom_badge = section.settings.enable_custom_badge
   assign custom_badge_text = section.settings.custom_badge_text
+  assign b2b_hide_menu_items = section.settings.b2b_hide_menu_items | default: '' | downcase | split: ','
 -%}
 
 {%- capture logo -%}
-  {%- if image != blank -%}
+  {%- if logo_url != blank and logo_url != '' -%}
+    <a href="{{ routes.root_url }}" class="drawer__logo" style="--logo-width: {{ image_width }}px">
+      <img
+        src="{{ logo_url }}"
+        alt="{{ shop.name }}"
+        class="drawer__logo-image"
+        width="{{ image_width }}"
+        height="{{ image_width }}"
+        loading="lazy"
+        style="object-fit: contain; max-width: {{ image_width }}px; height: auto;"
+      >
+    </a>
+  {%- elsif image != blank -%}
     {%- liquid
       assign image_alt = image.alt | escape
       assign image_height = image_width | divided_by: image.aspect_ratio
@@ -30,14 +43,24 @@
     </a>
   {%- endif -%}
 {%- endcapture -%}
-
-<mobile-menu class="drawer drawer--left drawer--nav cv-h" id="nav-drawer-header" role="navigation" data-drawer data-drawer-header{% if style != '' %} style="{{ style }}"{% endif %}>
+<mobile-menu
+  class="drawer drawer--left drawer--nav cv-h"
+  id="nav-drawer-header"
+  role="navigation"
+  data-drawer
+  data-drawer-header{% if style != '' %}
+  style="{{ style }}"
+  {% endif %}>
   <div class="drawer__header">
     {%- if logo != blank -%}
       <div class="drawer__title">{{ logo }}</div>
     {%- endif -%}
 
-    <button type="button" class="drawer__close-button" aria-controls="nav-drawer-header" data-drawer-toggle>
+    <button
+      type="button"
+      class="drawer__close-button"
+      aria-controls="nav-drawer-header"
+      data-drawer-toggle>
       <span class="visually-hidden">{{ 'general.accessibility.close_drawer' | t }}</span>
       {%- render 'icon-close' -%}
     </button>
@@ -46,11 +69,55 @@
   {%- comment -%} Mobile Navigation {%- endcomment -%}
   <ul class="mobile-nav mobile-nav--weight-{{ settings.nav_font_weight }}{% unless settings.nav_caps_letter_spacing %} letter-spacing-nav{% endunless %}">
     {%- for link in linklists[section.settings.main-menu].links -%}
-      {%- render 'nav-item-mobile', link: link, mobile_menu_behaviour: mobile_menu_behaviour, show_links_images: show_links_images, links_images_aspect_ratio: links_images_aspect_ratio, index: 0, highlight_item: highlight_item, highlight_item_color: highlight_item_color, enable_custom_badge: enable_custom_badge, custom_badge_text: custom_badge_text -%}
+      {%- assign show_link = true -%}
+      {%- if customer and customer.tags contains 'B2BUSER' and section.settings.b2b_hide_menu_items != blank -%}
+        {%- assign link_title_lowercase = link.title | strip_html | strip | downcase -%}
+        {%- for hidden_item in b2b_hide_menu_items -%}
+          {%- assign hidden_item_clean = hidden_item | strip_html | strip | downcase -%}
+          {%- if hidden_item_clean != blank and link_title_lowercase == hidden_item_clean -%}
+            {%- assign show_link = false -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+
+      {%- if show_link -%}
+        {%- render 'nav-item-mobile'
+          , link: link
+          , mobile_menu_behaviour: mobile_menu_behaviour
+          , show_links_images: show_links_images
+          , links_images_aspect_ratio: links_images_aspect_ratio
+          , index: 0
+          , highlight_item: highlight_item
+          , highlight_item_color: highlight_item_color
+          , enable_custom_badge: enable_custom_badge
+          , custom_badge_text: custom_badge_text -%}
+      {%- endif -%}
     {%- endfor -%}
 
     {%- for link in linklists[section.settings.main_menu_secondary].links -%}
-      {%- render 'nav-item-mobile', link: link, mobile_menu_behaviour: mobile_menu_behaviour, show_links_images: show_links_images, links_images_aspect_ratio: links_images_aspect_ratio, index: 1, highlight_item: highlight_item, highlight_item_color: highlight_item_color, enable_custom_badge: enable_custom_badge, custom_badge_text: custom_badge_text -%}
+      {%- assign show_link = true -%}
+      {%- if customer and customer.tags contains 'B2BUSER' and section.settings.b2b_hide_menu_items != blank -%}
+        {%- assign link_title_lowercase = link.title | strip_html | strip | downcase -%}
+        {%- for hidden_item in b2b_hide_menu_items -%}
+          {%- assign hidden_item_clean = hidden_item | strip_html | strip | downcase -%}
+          {%- if hidden_item_clean != blank and link_title_lowercase == hidden_item_clean -%}
+            {%- assign show_link = false -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+
+      {%- if show_link -%}
+        {%- render 'nav-item-mobile'
+          , link: link
+          , mobile_menu_behaviour: mobile_menu_behaviour
+          , show_links_images: show_links_images
+          , links_images_aspect_ratio: links_images_aspect_ratio
+          , index: 1
+          , highlight_item: highlight_item
+          , highlight_item_color: highlight_item_color
+          , enable_custom_badge: enable_custom_badge
+          , custom_badge_text: custom_badge_text -%}
+      {%- endif -%}
     {%- endfor -%}
   </ul>
 
@@ -63,7 +130,10 @@
       {%- if customer and customer.tags contains 'B2BUSER' -%}
         <li class="mobile-menu__item mobile-menu__item--b2b-toggle">
           <div class="mobile-nav__b2b-toggle-wrapper">
-            <button type="button" class="b2b-toggle-btn b2b-toggle-btn--mobile" data-state="{{ customer.metafields.custom.hide_price | default: 'Show' }}">
+            <button
+              type="button"
+              class="b2b-toggle-btn b2b-toggle-btn--mobile"
+              data-state="{{ customer.metafields.custom.hide_price | default: 'Show' }}">
               <span class="b2b-toggle-label">Show Price</span>
               <span class="b2b-toggle-switch"></span>
             </button>
@@ -72,18 +142,34 @@
       {%- endif -%}
       {%- if shop.customer_accounts_enabled -%}
         {%- if customer -%}
-          <li class="mobile-menu__item{% if request.path contains routes.account_url %} mobile-menu__item--active{% endif %}"><a href="{{ routes.account_url }}" class="mobile-navlink mobile-navlink--small">{{ 'customer.account.title' | t }}</a></li>
-          <li class="mobile-menu__item{% if request.path contains routes.account_logout_url %} mobile-menu__item--active{% endif %}"><a href="{{ routes.account_logout_url }}" class="mobile-navlink mobile-navlink--small">{{ 'layout.customer.log_out' | t }}</a></li>
+          <li class="mobile-menu__item{% if request.path contains routes.account_url %} mobile-menu__item--active{% endif %}">
+            <a href="{{ routes.account_url }}" class="mobile-navlink mobile-navlink--small">{{ 'customer.account.title' | t }}</a>
+          </li>
+          <li class="mobile-menu__item{% if request.path contains routes.account_logout_url %} mobile-menu__item--active{% endif %}">
+            <a href="{{ routes.account_logout_url }}" class="mobile-navlink mobile-navlink--small">{{ 'layout.customer.log_out' | t }}</a>
+          </li>
         {%- else -%}
           {% comment %}<li class="mobile-menu__item{% if request.path contains routes.account_login_url %} mobile-menu__item--active{% endif %}"><a href="{{ routes.account_login_url }}" class="mobile-navlink mobile-navlink--small" id="customer_login_link">{{ 'layout.customer.log_in' | t }}</a></li>{% endcomment %}
-          <li class="mobile-menu__item{% if request.path contains routes.account_register_url %} mobile-menu__item--active{% endif %}"><a href="{{ routes.account_register_url }}" class="mobile-navlink mobile-navlink--small" id="customer_register_link">{{ 'layout.customer.create_account' | t }}</a></li>
+          <li class="mobile-menu__item{% if request.path contains routes.account_register_url %} mobile-menu__item--active{% endif %}">
+            <a
+              href="{{ routes.account_register_url }}"
+              class="mobile-navlink mobile-navlink--small"
+              id="customer_register_link">{{ 'layout.customer.create_account' | t }}</a>
+          </li>
         {%- endif -%}
       {%- endif -%}
 
       {%- if settings.show_header_search -%}
-        <li class="mobile-menu__item{% if request.path contains routes.search_url %} mobile-menu__item--active{% endif %}"><a href="{{ routes.search_url }}" class="mobile-navlink mobile-navlink--small" data-nav-search-open>{{ 'layout.navigation.search' | t }}</a></li>
+        <li class="mobile-menu__item{% if request.path contains routes.search_url %} mobile-menu__item--active{% endif %}">
+          <a
+            href="{{ routes.search_url }}"
+            class="mobile-navlink mobile-navlink--small"
+            data-nav-search-open>{{ 'layout.navigation.search' | t }}</a>
+        </li>
       {%- endif -%}
-    <li class="mobile-menu__item{% if request.path contains 'swym-wishlist' %} mobile-menu__item--active{% endif %}"><a href="/pages/swym-wishlist" class="mobile-navlink mobile-navlink--small">{{ 'general.accessibility.wishlist' | t }}</a></li>
+      <li class="mobile-menu__item{% if request.path contains 'swym-wishlist' %} mobile-menu__item--active{% endif %}">
+        <a href="/pages/swym-wishlist" class="mobile-navlink mobile-navlink--small">{{ 'general.accessibility.wishlist' | t }}</a>
+      </li>
     </ul>
   {%- endif -%}
 </mobile-menu>
