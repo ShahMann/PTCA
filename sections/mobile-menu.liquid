@@ -4,6 +4,7 @@
   assign color = section.settings.color
   assign image = section.settings.logo_not_home
   assign company_logo_url = ''
+  assign b2b_hide_menu_items = section.settings.b2b_hide_menu_items | default: '' | downcase | split: ','
   if customer and customer.tags contains 'B2BUSER'
     if customer.current_company.metafields.custom.company_logo != blank
       assign company_logo_url = customer.current_company.metafields.custom.company_logo.value | strip
@@ -97,7 +98,20 @@
     >
       {%- liquid
         for link in linklists[menu].links
-          render 'nav-item-mobile', link: link, mobile_menu_behaviour: mobile_menu_behaviour, show_links_images: show_links_images, links_images_aspect_ratio: links_images_aspect_ratio, index: index, highlight_item: highlight_item, highlight_item_color: highlight_item_color, enable_custom_badge: enable_custom_badge, custom_badge_text: custom_badge_text
+          assign show_link = true
+          if customer and customer.tags contains 'B2BUSER' and section.settings.b2b_hide_menu_items != blank
+            assign link_title_lowercase = link.title | strip_html | strip | downcase
+            for hidden_item in b2b_hide_menu_items
+              assign hidden_item_clean = hidden_item | strip_html | strip | downcase
+              if hidden_item_clean != blank and link_title_lowercase == hidden_item_clean
+                assign show_link = false
+              endif
+            endfor
+          endif
+
+          if show_link
+            render 'nav-item-mobile', link: link, mobile_menu_behaviour: mobile_menu_behaviour, show_links_images: show_links_images, links_images_aspect_ratio: links_images_aspect_ratio, index: index, highlight_item: highlight_item, highlight_item_color: highlight_item_color, enable_custom_badge: enable_custom_badge, custom_badge_text: custom_badge_text
+          endif
         endfor
       -%}
     </ul>
@@ -209,6 +223,12 @@
       "id": "color",
       "label": "Text",
       "default": "#545454"
+    },
+    {
+      "type": "textarea",
+      "id": "b2b_hide_menu_items",
+      "label": "B2B hide menu items",
+      "info": "Enter comma-separated top-level menu titles to hide for B2B users. Example: Shop, About, Contact"
     }
   ],
   "blocks": [
