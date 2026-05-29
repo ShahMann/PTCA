@@ -1,7 +1,3 @@
-/**
- * Cart Hold Integration
- * Intercepts all cart-related fetch requests to manage inventory holds.
- */
 (function () {
   console.log('[CartHold] Initializing interception...');
 
@@ -16,105 +12,263 @@
     const isCartRequest = urlString.includes('/cart');
 
     if (isCartRequest && method === 'POST') {
-      console.log('[CartHold] Intercepted cart POST:', url);
-
       const isAdd    = urlString.includes('/add');
       const isChange = urlString.includes('/change');
       const isUpdate = urlString.includes('/update');
       const isClear  = urlString.includes('/clear');
 
       if (isAdd || isChange || isUpdate || isClear) {
+        console.log('[CartHold] Intercepted cart POST:', url, { isAdd, isChange, isUpdate, isClear });
+
         try {
           let body = options.body;
 
-          // ── JSON body with items array ─────────────────────────────────────
-          if (typeof body === 'string') {
-            try {
-              const json = JSON.parse(body);
-
-              if (json.items && Array.isArray(json.items) && json.items.length > 0) {
-
-                await Promise.all(
-                  json.items.map(async (item) => {
-                    const variantId = item.id || item.variant_id;
-                    const quantity  = item.quantity || 1;
-
-                    if (!variantId) {
-                      console.log('[CartHold] Skipping item — no variantId:', item);
-                      return;
-                    }
-
-                    console.log(`[CartHold] Processing variant ${variantId}, qty ${quantity}`);
-                    const holdData = await postCartHold(variantId, quantity);
-
-                    if (isAdd && holdData) {
-                      // ✅ Pass variantId so parser finds the MATCHING product entry
-                      const holdProps = parseCartHoldResponse(holdData, variantId);
-                      if (holdProps) {
-                        item.properties = { ...item.properties, ...holdProps };
-                        console.log(`[CartHold] Injected into variant ${variantId}:`, holdProps);
-                      }
-                    }
-                  })
-                );
-
-                options.body = JSON.stringify(json);
-
-              } else {
-                // Single-item JSON (no items array)
-                const variantId = json.id || json.variant_id;
-                const quantity  = json.quantity || 1;
-
-                if (variantId) {
-                  const holdData = await postCartHold(variantId, quantity);
-                  if (isAdd && holdData) {
-                    const holdProps = parseCartHoldResponse(holdData, variantId);
-                    if (holdProps) {
-                      json.properties = { ...json.properties, ...holdProps };
-                      options.body = JSON.stringify(json);
-                    }
-                  }
-                }
-              }
-            } catch (e) {
-              console.error('[CartHold] JSON parse/process error:', e);
-            }
-
-          // ── FormData / URLSearchParams (always single-item) ───────────────
-          } else if (body instanceof FormData || body instanceof URLSearchParams) {
-            const variantId = body.get('id');
-            const quantity  = body.get('quantity') || 1;
-
-            if (variantId) {
-              const holdData = await postCartHold(variantId, quantity);
-              if (isAdd && holdData) {
-                const holdProps = parseCartHoldResponse(holdData, variantId);
-                if (holdProps) injectProperties(options, holdProps);
-              }
-            }
+          if (isClear) {
+            const targets = await resolveClearTargets();
+            await syncCartHold(targets, { mode: 'clear', injectProperties: false });
+          } else {
+            const targets = await resolveHoldTargets(body);
+            await syncCartHold(targets, {
+              mode: isAdd ? 'add' : (isChange ? 'change' : 'update'),
+              injectProperties: isAdd,
+              options,
+              body,
+            });
           }
-
         } catch (e) {
           console.error('[CartHold] Interception error:', e);
         }
       }
     }
 
-    return originalFetch.apply(this, arguments);
+    return originalFetch.call(this, input, options);
   };
 
-  // ── injectProperties (FormData / URLSearchParams only) ───────────────────
+  // ── resolveHoldTargets ─────────────────────────────────────────────────────
 
-  function injectProperties(options, props) {
-    if (!props || Object.keys(props).length === 0) return;
-    const body = options.body;
-    if (body instanceof FormData) {
-      for (const [key, value] of Object.entries(props)) {
-        body.append(`properties[${key}]`, value);
+  async function resolveHoldTargets(body) {
+    if (body == null) return [];
+
+    if (typeof body === 'string') {
+      try {
+        return resolveHoldTargetsFromJson(JSON.parse(body));
+      } catch (e) {
+        console.error('[CartHold] JSON parse error:', e);
+        return [];
       }
-    } else if (body instanceof URLSearchParams) {
+    }
+
+    if (body instanceof FormData || body instanceof URLSearchParams) {
+      return resolveHoldTargetsFromForm(body);
+    }
+
+    return [];
+  }
+
+  async function resolveHoldTargetsFromJson(json) {
+    const targets = [];
+
+    if (json.items && Array.isArray(json.items)) {
+      for (const item of json.items) {
+        const variantId = item.id || item.variant_id;
+        const quantity  = item.quantity ?? 1;
+        if (variantId) targets.push({ variantId, quantity, item });
+      }
+      return targets;
+    }
+
+    if (json.updates && typeof json.updates === 'object') {
+      for (const [key, qty] of Object.entries(json.updates)) {
+        targets.push({ variantId: key, quantity: qty });
+      }
+      return targets;
+    }
+
+    const quantity = json.quantity ?? 1;
+
+    if (json.line != null) {
+      const lineItem = await getCartLineItem(json.line);
+      if (lineItem) {
+        targets.push({
+          line: Number(json.line),
+          existingProperties: lineItem.properties || {},
+          variantId: lineItem.variant_id,
+          quantity: json.quantity ?? 0,
+        });
+      }
+      return targets;
+    }
+
+    const rawId = json.id || json.variant_id;
+    if (rawId != null) {
+      const idStr = String(rawId);
+      if (idStr.includes(':')) {
+        targets.push({ variantId: idStr.split(':')[0], quantity });
+      } else {
+        targets.push({ variantId: rawId, quantity });
+      }
+      return targets;
+    }
+
+    return targets;
+  }
+
+  async function resolveHoldTargetsFromForm(body) {
+    const line     = body.get('line');
+    const quantity = body.get('quantity') ?? 1;
+    const rawId    = body.get('id');
+
+    if (line != null) {
+      const lineItem = await getCartLineItem(line);
+      if (lineItem) {
+        return [{
+          line: Number(line),
+          existingProperties: lineItem.properties || {},
+          variantId: lineItem.variant_id,
+          quantity: Number(quantity) || 0,
+        }];
+      }
+      return [];
+    }
+
+    if (rawId != null) {
+      const idStr = String(rawId);
+      const variantId = idStr.includes(':') ? idStr.split(':')[0] : rawId;
+      return [{ variantId, quantity: Number(quantity) || 1 }];
+    }
+
+    return [];
+  }
+
+  async function resolveClearTargets() {
+    const cart = await getCartData();
+    if (!cart?.items?.length) return [];
+    return cart.items.map((item) => ({
+      variantId: item.variant_id,
+      quantity: 0,
+    }));
+  }
+
+  async function getCartLineItem(line) {
+    const cart  = await getCartData();
+    const index = Number(line) - 1;
+    if (!cart?.items || index < 0 || index >= cart.items.length) return null;
+    return cart.items[index];
+  }
+
+  let cartDataPromise = null;
+
+  async function getCartData() {
+    if (!cartDataPromise) {
+      cartDataPromise = originalFetch('/cart.js')
+        .then((res) => res.json())
+        .finally(() => {
+          cartDataPromise = null;
+        });
+    }
+    return cartDataPromise;
+  }
+
+  // ── syncCartHold ───────────────────────────────────────────────────────────
+
+  async function syncCartHold(targets, { mode, injectProperties, options, body } = {}) {
+    if (!targets.length) {
+      console.log('[CartHold] No hold targets resolved for request');
+      return;
+    }
+
+    let jsonBody = null;
+    if (typeof body === 'string' && (injectProperties || mode === 'change')) {
+      try {
+        jsonBody = JSON.parse(body);
+      } catch (e) {
+        /* not JSON */
+      }
+    }
+
+    const holdPropsByVariant = new Map();
+
+    await Promise.all(
+      targets.map(async ({ line, existingProperties, variantId, quantity, item }) => {
+        console.log(`[CartHold] Processing variant ${variantId}, qty ${quantity}`);
+        const holdData = await postCartHold(variantId, quantity);
+
+        if (!holdData) return;
+
+        const holdProps = parseCartHoldResponse(holdData, variantId);
+        if (!holdProps) return;
+        holdPropsByVariant.set(String(variantId), holdProps);
+
+        if (injectProperties) {
+          if (jsonBody?.items && item) {
+            item.properties = { ...item.properties, ...holdProps };
+            console.log(`[CartHold] Injected into variant ${variantId}:`, holdProps);
+          } else if (jsonBody) {
+            jsonBody.properties = { ...jsonBody.properties, ...holdProps };
+            console.log(`[CartHold] Injected into variant ${variantId}:`, holdProps);
+          } else if (options?.body instanceof FormData || options?.body instanceof URLSearchParams) {
+            injectPropertiesIntoForm(options, holdProps);
+          }
+        } else if (mode === 'change' && line && jsonBody) {
+          const merged = { ...(existingProperties || {}), ...holdProps };
+          jsonBody.properties = merged;
+          console.log(`[CartHold] Updated properties for line ${line}, variant ${variantId}:`, merged);
+        }
+      })
+    );
+
+    if ((injectProperties || mode === 'change') && jsonBody && options) {
+      options.body = JSON.stringify(jsonBody);
+    }
+
+    if (mode === 'update' && holdPropsByVariant.size > 0) {
+      await applyHoldPropsAfterUpdate(holdPropsByVariant);
+    }
+  }
+
+  async function applyHoldPropsAfterUpdate(holdPropsByVariant) {
+    const cart = await getCartData();
+    if (!cart?.items?.length) return;
+
+    const updates = [];
+
+    for (let i = 0; i < cart.items.length; i++) {
+      const item = cart.items[i];
+      const holdProps = holdPropsByVariant.get(String(item.variant_id));
+      if (!holdProps) continue;
+
+      const merged = { ...(item.properties || {}), ...holdProps };
+      updates.push({ line: i + 1, quantity: item.quantity, properties: merged, variantId: item.variant_id });
+    }
+
+    await Promise.all(
+      updates.map(async ({ line, quantity, properties, variantId }) => {
+        try {
+          console.log(`[CartHold] Applying updated properties via change.js for line ${line}, variant ${variantId}`);
+          await originalFetch('/cart/change.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ line, quantity, properties }),
+          });
+        } catch (e) {
+          console.error('[CartHold] Failed applying properties after update:', e);
+        }
+      })
+    );
+  }
+
+  // ── injectPropertiesIntoForm ───────────────────────────────────────────────
+
+  function injectPropertiesIntoForm(options, props) {
+    if (!props || Object.keys(props).length === 0) return;
+    const formBody = options.body;
+    if (formBody instanceof FormData) {
       for (const [key, value] of Object.entries(props)) {
-        body.append(`properties[${key}]`, value);
+        formBody.append(`properties[${key}]`, value);
+      }
+    } else if (formBody instanceof URLSearchParams) {
+      for (const [key, value] of Object.entries(props)) {
+        formBody.append(`properties[${key}]`, value);
       }
     }
   }
@@ -127,9 +281,8 @@
     let cartToken = getCartTokenFromCookie();
     if (!cartToken) {
       try {
-        const cartRes  = await originalFetch('/cart.js');
-        const cartData = await cartRes.json();
-        cartToken = cartData.token;
+        const cartData = await getCartData();
+        cartToken = cartData?.token;
       } catch (e) {
         console.error('[CartHold] Failed to get cart token:', e);
         return null;
@@ -144,7 +297,7 @@
       cartToken: cleanToken,
       shop:      shop,
       variantId: Number(variantId),
-      quantity:  Number(quantity) || 1,
+      quantity:  Number(quantity) || 0,
     };
 
     console.log('[CartHold] API Request:', payload);
@@ -178,7 +331,6 @@
   }
 
   // ── parseCartHoldResponse ─────────────────────────────────────────────────
-  // ✅ targetVariantId is now used to find the correct product entry by GID
 
   function parseCartHoldResponse(data, targetVariantId) {
     console.log('[CartHold] Parsing response for variant:', targetVariantId, data);
@@ -187,13 +339,11 @@
     const holdData = data.hold || data.data || data;
     const props    = {};
 
-    // Find the product whose GID tail matches targetVariantId
     let matchedProduct = null;
 
     if (Array.isArray(holdData.products) && holdData.products.length > 0) {
       if (targetVariantId) {
         matchedProduct = holdData.products.find((p) => {
-          // GID format: "gid://shopify/ProductVariant/45148495413357"
           const gidTail = String(p.variantId || '').split('/').pop();
           return gidTail === String(targetVariantId);
         });
@@ -208,18 +358,15 @@
         matchedProduct = holdData.products[0];
       }
     } else {
-      // Response has no products array — treat holdData itself as the product
       matchedProduct = holdData;
     }
 
     if (!matchedProduct) return null;
 
-    // SKU
     if (matchedProduct.sku) {
       props['_cart_hold_sku'] = matchedProduct.sku;
     }
 
-    // Locations
     const locations = matchedProduct.locations || matchedProduct.inventory || matchedProduct.items;
     if (Array.isArray(locations) && locations.length > 0) {
       const summary = locations
@@ -233,7 +380,6 @@
       props['_cart_hold_locations']   = JSON.stringify(locations);
     }
 
-    // Hold ID (top-level or per-product)
     const holdId =
       holdData.holdId    || holdData.hold_id    || holdData.id ||
       matchedProduct.holdId || matchedProduct.hold_id;
@@ -244,4 +390,5 @@
     console.log(`[CartHold] Properties for variant ${targetVariantId}:`, props);
     return Object.keys(props).length > 0 ? props : null;
   }
+
 })();
